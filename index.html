@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Leather House — Premium Leather Jackets</title>
+<title>The Leather House — Premium Leather Jackets</title>
 <style>
 :root{
   --brown:#4a2413; --brown2:#6b351d; --tan:#a85d32; --cream:#f7efe5;
@@ -27,7 +27,7 @@ footer{background:#32170d;color:#eee;padding:45px 5% 20px}.footer-grid{display:g
 </head>
 <body>
 <header>
-  <div class="brand">LH LEATHER HOUSE<small>PREMIUM LEATHER JACKETS</small></div>
+  <div class="brand">LH THE LEATHER HOUSE<small>PREMIUM LEATHER JACKETS</small></div>
   <nav><a href="#home">Home</a><a href="#shop">Jackets</a><a href="#about">About Us</a><a href="#contact">Contact</a></nav>
   <div class="icons"><span>⌕</span><span class="cart" onclick="openCart()">🛒<i class="badge" id="cartCount">0</i></span></div>
 </header>
@@ -35,7 +35,7 @@ footer{background:#32170d;color:#eee;padding:45px 5% 20px}.footer-grid{display:g
 <main id="customer">
 <section class="hero" id="home">
   <div class="hero-content">
-    <div class="eyebrow">LEATHER HOUSE</div>
+    <div class="eyebrow">THE LEATHER HOUSE</div>
     <h1>CRAFTED IN LEATHER.<br>BUILT TO LAST.</h1>
     <p>Premium leather jackets for those who value style, comfort and durability.</p>
     <a class="btn" href="#shop">SHOP NOW →</a>
@@ -57,7 +57,7 @@ footer{background:#32170d;color:#eee;padding:45px 5% 20px}.footer-grid{display:g
 
 <section class="about" id="about">
   <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1000&q=85" alt="Leather jacket">
-  <div class="about-copy"><div class="eyebrow" style="color:var(--brown2)">ABOUT LEATHER HOUSE</div><h2>Our Passion. Your Style.</h2><p>Leather House brings timeless leather jackets with a focus on style, comfort and lasting quality.</p><a class="btn" href="#contact">CONTACT US →</a></div>
+  <div class="about-copy"><div class="eyebrow" style="color:var(--brown2)">ABOUT THE LEATHER HOUSE</div><h2>Our Passion. Your Style.</h2><p>The Leather House brings timeless leather jackets with a focus on style, comfort and lasting quality.</p><a class="btn" href="#contact">CONTACT US →</a></div>
 </section>
 
 <div class="features">
@@ -70,12 +70,12 @@ footer{background:#32170d;color:#eee;padding:45px 5% 20px}.footer-grid{display:g
 
 <footer id="contact">
   <div class="footer-grid">
-    <div><h2 style="margin-top:0">LEATHER HOUSE</h2><p>Premium Leather Jackets</p></div>
+    <div><h2 style="margin-top:0">THE LEATHER HOUSE</h2><p>Premium Leather Jackets</p></div>
     <div><h3>Quick Links</h3><a href="#home">Home</a><a href="#shop">Jackets</a><a href="#about">About Us</a></div>
     <div><h3>Help & Support</h3><a href="#">Size Guide</a><a href="#">Shipping Policy</a><a href="#">Returns</a></div>
-    <div><h3>Contact</h3><p>+92 300 1234567</p><p>info@leatherhouse.pk</p><a class="btn" href="https://wa.me/923001234567">Chat on WhatsApp</a></div>
+    <div><h3>Contact</h3><p>+92 300 1234567</p><p>info@theleatherhouse.pk</p><a class="btn" href="https://wa.me/923001234567">Chat on WhatsApp</a></div>
   </div>
-  <div class="copyright">© 2026 Leather House. All Rights Reserved. <span style="float:right;cursor:pointer" onclick="openAdminLogin()">Admin</span></div>
+  <div class="copyright">© 2026 The Leather House. All Rights Reserved. <span style="float:right;cursor:pointer" onclick="openAdminLogin()">Admin</span></div>
 </footer>
 
 <!-- CART -->
@@ -83,7 +83,7 @@ footer{background:#32170d;color:#eee;padding:45px 5% 20px}.footer-grid{display:g
 
 <!-- CHECKOUT -->
 <div class="modal" id="checkoutModal"><div class="modal-box"><span class="close" onclick="closeModal('checkoutModal')">×</span><h2>Place Your Order</h2>
-  <div class="notice">Your order request will be prepared for Leather House.</div>
+  <div class="notice">Your order request will be prepared for The Leather House.</div>
   <div class="form-grid">
     <div class="field"><label>Full Name</label><input id="custName"></div>
     <div class="field"><label>Phone / WhatsApp</label><input id="custPhone"></div>
@@ -99,7 +99,7 @@ footer{background:#32170d;color:#eee;padding:45px 5% 20px}.footer-grid{display:g
 <!-- ADMIN -->
 <div class="modal" id="adminModal"><div class="modal-box"><span class="close" onclick="closeModal('adminModal')">×</span>
   <div class="admin show">
-    <h2>Leather House — Admin Panel</h2>
+    <h2>The Leather House — Admin Panel</h2>
     <div class="notice">Customers cannot see this panel. Add/edit your jacket pictures, names, prices and sizes here.</div>
     <div class="admin-tabs"><button class="btn" onclick="showAdminAdd()">+ Add Jacket</button><button class="btn outline" onclick="showAdminProducts()">Manage Jackets</button></div>
     <div id="adminAdd">
@@ -145,7 +145,7 @@ function openCheckout(){if(!cart.length){alert("Please add a jacket first.");ret
 function submitOrder(){
  const n=document.getElementById("custName").value.trim(),ph=document.getElementById("custPhone").value.trim(),ad=document.getElementById("custAddress").value.trim();
  if(!n||!ph||!ad){alert("Please fill your name, phone and address.");return}
- const text="Leather House Order%0A%0AName: "+encodeURIComponent(n)+"%0APhone: "+encodeURIComponent(ph)+"%0AAddress: "+encodeURIComponent(ad)+"%0A%0AItems:%0A"+encodeURIComponent(cart.map(x=>x.name+" | Size "+x.size+" | "+money(x.price)).join("%0A"))+"%0A%0ATotal: "+encodeURIComponent(money(cart.reduce((a,b)=>a+Number(b.price),0)));
+ const text="The Leather House Order%0A%0AName: "+encodeURIComponent(n)+"%0APhone: "+encodeURIComponent(ph)+"%0AAddress: "+encodeURIComponent(ad)+"%0A%0AItems:%0A"+encodeURIComponent(cart.map(x=>x.name+" | Size "+x.size+" | "+money(x.price)).join("%0A"))+"%0A%0ATotal: "+encodeURIComponent(money(cart.reduce((a,b)=>a+Number(b.price),0)));
  window.open("https://wa.me/923001234567?text="+text,"_blank");
  cart=[];updateCart();closeModal("checkoutModal");alert("Order request opened in WhatsApp.");
 }
