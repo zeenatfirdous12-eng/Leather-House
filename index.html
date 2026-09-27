@@ -73,7 +73,7 @@ footer{background:#32170d;color:#eee;padding:45px 5% 20px}.footer-grid{display:g
     <div><h2 style="margin-top:0">THE LEATHER HOUSE</h2><p>Premium Leather Jackets</p></div>
     <div><h3>Quick Links</h3><a href="#home">Home</a><a href="#shop">Jackets</a><a href="#about">About Us</a></div>
     <div><h3>Help & Support</h3><a href="#">Size Guide</a><a href="#">Shipping Policy</a><a href="#">Returns</a></div>
-    <div><h3>Contact</h3><p>+92 300 1234567</p><p>info@theleatherhouse.pk</p><a class="btn" href="https://wa.me/923001234567">Chat on WhatsApp</a></div>
+    <div><h3>Contact</h3><p>+92 311 2674115</p><p>info@theleatherhouse.pk</p><a class="btn" href="https://wa.me/923112674115">Chat on WhatsApp</a></div>
   </div>
   <div class="copyright">© 2026 The Leather House. All Rights Reserved. <span style="float:right;cursor:pointer" onclick="openAdminLogin()">Admin</span></div>
 </footer>
@@ -100,7 +100,7 @@ footer{background:#32170d;color:#eee;padding:45px 5% 20px}.footer-grid{display:g
 <div class="modal" id="adminModal"><div class="modal-box"><span class="close" onclick="closeModal('adminModal')">×</span>
   <div class="admin show">
     <h2>The Leather House — Admin Panel</h2>
-    <div class="notice">Customers cannot see this panel. Add/edit your jacket pictures, names, prices and sizes here.</div>
+    <div class="notice">Customers cannot see this panel. Add/edit jacket pictures, names, prices, sizes and delivery charges here.</div>
     <div class="admin-tabs"><button class="btn" onclick="showAdminAdd()">+ Add Jacket</button><button class="btn outline" onclick="showAdminProducts()">Manage Jackets</button></div>
     <div id="adminAdd">
       <div class="form-grid">
@@ -109,6 +109,8 @@ footer{background:#32170d;color:#eee;padding:45px 5% 20px}.footer-grid{display:g
       </div>
       <div class="field"><label>Jacket Picture</label><input id="pImage" type="file" accept="image/*"></div>
       <div class="field"><label>Available Sizes</label><input id="pSizes" value="S,M,L,XL,XXL"></div>
+      <div class="field"><label>Delivery Charges (Rs.)</label><input id="deliveryCharge" type="number" min="0" placeholder="e.g. 250" value=""></div>
+
       <button class="btn" onclick="addProduct()">SAVE JACKET</button>
     </div>
     <div id="adminProducts" class="hidden"><div class="admin-list" id="adminList"></div></div>
@@ -124,6 +126,7 @@ const defaultProducts=[
 ];
 let products=JSON.parse(localStorage.getItem("lh_products")||"null")||defaultProducts;
 let cart=[];
+let deliveryCharge=Number(localStorage.getItem('lh_delivery_charge')||0);
 
 function money(n){return "Rs. "+Number(n).toLocaleString("en-PK")}
 function renderProducts(){
@@ -137,7 +140,8 @@ function addToCart(id){
 function updateCart(){
  document.getElementById("cartCount").textContent=cart.length;
  document.getElementById("cartItems").innerHTML=cart.length?cart.map((x,i)=>`<div class="cart-item"><div><b>${x.name}</b><br>Size: ${x.size}</div><div><b>${money(x.price)}</b><br><button onclick="removeCart(${i})" style="border:0;background:none;color:#8d241c;cursor:pointer">Remove</button></div></div>`).join(""):"<p>Your cart is empty.</p>";
- document.getElementById("cartTotal").textContent=cart.length? "Total: "+money(cart.reduce((a,b)=>a+Number(b.price),0)):"";
+ const subtotal=cart.reduce((a,b)=>a+Number(b.price),0);
+ document.getElementById("cartTotal").innerHTML=cart.length ? "Subtotal: "+money(subtotal)+"<br><span style='font-size:15px;color:#806d60'>Delivery: "+money(deliveryCharge)+"</span><br>Total: "+money(subtotal+deliveryCharge) : "";
 }
 function removeCart(i){cart.splice(i,1);updateCart()}
 function openCart(){updateCart();document.getElementById("cartModal").classList.add("show")}
@@ -146,7 +150,7 @@ function submitOrder(){
  const n=document.getElementById("custName").value.trim(),ph=document.getElementById("custPhone").value.trim(),ad=document.getElementById("custAddress").value.trim();
  if(!n||!ph||!ad){alert("Please fill your name, phone and address.");return}
  const text="The Leather House Order%0A%0AName: "+encodeURIComponent(n)+"%0APhone: "+encodeURIComponent(ph)+"%0AAddress: "+encodeURIComponent(ad)+"%0A%0AItems:%0A"+encodeURIComponent(cart.map(x=>x.name+" | Size "+x.size+" | "+money(x.price)).join("%0A"))+"%0A%0ATotal: "+encodeURIComponent(money(cart.reduce((a,b)=>a+Number(b.price),0)));
- window.open("https://wa.me/923001234567?text="+text,"_blank");
+ window.open("https://wa.me/923112674115?text="+text,"_blank");
  cart=[];updateCart();closeModal("checkoutModal");alert("Order request opened in WhatsApp.");
 }
 function closeModal(id){document.getElementById(id).classList.remove("show")}
@@ -160,6 +164,8 @@ function showAdminAdd(){document.getElementById("adminAdd").classList.remove("hi
 function showAdminProducts(){document.getElementById("adminAdd").classList.add("hidden");document.getElementById("adminProducts").classList.remove("hidden");renderAdmin()}
 function addProduct(){
  const name=document.getElementById("pName").value.trim(), price=Number(document.getElementById("pPrice").value), file=document.getElementById("pImage").files[0], sizes=document.getElementById("pSizes").value.trim();
+ const dc=document.getElementById("deliveryCharge").value;
+ if(dc!==""){deliveryCharge=Math.max(0,Number(dc));localStorage.setItem("lh_delivery_charge",deliveryCharge)}
  if(!name||!price||!file){alert("Please enter name, price and picture.");return}
  const reader=new FileReader();
  reader.onload=()=>{products.push({id:Date.now(),name,price,image:reader.result,sizes:sizes||"S,M,L,XL,XXL"});saveProducts();document.getElementById("pName").value="";document.getElementById("pPrice").value="";document.getElementById("pImage").value="";alert("Jacket added successfully.");showAdminProducts()};
