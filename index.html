@@ -101,7 +101,7 @@ footer{background:#32170d;color:#eee;padding:45px 5% 20px}.footer-grid{display:g
   <div class="admin show">
     <h2>The Leather House — Admin Panel</h2>
     <div class="notice">Customers cannot see this panel. Add/edit jacket pictures, names, prices, sizes and delivery charges here.</div>
-    <div class="admin-tabs"><button class="btn" onclick="showAdminAdd()">+ Add Jacket</button><button class="btn outline" onclick="showAdminProducts()">Manage Jackets</button></div>
+    <div class="admin-tabs"><button class="btn" onclick="showAdminAdd()">+ Add Jacket</button><button class="btn outline" onclick="showAdminProducts()">Manage Jackets</button><button class="btn outline" onclick="showChangePassword()">Change Password</button></div>
     <div id="adminAdd">
       <div class="form-grid">
         <div class="field"><label>Jacket Name</label><input id="pName" placeholder="Classic Brown Jacket"></div>
@@ -112,6 +112,14 @@ footer{background:#32170d;color:#eee;padding:45px 5% 20px}.footer-grid{display:g
       <div class="field"><label>Delivery Charges (Rs.)</label><input id="deliveryCharge" type="number" min="0" placeholder="e.g. 250" value=""></div>
 
       <button class="btn" onclick="addProduct()">SAVE JACKET</button>
+    </div>
+    <div id="changePassword" class="hidden">
+      <h3>Change Admin Password</h3>
+      <div class="field"><label>Current Password</label><input type="password" id="currentPassword"></div>
+      <div class="field"><label>New Password</label><input type="password" id="newPassword"></div>
+      <div class="field"><label>Confirm New Password</label><input type="password" id="confirmPassword"></div>
+      <button class="btn" onclick="changePassword()">SAVE NEW PASSWORD</button>
+      <p id="passwordMsg" style="font-size:13px"></p>
     </div>
     <div id="adminProducts" class="hidden"><div class="admin-list" id="adminList"></div></div>
   </div>
@@ -156,12 +164,30 @@ function submitOrder(){
 function closeModal(id){document.getElementById(id).classList.remove("show")}
 function openAdminLogin(){document.getElementById("loginModal").classList.add("show")}
 function adminLogin(){
- if(document.getElementById("adminPass").value==="admin123"){
+ const savedPass=localStorage.getItem('lh_admin_password')||'admin123';
+ if(document.getElementById("adminPass").value===savedPass){
   closeModal("loginModal");renderAdmin();document.getElementById("adminModal").classList.add("show");
  }else document.getElementById("loginError").textContent="Incorrect password.";
 }
-function showAdminAdd(){document.getElementById("adminAdd").classList.remove("hidden");document.getElementById("adminProducts").classList.add("hidden")}
-function showAdminProducts(){document.getElementById("adminAdd").classList.add("hidden");document.getElementById("adminProducts").classList.remove("hidden");renderAdmin()}
+function hideAdminPanels(){document.getElementById("adminAdd").classList.add("hidden");document.getElementById("adminProducts").classList.add("hidden");document.getElementById("changePassword").classList.add("hidden")}
+function showAdminAdd(){hideAdminPanels();document.getElementById("adminAdd").classList.remove("hidden")}
+function showAdminProducts(){hideAdminPanels();document.getElementById("adminProducts").classList.remove("hidden");renderAdmin()}
+function showChangePassword(){hideAdminPanels();document.getElementById("changePassword").classList.remove("hidden");document.getElementById("passwordMsg").textContent=""}
+function changePassword(){
+ const current=document.getElementById("currentPassword").value;
+ const next=document.getElementById("newPassword").value;
+ const confirm=document.getElementById("confirmPassword").value;
+ const saved=localStorage.getItem("lh_admin_password")||"admin123";
+ const msg=document.getElementById("passwordMsg");
+ if(current!==saved){msg.style.color="#9b251b";msg.textContent="Current password is incorrect.";return}
+ if(next.length<6){msg.style.color="#9b251b";msg.textContent="New password must be at least 6 characters.";return}
+ if(next!==confirm){msg.style.color="#9b251b";msg.textContent="New passwords do not match.";return}
+ localStorage.setItem("lh_admin_password",next);
+ document.getElementById("currentPassword").value="";
+ document.getElementById("newPassword").value="";
+ document.getElementById("confirmPassword").value="";
+ msg.style.color="#2d6b39";msg.textContent="Password changed successfully.";
+}
 function addProduct(){
  const name=document.getElementById("pName").value.trim(), price=Number(document.getElementById("pPrice").value), file=document.getElementById("pImage").files[0], sizes=document.getElementById("pSizes").value.trim();
  const dc=document.getElementById("deliveryCharge").value;
