@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leather House — Premium Leather Jackets</title>
+<style>
+:root{
+  --brown:#4a2413; --brown2:#6b351d; --tan:#a85d32; --cream:#f7efe5;
+  --white:#fffaf5; --ink:#21150f; --muted:#806d60; --line:#dfcdbd;
+}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink)}
+h1,h2,h3,.brand{font-family:Georgia,serif}
+header{position:sticky;top:0;z-index:20;background:rgba(53,25,13,.98);color:white;display:flex;align-items:center;justify-content:space-between;padding:14px 5%;box-shadow:0 2px 15px #0003}
+.brand{font-size:27px;letter-spacing:1px}.brand small{display:block;font:9px Arial;letter-spacing:3px;margin-left:3px}
+nav a{color:white;text-decoration:none;margin:0 12px;font-size:14px}.icons{display:flex;gap:16px;align-items:center}.cart{position:relative;cursor:pointer}.badge{position:absolute;top:-10px;right:-10px;background:var(--tan);border-radius:20px;font-size:10px;padding:3px 6px}
+.hero{min-height:560px;padding:90px 6%;display:flex;align-items:center;background:linear-gradient(90deg,#24130cdd 0%,#3c1d10aa 48%,#3c1d1000),url('https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1800&q=85') center/cover;color:white}
+.hero-content{max-width:610px}.eyebrow{letter-spacing:6px;font-size:13px}.hero h1{font-size:60px;line-height:1.02;margin:18px 0}.hero p{font-size:18px;line-height:1.6;max-width:500px}.btn{display:inline-block;background:var(--tan);color:#fff;border:0;padding:14px 25px;border-radius:4px;text-decoration:none;font-weight:bold;cursor:pointer}.btn:hover{filter:brightness(1.1)}
+.section{padding:65px 5%}.section-title{text-align:center;font-size:36px;margin:0 0 35px}.categories,.products{display:grid;gap:20px}.categories{grid-template-columns:1fr 1fr}.category{min-height:260px;border-radius:5px;overflow:hidden;position:relative;background-size:cover;background-position:center}.category:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#2b140dcc,#2b140833)}.cat-content{position:absolute;z-index:2;left:35px;bottom:30px;color:#fff}.cat-content h3{font-size:30px;margin:0 0 12px}.products{grid-template-columns:repeat(4,1fr)}.card{background:var(--white);border:1px solid var(--line);border-radius:6px;overflow:hidden}.card img{width:100%;height:300px;object-fit:cover;background:#eee}.card-body{padding:16px}.card h3{font-size:18px;margin:0 0 8px}.price{font-weight:bold;color:var(--brown2);font-size:19px}.card-actions{display:flex;gap:8px;margin-top:15px}.card-actions .btn{flex:1;text-align:center;padding:11px 8px;font-size:13px}.outline{background:transparent;color:var(--brown);border:1px solid var(--brown)}
+.about{display:grid;grid-template-columns:1fr 1fr;background:#fff}.about img{width:100%;height:100%;min-height:360px;object-fit:cover}.about-copy{padding:55px}.features{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;padding:28px 5%;border-top:1px solid var(--line);border-bottom:1px solid var(--line);gap:20px}.feature{text-align:center}.feature b{display:block;margin-bottom:7px}.feature span{font-size:13px;color:var(--muted)}
+footer{background:#32170d;color:#eee;padding:45px 5% 20px}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:30px}.footer-grid a{display:block;color:#ddd;text-decoration:none;margin:9px 0;font-size:13px}.copyright{text-align:center;border-top:1px solid #ffffff33;margin-top:30px;padding-top:18px;font-size:12px;color:#cdbdb2}
+.modal{display:none;position:fixed;inset:0;background:#0009;z-index:100;align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.modal-box{background:var(--white);width:min(760px,100%);max-height:90vh;overflow:auto;border-radius:8px;padding:28px;position:relative}.close{position:absolute;right:20px;top:15px;font-size:25px;cursor:pointer}.cart-item{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding:15px 0}.cart-total{font-size:22px;font-weight:bold;text-align:right;margin:20px 0}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{margin-bottom:14px}.field label{display:block;font-size:13px;font-weight:bold;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;padding:12px;border:1px solid #ccb9aa;border-radius:4px;background:white}.admin{display:none}.admin.show{display:block}.admin-tabs{display:flex;gap:8px;margin-bottom:20px}.notice{background:#f0e2d4;padding:12px;border-radius:5px;font-size:13px;margin-bottom:18px}
+.admin-list{display:grid;gap:10px}.admin-row{display:flex;align-items:center;justify-content:space-between;background:white;padding:12px;border:1px solid var(--line);border-radius:5px}.admin-row img{width:55px;height:55px;object-fit:cover;margin-right:12px}.row-left{display:flex;align-items:center}.danger{background:#8d241c}.hidden{display:none}
+@media(max-width:900px){nav{display:none}.products{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}.hero h1{font-size:43px}}
+@media(max-width:600px){.categories,.about{grid-template-columns:1fr}.products{grid-template-columns:1fr 1fr}.hero{min-height:500px;padding:55px 6%}.hero h1{font-size:38px}.about-copy{padding:35px 6%}.footer-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">LH LEATHER HOUSE<small>PREMIUM LEATHER JACKETS</small></div>
+  <nav><a href="#home">Home</a><a href="#shop">Jackets</a><a href="#about">About Us</a><a href="#contact">Contact</a></nav>
+  <div class="icons"><span>⌕</span><span class="cart" onclick="openCart()">🛒<i class="badge" id="cartCount">0</i></span></div>
+</header>
+
+<main id="customer">
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">LEATHER HOUSE</div>
+    <h1>CRAFTED IN LEATHER.<br>BUILT TO LAST.</h1>
+    <p>Premium leather jackets for those who value style, comfort and durability.</p>
+    <a class="btn" href="#shop">SHOP NOW →</a>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Shop By Category</h2>
+  <div class="categories">
+    <div class="category" style="background-image:url('https://images.unsplash.com/photo-1520975958225-8f61d7b1f8f8?auto=format&fit=crop&w=1000&q=80')"><div class="cat-content"><h3>Men's Jackets</h3><a class="btn" href="#shop">SHOP MEN →</a></div></div>
+    <div class="category" style="background-image:url('https://images.unsplash.com/photo-1559563458-527698bf5295?auto=format&fit=crop&w=1000&q=80')"><div class="cat-content"><h3>Women's Jackets</h3><a class="btn" href="#shop">SHOP WOMEN →</a></div></div>
+  </div>
+</section>
+
+<section class="section" id="shop">
+  <h2 class="section-title">Our Jackets</h2>
+  <div class="products" id="productGrid"></div>
+</section>
+
+<section class="about" id="about">
+  <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1000&q=85" alt="Leather jacket">
+  <div class="about-copy"><div class="eyebrow" style="color:var(--brown2)">ABOUT LEATHER HOUSE</div><h2>Our Passion. Your Style.</h2><p>Leather House brings timeless leather jackets with a focus on style, comfort and lasting quality.</p><a class="btn" href="#contact">CONTACT US →</a></div>
+</section>
+
+<div class="features">
+  <div class="feature">🛡️<b>Premium Quality</b><span>Carefully selected leather</span></div>
+  <div class="feature">🚚<b>Fast Delivery</b><span>Secure nationwide delivery</span></div>
+  <div class="feature">↩️<b>Easy Returns</b><span>Simple return process</span></div>
+  <div class="feature">☎️<b>Customer Support</b><span>We're here to help</span></div>
+</div>
+</main>
+
+<footer id="contact">
+  <div class="footer-grid">
+    <div><h2 style="margin-top:0">LEATHER HOUSE</h2><p>Premium Leather Jackets</p></div>
+    <div><h3>Quick Links</h3><a href="#home">Home</a><a href="#shop">Jackets</a><a href="#about">About Us</a></div>
+    <div><h3>Help & Support</h3><a href="#">Size Guide</a><a href="#">Shipping Policy</a><a href="#">Returns</a></div>
+    <div><h3>Contact</h3><p>+92 300 1234567</p><p>info@leatherhouse.pk</p><a class="btn" href="https://wa.me/923001234567">Chat on WhatsApp</a></div>
+  </div>
+  <div class="copyright">© 2026 Leather House. All Rights Reserved. <span style="float:right;cursor:pointer" onclick="openAdminLogin()">Admin</span></div>
+</footer>
+
+<!-- CART -->
+<div class="modal" id="cartModal"><div class="modal-box"><span class="close" onclick="closeModal('cartModal')">×</span><h2>Your Cart</h2><div id="cartItems"></div><div class="cart-total" id="cartTotal"></div><button class="btn" style="width:100%" onclick="openCheckout()">PROCEED TO ORDER →</button></div></div>
+
+<!-- CHECKOUT -->
+<div class="modal" id="checkoutModal"><div class="modal-box"><span class="close" onclick="closeModal('checkoutModal')">×</span><h2>Place Your Order</h2>
+  <div class="notice">Your order request will be prepared for Leather House.</div>
+  <div class="form-grid">
+    <div class="field"><label>Full Name</label><input id="custName"></div>
+    <div class="field"><label>Phone / WhatsApp</label><input id="custPhone"></div>
+  </div>
+  <div class="field"><label>Delivery Address</label><textarea id="custAddress" rows="3"></textarea></div>
+  <div class="field"><label>Notes</label><input id="custNotes" placeholder="Size or other request"></div>
+  <button class="btn" style="width:100%" onclick="submitOrder()">SEND ORDER</button>
+</div></div>
+
+<!-- ADMIN LOGIN -->
+<div class="modal" id="loginModal"><div class="modal-box" style="max-width:420px"><span class="close" onclick="closeModal('loginModal')">×</span><h2>Admin Login</h2><div class="notice">Only the store owner should use this area.</div><div class="field"><label>Password</label><input type="password" id="adminPass"></div><button class="btn" style="width:100%" onclick="adminLogin()">LOGIN</button><p id="loginError" style="color:#9b251b"></p></div></div>
+
+<!-- ADMIN -->
+<div class="modal" id="adminModal"><div class="modal-box"><span class="close" onclick="closeModal('adminModal')">×</span>
+  <div class="admin show">
+    <h2>Leather House — Admin Panel</h2>
+    <div class="notice">Customers cannot see this panel. Add/edit your jacket pictures, names, prices and sizes here.</div>
+    <div class="admin-tabs"><button class="btn" onclick="showAdminAdd()">+ Add Jacket</button><button class="btn outline" onclick="showAdminProducts()">Manage Jackets</button></div>
+    <div id="adminAdd">
+      <div class="form-grid">
+        <div class="field"><label>Jacket Name</label><input id="pName" placeholder="Classic Brown Jacket"></div>
+        <div class="field"><label>Price (Rs.)</label><input id="pPrice" type="number" placeholder="14999"></div>
+      </div>
+      <div class="field"><label>Jacket Picture</label><input id="pImage" type="file" accept="image/*"></div>
+      <div class="field"><label>Available Sizes</label><input id="pSizes" value="S,M,L,XL,XXL"></div>
+      <button class="btn" onclick="addProduct()">SAVE JACKET</button>
+    </div>
+    <div id="adminProducts" class="hidden"><div class="admin-list" id="adminList"></div></div>
+  </div>
+</div></div>
+
+<script>
+const defaultProducts=[
+ {id:1,name:"Classic Brown Leather Jacket",price:14999,image:"https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80",sizes:"S,M,L,XL,XXL"},
+ {id:2,name:"Black Leather Jacket",price:16999,image:"https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?auto=format&fit=crop&w=800&q=80",sizes:"S,M,L,XL,XXL"},
+ {id:3,name:"Vintage Leather Jacket",price:15999,image:"https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",sizes:"S,M,L,XL"},
+ {id:4,name:"Fur Collar Leather Jacket",price:18999,image:"https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80",sizes:"S,M,L,XL"}
+];
+let products=JSON.parse(localStorage.getItem("lh_products")||"null")||defaultProducts;
+let cart=[];
+
+function money(n){return "Rs. "+Number(n).toLocaleString("en-PK")}
+function renderProducts(){
+ const g=document.getElementById("productGrid");
+ g.innerHTML=products.map(p=>`<article class="card"><img src="${p.image}" alt="${p.name}"><div class="card-body"><h3>${p.name}</h3><div class="price">${money(p.price)}</div><div class="field" style="margin-top:10px"><label>Size</label><select id="size-${p.id}">${p.sizes.split(",").map(s=>`<option>${s.trim()}</option>`).join("")}</select></div><div class="card-actions"><button class="btn" onclick="addToCart(${p.id})">ADD TO CART</button></div></div></article>`).join("");
+}
+function addToCart(id){
+ const p=products.find(x=>x.id===id), size=document.getElementById("size-"+id).value;
+ cart.push({...p,size}); updateCart(); alert("Jacket added to cart.");
+}
+function updateCart(){
+ document.getElementById("cartCount").textContent=cart.length;
+ document.getElementById("cartItems").innerHTML=cart.length?cart.map((x,i)=>`<div class="cart-item"><div><b>${x.name}</b><br>Size: ${x.size}</div><div><b>${money(x.price)}</b><br><button onclick="removeCart(${i})" style="border:0;background:none;color:#8d241c;cursor:pointer">Remove</button></div></div>`).join(""):"<p>Your cart is empty.</p>";
+ document.getElementById("cartTotal").textContent=cart.length? "Total: "+money(cart.reduce((a,b)=>a+Number(b.price),0)):"";
+}
+function removeCart(i){cart.splice(i,1);updateCart()}
+function openCart(){updateCart();document.getElementById("cartModal").classList.add("show")}
+function openCheckout(){if(!cart.length){alert("Please add a jacket first.");return}closeModal("cartModal");document.getElementById("checkoutModal").classList.add("show")}
+function submitOrder(){
+ const n=document.getElementById("custName").value.trim(),ph=document.getElementById("custPhone").value.trim(),ad=document.getElementById("custAddress").value.trim();
+ if(!n||!ph||!ad){alert("Please fill your name, phone and address.");return}
+ const text="Leather House Order%0A%0AName: "+encodeURIComponent(n)+"%0APhone: "+encodeURIComponent(ph)+"%0AAddress: "+encodeURIComponent(ad)+"%0A%0AItems:%0A"+encodeURIComponent(cart.map(x=>x.name+" | Size "+x.size+" | "+money(x.price)).join("%0A"))+"%0A%0ATotal: "+encodeURIComponent(money(cart.reduce((a,b)=>a+Number(b.price),0)));
+ window.open("https://wa.me/923001234567?text="+text,"_blank");
+ cart=[];updateCart();closeModal("checkoutModal");alert("Order request opened in WhatsApp.");
+}
+function closeModal(id){document.getElementById(id).classList.remove("show")}
+function openAdminLogin(){document.getElementById("loginModal").classList.add("show")}
+function adminLogin(){
+ if(document.getElementById("adminPass").value==="admin123"){
+  closeModal("loginModal");renderAdmin();document.getElementById("adminModal").classList.add("show");
+ }else document.getElementById("loginError").textContent="Incorrect password.";
+}
+function showAdminAdd(){document.getElementById("adminAdd").classList.remove("hidden");document.getElementById("adminProducts").classList.add("hidden")}
+function showAdminProducts(){document.getElementById("adminAdd").classList.add("hidden");document.getElementById("adminProducts").classList.remove("hidden");renderAdmin()}
+function addProduct(){
+ const name=document.getElementById("pName").value.trim(), price=Number(document.getElementById("pPrice").value), file=document.getElementById("pImage").files[0], sizes=document.getElementById("pSizes").value.trim();
+ if(!name||!price||!file){alert("Please enter name, price and picture.");return}
+ const reader=new FileReader();
+ reader.onload=()=>{products.push({id:Date.now(),name,price,image:reader.result,sizes:sizes||"S,M,L,XL,XXL"});saveProducts();document.getElementById("pName").value="";document.getElementById("pPrice").value="";document.getElementById("pImage").value="";alert("Jacket added successfully.");showAdminProducts()};
+ reader.readAsDataURL(file);
+}
+function saveProducts(){localStorage.setItem("lh_products",JSON.stringify(products));renderProducts()}
+function renderAdmin(){
+ document.getElementById("adminList").innerHTML=products.map(p=>`<div class="admin-row"><div class="row-left"><img src="${p.image}"><div><b>${p.name}</b><br>${money(p.price)} · ${p.sizes}</div></div><button class="btn danger" onclick="deleteProduct(${p.id})">Delete</button></div>`).join("");
+}
+function deleteProduct(id){if(confirm("Delete this jacket?")){products=products.filter(p=>p.id!==id);saveProducts();renderAdmin()}}
+renderProducts();updateCart();
+</script>
+</body>
+</html>
