@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Product | The Leather House</title>
+
+<style>
+:root{
+  --espresso:#2a160d;
+  --brown:#4b2413;
+  --tobacco:#9b542d;
+  --tan:#c17a49;
+  --cream:#f6eee4;
+  --paper:#fffaf5;
+  --ink:#20140e;
+  --muted:#79685d;
+  --line:#e2d3c5;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+}
+
+h1,h2,h3,.brand{
+  font-family:Georgia,'Times New Roman',serif;
+}
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(38,20,12,.98);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 5%;
+  box-shadow:0 5px 25px #0002;
+}
+
+.brand{
+  font-size:24px;
+  letter-spacing:1.5px;
+}
+
+.brand small{
+  display:block;
+  font:9px Arial;
+  letter-spacing:3px;
+  margin-top:6px;
+  color:#dbc7b7;
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.back{
+  color:#fff;
+  text-decoration:none;
+  font-size:12px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+/* PAGE */
+
+.product-page{
+  max-width:1200px;
+  margin:auto;
+  padding:55px 5% 80px;
+}
+
+.breadcrumb{
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:25px;
+}
+
+.breadcrumb a{
+  color:var(--brown);
+  text-decoration:none;
+}
+
+/* PRODUCT */
+
+.product-layout{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:55px;
+  align-items:start;
+}
+
+/* IMAGE */
+
+.product-image-box{
+  background:#fff;
+  border:1px solid var(--line);
+  padding:12px;
+  border-radius:6px;
+  position:sticky;
+  top:100px;
+}
+
+.product-image{
+  width:100%;
+  height:650px;
+  object-fit:cover;
+  display:block;
+  border-radius:3px;
+}
+
+/* INFO */
+
+.product-info{
+  padding:10px 0;
+}
+
+.product-tag{
+  display:inline-block;
+  background:var(--brown);
+  color:#fff;
+  padding:7px 10px;
+  font-size:10px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  margin-bottom:15px;
+}
+
+.product-info h1{
+  font-size:48px;
+  line-height:1.05;
+  margin:5px 0 15px;
+}
+
+.product-price{
+  font-size:27px;
+  font-weight:bold;
+  color:var(--tobacco);
+  margin-bottom:22px;
+}
+
+.description{
+  font-size:15px;
+  line-height:1.8;
+  color:var(--muted);
+  margin-bottom:28px;
+}
+
+.option-label{
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:1px;
+  margin-bottom:8px;
+  display:block;
+}
+
+.size-select{
+  width:100%;
+  padding:14px;
+  border:1px solid #cdbbad;
+  background:#fff;
+  border-radius:4px;
+  font-size:15px;
+  margin-bottom:10px;
+}
+
+.size-note{
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:22px;
+}
+
+.action-buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.btn{
+  display:block;
+  width:100%;
+  background:var(--tobacco);
+  color:#fff;
+  border:1px solid var(--tobacco);
+  padding:15px 20px;
+  border-radius:3px;
+  font-weight:bold;
+  cursor:pointer;
+  text-align:center;
+  text-decoration:none;
+  letter-spacing:.5px;
+}
+
+.btn:hover{
+  filter:brightness(1.08);
+}
+
+.btn-outline{
+  background:transparent;
+  color:var(--brown);
+  border-color:var(--brown);
+}
+
+/* INFO */
+
+.info-box{
+  margin-top:28px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.info-row{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:16px 0;
+  border-bottom:1px solid var(--line);
+  font-size:13px;
+}
+
+.info-row:last-child{
+  border-bottom:0;
+}
+
+.info-row span:first-child{
+  font-weight:bold;
+  color:var(--brown);
+}
+
+.info-row span:last-child{
+  color:var(--muted);
+  text-align:right;
+}
+
+/* SIZE CHART */
+
+.size-chart-section{
+  margin-top:70px;
+  background:#fff;
+  padding:45px;
+  border:1px solid var(--line);
+  border-radius:6px;
+}
+
+.section-eyebrow{
+  font-size:11px;
+  letter-spacing:4px;
+  color:var(--tobacco);
+  text-transform:uppercase;
+}
+
+.size-chart-section h2{
+  font-size:35px;
+  margin:10px 0;
+}
+
+.size-chart-section p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.7;
+}
+
+.size-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:25px;
+  background:#fff;
+}
+
+.size-table th,
+.size-table td{
+  border:1px solid var(--line);
+  padding:14px;
+  text-align:center;
+  font-size:13px;
+}
+
+.size-table th{
+  background:var(--brown);
+  color:#fff;
+}
+
+.measure-note{
+  background:var(--cream);
+  padding:15px;
+  margin-top:20px;
+  font-size:13px;
+  line-height:1.7;
+  color:var(--muted);
+}
+
+/* DETAILS */
+
+.details-section{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.detail-card{
+  background:#fff;
+  border:1px solid var(--line);
+  padding:30px;
+  border-radius:6px;
+}
+
+.detail-card h3{
+  margin-top:0;
+  font-size:22px;
+}
+
+.detail-card p,
+.detail-card li{
+  font-size:14px;
+  line-height:1.8;
+  color:var(--muted);
+}
+
+/* FOOTER */
+
+footer{
+  background:#29140b;
+  color:#eee;
+  padding:40px 5%;
+  text-align:center;
+}
+
+footer p{
+  color:#cdbdb2;
+  font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  .product-layout{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+  .product-image-box{
+    position:static;
+  }
+
+  .product-image{
+    height:520px;
+  }
+
+  .product-info h1{
+    font-size:38px;
+  }
+
+  .action-buttons{
+    grid-template-columns:1fr;
+  }
+
+  .size-chart-section{
+    padding:25px 15px;
+    overflow-x:auto;
+  }
+
+  .size-table{
+    min-width:650px;
+  }
+
+  .details-section{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:500px){
+
+  header{
+    padding:12px 4%;
+  }
+
+  .brand{
+    font-size:18px;
+  }
+
+  .brand small{
+    font-size:6px;
+  }
+
+  .back{
+    font-size:10px;
+  }
+
+  .product-page{
+    padding:35px 4% 60px;
+  }
+
+  .product-image{
+    height:430px;
+  }
+
+  .product-info h1{
+    font-size:32px;
+  }
+
+  .product-price{
+    font-size:24px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<a href="index.html" style="color:#fff;text-decoration:none">
+
+<div class="brand">
+
+THE LEATHER HOUSE
+
+<small>
+PREMIUM LEATHER JACKETS
+</small>
+
+</div>
+
+</a>
+
+<div class="header-right">
+
+<a
+class="back"
+href="index.html#shop">
+
+← BACK TO JACKETS
+
+</a>
+
+</div>
+
+</header>
+
+
+<main class="product-page">
+
+<div class="breadcrumb">
+
+<a href="index.html">
+Home
+</a>
+
+&nbsp; / &nbsp;
+
+<a href="index.html#shop">
+Jackets
+</a>
+
+&nbsp; / &nbsp;
+
+<span id="breadcrumbName">
+Product
+</span>
+
+</div>
+
+
+<div class="product-layout">
+
+
+<!-- PRODUCT IMAGE -->
+
+<div class="product-image-box">
+
+<img
+id="productImage"
+class="product-image"
+src=""
+alt="Leather Jacket">
+
+</div>
+
+
+<!-- PRODUCT INFORMATION -->
+
+<div class="product-info">
+
+<span
+id="productTag"
+class="product-tag">
+
+Leather Jacket
+
+</span>
+
+
+<h1 id="productName">
+Leather Jacket
+</h1>
+
+
+<div
+id="productPrice"
+class="product-price">
+
+Rs. 0
+
+</div>
+
+
+<p
+id="productDescription"
+class="description">
+
+Premium leather jacket designed for timeless
+style, comfort and everyday wear.
+
+</p>
+
+
+<label
+class="option-label"
+for="productSize">
+
+SELECT SIZE
+
+</label>
+
+
+<select
+id="productSize"
+class="size-select">
+
+</select>
+
+
+<div class="size-note">
+
+Not sure about your size?
+Check our size chart below.
+
+</div>
+
+
+<div class="action-buttons">
+
+<button
+class="btn"
+onclick="addToCart()">
+
+ADD TO CART
+
+</button>
+
+
+<button
+class="btn btn-outline"
+onclick="orderNow()">
+
+ORDER NOW
+
+</button>
+
+</div>
+
+
+<div class="info-box">
+
+
+<div class="info-row">
+
+<span>
+Delivery
+</span>
+
+<span>
+Karachi — Rs. 300
+<br>
+Rest of Pakistan — Rs. 600
+</span>
+
+</div>
+
+
+<div class="info-row">
+
+<span>
+Support
+</span>
+
+<span>
++92 311 2674115
+</span>
+
+</div>
+
+
+<div class="info-row">
+
+<span>
+Ordering
+</span>
+
+<span>
+Website Checkout
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SIZE CHART -->
+
+<section class="size-chart-section">
+
+<div class="section-eyebrow">
+SIZE GUIDE
+</div>
+
+<h2>
+Find Your Perfect Fit
+</h2>
+
+<p>
+Measure around your chest while wearing a light
+shirt. Compare your measurement with the chart below.
+If you are between two sizes, choose according to
+your preferred fit.
+</p>
+
+
+<table class="size-table">
+
+<thead>
+
+<tr>
+
+<th>Size</th>
+<th>Chest</th>
+<th>Shoulder</th>
+<th>Sleeve</th>
+<th>Jacket Length</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+<tr>
+<td>S</td>
+<td>38"</td>
+<td>17"</td>
+<td>24.5"</td>
+<td>25"</td>
+</tr>
+
+<tr>
+<td>M</td>
+<td>40"</td>
+<td>17.5"</td>
+<td>25"</td>
+<td>26"</td>
+</tr>
+
+<tr>
+<td>L</td>
+<td>42"</td>
+<td>18"</td>
+<td>25.5"</td>
+<td>27"</td>
+</tr>
+
+<tr>
+<td>XL</td>
+<td>44"</td>
+<td>18.5"</td>
+<td>26"</td>
+<td>28"</td>
+</tr>
+
+<tr>
+<td>XXL</td>
+<td>46"</td>
+<td>19"</td>
+<td>26.5"</td>
+<td>29"</td>
+</tr>
+
+</tbody>
+
+</table>
+
+
+<div class="measure-note">
+
+<strong>Tip:</strong>
+
+For a comfortable regular fit, use your actual
+chest measurement. For a slightly relaxed fit,
+consider going one size up.
+
+</div>
+
+</section>
+
+
+<!-- DETAILS -->
+
+<section class="details-section">
+
+
+<div class="detail-card">
+
+<h3>
+About This Jacket
+</h3>
+
+<p id="detailDescription">
+
+A premium leather jacket created for people who
+want a classic look that works across seasons.
+Its timeless silhouette makes it easy to style
+with jeans, trousers and casual outfits.
+
+</p>
+
+</div>
+
+
+<div class="detail-card">
+
+<h3>
+Delivery &amp; Support
+</h3>
+
+<ul>
+
+<li>
+Karachi delivery: Rs. 300
+</li>
+
+<li>
+Rest of Pakistan: Rs. 600
+</li>
+
+<li>
+WhatsApp support: +92 311 2674115
+</li>
+
+<li>
+Order directly through the website
+</li>
+
+</ul>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<strong>
+THE LEATHER HOUSE
+</strong>
+
+<p>
+Premium Leather Jackets
+</p>
+
+</footer>
+
+
+<script>
+
+/* =====================================
+PRODUCT DATA
+===================================== */
+
+const defaultProducts=[
+
+{
+id:1,
+name:'Classic Brown Leather Jacket',
+price:14999,
+category:'men',
+tag:'Best Seller',
+image:'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=900&q=85',
+sizes:'S,M,L,XL,XXL'
+},
+
+{
+id:2,
+name:'Black Biker Leather Jacket',
+price:16999,
+category:'men',
+tag:'Classic',
+image:'https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?auto=format&fit=crop&w=900&q=85',
+sizes:'S,M,L,XL,XXL'
+},
+
+{
+id:3,
+name:'Vintage Brown Leather Jacket',
+price:15999,
+category:'women',
+tag:'New',
+image:'https://images.unsplash.com/photo-1548883354-94bcfe321cbb?auto=format&fit=crop&w=900&q=85',
+sizes:'S,M,L,XL'
+},
+
+{
+id:4,
+name:'Premium Black Leather Jacket',
+price:17999,
+category:'women',
+tag:'Premium',
+image:'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85',
+sizes:'S,M,L,XL'
+}
+
+];
+
+
+/* =====================================
+GET PRODUCTS
+===================================== */
+
+let products =
+JSON.parse(
+localStorage.getItem('lh_products') || 'null'
+) || defaultProducts;
+
+
+/* =====================================
+GET PRODUCT ID FROM URL
+Example:
+product.html?id=1
+===================================== */
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+const productId =
+Number(params.get('id'));
+
+
+/* =====================================
+FIND PRODUCT
+===================================== */
+
+const product =
+products.find(
+p => Number(p.id) === productId
+);
+
+
+/* =====================================
+LOAD PRODUCT
+===================================== */
+
+if(!product){
+
+document.body.innerHTML=`
+
+<div style="
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:30px;
+font-family:Arial;
+">
+
+<div>
+
+<h1>
+Product Not Found
+</h1>
+
+<p>
+This jacket is not available.
+</p>
+
+<a
+href="index.html#shop"
+style="
+display:inline-block;
+padding:14px 22px;
+background:#9b542d;
+color:#fff;
+text-decoration:none;
+border-radius:3px;
+">
+
+BACK TO JACKETS
+
+</a>
+
+</div>
+
+</div>
+
+`;
+
+}else{
+
+
+/* PRODUCT TITLE */
+
+document.title =
+product.name +
+' | The Leather House';
+
+
+/* IMAGE */
+
+document
+.getElementById('productImage')
+.src =
+product.image;
+
+document
+.getElementById('productImage')
+.alt =
+product.name;
+
+
+/* NAME */
+
+document
+.getElementById('productName')
+.textContent =
+product.name;
+
+
+/* BREADCRUMB */
+
+document
+.getElementById('breadcrumbName')
+.textContent =
+product.name;
+
+
+/* PRICE */
+
+document
+.getElementById('productPrice')
+.textContent =
+'Rs. ' +
+Number(product.price)
+.toLocaleString('en-PK');
+
+
+/* TAG */
+
+document
+.getElementById('productTag')
+.textContent =
+product.tag ||
+'Leather Jacket';
+
+
+/* DESCRIPTION */
+
+const description =
+'Premium ' +
+product.name +
+' designed for timeless style, comfort and everyday wear.';
+
+
+document
+.getElementById('productDescription')
+.textContent =
+description;
+
+
+document
+.getElementById('detailDescription')
+.textContent =
+description;
+
+
+/* SIZES */
+
+const sizeSelect =
+document.getElementById('productSize');
+
+
+sizeSelect.innerHTML =
+String(
+product.sizes || 'S,M,L,XL,XXL'
+)
+.split(',')
+.map(size => {
+
+const cleanSize =
+size.trim();
+
+return `
+<option value="${cleanSize}">
+${cleanSize}
+</option>
+`;
+
+})
+.join('');
+
+}
+
+
+/* =====================================
+ADD TO CART
+===================================== */
+
+function addToCart(){
+
+if(!product){
+return;
+}
+
+
+const size =
+document
+.getElementById('productSize')
+.value;
+
+
+/*
+Save product to same localStorage cart
+used by the website.
+*/
+
+let cart =
+JSON.parse(
+localStorage.getItem('lh_cart') || '[]'
+);
+
+
+cart.push({
+
+...product,
+
+size:size
+
+});
+
+
+localStorage.setItem(
+'lh_cart',
+JSON.stringify(cart)
+);
+
+
+alert(
+product.name +
+' — Size ' +
+size +
+' added to cart.'
+);
+
+}
+
+
+/* =====================================
+ORDER NOW
+===================================== */
+
+function orderNow(){
+
+if(!product){
+return;
+}
+
+
+const size =
+document
+.getElementById('productSize')
+.value;
+
+
+/*
+Save selected product for homepage
+checkout.
+*/
+
+localStorage.setItem(
+'lh_direct_order',
+JSON.stringify({
+
+...product,
+
+size:size
+
+})
+);
+
+
+/*
+Go back to homepage.
+*/
+
+window.location.href =
+'index.html?directOrder=1';
+
+}
+
+</script>
+
+</body>
+</html>
