@@ -66,7 +66,7 @@ nav a:hover{color:#e0b88f}
 .size-row label{font-size:12px;font-weight:bold;color:var(--muted)}
 .size-row select{flex:1;padding:9px;border:1px solid var(--line);background:#fff;border-radius:3px}
 .card-actions{display:flex;gap:8px;margin-top:13px}
-.card-actions .btn{flex:1;text-align:center;padding:11px 8px;font-size:12px}
+.card-actions .btn{flex:1;text-align:center;padding:11px 6px;font-size:11px}
 
 .story{display:grid;grid-template-columns:1fr 1fr;background:#fff}
 .story img{width:100%;height:100%;min-height:480px;object-fit:cover}
@@ -119,19 +119,7 @@ footer{background:#29140b;color:#eee;padding:55px 5% 22px}
 .admin-row img{width:58px;height:58px;object-fit:cover}
 .row-left{display:flex;align-items:center;gap:12px}
 .danger{background:#8f281d;border-color:#8f281d}
-.hidden{display:none}
-
-.order-number{
-  font-size:28px;
-  font-family:Georgia,serif;
-  color:var(--tobacco);
-  margin:8px 0;
-}
-
-.loading{
-  opacity:.7;
-  pointer-events:none;
-}
+.loading{opacity:.6;pointer-events:none}
 
 @media(max-width:1000px){
 nav{display:none}
@@ -159,6 +147,7 @@ nav{display:none}
 .form-grid{grid-template-columns:1fr}
 .copyright .admin-footer{float:none;display:block;margin-top:10px}
 .cta{margin:45px 4%;padding:45px 6%}
+.card-actions{flex-direction:column}
 }
 </style>
 </head>
@@ -166,298 +155,576 @@ nav{display:none}
 <body>
 
 <header>
-  <a href="#home" style="color:#fff;text-decoration:none">
-    <div class="brand">
-      THE LEATHER HOUSE
-      <small>PREMIUM LEATHER JACKETS</small>
-    </div>
-  </a>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#shop">Jackets</a>
-    <a href="#about">Our Story</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<a href="#home" style="color:#fff;text-decoration:none">
+<div class="brand">
+THE LEATHER HOUSE
+<small>PREMIUM LEATHER JACKETS</small>
+</div>
+</a>
 
-  <div class="header-actions">
-    <a class="admin-link" href="#" onclick="openAdminLogin();return false">🔐 Admin Login</a>
-    <span class="cart" onclick="openCart()">🛒<i class="badge" id="cartCount">0</i></span>
-  </div>
+<nav>
+<a href="#home">Home</a>
+<a href="#shop">Jackets</a>
+<a href="#about">Our Story</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="header-actions">
+
+<a class="admin-link" href="#" onclick="openAdminLogin();return false">
+🔐 Admin Login
+</a>
+
+<span class="cart" onclick="openCart()">
+🛒
+<i class="badge" id="cartCount">0</i>
+</span>
+
+</div>
+
 </header>
+
 
 <main>
 
 <section class="hero" id="home">
-  <div class="hero-content">
-    <div class="eyebrow">THE LEATHER HOUSE</div>
-    <h1>CRAFTED IN LEATHER.<br>BUILT TO LAST.</h1>
-    <p>Premium leather jackets designed for timeless style, everyday confidence and lasting comfort.</p>
 
-    <div class="hero-buttons">
-      <a class="btn" href="#shop">SHOP JACKETS →</a>
-      <a class="btn btn-light" href="#about">OUR STORY</a>
-    </div>
-  </div>
-</section>
+<div class="hero-content">
 
-<section class="section">
+<div class="eyebrow">
+THE LEATHER HOUSE
+</div>
 
-  <div class="section-head">
-    <div class="eyebrow">EXPLORE THE COLLECTION</div>
-    <h2 class="section-title">Shop By Category</h2>
-    <p>Discover carefully selected leather jackets for men and women.</p>
-  </div>
+<h1>
+CRAFTED IN LEATHER.<br>
+BUILT TO LAST.
+</h1>
 
-  <div class="categories">
+<p>
+Premium leather jackets designed for timeless style,
+everyday confidence and lasting comfort.
+</p>
 
-    <div class="category" style="background-image:url('https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1200&q=85')">
-      <div class="cat-content">
-        <h3>Men's Jackets</h3>
-        <p>Classic, biker &amp; everyday styles</p>
-        <a class="btn" href="#shop" onclick="setFilter('men')">SHOP MEN →</a>
-      </div>
-    </div>
+<div class="hero-buttons">
 
-    <div class="category" style="background-image:url('https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1200&q=85')">
-      <div class="cat-content">
-        <h3>Women's Jackets</h3>
-        <p>Modern cuts with timeless leather</p>
-        <a class="btn" href="#shop" onclick="setFilter('women')">SHOP WOMEN →</a>
-      </div>
-    </div>
+<a class="btn" href="#shop">
+SHOP JACKETS →
+</a>
 
-  </div>
-</section>
-
-<section class="section" id="shop">
-
-  <div class="section-head">
-    <div class="eyebrow">THE COLLECTION</div>
-    <h2 class="section-title">Our Leather Jackets</h2>
-    <p>Choose your style, select your size and add it to your cart.</p>
-  </div>
-
-  <div class="filters">
-    <button class="filter active" data-filter="all" onclick="setFilter('all')">All</button>
-    <button class="filter" data-filter="men" onclick="setFilter('men')">Men</button>
-    <button class="filter" data-filter="women" onclick="setFilter('women')">Women</button>
-  </div>
-
-  <div class="products" id="productGrid"></div>
-
-</section>
-
-<section class="story" id="about">
-
-  <img src="https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?auto=format&fit=crop&w=1200&q=85" alt="Leather jacket collection">
-
-  <div class="story-copy">
-    <div class="eyebrow" style="color:var(--tobacco)">OUR STORY</div>
-    <h2>Made for people who wear their style.</h2>
-
-    <p>
-      The Leather House is focused on one thing: premium leather jackets.
-      From classic silhouettes to modern cuts, every piece is chosen to bring
-      together character, comfort and timeless style.
-    </p>
-
-    <p>
-      We keep the collection focused so every jacket gets the attention it deserves.
-    </p>
-
-    <div class="signature">The Leather House</div>
-  </div>
-
-</section>
-
-<div class="features">
-
-  <div class="feature">
-    <div class="feature-icon">◆</div>
-    <b>Premium Quality</b>
-    <span>Jackets selected for style and durability</span>
-  </div>
-
-  <div class="feature">
-    <div class="feature-icon">◇</div>
-    <b>Delivery Charges</b>
-    <span>Karachi Rs. 300 &nbsp;|&nbsp; Pakistan Rs. 600</span>
-  </div>
-
-  <div class="feature">
-    <div class="feature-icon">✦</div>
-    <b>WhatsApp Support</b>
-    <span>+92 311 2674115</span>
-  </div>
+<a class="btn btn-light" href="#about">
+OUR STORY
+</a>
 
 </div>
 
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-head">
+
+<div class="eyebrow">
+EXPLORE THE COLLECTION
+</div>
+
+<h2 class="section-title">
+Shop By Category
+</h2>
+
+<p>
+Discover carefully selected leather jackets for men and women.
+</p>
+
+</div>
+
+
+<div class="categories">
+
+<div class="category"
+style="background-image:url('https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1200&q=85')">
+
+<div class="cat-content">
+
+<h3>Men's Jackets</h3>
+
+<p>
+Classic, biker &amp; everyday styles
+</p>
+
+<a class="btn"
+href="#shop"
+onclick="setFilter('men')">
+SHOP MEN →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="category"
+style="background-image:url('https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1200&q=85')">
+
+<div class="cat-content">
+
+<h3>Women's Jackets</h3>
+
+<p>
+Modern cuts with timeless leather
+</p>
+
+<a class="btn"
+href="#shop"
+onclick="setFilter('women')">
+SHOP WOMEN →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section" id="shop">
+
+<div class="section-head">
+
+<div class="eyebrow">
+THE COLLECTION
+</div>
+
+<h2 class="section-title">
+Our Leather Jackets
+</h2>
+
+<p>
+Choose your style, select your size and order directly.
+</p>
+
+</div>
+
+
+<div class="filters">
+
+<button class="filter active"
+data-filter="all"
+onclick="setFilter('all')">
+All
+</button>
+
+<button class="filter"
+data-filter="men"
+onclick="setFilter('men')">
+Men
+</button>
+
+<button class="filter"
+data-filter="women"
+onclick="setFilter('women')">
+Women
+</button>
+
+</div>
+
+
+<div class="products" id="productGrid"></div>
+
+</section>
+
+
+<section class="story" id="about">
+
+<img
+src="https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?auto=format&fit=crop&w=1200&q=85"
+alt="Leather jacket collection">
+
+<div class="story-copy">
+
+<div class="eyebrow" style="color:var(--tobacco)">
+OUR STORY
+</div>
+
+<h2>
+Made for people who wear their style.
+</h2>
+
+<p>
+The Leather House is focused on one thing:
+premium leather jackets. From classic silhouettes
+to modern cuts, every piece is chosen to bring
+together character, comfort and timeless style.
+</p>
+
+<p>
+We keep the collection focused so every jacket
+gets the attention it deserves.
+</p>
+
+<div class="signature">
+The Leather House
+</div>
+
+</div>
+
+</section>
+
+
+<div class="features">
+
+<div class="feature">
+
+<div class="feature-icon">◆</div>
+
+<b>Premium Quality</b>
+
+<span>
+Jackets selected for style and durability
+</span>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">◇</div>
+
+<b>Delivery Charges</b>
+
+<span>
+Karachi Rs. 300 &nbsp;|&nbsp; Pakistan Rs. 600
+</span>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">✦</div>
+
+<b>WhatsApp Support</b>
+
+<span>
++92 311 2674115
+</span>
+
+</div>
+
+</div>
+
+
 <section class="cta">
 
-  <div class="eyebrow">READY FOR YOUR NEXT JACKET?</div>
-  <h2>Find your signature leather.</h2>
-  <p>Browse the collection and order directly through our website.</p>
+<div class="eyebrow">
+READY FOR YOUR NEXT JACKET?
+</div>
 
-  <a class="btn" href="#shop">EXPLORE JACKETS →</a>
+<h2>
+Find your signature leather.
+</h2>
+
+<p>
+Browse the collection and order directly through our website.
+</p>
+
+<a class="btn" href="#shop">
+EXPLORE JACKETS →
+</a>
 
 </section>
 
 </main>
 
+
 <footer id="contact">
 
-  <div class="footer-grid">
+<div class="footer-grid">
 
-    <div>
-      <h2 style="margin-top:0">THE LEATHER HOUSE</h2>
-      <p>Premium Leather Jackets</p>
-      <p>Timeless styles in tobacco brown, black and classic leather.</p>
-    </div>
+<div>
 
-    <div>
-      <h3>Quick Links</h3>
-      <a href="#home">Home</a>
-      <a href="#shop">Jackets</a>
-      <a href="#about">Our Story</a>
-    </div>
+<h2 style="margin-top:0">
+THE LEATHER HOUSE
+</h2>
 
-    <div>
-      <h3>Customer Care</h3>
-      <a href="#">Size Guide</a>
-      <a href="#">Shipping Policy</a>
-      <a href="#">Exchange Policy</a>
-    </div>
+<p>
+Premium Leather Jackets
+</p>
 
-    <div>
-      <h3>Contact</h3>
-      <p>+92 311 2674115</p>
-      <p>info@theleatherhouse.pk</p>
-      <a class="btn" href="https://wa.me/923112674115" target="_blank">CHAT ON WHATSAPP</a>
-    </div>
+<p>
+Timeless styles in tobacco brown,
+black and classic leather.
+</p>
 
-  </div>
+</div>
 
-  <div class="copyright">
-    © 2026 The Leather House. All Rights Reserved.
-    <span class="admin-footer" onclick="openAdminLogin()">Admin</span>
-  </div>
+
+<div>
+
+<h3>Quick Links</h3>
+
+<a href="#home">Home</a>
+<a href="#shop">Jackets</a>
+<a href="#about">Our Story</a>
+
+</div>
+
+
+<div>
+
+<h3>Customer Care</h3>
+
+<a href="#">Size Guide</a>
+<a href="#">Shipping Policy</a>
+<a href="#">Exchange Policy</a>
+
+</div>
+
+
+<div>
+
+<h3>Contact</h3>
+
+<p>+92 311 2674115</p>
+
+<p>info@theleatherhouse.pk</p>
+
+<a
+class="btn"
+href="https://wa.me/923112674115"
+target="_blank">
+CHAT ON WHATSAPP
+</a>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 The Leather House. All Rights Reserved.
+
+<span
+class="admin-footer"
+onclick="openAdminLogin()">
+Admin
+</span>
+
+</div>
 
 </footer>
 
 
-<!-- CART -->
+<!-- CART MODAL -->
 
 <div class="modal" id="cartModal">
 
-  <div class="modal-box">
+<div class="modal-box">
 
-    <span class="close" onclick="closeModal('cartModal')">×</span>
+<span class="close"
+onclick="closeModal('cartModal')">
+×
+</span>
 
-    <h2>Your Cart</h2>
+<h2>Your Cart</h2>
 
-    <div id="cartItems"></div>
+<div id="cartItems"></div>
 
-    <div class="field" style="margin-top:16px">
 
-      <label>Delivery Area</label>
+<div class="field" style="margin-top:16px">
 
-      <select id="deliveryArea" onchange="setDeliveryArea(this.value)">
-        <option value="karachi">Karachi — Rs. 300</option>
-        <option value="pakistan">Rest of Pakistan — Rs. 600</option>
-      </select>
+<label>
+Delivery Area
+</label>
 
-    </div>
+<select
+id="deliveryArea"
+onchange="setDeliveryArea(this.value)">
 
-    <div class="cart-total" id="cartTotal"></div>
+<option value="karachi">
+Karachi — Rs. 300
+</option>
 
-    <button class="btn" style="width:100%" onclick="openCheckout()">
-      PROCEED TO ORDER →
-    </button>
+<option value="pakistan">
+Rest of Pakistan — Rs. 600
+</option>
 
-  </div>
+</select>
 
 </div>
 
 
-<!-- CHECKOUT -->
+<div class="cart-total" id="cartTotal"></div>
+
+
+<button
+class="btn"
+style="width:100%"
+onclick="openCheckout()">
+
+PROCEED TO ORDER →
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- CHECKOUT MODAL -->
 
 <div class="modal" id="checkoutModal">
 
-  <div class="modal-box">
+<div class="modal-box">
 
-    <span class="close" onclick="closeModal('checkoutModal')">×</span>
+<span class="close"
+onclick="closeModal('checkoutModal')">
+×
+</span>
 
-    <h2>Place Your Order</h2>
+<h2>Place Your Order</h2>
 
-    <div class="notice">
-      Your order will be securely submitted to The Leather House.
-      You do not need to log in to WhatsApp.
-    </div>
+<div class="notice">
 
-    <div class="form-grid">
-
-      <div class="field">
-        <label>Full Name</label>
-        <input id="custName" autocomplete="name">
-      </div>
-
-      <div class="field">
-        <label>Phone / WhatsApp</label>
-        <input id="custPhone" autocomplete="tel">
-      </div>
-
-    </div>
-
-    <div class="field">
-      <label>Delivery Address</label>
-      <textarea id="custAddress" rows="3" autocomplete="street-address"></textarea>
-    </div>
-
-    <div class="field">
-      <label>Notes</label>
-      <input id="custNotes" placeholder="Any size or delivery note">
-    </div>
-
-    <button class="btn" id="submitOrderBtn" style="width:100%" onclick="submitOrder()">
-      PLACE ORDER →
-    </button>
-
-    <div id="orderMessage" style="margin-top:15px"></div>
-
-  </div>
+Your order will be submitted directly to
+The Leather House. You do not need to log in to WhatsApp.
 
 </div>
 
 
-<!-- ORDER SUCCESS -->
+<div class="form-grid">
+
+<div class="field">
+
+<label>
+Full Name
+</label>
+
+<input
+id="custName"
+autocomplete="name">
+
+</div>
+
+
+<div class="field">
+
+<label>
+Phone / WhatsApp
+</label>
+
+<input
+id="custPhone"
+autocomplete="tel">
+
+</div>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Delivery Address
+</label>
+
+<textarea
+id="custAddress"
+rows="3"
+autocomplete="street-address">
+</textarea>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Notes
+</label>
+
+<input
+id="custNotes"
+placeholder="Any size or delivery note">
+
+</div>
+
+
+<button
+class="btn"
+id="submitOrderBtn"
+style="width:100%"
+onclick="submitOrder()">
+
+PLACE ORDER →
+
+</button>
+
+
+<div
+id="orderMessage"
+style="margin-top:15px">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SUCCESS MODAL -->
 
 <div class="modal" id="successModal">
 
-  <div class="modal-box" style="max-width:500px;text-align:center">
+<div
+class="modal-box"
+style="max-width:500px;text-align:center">
 
-    <span class="close" onclick="closeModal('successModal')">×</span>
+<span class="close"
+onclick="closeModal('successModal')">
+×
+</span>
 
-    <div style="font-size:45px">✓</div>
+<div style="font-size:45px">
+✓
+</div>
 
-    <h2>Order Received</h2>
+<h2>
+Order Received
+</h2>
 
-    <p style="color:var(--muted)">
-      Thank you for ordering from The Leather House.
-    </p>
+<p style="color:var(--muted)">
+Thank you for ordering from The Leather House.
+</p>
 
-    <div class="order-number" id="successOrderId"></div>
+<div
+class="order-number"
+id="successOrderId"
+style="font-size:28px;font-family:Georgia,serif;color:var(--tobacco)">
+</div>
 
-    <p style="color:var(--muted);font-size:14px">
-      Your order has been sent to our store.
-      Our team will contact you on your provided phone/WhatsApp number.
-    </p>
+<p style="color:var(--muted);font-size:14px">
 
-    <button class="btn" onclick="closeModal('successModal')">
-      CONTINUE SHOPPING
-    </button>
+Your order has been saved successfully.
+Our team will contact you on your provided
+phone/WhatsApp number.
 
-  </div>
+</p>
+
+<button
+class="btn"
+onclick="closeModal('successModal')">
+
+CONTINUE SHOPPING
+
+</button>
+
+</div>
 
 </div>
 
@@ -466,28 +733,51 @@ nav{display:none}
 
 <div class="modal" id="loginModal">
 
-  <div class="modal-box" style="max-width:420px">
+<div
+class="modal-box"
+style="max-width:420px">
 
-    <span class="close" onclick="closeModal('loginModal')">×</span>
+<span class="close"
+onclick="closeModal('loginModal')">
+×
+</span>
 
-    <h2>Admin Login</h2>
+<h2>
+Admin Login
+</h2>
 
-    <div class="notice">
-      Store management is available only to the admin.
-    </div>
+<div class="notice">
+Store management is available only to the admin.
+</div>
 
-    <div class="field">
-      <label>Password</label>
-      <input type="password" id="adminPass" onkeydown="if(event.key==='Enter')adminLogin()">
-    </div>
+<div class="field">
 
-    <button class="btn" style="width:100%" onclick="adminLogin()">
-      LOGIN
-    </button>
+<label>
+Password
+</label>
 
-    <p id="loginError" style="color:#9b251b"></p>
+<input
+type="password"
+id="adminPass"
+onkeydown="if(event.key==='Enter')adminLogin()">
 
-  </div>
+</div>
+
+<button
+class="btn"
+style="width:100%"
+onclick="adminLogin()">
+
+LOGIN
+
+</button>
+
+<p
+id="loginError"
+style="color:#9b251b">
+</p>
+
+</div>
 
 </div>
 
@@ -496,219 +786,357 @@ nav{display:none}
 
 <div class="modal" id="adminModal">
 
-  <div class="modal-box">
+<div class="modal-box">
 
-    <span class="close" onclick="closeModal('adminModal')">×</span>
+<span class="close"
+onclick="closeModal('adminModal')">
+×
+</span>
 
-    <div class="admin">
+<div class="admin">
 
-      <h2>The Leather House — Admin Panel</h2>
+<h2>
+The Leather House — Admin Panel
+</h2>
 
-      <div class="notice">
-        Customers cannot see this panel.
-        Add jackets, prices, sizes and delivery charges here.
-      </div>
+<div class="notice">
 
-      <div class="admin-tabs">
+Customers cannot see this panel.
+Add jackets, prices, sizes and delivery charges here.
 
-        <button class="btn" onclick="showAdmin('addPanel')">
-          + Add Jacket
-        </button>
+</div>
 
-        <button class="btn btn-outline" onclick="showAdmin('productsPanel')">
-          Manage Jackets
-        </button>
 
-        <button class="btn btn-outline" onclick="loadOrders()">
-          Orders
-        </button>
+<div class="admin-tabs">
 
-        <button class="btn btn-outline" onclick="showAdmin('passwordPanel')">
-          Change Password
-        </button>
+<button
+class="btn"
+onclick="showAdmin('addPanel')">
++ Add Jacket
+</button>
 
-      </div>
+<button
+class="btn btn-outline"
+onclick="showAdmin('productsPanel')">
+Manage Jackets
+</button>
 
+<button
+class="btn btn-outline"
+onclick="loadOrders()">
+Orders
+</button>
 
-      <!-- ADD PRODUCT -->
+<button
+class="btn btn-outline"
+onclick="showAdmin('passwordPanel')">
+Change Password
+</button>
 
-      <div id="addPanel" class="admin-panel show">
+</div>
 
-        <div class="form-grid">
 
-          <div class="field">
-            <label>Jacket Name</label>
-            <input id="pName" placeholder="Classic Brown Jacket">
-          </div>
+<!-- ADD PANEL -->
 
-          <div class="field">
-            <label>Price (Rs.)</label>
-            <input id="pPrice" type="number" placeholder="14999">
-          </div>
+<div
+id="addPanel"
+class="admin-panel show">
 
-        </div>
+<div class="form-grid">
 
-        <div class="form-grid">
+<div class="field">
 
-          <div class="field">
-            <label>Category</label>
+<label>
+Jacket Name
+</label>
 
-            <select id="pCategory">
-              <option value="men">Men</option>
-              <option value="women">Women</option>
-            </select>
+<input
+id="pName"
+placeholder="Classic Brown Jacket">
 
-          </div>
+</div>
 
-          <div class="field">
 
-            <label>Available Sizes</label>
+<div class="field">
 
-            <input id="pSizes" value="S,M,L,XL,XXL">
+<label>
+Price (Rs.)
+</label>
 
-          </div>
+<input
+id="pPrice"
+type="number"
+placeholder="14999">
 
-        </div>
+</div>
 
-        <div class="field">
+</div>
 
-          <label>Jacket Picture</label>
 
-          <input id="pImage" type="file" accept="image/*">
+<div class="form-grid">
 
-        </div>
+<div class="field">
 
-        <div class="field">
+<label>
+Category
+</label>
 
-          <label>Delivery Charges</label>
+<select id="pCategory">
 
-          <input id="deliveryCharge"
-                 value="Karachi Rs. 300 | Pakistan Rs. 600"
-                 readonly>
+<option value="men">
+Men
+</option>
 
-        </div>
+<option value="women">
+Women
+</option>
 
-        <button class="btn" onclick="addProduct()">
-          SAVE JACKET
-        </button>
+</select>
 
-      </div>
+</div>
 
 
-      <!-- PRODUCTS -->
+<div class="field">
 
-      <div id="productsPanel" class="admin-panel">
+<label>
+Available Sizes
+</label>
 
-        <div class="admin-list" id="adminList"></div>
+<input
+id="pSizes"
+value="S,M,L,XL,XXL">
 
-      </div>
+</div>
 
+</div>
 
-      <!-- EDIT -->
 
-      <div id="editPanel" class="admin-panel">
+<div class="field">
 
-        <h3>Edit Jacket</h3>
+<label>
+Jacket Picture
+</label>
 
-        <div class="form-grid">
+<input
+id="pImage"
+type="file"
+accept="image/*">
 
-          <div class="field">
-            <label>Jacket Name</label>
-            <input id="eName">
-          </div>
+</div>
 
-          <div class="field">
-            <label>Price (Rs.)</label>
-            <input id="ePrice" type="number">
-          </div>
 
-        </div>
+<div class="field">
 
-        <div class="form-grid">
+<label>
+Delivery Charges
+</label>
 
-          <div class="field">
+<input
+id="deliveryCharge"
+value="Karachi Rs. 300 | Pakistan Rs. 600"
+readonly>
 
-            <label>Category</label>
+</div>
 
-            <select id="eCategory">
-              <option value="men">Men</option>
-              <option value="women">Women</option>
-            </select>
 
-          </div>
+<button
+class="btn"
+onclick="addProduct()">
 
-          <div class="field">
+SAVE JACKET
 
-            <label>Available Sizes</label>
+</button>
 
-            <input id="eSizes">
+</div>
 
-          </div>
 
-        </div>
+<!-- PRODUCTS PANEL -->
 
-        <div class="field">
+<div
+id="productsPanel"
+class="admin-panel">
 
-          <label>Replace Jacket Picture (optional)</label>
+<div
+class="admin-list"
+id="adminList">
+</div>
 
-          <input id="eImage" type="file" accept="image/*">
+</div>
 
-        </div>
 
-        <button class="btn" onclick="updateProduct()">
-          SAVE CHANGES
-        </button>
+<!-- EDIT PANEL -->
 
-        <button class="btn btn-outline" onclick="showAdmin('productsPanel')">
-          CANCEL
-        </button>
+<div
+id="editPanel"
+class="admin-panel">
 
-        <p id="editMsg"></p>
+<h3>
+Edit Jacket
+</h3>
 
-      </div>
+<div class="form-grid">
 
+<div class="field">
 
-      <!-- PASSWORD -->
+<label>
+Jacket Name
+</label>
 
-      <div id="passwordPanel" class="admin-panel">
+<input id="eName">
 
-        <h3>Change Admin Password</h3>
+</div>
 
-        <div class="field">
 
-          <label>Current Password</label>
+<div class="field">
 
-          <input type="password" id="currentPassword">
+<label>
+Price (Rs.)
+</label>
 
-        </div>
+<input
+id="ePrice"
+type="number">
 
-        <div class="field">
+</div>
 
-          <label>New Password</label>
+</div>
 
-          <input type="password" id="newPassword">
 
-        </div>
+<div class="form-grid">
 
-        <div class="field">
+<div class="field">
 
-          <label>Confirm New Password</label>
+<label>
+Category
+</label>
 
-          <input type="password" id="confirmPassword">
+<select id="eCategory">
 
-        </div>
+<option value="men">
+Men
+</option>
 
-        <button class="btn" onclick="changePassword()">
-          SAVE NEW PASSWORD
-        </button>
+<option value="women">
+Women
+</option>
 
-        <p id="passwordMsg"></p>
+</select>
 
-      </div>
+</div>
 
-    </div>
 
-  </div>
+<div class="field">
+
+<label>
+Available Sizes
+</label>
+
+<input id="eSizes">
+
+</div>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Replace Jacket Picture (optional)
+</label>
+
+<input
+id="eImage"
+type="file"
+accept="image/*">
+
+</div>
+
+
+<button
+class="btn"
+onclick="updateProduct()">
+
+SAVE CHANGES
+
+</button>
+
+<button
+class="btn btn-outline"
+onclick="showAdmin('productsPanel')">
+
+CANCEL
+
+</button>
+
+<p id="editMsg"></p>
+
+</div>
+
+
+<!-- PASSWORD PANEL -->
+
+<div
+id="passwordPanel"
+class="admin-panel">
+
+<h3>
+Change Admin Password
+</h3>
+
+<div class="field">
+
+<label>
+Current Password
+</label>
+
+<input
+type="password"
+id="currentPassword">
+
+</div>
+
+
+<div class="field">
+
+<label>
+New Password
+</label>
+
+<input
+type="password"
+id="newPassword">
+
+</div>
+
+
+<div class="field">
+
+<label>
+Confirm New Password
+</label>
+
+<input
+type="password"
+id="confirmPassword">
+
+</div>
+
+
+<button
+class="btn"
+onclick="changePassword()">
+
+SAVE NEW PASSWORD
+
+</button>
+
+<p id="passwordMsg"></p>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -716,8 +1144,7 @@ nav{display:none}
 <script>
 
 /* =========================================================
-   THE LEATHER HOUSE
-   GOOGLE APPS SCRIPT ORDER BACKEND
+   GOOGLE APPS SCRIPT CONFIGURATION
    ========================================================= */
 
 const GOOGLE_SCRIPT_URL =
@@ -726,12 +1153,19 @@ const GOOGLE_SCRIPT_URL =
 const GOOGLE_SECRET_KEY =
 'TLH_2026_Order_8472';
 
-const ADMIN_WHATSAPP =
-'923112674115';
+
+/* =========================================================
+   GOOGLE SHEET URL
+   OPTIONAL:
+   Apni Google Sheet ka URL yahan paste kar sakte ho.
+   ========================================================= */
+
+const GOOGLE_SHEET_URL =
+'';
 
 
 /* =========================================================
-   DEFAULT PRODUCTS
+   PRODUCTS
    ========================================================= */
 
 const defaultProducts=[
@@ -780,17 +1214,24 @@ sizes:'S,M,L,XL'
 
 
 let products =
-JSON.parse(localStorage.getItem('lh_products') || 'null') ||
-defaultProducts;
+JSON.parse(
+localStorage.getItem('lh_products') || 'null'
+) || defaultProducts;
+
 
 let cart=[];
+
 
 let deliveryArea =
 localStorage.getItem('lh_delivery_area') ||
 'karachi';
 
+
 let deliveryCharge =
-deliveryArea === 'pakistan' ? 600 : 300;
+deliveryArea==='pakistan'
+?600
+:300;
+
 
 let activeFilter='all';
 
@@ -801,8 +1242,24 @@ let activeFilter='all';
 
 function money(n){
 
-return 'Rs. ' +
+return 'Rs. '+
 Number(n).toLocaleString('en-PK');
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
+
+function escapeHtml(value){
+
+return String(value ?? '')
+.replace(/&/g,'&amp;')
+.replace(/</g,'&lt;')
+.replace(/>/g,'&gt;')
+.replace(/"/g,'&quot;')
+.replace(/'/g,'&#039;');
 
 }
 
@@ -817,12 +1274,14 @@ activeFilter=filter;
 
 document
 .querySelectorAll('.filter')
-.forEach(b =>
+.forEach(b=>{
+
 b.classList.toggle(
 'active',
 b.dataset.filter===filter
-)
 );
+
+});
 
 renderProducts();
 
@@ -847,21 +1306,25 @@ function renderProducts(){
 
 const list =
 activeFilter==='all'
-? products
-: products.filter(
+?products
+:products.filter(
 p=>p.category===activeFilter
 );
 
+
 document.getElementById('productGrid').innerHTML =
+
 list.length
 
-? list.map(p=>`
+?list.map(p=>`
 
 <article class="card">
 
 <div class="card-media">
 
-<img src="${p.image}" alt="${escapeHtml(p.name)}">
+<img
+src="${p.image}"
+alt="${escapeHtml(p.name)}">
 
 <span class="tag">
 ${escapeHtml(p.tag || 'Leather Jacket')}
@@ -869,24 +1332,36 @@ ${escapeHtml(p.tag || 'Leather Jacket')}
 
 </div>
 
+
 <div class="card-body">
 
-<h3>${escapeHtml(p.name)}</h3>
+<h3>
+${escapeHtml(p.name)}
+</h3>
 
 <div class="price">
 ${money(p.price)}
 </div>
 
+
 <div class="size-row">
 
-<label>SIZE</label>
+<label>
+SIZE
+</label>
 
 <select id="size-${p.id}">
 
-${String(p.sizes || 'S,M,L,XL,XXL')
+${String(
+p.sizes || 'S,M,L,XL,XXL'
+)
 .split(',')
 .map(s=>`
-<option>${escapeHtml(s.trim())}</option>
+
+<option>
+${escapeHtml(s.trim())}
+</option>
+
 `)
 .join('')}
 
@@ -894,11 +1369,24 @@ ${String(p.sizes || 'S,M,L,XL,XXL')
 
 </div>
 
+
 <div class="card-actions">
 
-<button class="btn"
+<button
+class="btn"
 onclick="addToCart(${p.id})">
+
 ADD TO CART
+
+</button>
+
+
+<button
+class="btn"
+onclick="orderNow(${p.id})">
+
+ORDER NOW
+
 </button>
 
 </div>
@@ -909,7 +1397,7 @@ ADD TO CART
 
 `).join('')
 
-: '<p>No jackets in this category yet.</p>';
+:'<p>No jackets in this category yet.</p>';
 
 }
 
@@ -925,28 +1413,79 @@ products.find(x=>x.id===id);
 
 if(!p)return;
 
+
 const sizeElement =
-document.getElementById('size-'+id);
+document.getElementById(
+'size-'+id
+);
+
 
 const size =
 sizeElement
-? sizeElement.value
-: 'Standard';
+?sizeElement.value
+:'Standard';
+
 
 cart.push({
 ...p,
 size
 });
 
+
 updateCart();
 
-alert('Jacket added to cart.');
+alert(
+'Jacket added to cart.'
+);
 
 }
 
 
 /* =========================================================
-   DELIVERY
+   ORDER NOW
+   ========================================================= */
+
+function orderNow(id){
+
+const p =
+products.find(x=>x.id===id);
+
+if(!p)return;
+
+
+const sizeElement =
+document.getElementById(
+'size-'+id
+);
+
+
+const size =
+sizeElement
+?sizeElement.value
+:'Standard';
+
+
+cart=[];
+
+
+cart.push({
+...p,
+size
+});
+
+
+updateCart();
+
+
+document
+.getElementById('checkoutModal')
+.classList.add('show');
+
+}
+
+
+/* =========================================================
+   DELIVERY AREA
    ========================================================= */
 
 function setDeliveryArea(area){
@@ -955,13 +1494,15 @@ deliveryArea=area;
 
 deliveryCharge =
 area==='pakistan'
-? 600
-: 300;
+?600
+:300;
+
 
 localStorage.setItem(
 'lh_delivery_area',
 area
 );
+
 
 updateCart();
 
@@ -974,23 +1515,29 @@ updateCart();
 
 function updateCart(){
 
-document.getElementById('cartCount').textContent =
-cart.length;
+document
+.getElementById('cartCount')
+.textContent=cart.length;
 
-document.getElementById('deliveryArea').value =
-deliveryArea;
+
+document
+.getElementById('deliveryArea')
+.value=deliveryArea;
+
 
 document.getElementById('cartItems').innerHTML =
 
 cart.length
 
-? cart.map((x,i)=>`
+?cart.map((x,i)=>`
 
 <div class="cart-item">
 
 <div>
 
-<b>${escapeHtml(x.name)}</b>
+<b>
+${escapeHtml(x.name)}
+</b>
 
 <br>
 
@@ -1000,9 +1547,12 @@ Size: ${escapeHtml(x.size)}
 
 </div>
 
+
 <div>
 
-<b>${money(x.price)}</b>
+<b>
+${money(x.price)}
+</b>
 
 <br>
 
@@ -1020,7 +1570,7 @@ Remove
 
 `).join('')
 
-: '<p>Your cart is empty.</p>';
+:'<p>Your cart is empty.</p>';
 
 
 const subtotal =
@@ -1029,17 +1579,23 @@ cart.reduce(
 0
 );
 
+
 document.getElementById('cartTotal').innerHTML =
 
 cart.length
 
-? 'Subtotal: '+money(subtotal)+
+?
+
+'Subtotal: '+
+money(subtotal)+
+
 '<br><span style="font-size:14px;color:var(--muted);font-weight:normal">'+
-'Delivery: '+money(deliveryCharge)+
+'Delivery: '+
+money(deliveryCharge)+
 '</span><br>Total: '+
 money(subtotal+deliveryCharge)
 
-: '';
+:'';
 
 }
 
@@ -1080,13 +1636,17 @@ function openCheckout(){
 
 if(!cart.length){
 
-alert('Please add a jacket first.');
+alert(
+'Please add a jacket first.'
+);
 
 return;
 
 }
 
+
 closeModal('cartModal');
+
 
 document
 .getElementById('checkoutModal')
@@ -1101,11 +1661,12 @@ document
 
 function closeModal(id){
 
-const el=document.getElementById(id);
+const modal =
+document.getElementById(id);
 
-if(el){
+if(modal){
 
-el.classList.remove('show');
+modal.classList.remove('show');
 
 }
 
@@ -1114,16 +1675,19 @@ el.classList.remove('show');
 
 /* =========================================================
    SUBMIT ORDER
-   GOOGLE APPS SCRIPT
    ========================================================= */
 
 async function submitOrder(){
 
 const button =
-document.getElementById('submitOrderBtn');
+document.getElementById(
+'submitOrderBtn'
+);
 
 const message =
-document.getElementById('orderMessage');
+document.getElementById(
+'orderMessage'
+);
 
 
 const n =
@@ -1132,17 +1696,20 @@ document
 .value
 .trim();
 
+
 const ph =
 document
 .getElementById('custPhone')
 .value
 .trim();
 
+
 const ad =
 document
 .getElementById('custAddress')
 .value
 .trim();
+
 
 const notes =
 document
@@ -1155,7 +1722,8 @@ document
 
 if(!n || !ph || !ad){
 
-message.innerHTML =
+message.innerHTML=
+
 '<div class="notice error-notice">'+
 'Please fill your name, phone and address.'+
 '</div>';
@@ -1167,7 +1735,8 @@ return;
 
 if(!cart.length){
 
-message.innerHTML =
+message.innerHTML=
+
 '<div class="notice error-notice">'+
 'Your cart is empty.'+
 '</div>';
@@ -1177,7 +1746,7 @@ return;
 }
 
 
-/* CALCULATE TOTAL */
+/* CALCULATE */
 
 const subtotal =
 cart.reduce(
@@ -1185,18 +1754,18 @@ cart.reduce(
 0
 );
 
+
 const total =
-subtotal + deliveryCharge;
+subtotal+deliveryCharge;
 
 
-/* CREATE ORDER ID */
+/* ORDER ID */
 
 const orderId =
-'TLH-' +
-Date.now();
+'TLH-'+Date.now();
 
 
-/* ORDER PAYLOAD */
+/* PAYLOAD */
 
 const payload={
 
@@ -1214,17 +1783,18 @@ address:ad,
 
 deliveryArea:
 deliveryArea==='karachi'
-? 'Karachi'
-: 'Rest of Pakistan',
+?'Karachi'
+:'Rest of Pakistan',
 
 items:
-cart.map(x=>(
+
+cart.map(x=>
 x.name+
 ' | Size: '+
 x.size+
 ' | '+
 money(x.price)
-)).join('\n'),
+).join('\n'),
 
 subtotal:subtotal,
 
@@ -1237,24 +1807,27 @@ notes:notes
 };
 
 
-/* BUTTON LOADING */
+/* LOADING */
 
 button.disabled=true;
 
 button.classList.add('loading');
 
-button.textContent='PLACING ORDER...';
+button.textContent=
+'PLACING ORDER...';
 
-message.innerHTML =
-'<div class="notice">Submitting your order...</div>';
+
+message.innerHTML=
+
+'<div class="notice">'+
+'Submitting your order...'+
+'</div>';
 
 
 try{
 
 
-/* =====================================================
-   SEND TO GOOGLE APPS SCRIPT
-   ===================================================== */
+/* SEND TO GOOGLE APPS SCRIPT */
 
 const response =
 await fetch(
@@ -1267,33 +1840,32 @@ headers:{
 'text/plain;charset=utf-8'
 },
 
-body:JSON.stringify(payload)
-
+body:
+JSON.stringify(payload)
 }
 );
 
 
-/* READ RESPONSE */
-
-const text =
+const responseText =
 await response.text();
+
 
 let data;
 
+
 try{
 
-data=JSON.parse(text);
+data =
+JSON.parse(responseText);
 
-}catch(parseError){
+}catch(error){
 
 throw new Error(
-'Invalid response from order server.'
+'Invalid response from Google Apps Script.'
 );
 
 }
 
-
-/* SERVER ERROR */
 
 if(!data.ok){
 
@@ -1305,9 +1877,7 @@ data.error ||
 }
 
 
-/* =====================================================
-   SUCCESS
-   ===================================================== */
+/* SUCCESS */
 
 const finalOrderId =
 data.orderId ||
@@ -1316,10 +1886,21 @@ orderId;
 
 /* CLEAR FORM */
 
-document.getElementById('custName').value='';
-document.getElementById('custPhone').value='';
-document.getElementById('custAddress').value='';
-document.getElementById('custNotes').value='';
+document
+.getElementById('custName')
+.value='';
+
+document
+.getElementById('custPhone')
+.value='';
+
+document
+.getElementById('custAddress')
+.value='';
+
+document
+.getElementById('custNotes')
+.value='';
 
 
 /* CLEAR CART */
@@ -1331,13 +1912,18 @@ updateCart();
 
 /* CLOSE CHECKOUT */
 
-closeModal('checkoutModal');
+closeModal(
+'checkoutModal'
+);
 
 
 /* SHOW SUCCESS */
 
-document.getElementById('successOrderId').textContent =
+document
+.getElementById('successOrderId')
+.textContent=
 'Order #'+finalOrderId;
+
 
 document
 .getElementById('successModal')
@@ -1346,13 +1932,17 @@ document
 
 }catch(error){
 
-console.error(error);
+console.error(
+'Order error:',
+error
+);
 
-message.innerHTML =
+
+message.innerHTML=
+
 '<div class="notice error-notice">'+
 'Order could not be saved. Please try again or contact us on WhatsApp.'+
 '</div>';
-
 
 }finally{
 
@@ -1360,7 +1950,8 @@ button.disabled=false;
 
 button.classList.remove('loading');
 
-button.textContent='PLACE ORDER →';
+button.textContent=
+'PLACE ORDER →';
 
 }
 
@@ -1373,9 +1964,14 @@ button.textContent='PLACE ORDER →';
 
 function openAdminLogin(){
 
-document.getElementById('loginError').textContent='';
+document
+.getElementById('loginError')
+.textContent='';
 
-document.getElementById('adminPass').value='';
+document
+.getElementById('adminPass')
+.value='';
+
 
 document
 .getElementById('loginModal')
@@ -1386,24 +1982,28 @@ document
 
 /* =========================================================
    ADMIN LOGIN
-   NOTE:
-   Existing admin product management remains local-browser.
    ========================================================= */
 
-async function adminLogin(){
+function adminLogin(){
 
 const entered =
-document.getElementById('adminPass')
+document
+.getElementById('adminPass')
 .value;
 
+
 const saved =
-localStorage.getItem('lh_admin_password') ||
+localStorage.getItem(
+'lh_admin_password'
+) ||
 'admin123';
 
 
-if(entered !== saved){
+if(entered!==saved){
 
-document.getElementById('loginError').textContent =
+document
+.getElementById('loginError')
+.textContent=
 'Incorrect password.';
 
 return;
@@ -1411,11 +2011,15 @@ return;
 }
 
 
-closeModal('loginModal');
+closeModal(
+'loginModal'
+);
+
 
 document
 .getElementById('adminModal')
 .classList.add('show');
+
 
 renderAdmin();
 
@@ -1430,18 +2034,21 @@ function showAdmin(id){
 
 document
 .querySelectorAll('.admin-panel')
-.forEach(x =>
+.forEach(x=>
 x.classList.remove('show')
 );
 
+
 const panel =
 document.getElementById(id);
+
 
 if(panel){
 
 panel.classList.add('show');
 
 }
+
 
 if(id==='productsPanel'){
 
@@ -1453,86 +2060,48 @@ renderAdmin();
 
 
 /* =========================================================
-   LOAD ORDERS FROM GOOGLE SHEET
+   LOAD ORDERS
    ========================================================= */
 
-async function loadOrders(){
+function loadOrders(){
 
 showAdmin('productsPanel');
+
 
 const list =
 document.getElementById('adminList');
 
-list.innerHTML =
-'<div class="notice">Loading orders...</div>';
 
+if(GOOGLE_SHEET_URL){
 
-try{
+list.innerHTML=
 
+'<div class="notice success-notice">'+
+'Opening your Google Sheet...'+
+'</div>';
 
-/*
-IMPORTANT:
-
-Google Apps Script GET currently returns
-a simple running message.
-
-For customer orders, the actual data is already
-saved inside Google Sheet.
-
-Therefore this button opens the Google Sheet
-if a sheet URL has been configured below.
-*/
-
-
-const sheetUrl =
-localStorage.getItem(
-'lh_google_sheet_url'
-);
-
-
-if(sheetUrl){
 
 window.open(
-sheetUrl,
+GOOGLE_SHEET_URL,
 '_blank'
 );
-
-list.innerHTML =
-'<div class="notice success-notice">'+
-'Google Sheet opened in a new tab.'+
-'</div>';
 
 return;
 
 }
 
 
-list.innerHTML = `
+list.innerHTML=
 
-<div class="notice">
+'<div class="notice">'+
 
-Orders are automatically saved to your
-Google Sheet.
+'Orders are automatically saved in your Google Sheet.'+
 
-<br><br>
+'<br><br>'+
 
-For the Admin "Orders" button to open
-your sheet, add your Google Sheet URL
-inside the <b>GOOGLE_SHEET_URL</b>
-constant in this file.
+'To make this Orders button open the sheet, add your Google Sheet URL to the GOOGLE_SHEET_URL constant in index.html.'+
 
-</div>
-
-`;
-
-}catch(error){
-
-list.innerHTML =
-'<div class="notice error-notice">'+
-'Could not open orders.'+
 '</div>';
-
-}
 
 }
 
@@ -1544,14 +2113,14 @@ list.innerHTML =
 function updateOrderStatus(id,status){
 
 alert(
-'Order status is managed directly in your Google Sheet.'
+'Order status can be managed directly in your Google Sheet.'
 );
 
 }
 
 
 /* =========================================================
-   CHANGE ADMIN PASSWORD
+   CHANGE PASSWORD
    ========================================================= */
 
 function changePassword(){
@@ -1561,15 +2130,18 @@ document
 .getElementById('currentPassword')
 .value;
 
+
 const next =
 document
 .getElementById('newPassword')
 .value;
 
+
 const confirmPassword =
 document
 .getElementById('confirmPassword')
 .value;
+
 
 const saved =
 localStorage.getItem(
@@ -1577,15 +2149,18 @@ localStorage.getItem(
 ) ||
 'admin123';
 
+
 const msg =
-document.getElementById('passwordMsg');
+document
+.getElementById('passwordMsg');
 
 
 if(current!==saved){
 
-msg.style.color='#9b251b';
+msg.style.color=
+'#9b251b';
 
-msg.textContent =
+msg.textContent=
 'Current password is incorrect.';
 
 return;
@@ -1595,9 +2170,10 @@ return;
 
 if(next.length<6){
 
-msg.style.color='#9b251b';
+msg.style.color=
+'#9b251b';
 
-msg.textContent =
+msg.textContent=
 'New password must be at least 6 characters.';
 
 return;
@@ -1607,9 +2183,10 @@ return;
 
 if(next!==confirmPassword){
 
-msg.style.color='#9b251b';
+msg.style.color=
+'#9b251b';
 
-msg.textContent =
+msg.textContent=
 'New passwords do not match.';
 
 return;
@@ -1622,9 +2199,11 @@ localStorage.setItem(
 next
 );
 
-msg.style.color='#2d6b39';
 
-msg.textContent =
+msg.style.color=
+'#2d6b39';
+
+msg.textContent=
 'Password changed successfully.';
 
 }
@@ -1642,6 +2221,7 @@ document
 .value
 .trim();
 
+
 const price =
 Number(
 document
@@ -1649,16 +2229,19 @@ document
 .value
 );
 
+
 const file =
 document
 .getElementById('pImage')
 .files[0];
+
 
 const sizes =
 document
 .getElementById('pSizes')
 .value
 .trim();
+
 
 const category =
 document
@@ -1687,11 +2270,11 @@ products.push({
 
 id:Date.now(),
 
-name,
+name:name,
 
-price,
+price:price,
 
-category,
+category:category,
 
 tag:'New',
 
@@ -1706,15 +2289,28 @@ sizes ||
 
 saveProducts();
 
-document.getElementById('pName').value='';
 
-document.getElementById('pPrice').value='';
+document
+.getElementById('pName')
+.value='';
 
-document.getElementById('pImage').value='';
+document
+.getElementById('pPrice')
+.value='';
 
-alert('Jacket added successfully.');
+document
+.getElementById('pImage')
+.value='';
 
-showAdmin('productsPanel');
+
+alert(
+'Jacket added successfully.'
+);
+
+
+showAdmin(
+'productsPanel'
+);
 
 };
 
@@ -1741,12 +2337,12 @@ renderProducts();
 
 
 /* =========================================================
-   RENDER ADMIN PRODUCTS
+   RENDER ADMIN
    ========================================================= */
 
 function renderAdmin(){
 
-document.getElementById('adminList').innerHTML =
+document.getElementById('adminList').innerHTML=
 
 products.map(p=>`
 
@@ -1754,11 +2350,15 @@ products.map(p=>`
 
 <div class="row-left">
 
-<img src="${p.image}" alt="">
+<img
+src="${p.image}"
+alt="">
 
 <div>
 
-<b>${escapeHtml(p.name)}</b>
+<b>
+${escapeHtml(p.name)}
+</b>
 
 <br>
 
@@ -1770,16 +2370,25 @@ ${money(p.price)}
 
 </div>
 
-<div style="display:flex;gap:8px">
 
-<button class="btn btn-outline"
+<div
+style="display:flex;gap:8px">
+
+<button
+class="btn btn-outline"
 onclick="editProduct(${p.id})">
+
 Edit
+
 </button>
 
-<button class="btn danger"
+
+<button
+class="btn danger"
 onclick="deleteProduct(${p.id})">
+
 Delete
+
 </button>
 
 </div>
@@ -1809,27 +2418,46 @@ products.find(
 x=>x.id===id
 );
 
+
 if(!p)return;
+
 
 editingProductId=id;
 
-document.getElementById('eName').value =
-p.name;
 
-document.getElementById('ePrice').value =
-p.price;
+document
+.getElementById('eName')
+.value=p.name;
 
-document.getElementById('eCategory').value =
-p.category;
 
-document.getElementById('eSizes').value =
-p.sizes;
+document
+.getElementById('ePrice')
+.value=p.price;
 
-document.getElementById('eImage').value='';
 
-document.getElementById('editMsg').textContent='';
+document
+.getElementById('eCategory')
+.value=p.category;
 
-showAdmin('editPanel');
+
+document
+.getElementById('eSizes')
+.value=p.sizes;
+
+
+document
+.getElementById('eImage')
+.value='';
+
+
+document
+.getElementById('editMsg')
+.textContent='';
+
+
+showAdmin(
+'editPanel'
+);
 
 }
 
@@ -1845,13 +2473,16 @@ products.find(
 x=>x.id===editingProductId
 );
 
+
 if(!p)return;
+
 
 const name =
 document
 .getElementById('eName')
 .value
 .trim();
+
 
 const price =
 Number(
@@ -1860,16 +2491,19 @@ document
 .value
 );
 
+
 const category =
 document
 .getElementById('eCategory')
 .value;
+
 
 const sizes =
 document
 .getElementById('eSizes')
 .value
 .trim();
+
 
 const file =
 document
@@ -1879,10 +2513,15 @@ document
 
 if(!name || !price){
 
-document.getElementById('editMsg').style.color =
+document
+.getElementById('editMsg')
+.style.color=
 '#9b251b';
 
-document.getElementById('editMsg').textContent =
+
+document
+.getElementById('editMsg')
+.textContent=
 'Please enter jacket name and price.';
 
 return;
@@ -1902,21 +2541,27 @@ p.sizes=
 sizes ||
 'S,M,L,XL,XXL';
 
+
 if(image){
 
 p.image=image;
 
 }
 
+
 saveProducts();
 
 renderAdmin();
+
 
 alert(
 'Jacket updated successfully.'
 );
 
-showAdmin('productsPanel');
+
+showAdmin(
+'productsPanel'
+);
 
 };
 
@@ -1926,8 +2571,10 @@ if(file){
 const reader =
 new FileReader();
 
+
 reader.onload=()=>
 finish(reader.result);
+
 
 reader.readAsDataURL(file);
 
@@ -1957,6 +2604,7 @@ products.filter(
 p=>p.id!==id
 );
 
+
 saveProducts();
 
 renderAdmin();
@@ -1967,23 +2615,7 @@ renderAdmin();
 
 
 /* =========================================================
-   HTML ESCAPE
-   ========================================================= */
-
-function escapeHtml(value){
-
-return String(value ?? '')
-.replace(/&/g,'&amp;')
-.replace(/</g,'&lt;')
-.replace(/>/g,'&gt;')
-.replace(/"/g,'&quot;')
-.replace(/'/g,'&#039;');
-
-}
-
-
-/* =========================================================
-   START WEBSITE
+   INITIALIZE
    ========================================================= */
 
 renderProducts();
