@@ -2485,7 +2485,8 @@ list.length
 href="./product.html?id=${encodeURIComponent(p.id)}"
 class="product-image-link"
 aria-label="View ${escapeHtml(p.name)}"
-onclick="window.location.href=this.href; return false;">
+target="_self"
+onclick="event.stopPropagation(); window.location.assign(this.href); return false;">
 
 <img
 src="${p.image}"
