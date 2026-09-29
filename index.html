@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>The Leather House | Premium Leather Jackets</title>
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<meta name="description"
+<title>
+The Leather House | Premium Leather Jackets
+</title>
+
+<meta
+name="description"
 content="The Leather House — premium leather jackets for men and women.">
 
 <style>
+
+/* =========================================================
+   ROOT
+========================================================= */
 
 :root{
 --espresso:#2a160d;
@@ -39,16 +50,24 @@ background:var(--cream);
 color:var(--ink);
 }
 
-h1,h2,h3,.brand{
-font-family:Georgia,'Times New Roman',serif;
+h1,
+h2,
+h3,
+.brand{
+font-family:Georgia,"Times New Roman",serif;
 }
 
-button,input,select,textarea{
+button,
+input,
+select,
+textarea{
 font:inherit;
 }
 
 
-/* ================= HEADER ================= */
+/* =========================================================
+   HEADER
+========================================================= */
 
 header{
 position:sticky;
@@ -130,13 +149,16 @@ color:#fff;
 }
 
 
-/* ================= HERO ================= */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
 min-height:650px;
 padding:100px 7%;
 display:flex;
 align-items:center;
+
 background:
 linear-gradient(
 90deg,
@@ -144,8 +166,9 @@ linear-gradient(
 #32180fbb 44%,
 #32180f20 75%
 ),
-url('https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=2000&q=90')
+url("https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=2000&q=90")
 center/cover;
+
 color:#fff;
 }
 
@@ -209,7 +232,9 @@ border-color:var(--brown);
 }
 
 
-/* ================= SECTIONS ================= */
+/* =========================================================
+   SECTION
+========================================================= */
 
 .section{
 padding:78px 5%;
@@ -237,7 +262,9 @@ margin:0;
 }
 
 
-/* ================= CATEGORIES ================= */
+/* =========================================================
+   CATEGORIES
+========================================================= */
 
 .categories{
 display:grid;
@@ -258,7 +285,8 @@ background-position:center;
 content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(
+background:
+linear-gradient(
 90deg,
 #25130ddd,
 #25130d22
@@ -284,7 +312,9 @@ color:#f3e8df;
 }
 
 
-/* ================= FILTERS ================= */
+/* =========================================================
+   FILTERS
+========================================================= */
 
 .filters{
 display:flex;
@@ -311,7 +341,9 @@ border-color:var(--brown);
 }
 
 
-/* ================= PRODUCTS ================= */
+/* =========================================================
+   PRODUCTS
+========================================================= */
 
 .products{
 display:grid;
@@ -354,43 +386,49 @@ background:#ddd;
 transition:.25s;
 }
 
-
-/* ================= VIEW PRODUCT ================= */
-
 .product-view-overlay{
 position:absolute;
 left:50%;
 bottom:18px;
 transform:translateX(-50%);
+
 background:rgba(42,22,13,.96);
 color:#fff;
+
 padding:12px 20px;
+
 border:1px solid rgba(255,255,255,.45);
+
 border-radius:4px;
+
 font-size:11px;
 font-weight:bold;
 letter-spacing:1.5px;
 text-transform:uppercase;
+
 white-space:nowrap;
+
 opacity:1;
+
 z-index:5;
+
 pointer-events:none;
-box-shadow:0 5px 18px rgba(0,0,0,.4);
+
+box-shadow:
+0 5px 18px rgba(0,0,0,.4);
+
 transition:.25s;
 }
 
-.product-image-link:hover .product-view-overlay{
+.product-image-link:hover
+.product-view-overlay{
 background:var(--tobacco);
-transform:translate(-50%,-4px);
+transform:
+translate(-50%,-4px);
 }
 
 .product-image-link:hover img{
 transform:scale(1.03);
-}
-
-.product-image-link:focus-visible{
-outline:3px solid var(--gold);
-outline-offset:-3px;
 }
 
 .tag{
@@ -457,7 +495,9 @@ font-size:11px;
 }
 
 
-/* ================= STORY ================= */
+/* =========================================================
+   STORY
+========================================================= */
 
 .story{
 display:grid;
@@ -495,7 +535,9 @@ color:var(--brown);
 }
 
 
-/* ================= FEATURES ================= */
+/* =========================================================
+   FEATURES
+========================================================= */
 
 .features{
 display:grid;
@@ -527,7 +569,9 @@ color:var(--muted);
 }
 
 
-/* ================= CTA ================= */
+/* =========================================================
+   CTA
+========================================================= */
 
 .cta{
 margin:70px 5%;
@@ -535,9 +579,10 @@ padding:65px 7%;
 border-radius:6px;
 text-align:center;
 color:#fff;
+
 background:
 linear-gradient(90deg,#32170d,#6d3820),
-url('https://images.unsplash.com/photo-1520975682031-ae4a1a8a6b80?auto=format&fit=crop&w=1600&q=80')
+url("https://images.unsplash.com/photo-1520975682031-ae4a1a8a6b80?auto=format&fit=crop&w=1600&q=80")
 center/cover;
 }
 
@@ -551,7 +596,9 @@ color:#eadbd0;
 }
 
 
-/* ================= FOOTER ================= */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
 background:#29140b;
@@ -599,7 +646,9 @@ color:#fff;
 }
 
 
-/* ================= MODALS ================= */
+/* =========================================================
+   MODALS
+========================================================= */
 
 .modal{
 display:none;
@@ -636,7 +685,9 @@ color:var(--muted);
 }
 
 
-/* ================= CART ================= */
+/* =========================================================
+   CART
+========================================================= */
 
 .cart-item{
 display:flex;
@@ -655,7 +706,9 @@ margin:20px 0;
 }
 
 
-/* ================= FORMS ================= */
+/* =========================================================
+   FORMS
+========================================================= */
 
 .form-grid{
 display:grid;
@@ -692,7 +745,9 @@ border-color:var(--tobacco);
 }
 
 
-/* ================= PAYMENT ================= */
+/* =========================================================
+   PAYMENT
+========================================================= */
 
 .payment-title{
 font-family:Georgia,serif;
@@ -818,7 +873,9 @@ font-weight:bold;
 }
 
 
-/* ================= NOTICE ================= */
+/* =========================================================
+   NOTICE
+========================================================= */
 
 .notice{
 background:#f0e3d6;
@@ -839,7 +896,9 @@ color:#81271e;
 }
 
 
-/* ================= ADMIN ================= */
+/* =========================================================
+   ADMIN
+========================================================= */
 
 .admin-tabs{
 display:flex;
@@ -899,7 +958,9 @@ pointer-events:none;
 }
 
 
-/* ================= RESPONSIVE ================= */
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media(max-width:1000px){
 
@@ -1028,17 +1089,24 @@ text-align:left;
 }
 
 }
+
 </style>
+
 </head>
+
 
 <body>
 
 
-<!-- ================= HEADER ================= -->
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
 <header>
 
-<a href="#home" style="color:#fff;text-decoration:none">
+<a
+href="#home"
+style="color:#fff;text-decoration:none">
 
 <div class="brand">
 
@@ -1055,10 +1123,21 @@ PREMIUM LEATHER JACKETS
 
 <nav>
 
-<a href="#home">Home</a>
-<a href="#shop">Jackets</a>
-<a href="#about">Our Story</a>
-<a href="#contact">Contact</a>
+<a href="#home">
+Home
+</a>
+
+<a href="#shop">
+Jackets
+</a>
+
+<a href="#about">
+Our Story
+</a>
+
+<a href="#contact">
+Contact
+</a>
 
 </nav>
 
@@ -1074,6 +1153,7 @@ onclick="openAdminLogin();return false">
 
 </a>
 
+
 <span
 class="cart"
 onclick="openCart()">
@@ -1083,7 +1163,9 @@ onclick="openCart()">
 <i
 class="badge"
 id="cartCount">
+
 0
+
 </i>
 
 </span>
@@ -1093,10 +1175,11 @@ id="cartCount">
 </header>
 
 
-<!-- ================= MAIN ================= -->
+<!-- =========================================================
+     HERO
+========================================================= -->
 
 <main>
-
 
 <section
 class="hero"
@@ -1118,6 +1201,7 @@ Premium leather jackets designed for timeless style,
 everyday confidence and lasting comfort.
 </p>
 
+
 <div class="hero-buttons">
 
 <a
@@ -1127,6 +1211,7 @@ href="#shop">
 SHOP JACKETS →
 
 </a>
+
 
 <a
 class="btn btn-light"
@@ -1143,7 +1228,9 @@ OUR STORY
 </section>
 
 
-<!-- ================= CATEGORIES ================= -->
+<!-- =========================================================
+     CATEGORIES
+========================================================= -->
 
 <section class="section">
 
@@ -1165,6 +1252,7 @@ Discover carefully selected leather jackets for men and women.
 
 
 <div class="categories">
+
 
 <div
 class="category"
@@ -1226,7 +1314,9 @@ SHOP WOMEN →
 </section>
 
 
-<!-- ================= SHOP ================= -->
+<!-- =========================================================
+     SHOP
+========================================================= -->
 
 <section
 class="section"
@@ -1260,6 +1350,7 @@ All
 
 </button>
 
+
 <button
 class="filter"
 data-filter="men"
@@ -1268,6 +1359,7 @@ onclick="setFilter('men')">
 Men
 
 </button>
+
 
 <button
 class="filter"
@@ -1289,7 +1381,9 @@ id="productGrid">
 </section>
 
 
-<!-- ================= STORY ================= -->
+<!-- =========================================================
+     STORY
+========================================================= -->
 
 <section
 class="story"
@@ -1310,9 +1404,11 @@ OUR STORY
 
 </div>
 
+
 <h2>
 Made for people who wear their style.
 </h2>
+
 
 <p>
 The Leather House is focused on one thing:
@@ -1321,10 +1417,12 @@ to modern cuts, every piece is chosen to bring
 together character, comfort and timeless style.
 </p>
 
+
 <p>
 We keep the collection focused so every jacket
 gets the attention it deserves.
 </p>
+
 
 <div class="signature">
 The Leather House
@@ -1335,9 +1433,12 @@ The Leather House
 </section>
 
 
-<!-- ================= FEATURES ================= -->
+<!-- =========================================================
+     FEATURES
+========================================================= -->
 
 <div class="features">
+
 
 <div class="feature">
 
@@ -1409,7 +1510,9 @@ Order directly from our website
 </div>
 
 
-<!-- ================= CTA ================= -->
+<!-- =========================================================
+     CTA
+========================================================= -->
 
 <section class="cta">
 
@@ -1438,11 +1541,14 @@ EXPLORE JACKETS →
 </main>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer id="contact">
 
 <div class="footer-grid">
+
 
 <div>
 
@@ -1468,9 +1574,17 @@ black and classic leather.
 Quick Links
 </h3>
 
-<a href="#home">Home</a>
-<a href="#shop">Jackets</a>
-<a href="#about">Our Story</a>
+<a href="#home">
+Home
+</a>
+
+<a href="#shop">
+Jackets
+</a>
+
+<a href="#about">
+Our Story
+</a>
 
 </div>
 
@@ -1481,9 +1595,17 @@ Quick Links
 Customer Care
 </h3>
 
-<a href="#">Size Guide</a>
-<a href="#">Shipping Policy</a>
-<a href="#">Exchange Policy</a>
+<a href="#">
+Size Guide
+</a>
+
+<a href="#">
+Shipping Policy
+</a>
+
+<a href="#">
+Exchange Policy
+</a>
 
 </div>
 
@@ -1533,7 +1655,9 @@ Admin
 </footer>
 
 
-<!-- ================= CART MODAL ================= -->
+<!-- =========================================================
+     CART MODAL
+========================================================= -->
 
 <div
 class="modal"
@@ -1544,14 +1668,19 @@ id="cartModal">
 <span
 class="close"
 onclick="closeModal('cartModal')">
+
 ×
+
 </span>
+
 
 <h2>
 Your Cart
 </h2>
 
-<div id="cartItems"></div>
+
+<div id="cartItems">
+</div>
 
 
 <div
@@ -1559,8 +1688,9 @@ class="field"
 style="margin-top:16px">
 
 <label>
-Delivery Area
+DELIVERY AREA
 </label>
+
 
 <select
 id="deliveryArea"
@@ -1599,7 +1729,9 @@ PROCEED TO ORDER →
 </div>
 
 
-<!-- ================= CHECKOUT MODAL ================= -->
+<!-- =========================================================
+     CHECKOUT MODAL
+========================================================= -->
 
 <div
 class="modal"
@@ -1607,11 +1739,15 @@ id="checkoutModal">
 
 <div class="modal-box">
 
+
 <span
 class="close"
 onclick="closeModal('checkoutModal')">
+
 ×
+
 </span>
+
 
 <h2>
 Place Your Order
@@ -1626,19 +1762,22 @@ will appear when advance payment is selected.
 </div>
 
 
+<!-- CUSTOMER DETAILS -->
+
 <h3>
 Customer Details
 </h3>
 
 
-<!-- ================= NAME + PHONE ================= -->
+<!-- NAME + PHONE -->
 
 <div class="form-grid">
+
 
 <div class="field">
 
 <label>
-Full Name *
+FULL NAME *
 </label>
 
 <input
@@ -1652,7 +1791,7 @@ placeholder="Your full name">
 <div class="field">
 
 <label>
-Phone / WhatsApp *
+PHONE / WHATSAPP *
 </label>
 
 <input
@@ -1665,22 +1804,28 @@ placeholder="03XXXXXXXXX">
 </div>
 
 
-<!-- ================= COUNTRY + CITY ================= -->
+<!-- COUNTRY + CITY -->
 
 <div class="form-grid">
+
 
 <div class="field">
 
 <label>
-Country *
+COUNTRY *
 </label>
+
 
 <select
 id="custCountry"
 autocomplete="country-name">
 
-<option value="Pakistan" selected>
+<option
+value="Pakistan"
+selected>
+
 Pakistan
+
 </option>
 
 <option value="Afghanistan">
@@ -1719,7 +1864,7 @@ Other
 <div class="field">
 
 <label>
-City *
+CITY *
 </label>
 
 <input
@@ -1733,12 +1878,12 @@ autocomplete="address-level2">
 </div>
 
 
-<!-- ================= ADDRESS ================= -->
+<!-- ADDRESS -->
 
 <div class="field">
 
 <label>
-Delivery Address *
+DELIVERY ADDRESS *
 </label>
 
 <textarea
@@ -1750,12 +1895,40 @@ placeholder="Complete delivery address"></textarea>
 </div>
 
 
-<!-- ================= NOTES ================= -->
+<!-- =========================================================
+     DELIVERY AREA — IMPORTANT
+========================================================= -->
 
 <div class="field">
 
 <label>
-Notes
+DELIVERY AREA *
+</label>
+
+
+<select
+id="checkoutDeliveryArea"
+onchange="setDeliveryArea(this.value)">
+
+<option value="karachi">
+Karachi — Rs. 300
+</option>
+
+<option value="pakistan">
+Rest of Pakistan — Rs. 600
+</option>
+
+</select>
+
+</div>
+
+
+<!-- NOTES -->
+
+<div class="field">
+
+<label>
+NOTES
 </label>
 
 <input
@@ -1765,7 +1938,7 @@ placeholder="Any size or delivery note">
 </div>
 
 
-<!-- ================= PAYMENT ================= -->
+<!-- PAYMENT -->
 
 <div class="payment-title">
 Select Payment Method
@@ -1840,7 +2013,7 @@ Pay the full amount in advance and receive 2% discount.
 </div>
 
 
-<!-- ================= BANK ================= -->
+<!-- BANK -->
 
 <div
 class="bank-box"
@@ -1849,6 +2022,7 @@ id="bankBox">
 <h3>
 🏦 HBL Bank Payment
 </h3>
+
 
 <p>
 Please transfer the required advance/payment to this account.
@@ -1906,7 +2080,7 @@ transaction/reference number ready.
 </div>
 
 
-<!-- ================= PAYMENT SUMMARY ================= -->
+<!-- PAYMENT SUMMARY -->
 
 <div
 class="payment-summary"
@@ -1935,7 +2109,9 @@ style="margin-top:15px">
 </div>
 
 
-<!-- ================= SUCCESS ================= -->
+<!-- =========================================================
+     SUCCESS MODAL
+========================================================= -->
 
 <div
 class="modal"
@@ -1945,33 +2121,46 @@ id="successModal">
 class="modal-box"
 style="max-width:500px;text-align:center">
 
+
 <span
 class="close"
 onclick="closeModal('successModal')">
+
 ×
+
 </span>
+
 
 <div style="font-size:45px">
 ✓
 </div>
 
+
 <h2>
 Order Received
 </h2>
+
 
 <p style="color:var(--muted)">
 Thank you for ordering from The Leather House.
 </p>
 
+
 <div
 id="successOrderId"
-style="font-size:28px;font-family:Georgia,serif;color:var(--tobacco)">
+style="
+font-size:28px;
+font-family:Georgia,serif;
+color:var(--tobacco);
+">
 </div>
+
 
 <p
 id="successPaymentText"
 style="color:var(--muted);font-size:14px">
 </p>
+
 
 <button
 class="btn"
@@ -1986,7 +2175,9 @@ CONTINUE SHOPPING
 </div>
 
 
-<!-- ================= ADMIN LOGIN ================= -->
+<!-- =========================================================
+     ADMIN LOGIN
+========================================================= -->
 
 <div
 class="modal"
@@ -1996,19 +2187,27 @@ id="loginModal">
 class="modal-box"
 style="max-width:420px">
 
+
 <span
 class="close"
 onclick="closeModal('loginModal')">
+
 ×
+
 </span>
+
 
 <h2>
 Admin Login
 </h2>
 
+
 <div class="notice">
+
 Store management is available only to the admin.
+
 </div>
+
 
 <div class="field">
 
@@ -2023,6 +2222,7 @@ onkeydown="if(event.key==='Enter')adminLogin()">
 
 </div>
 
+
 <button
 class="btn"
 style="width:100%"
@@ -2031,6 +2231,7 @@ onclick="adminLogin()">
 LOGIN
 
 </button>
+
 
 <p
 id="loginError"
@@ -2042,7 +2243,9 @@ style="color:#9b251b">
 </div>
 
 
-<!-- ================= ADMIN ================= -->
+<!-- =========================================================
+     ADMIN MODAL
+========================================================= -->
 
 <div
 class="modal"
@@ -2050,11 +2253,15 @@ id="adminModal">
 
 <div class="modal-box">
 
+
 <span
 class="close"
 onclick="closeModal('adminModal')">
+
 ×
+
 </span>
+
 
 <div class="admin">
 
@@ -2064,6 +2271,7 @@ The Leather House — Admin Panel
 
 
 <div class="admin-tabs">
+
 
 <button
 class="btn"
@@ -2103,13 +2311,15 @@ Change Password
 </div>
 
 
-<!-- ================= ADD PRODUCT ================= -->
+<!-- ADD -->
 
 <div
 id="addPanel"
 class="admin-panel show">
 
+
 <div class="form-grid">
+
 
 <div class="field">
 
@@ -2141,6 +2351,7 @@ placeholder="14999">
 
 
 <div class="form-grid">
+
 
 <div class="field">
 
@@ -2203,11 +2414,12 @@ SAVE JACKET
 </div>
 
 
-<!-- ================= PRODUCTS PANEL ================= -->
+<!-- PRODUCTS -->
 
 <div
 id="productsPanel"
 class="admin-panel">
+
 
 <div
 class="admin-list"
@@ -2217,17 +2429,20 @@ id="adminList">
 </div>
 
 
-<!-- ================= EDIT PANEL ================= -->
+<!-- EDIT -->
 
 <div
 id="editPanel"
 class="admin-panel">
 
+
 <h3>
 Edit Jacket
 </h3>
 
+
 <div class="form-grid">
+
 
 <div class="field">
 
@@ -2256,6 +2471,7 @@ type="number">
 
 
 <div class="form-grid">
+
 
 <div class="field">
 
@@ -2328,11 +2544,12 @@ CANCEL
 </div>
 
 
-<!-- ================= PASSWORD PANEL ================= -->
+<!-- PASSWORD -->
 
 <div
 id="passwordPanel"
 class="admin-panel">
+
 
 <h3>
 Change Admin Password
@@ -2386,6 +2603,7 @@ SAVE NEW PASSWORD
 
 </button>
 
+
 <p id="passwordMsg"></p>
 
 </div>
@@ -2399,20 +2617,25 @@ SAVE NEW PASSWORD
 
 <script>
 
-
-/* ================= CONFIG ================= */
+/* =========================================================
+   GOOGLE APPS SCRIPT CONFIG
+========================================================= */
 
 const GOOGLE_SCRIPT_URL =
 'https://script.google.com/macros/s/AKfycbwtsaYU_YJ9aB0leVLBBeP18zTO01pTjdprzPaat1Gd2eV0DJ0yNT6pBjEDZkKMIavINA/exec';
 
+
 const GOOGLE_SECRET_KEY =
 'TLH_2026_Order_8472';
+
 
 const GOOGLE_SHEET_URL =
 '';
 
 
-/* ================= PRODUCTS ================= */
+/* =========================================================
+   DEFAULT PRODUCTS
+========================================================= */
 
 const defaultProducts=[
 
@@ -2467,21 +2690,27 @@ localStorage.getItem('lh_products') || 'null'
 
 let cart=[];
 
+
 let deliveryArea =
 localStorage.getItem('lh_delivery_area') ||
 'karachi';
+
 
 let deliveryCharge =
 deliveryArea==='pakistan'
 ?600
 :300;
 
+
 let activeFilter='all';
+
 
 let selectedPayment='cod';
 
 
-/* ================= MONEY ================= */
+/* =========================================================
+   MONEY
+========================================================= */
 
 function money(n){
 
@@ -2491,7 +2720,9 @@ Number(n).toLocaleString('en-PK');
 }
 
 
-/* ================= ESCAPE ================= */
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
 
 function escapeHtml(value){
 
@@ -2505,11 +2736,14 @@ return String(value ?? '')
 }
 
 
-/* ================= FILTER ================= */
+/* =========================================================
+   FILTER
+========================================================= */
 
 function setFilter(filter){
 
 activeFilter=filter;
+
 
 document
 .querySelectorAll('.filter')
@@ -2522,7 +2756,9 @@ b.dataset.filter===filter
 
 });
 
+
 renderProducts();
+
 
 setTimeout(()=>{
 
@@ -2537,7 +2773,9 @@ behavior:'smooth'
 }
 
 
-/* ================= PRODUCTS ================= */
+/* =========================================================
+   RENDER PRODUCTS
+========================================================= */
 
 function renderProducts(){
 
@@ -2549,15 +2787,20 @@ p=>p.category===activeFilter
 );
 
 
-document.getElementById('productGrid').innerHTML =
+document
+.getElementById('productGrid')
+.innerHTML =
 
 list.length
 
-?list.map(p=>`
+?
+
+list.map(p=>`
 
 <article class="card">
 
 <div class="card-media">
+
 
 <a
 href="./product.html?id=${encodeURIComponent(p.id)}"
@@ -2565,15 +2808,19 @@ class="product-image-link"
 aria-label="View ${escapeHtml(p.name)}"
 target="_self">
 
+
 <img
 src="${p.image}"
 alt="${escapeHtml(p.name)}">
+
 
 <span class="product-view-overlay">
 VIEW PRODUCT →
 </span>
 
+
 </a>
+
 
 <span class="tag">
 ${escapeHtml(p.tag || 'Leather Jacket')}
@@ -2584,9 +2831,11 @@ ${escapeHtml(p.tag || 'Leather Jacket')}
 
 <div class="card-body">
 
+
 <h3>
 ${escapeHtml(p.name)}
 </h3>
+
 
 <div class="price">
 ${money(p.price)}
@@ -2599,10 +2848,12 @@ ${money(p.price)}
 SIZE
 </label>
 
+
 <select
 id="size-${p.id}">
 
-${String(
+${
+String(
 p.sizes || 'S,M,L,XL,XXL'
 )
 .split(',')
@@ -2613,7 +2864,8 @@ ${escapeHtml(s.trim())}
 </option>
 
 `)
-.join('')}
+.join('')
+}
 
 </select>
 
@@ -2621,6 +2873,7 @@ ${escapeHtml(s.trim())}
 
 
 <div class="card-actions">
+
 
 <button
 class="btn"
@@ -2647,36 +2900,48 @@ ORDER NOW
 
 `).join('')
 
-:'<p>No jackets in this category yet.</p>';
+:
+
+'<p>No jackets in this category yet.</p>';
 
 }
 
 
-/* ================= CART ================= */
+/* =========================================================
+   ADD TO CART
+========================================================= */
 
 function addToCart(id){
 
 const p =
-products.find(x=>x.id===id);
+products.find(
+x=>x.id===id
+);
+
 
 if(!p)return;
+
 
 const sizeElement =
 document.getElementById(
 'size-'+id
 );
 
+
 const size =
 sizeElement
 ?sizeElement.value
 :'Standard';
+
 
 cart.push({
 ...p,
 size
 });
 
+
 updateCart();
+
 
 alert(
 'Jacket added to cart.'
@@ -2685,79 +2950,148 @@ alert(
 }
 
 
+/* =========================================================
+   ORDER NOW
+========================================================= */
+
 function orderNow(id){
 
 const p =
-products.find(x=>x.id===id);
+products.find(
+x=>x.id===id
+);
+
 
 if(!p)return;
+
 
 const sizeElement =
 document.getElementById(
 'size-'+id
 );
 
+
 const size =
 sizeElement
 ?sizeElement.value
 :'Standard';
 
+
 cart=[];
+
 
 cart.push({
 ...p,
 size
 });
 
+
 updateCart();
+
 
 openCheckout();
 
 }
 
 
-/* ================= DELIVERY ================= */
+/* =========================================================
+   DELIVERY AREA
+========================================================= */
 
 function setDeliveryArea(area){
 
 deliveryArea=area;
+
 
 deliveryCharge =
 area==='pakistan'
 ?600
 :300;
 
+
 localStorage.setItem(
 'lh_delivery_area',
 area
 );
 
-updateCart();
+
+/* CART SELECT */
+
+const cartSelect =
+document.getElementById(
+'deliveryArea'
+);
+
+if(cartSelect){
+
+cartSelect.value=area;
 
 }
 
 
-/* ================= CART UPDATE ================= */
+/* CHECKOUT SELECT */
+
+const checkoutSelect =
+document.getElementById(
+'checkoutDeliveryArea'
+);
+
+if(checkoutSelect){
+
+checkoutSelect.value=area;
+
+}
+
+
+/* UPDATE CART */
+
+updateCart();
+
+
+/* UPDATE PAYMENT */
+
+updatePaymentSummary();
+
+}
+
+
+/* =========================================================
+   UPDATE CART
+========================================================= */
 
 function updateCart(){
 
 document
 .getElementById('cartCount')
-.textContent=cart.length;
+.textContent=
+cart.length;
+
+
+const cartArea =
+document.getElementById(
+'deliveryArea'
+);
+
+if(cartArea){
+
+cartArea.value=
+deliveryArea;
+
+}
 
 
 document
-.getElementById('deliveryArea')
-.value=deliveryArea;
-
-
-document.getElementById('cartItems').innerHTML =
+.getElementById('cartItems')
+.innerHTML =
 
 cart.length
 
-?cart.map((x,i)=>`
+?
+
+cart.map((x,i)=>`
 
 <div class="cart-item">
+
 
 <div>
 
@@ -2782,9 +3116,15 @@ ${money(x.price)}
 
 <br>
 
+
 <button
 onclick="removeCart(${i})"
-style="border:0;background:none;color:#8d241c;cursor:pointer">
+style="
+border:0;
+background:none;
+color:#8d241c;
+cursor:pointer;
+">
 
 Remove
 
@@ -2792,11 +3132,14 @@ Remove
 
 </div>
 
+
 </div>
 
 `).join('')
 
-:'<p>Your cart is empty.</p>';
+:
+
+'<p>Your cart is empty.</p>';
 
 
 const subtotal =
@@ -2806,7 +3149,9 @@ cart.reduce(
 );
 
 
-document.getElementById('cartTotal').innerHTML =
+document
+.getElementById('cartTotal')
+.innerHTML =
 
 cart.length
 
@@ -2821,12 +3166,19 @@ money(deliveryCharge)+
 '</span><br>Total: '+
 money(subtotal+deliveryCharge)
 
-:'';
+:
+
+'';
+
+
+updatePaymentSummary();
 
 }
 
 
-/* ================= REMOVE ================= */
+/* =========================================================
+   REMOVE CART
+========================================================= */
 
 function removeCart(i){
 
@@ -2837,11 +3189,14 @@ updateCart();
 }
 
 
-/* ================= OPEN CART ================= */
+/* =========================================================
+   OPEN CART
+========================================================= */
 
 function openCart(){
 
 updateCart();
+
 
 document
 .getElementById('cartModal')
@@ -2850,7 +3205,9 @@ document
 }
 
 
-/* ================= OPEN CHECKOUT ================= */
+/* =========================================================
+   OPEN CHECKOUT
+========================================================= */
 
 function openCheckout(){
 
@@ -2864,9 +3221,14 @@ return;
 
 }
 
+
 closeModal('cartModal');
 
+
+/* RESET PAYMENT */
+
 selectedPayment='cod';
+
 
 document
 .querySelectorAll(
@@ -2876,21 +3238,42 @@ document
 x.checked=false;
 });
 
+
 document
 .querySelectorAll('.payment-option')
 .forEach(x=>{
 x.classList.remove('selected');
 });
 
+
 document
 .getElementById('bankBox')
 .classList.remove('show');
+
 
 document
 .getElementById('orderMessage')
 .innerHTML='';
 
+
+/* IMPORTANT:
+   Delivery area shown in checkout */
+
+const checkoutArea =
+document.getElementById(
+'checkoutDeliveryArea'
+);
+
+if(checkoutArea){
+
+checkoutArea.value=
+deliveryArea;
+
+}
+
+
 updatePaymentSummary();
+
 
 document
 .getElementById('checkoutModal')
@@ -2899,7 +3282,9 @@ document
 }
 
 
-/* ================= PAYMENT ================= */
+/* =========================================================
+   PAYMENT SELECTION
+========================================================= */
 
 function selectPayment(method){
 
@@ -2916,7 +3301,9 @@ x.classList.remove('selected');
 if(method==='cod'){
 
 document
-.getElementById('payment-cod-option')
+.getElementById(
+'payment-cod-option'
+)
 .classList.add('selected');
 
 }
@@ -2925,7 +3312,9 @@ document
 if(method==='half'){
 
 document
-.getElementById('payment-half-option')
+.getElementById(
+'payment-half-option'
+)
 .classList.add('selected');
 
 }
@@ -2934,7 +3323,9 @@ document
 if(method==='full'){
 
 document
-.getElementById('payment-full-option')
+.getElementById(
+'payment-full-option'
+)
 .classList.add('selected');
 
 }
@@ -2963,7 +3354,9 @@ updatePaymentSummary();
 }
 
 
-/* ================= PAYMENT CALCULATION ================= */
+/* =========================================================
+   PAYMENT CALCULATION
+========================================================= */
 
 function calculatePayment(){
 
@@ -2973,8 +3366,10 @@ cart.reduce(
 0
 );
 
+
 const delivery =
 Number(deliveryCharge);
+
 
 const originalTotal =
 subtotal+delivery;
@@ -2989,6 +3384,8 @@ let advance=0;
 let cod=originalTotal;
 
 
+/* 100% COD */
+
 if(selectedPayment==='cod'){
 
 discount=0;
@@ -3002,6 +3399,8 @@ cod=originalTotal;
 }
 
 
+/* 50% ADVANCE */
+
 if(selectedPayment==='half'){
 
 discount=0;
@@ -3009,7 +3408,9 @@ discount=0;
 payable=originalTotal;
 
 advance=
-Math.round(originalTotal*0.50);
+Math.round(
+originalTotal*0.50
+);
 
 cod=
 originalTotal-advance;
@@ -3017,10 +3418,14 @@ originalTotal-advance;
 }
 
 
+/* 100% ADVANCE */
+
 if(selectedPayment==='full'){
 
 discount=
-Math.round(originalTotal*0.02);
+Math.round(
+originalTotal*0.02
+);
 
 payable=
 originalTotal-discount;
@@ -3033,6 +3438,7 @@ cod=0;
 
 
 return{
+
 subtotal,
 delivery,
 originalTotal,
@@ -3040,12 +3446,15 @@ discount,
 payable,
 advance,
 cod
+
 };
 
 }
 
 
-/* ================= PAYMENT SUMMARY ================= */
+/* =========================================================
+   PAYMENT SUMMARY
+========================================================= */
 
 function updatePaymentSummary(){
 
@@ -3053,6 +3462,9 @@ const box =
 document.getElementById(
 'paymentSummary'
 );
+
+
+if(!box)return;
 
 
 if(!cart.length){
@@ -3107,6 +3519,7 @@ ${money(x.originalTotal)}
 </b>
 
 </div>
+
 `;
 
 
@@ -3174,17 +3587,21 @@ ${money(x.cod)}
 `;
 
 
-box.innerHTML=html;
+box.innerHTML=
+html;
 
 }
 
 
-/* ================= CLOSE ================= */
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
 
 function closeModal(id){
 
 const modal =
 document.getElementById(id);
+
 
 if(modal){
 
@@ -3195,7 +3612,9 @@ modal.classList.remove('show');
 }
 
 
-/* ================= SUBMIT ORDER ================= */
+/* =========================================================
+   SUBMIT ORDER
+========================================================= */
 
 async function submitOrder(){
 
@@ -3204,11 +3623,14 @@ document.getElementById(
 'submitOrderBtn'
 );
 
+
 const message =
 document.getElementById(
 'orderMessage'
 );
 
+
+/* CUSTOMER */
 
 const n =
 document
@@ -3252,14 +3674,41 @@ document
 .trim();
 
 
-/* ================= VALIDATION ================= */
+/* DELIVERY AREA */
 
-if(!n || !ph || !country || !city || !ad){
+const checkoutArea =
+document
+.getElementById(
+'checkoutDeliveryArea'
+)
+.value;
+
+
+deliveryArea=
+checkoutArea;
+
+
+deliveryCharge =
+checkoutArea==='pakistan'
+?600
+:300;
+
+
+/* VALIDATION */
+
+if(
+!n ||
+!ph ||
+!country ||
+!city ||
+!ad ||
+!checkoutArea
+){
 
 message.innerHTML=
 
 '<div class="notice error-notice">'+
-'Please fill your name, phone, country, city and address.'+
+'Please fill your name, phone, country, city, address and delivery area.'+
 '</div>';
 
 return;
@@ -3280,7 +3729,7 @@ return;
 }
 
 
-/* ================= PAYMENT ================= */
+/* PAYMENT */
 
 const payment =
 calculatePayment();
@@ -3317,7 +3766,7 @@ paymentMethod=
 }
 
 
-/* ================= ITEMS ================= */
+/* ITEMS */
 
 const items =
 
@@ -3330,7 +3779,7 @@ money(x.price)
 ).join('\n');
 
 
-/* ================= PAYLOAD ================= */
+/* PAYLOAD */
 
 const payload={
 
@@ -3349,21 +3798,26 @@ n,
 phone:
 ph,
 
-/*
-Country and City are sent
-to Google Apps Script.
-*/
+
+/* COUNTRY */
 
 customerCountry:
 country,
 
+country:
+country,
+
+
+/* CITY */
+
 customerCity:
 city,
 
-/*
-Address is sent in both formats
-for compatibility.
-*/
+city:
+city,
+
+
+/* ADDRESS */
 
 customerAddress:
 ad,
@@ -3371,13 +3825,22 @@ ad,
 address:
 ad,
 
+
+/* DELIVERY AREA */
+
 deliveryArea:
-deliveryArea==='karachi'
+checkoutArea==='karachi'
 ?'Karachi'
 :'Rest of Pakistan',
 
+
+/* ITEMS */
+
 items:
 items,
+
+
+/* AMOUNTS */
 
 subtotal:
 payment.subtotal,
@@ -3400,6 +3863,9 @@ payment.advance,
 codAmount:
 payment.cod,
 
+
+/* PAYMENT */
+
 paymentMethod:
 paymentMethod,
 
@@ -3408,13 +3874,16 @@ selectedPayment==='cod'
 ?'COD — Pending'
 :'Bank Transfer — Pending Verification',
 
+
+/* NOTES */
+
 notes:
 notes
 
 };
 
 
-/* ================= BUTTON ================= */
+/* BUTTON */
 
 button.disabled=true;
 
@@ -3431,7 +3900,7 @@ message.innerHTML=
 '</div>';
 
 
-/* ================= SEND ================= */
+/* SEND TO GOOGLE SCRIPT */
 
 try{
 
@@ -3439,6 +3908,7 @@ const response =
 await fetch(
 GOOGLE_SCRIPT_URL,
 {
+
 method:'POST',
 
 headers:{
@@ -3459,10 +3929,13 @@ await response.text();
 
 let data;
 
+
 try{
 
-data =
-JSON.parse(responseText);
+data=
+JSON.parse(
+responseText
+);
 
 }catch(error){
 
@@ -3483,7 +3956,7 @@ data.error ||
 }
 
 
-/* ================= RESET FORM ================= */
+/* RESET */
 
 document
 .getElementById('custName')
@@ -3515,21 +3988,28 @@ document
 .value='';
 
 
-/* ================= CLEAR CART ================= */
+document
+.getElementById(
+'checkoutDeliveryArea'
+)
+.value='karachi';
+
+
+/* CLEAR CART */
 
 cart=[];
 
 updateCart();
 
 
-/* ================= CLOSE CHECKOUT ================= */
+/* CLOSE */
 
 closeModal(
 'checkoutModal'
 );
 
 
-/* ================= SUCCESS ID ================= */
+/* SUCCESS ID */
 
 document
 .getElementById('successOrderId')
@@ -3538,7 +4018,7 @@ document
 (data.orderId || orderId);
 
 
-/* ================= SUCCESS PAYMENT ================= */
+/* SUCCESS PAYMENT */
 
 let successText='';
 
@@ -3578,12 +4058,14 @@ money(payment.advance)+
 
 
 document
-.getElementById('successPaymentText')
+.getElementById(
+'successPaymentText'
+)
 .textContent=
 successText;
 
 
-/* ================= SHOW SUCCESS ================= */
+/* SHOW SUCCESS */
 
 document
 .getElementById('successModal')
@@ -3604,6 +4086,7 @@ message.innerHTML=
 'Order could not be saved. Please try again or contact us on WhatsApp.'+
 '</div>';
 
+
 }finally{
 
 button.disabled=false;
@@ -3618,7 +4101,9 @@ button.textContent=
 }
 
 
-/* ================= ADMIN ================= */
+/* =========================================================
+   ADMIN LOGIN
+========================================================= */
 
 function openAdminLogin(){
 
@@ -3626,9 +4111,11 @@ document
 .getElementById('loginError')
 .textContent='';
 
+
 document
 .getElementById('adminPass')
 .value='';
+
 
 document
 .getElementById('loginModal')
@@ -3643,6 +4130,7 @@ const entered =
 document
 .getElementById('adminPass')
 .value;
+
 
 const saved =
 localStorage.getItem(
@@ -3662,18 +4150,25 @@ return;
 
 }
 
+
 closeModal(
 'loginModal'
 );
+
 
 document
 .getElementById('adminModal')
 .classList.add('show');
 
+
 renderAdmin();
 
 }
 
+
+/* =========================================================
+   ADMIN TABS
+========================================================= */
 
 function showAdmin(id){
 
@@ -3683,14 +4178,17 @@ document
 x.classList.remove('show')
 );
 
+
 const panel =
 document.getElementById(id);
+
 
 if(panel){
 
 panel.classList.add('show');
 
 }
+
 
 if(id==='productsPanel'){
 
@@ -3701,12 +4199,22 @@ renderAdmin();
 }
 
 
+/* =========================================================
+   ORDERS
+========================================================= */
+
 function loadOrders(){
 
-showAdmin('productsPanel');
+showAdmin(
+'productsPanel'
+);
+
 
 const list =
-document.getElementById('adminList');
+document.getElementById(
+'adminList'
+);
+
 
 if(GOOGLE_SHEET_URL){
 
@@ -3719,6 +4227,7 @@ return;
 
 }
 
+
 list.innerHTML=
 
 '<div class="notice">'+
@@ -3728,7 +4237,9 @@ list.innerHTML=
 }
 
 
-/* ================= PASSWORD ================= */
+/* =========================================================
+   CHANGE PASSWORD
+========================================================= */
 
 function changePassword(){
 
@@ -3737,21 +4248,25 @@ document
 .getElementById('currentPassword')
 .value;
 
+
 const next =
 document
 .getElementById('newPassword')
 .value;
+
 
 const confirmPassword =
 document
 .getElementById('confirmPassword')
 .value;
 
+
 const saved =
 localStorage.getItem(
 'lh_admin_password'
 ) ||
 'admin123';
+
 
 const msg =
 document
@@ -3769,6 +4284,7 @@ return;
 
 }
 
+
 if(next.length<6){
 
 msg.style.color='#9b251b';
@@ -3779,6 +4295,7 @@ msg.textContent=
 return;
 
 }
+
 
 if(next!==confirmPassword){
 
@@ -3791,10 +4308,12 @@ return;
 
 }
 
+
 localStorage.setItem(
 'lh_admin_password',
 next
 );
+
 
 msg.style.color='#2d6b39';
 
@@ -3804,7 +4323,9 @@ msg.textContent=
 }
 
 
-/* ================= ADD PRODUCT ================= */
+/* =========================================================
+   ADD PRODUCT
+========================================================= */
 
 function addProduct(){
 
@@ -3814,6 +4335,7 @@ document
 .value
 .trim();
 
+
 const price =
 Number(
 document
@@ -3821,16 +4343,19 @@ document
 .value
 );
 
+
 const file =
 document
 .getElementById('pImage')
 .files[0];
+
 
 const sizes =
 document
 .getElementById('pSizes')
 .value
 .trim();
+
 
 const category =
 document
@@ -3883,9 +4408,11 @@ document
 .getElementById('pName')
 .value='';
 
+
 document
 .getElementById('pPrice')
 .value='';
+
 
 document
 .getElementById('pImage')
@@ -3895,6 +4422,7 @@ document
 alert(
 'Jacket added successfully.'
 );
+
 
 showAdmin(
 'productsPanel'
@@ -3908,7 +4436,9 @@ reader.readAsDataURL(file);
 }
 
 
-/* ================= SAVE PRODUCTS ================= */
+/* =========================================================
+   SAVE PRODUCTS
+========================================================= */
 
 function saveProducts(){
 
@@ -3917,26 +4447,34 @@ localStorage.setItem(
 JSON.stringify(products)
 );
 
+
 renderProducts();
 
 }
 
 
-/* ================= ADMIN PRODUCTS ================= */
+/* =========================================================
+   ADMIN PRODUCT LIST
+========================================================= */
 
 function renderAdmin(){
 
-document.getElementById('adminList').innerHTML=
+document
+.getElementById('adminList')
+.innerHTML=
 
 products.map(p=>`
 
 <div class="admin-row">
 
+
 <div class="row-left">
+
 
 <img
 src="${p.image}"
 alt="">
+
 
 <div>
 
@@ -3957,6 +4495,7 @@ ${money(p.price)}
 
 <div
 style="display:flex;gap:8px">
+
 
 <button
 class="btn btn-outline"
@@ -3988,6 +4527,10 @@ Delete
 }
 
 
+/* =========================================================
+   EDIT PRODUCT
+========================================================= */
+
 let editingProductId=null;
 
 
@@ -3998,33 +4541,42 @@ products.find(
 x=>x.id===id
 );
 
+
 if(!p)return;
 
+
 editingProductId=id;
+
 
 document
 .getElementById('eName')
 .value=p.name;
 
+
 document
 .getElementById('ePrice')
 .value=p.price;
+
 
 document
 .getElementById('eCategory')
 .value=p.category;
 
+
 document
 .getElementById('eSizes')
 .value=p.sizes;
+
 
 document
 .getElementById('eImage')
 .value='';
 
+
 document
 .getElementById('editMsg')
 .textContent='';
+
 
 showAdmin(
 'editPanel'
@@ -4033,6 +4585,10 @@ showAdmin(
 }
 
 
+/* =========================================================
+   UPDATE PRODUCT
+========================================================= */
+
 function updateProduct(){
 
 const p =
@@ -4040,13 +4596,16 @@ products.find(
 x=>x.id===editingProductId
 );
 
+
 if(!p)return;
+
 
 const name =
 document
 .getElementById('eName')
 .value
 .trim();
+
 
 const price =
 Number(
@@ -4055,16 +4614,19 @@ document
 .value
 );
 
+
 const category =
 document
 .getElementById('eCategory')
 .value;
+
 
 const sizes =
 document
 .getElementById('eSizes')
 .value
 .trim();
+
 
 const file =
 document
@@ -4077,6 +4639,7 @@ if(!name || !price){
 document
 .getElementById('editMsg')
 .style.color='#9b251b';
+
 
 document
 .getElementById('editMsg')
@@ -4100,19 +4663,23 @@ p.sizes=
 sizes ||
 'S,M,L,XL,XXL';
 
+
 if(image){
 
 p.image=image;
 
 }
 
+
 saveProducts();
 
 renderAdmin();
 
+
 alert(
 'Jacket updated successfully.'
 );
+
 
 showAdmin(
 'productsPanel'
@@ -4126,8 +4693,10 @@ if(file){
 const reader =
 new FileReader();
 
+
 reader.onload=()=>
 finish(reader.result);
+
 
 reader.readAsDataURL(file);
 
@@ -4139,6 +4708,10 @@ finish(null);
 
 }
 
+
+/* =========================================================
+   DELETE PRODUCT
+========================================================= */
 
 function deleteProduct(id){
 
@@ -4153,7 +4726,9 @@ products.filter(
 p=>p.id!==id
 );
 
+
 saveProducts();
+
 
 renderAdmin();
 
@@ -4162,11 +4737,14 @@ renderAdmin();
 }
 
 
-/* ================= INITIALIZE ================= */
+/* =========================================================
+   INITIALIZE
+========================================================= */
 
 renderProducts();
 
 updateCart();
+
 
 </script>
 
