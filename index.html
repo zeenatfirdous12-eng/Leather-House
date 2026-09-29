@@ -2333,10 +2333,6 @@ const GOOGLE_SECRET_KEY =
 const GOOGLE_SHEET_URL =
 '';
 
-// Admin password is stored securely on Google Apps Script.
-// Do NOT store admin password in localStorage.
-const ADMIN_API_URL = GOOGLE_SCRIPT_URL;
-
 
 /* ================= PRODUCTS ================= */
 
@@ -2486,9 +2482,10 @@ list.length
 <div class="card-media">
 
 <a
-href="product.html?id=${encodeURIComponent(p.id)}"
+href="./product.html?id=${encodeURIComponent(p.id)}"
 class="product-image-link"
-aria-label="View ${escapeHtml(p.name)}">
+aria-label="View ${escapeHtml(p.name)}"
+onclick="window.location.href=this.href; return false;">
 
 <img
 src="${p.image}"
@@ -3496,79 +3493,40 @@ document
 }
 
 
-async function adminLogin(){
+function adminLogin(){
 
 const entered =
 document
 .getElementById('adminPass')
-.value
-.trim();
+.value;
 
-const errorBox =
-document.getElementById('loginError');
+const saved =
+localStorage.getItem(
+'lh_admin_password'
+) ||
+'admin123';
 
-if(!entered){
-errorBox.textContent='Please enter your password.';
-return;
-}
 
-const button =
-document.querySelector('#loginModal .btn');
+if(entered!==saved){
 
-button.disabled=true;
-button.textContent='CHECKING...';
-errorBox.textContent='';
-
-try{
-
-const response =
-await fetch(ADMIN_API_URL,{
-method:'POST',
-headers:{
-'Content-Type':'text/plain;charset=utf-8'
-},
-body:JSON.stringify({
-action:'admin_login',
-secret:GOOGLE_SECRET_KEY,
-password:entered
-})
-});
-
-const result =
-await response.json();
-
-if(!result.ok){
-
-errorBox.textContent =
-result.error ||
+document
+.getElementById('loginError')
+.textContent=
 'Incorrect password.';
 
 return;
 
 }
 
-// Remove any old device-local password.
-localStorage.removeItem('lh_admin_password');
-
-closeModal('loginModal');
+closeModal(
+'loginModal'
+);
 
 document
 .getElementById('adminModal')
 .classList.add('show');
 
 renderAdmin();
-
-}catch(error){
-
-errorBox.textContent =
-'Login service is unavailable. Please try again.';
-
-}finally{
-
-button.disabled=false;
-button.textContent='LOGIN';
-
-}
 
 }
 
@@ -3628,13 +3586,12 @@ list.innerHTML=
 
 /* ================= PASSWORD ================= */
 
-async function changePassword(){
+function changePassword(){
 
 const current =
 document
 .getElementById('currentPassword')
-.value
-.trim();
+.value;
 
 const next =
 document
@@ -3646,13 +3603,24 @@ document
 .getElementById('confirmPassword')
 .value;
 
-const msg =
-document.getElementById('passwordMsg');
+const saved =
+localStorage.getItem(
+'lh_admin_password'
+) ||
+'admin123';
 
-if(!current){
+const msg =
+document
+.getElementById('passwordMsg');
+
+
+if(current!==saved){
 
 msg.style.color='#9b251b';
-msg.textContent='Please enter your current password.';
+
+msg.textContent=
+'Current password is incorrect.';
+
 return;
 
 }
@@ -3660,7 +3628,10 @@ return;
 if(next.length<6){
 
 msg.style.color='#9b251b';
-msg.textContent='New password must be at least 6 characters.';
+
+msg.textContent=
+'New password must be at least 6 characters.';
+
 return;
 
 }
@@ -3668,69 +3639,23 @@ return;
 if(next!==confirmPassword){
 
 msg.style.color='#9b251b';
-msg.textContent='New passwords do not match.';
+
+msg.textContent=
+'New passwords do not match.';
+
 return;
 
 }
 
-const button =
-document.querySelector('#passwordPanel .btn');
-
-button.disabled=true;
-button.textContent='SAVING...';
-
-try{
-
-const response =
-await fetch(ADMIN_API_URL,{
-method:'POST',
-headers:{
-'Content-Type':'text/plain;charset=utf-8'
-},
-body:JSON.stringify({
-action:'change_admin_password',
-secret:GOOGLE_SECRET_KEY,
-currentPassword:current,
-newPassword:next
-})
-});
-
-const result =
-await response.json();
-
-if(!result.ok){
-
-msg.style.color='#9b251b';
-msg.textContent =
-result.error ||
-'Password could not be changed.';
-return;
-
-}
-
-// Remove old device-local password completely.
-localStorage.removeItem('lh_admin_password');
-
-document.getElementById('currentPassword').value='';
-document.getElementById('newPassword').value='';
-document.getElementById('confirmPassword').value='';
+localStorage.setItem(
+'lh_admin_password',
+next
+);
 
 msg.style.color='#2d6b39';
+
 msg.textContent=
-'Password changed successfully. The new password is now active on all devices.';
-
-}catch(error){
-
-msg.style.color='#9b251b';
-msg.textContent=
-'Password service is unavailable. Please try again.';
-
-}finally{
-
-button.disabled=false;
-button.textContent='SAVE NEW PASSWORD';
-
-}
+'Password changed successfully.';
 
 }
 
