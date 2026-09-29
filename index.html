@@ -2333,6 +2333,10 @@ const GOOGLE_SECRET_KEY =
 const GOOGLE_SHEET_URL =
 '';
 
+// Admin password is stored securely on Google Apps Script.
+// Do NOT store admin password in localStorage.
+const ADMIN_API_URL = GOOGLE_SCRIPT_URL;
+
 
 /* ================= PRODUCTS ================= */
 
@@ -3492,40 +3496,79 @@ document
 }
 
 
-function adminLogin(){
+async function adminLogin(){
 
 const entered =
 document
 .getElementById('adminPass')
-.value;
+.value
+.trim();
 
-const saved =
-localStorage.getItem(
-'lh_admin_password'
-) ||
-'admin123';
+const errorBox =
+document.getElementById('loginError');
 
+if(!entered){
+errorBox.textContent='Please enter your password.';
+return;
+}
 
-if(entered!==saved){
+const button =
+document.querySelector('#loginModal .btn');
 
-document
-.getElementById('loginError')
-.textContent=
+button.disabled=true;
+button.textContent='CHECKING...';
+errorBox.textContent='';
+
+try{
+
+const response =
+await fetch(ADMIN_API_URL,{
+method:'POST',
+headers:{
+'Content-Type':'text/plain;charset=utf-8'
+},
+body:JSON.stringify({
+action:'admin_login',
+secret:GOOGLE_SECRET_KEY,
+password:entered
+})
+});
+
+const result =
+await response.json();
+
+if(!result.ok){
+
+errorBox.textContent =
+result.error ||
 'Incorrect password.';
 
 return;
 
 }
 
-closeModal(
-'loginModal'
-);
+// Remove any old device-local password.
+localStorage.removeItem('lh_admin_password');
+
+closeModal('loginModal');
 
 document
 .getElementById('adminModal')
 .classList.add('show');
 
 renderAdmin();
+
+}catch(error){
+
+errorBox.textContent =
+'Login service is unavailable. Please try again.';
+
+}finally{
+
+button.disabled=false;
+button.textContent='LOGIN';
+
+}
 
 }
 
@@ -3585,12 +3628,13 @@ list.innerHTML=
 
 /* ================= PASSWORD ================= */
 
-function changePassword(){
+async function changePassword(){
 
 const current =
 document
 .getElementById('currentPassword')
-.value;
+.value
+.trim();
 
 const next =
 document
@@ -3602,24 +3646,13 @@ document
 .getElementById('confirmPassword')
 .value;
 
-const saved =
-localStorage.getItem(
-'lh_admin_password'
-) ||
-'admin123';
-
 const msg =
-document
-.getElementById('passwordMsg');
+document.getElementById('passwordMsg');
 
-
-if(current!==saved){
+if(!current){
 
 msg.style.color='#9b251b';
-
-msg.textContent=
-'Current password is incorrect.';
-
+msg.textContent='Please enter your current password.';
 return;
 
 }
@@ -3627,10 +3660,7 @@ return;
 if(next.length<6){
 
 msg.style.color='#9b251b';
-
-msg.textContent=
-'New password must be at least 6 characters.';
-
+msg.textContent='New password must be at least 6 characters.';
 return;
 
 }
@@ -3638,23 +3668,69 @@ return;
 if(next!==confirmPassword){
 
 msg.style.color='#9b251b';
-
-msg.textContent=
-'New passwords do not match.';
-
+msg.textContent='New passwords do not match.';
 return;
 
 }
 
-localStorage.setItem(
-'lh_admin_password',
-next
-);
+const button =
+document.querySelector('#passwordPanel .btn');
+
+button.disabled=true;
+button.textContent='SAVING...';
+
+try{
+
+const response =
+await fetch(ADMIN_API_URL,{
+method:'POST',
+headers:{
+'Content-Type':'text/plain;charset=utf-8'
+},
+body:JSON.stringify({
+action:'change_admin_password',
+secret:GOOGLE_SECRET_KEY,
+currentPassword:current,
+newPassword:next
+})
+});
+
+const result =
+await response.json();
+
+if(!result.ok){
+
+msg.style.color='#9b251b';
+msg.textContent =
+result.error ||
+'Password could not be changed.';
+return;
+
+}
+
+// Remove old device-local password completely.
+localStorage.removeItem('lh_admin_password');
+
+document.getElementById('currentPassword').value='';
+document.getElementById('newPassword').value='';
+document.getElementById('confirmPassword').value='';
 
 msg.style.color='#2d6b39';
-
 msg.textContent=
-'Password changed successfully.';
+'Password changed successfully. The new password is now active on all devices.';
+
+}catch(error){
+
+msg.style.color='#9b251b';
+msg.textContent=
+'Password service is unavailable. Please try again.';
+
+}finally{
+
+button.disabled=false;
+button.textContent='SAVE NEW PASSWORD';
+
+}
 
 }
 
