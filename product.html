@@ -41,7 +41,6 @@ h1,h2,h3,.brand{
 font-family:Georgia,'Times New Roman',serif
 }
 
-
 /* =========================
 HEADER
 ========================= */
@@ -86,7 +85,6 @@ letter-spacing:1px;
 text-transform:uppercase
 }
 
-
 /* =========================
 PAGE
 ========================= */
@@ -115,7 +113,6 @@ gap:55px;
 align-items:start
 }
 
-
 /* =========================
 IMAGE
 ========================= */
@@ -136,7 +133,6 @@ object-fit:cover;
 display:block;
 border-radius:3px
 }
-
 
 /* =========================
 INFO
@@ -232,7 +228,6 @@ color:var(--brown);
 border-color:var(--brown)
 }
 
-
 /* =========================
 INFO BOX
 ========================= */
@@ -265,7 +260,6 @@ color:var(--brown)
 color:var(--muted);
 text-align:right
 }
-
 
 /* =========================
 SIZE CHART
@@ -326,7 +320,6 @@ line-height:1.7;
 color:var(--muted)
 }
 
-
 /* =========================
 DESCRIPTION
 ========================= */
@@ -356,7 +349,6 @@ font-size:14px;
 line-height:1.8;
 color:var(--muted)
 }
-
 
 /* =========================
 CHECKOUT OVERLAY
@@ -485,6 +477,15 @@ min-height:90px;
 resize:vertical
 }
 
+/* =========================
+CITY COUNTRY ROW
+========================= */
+
+.form-row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px
+}
 
 /* =========================
 PAYMENT
@@ -537,7 +538,6 @@ font-size:12px;
 color:var(--muted);
 margin-top:4px
 }
-
 
 /* =========================
 SUMMARY
@@ -623,7 +623,6 @@ line-height:1.6;
 margin-top:12px
 }
 
-
 /* =========================
 SUCCESS
 ========================= */
@@ -679,7 +678,6 @@ cursor:pointer;
 font-weight:bold
 }
 
-
 /* =========================
 FOOTER
 ========================= */
@@ -695,7 +693,6 @@ footer p{
 color:#cdbdb2;
 font-size:13px
 }
-
 
 /* =========================
 MOBILE
@@ -753,6 +750,10 @@ padding:18px
 padding:18px
 }
 
+.form-row{
+grid-template-columns:1fr
+}
+
 }
 
 @media(max-width:500px){
@@ -796,7 +797,6 @@ height:75px
 
 }
 
-
 /* =========================
 LOADING
 ========================= */
@@ -822,9 +822,7 @@ display:flex
 
 </head>
 
-
 <body>
-
 
 <!-- =========================
 HEADER
@@ -848,7 +846,6 @@ PREMIUM LEATHER JACKETS
 
 </a>
 
-
 <div class="header-right">
 
 <a
@@ -863,13 +860,11 @@ href="index.html#shop">
 
 </header>
 
-
 <!-- =========================
 PRODUCT PAGE
 ========================= -->
 
 <main class="product-page">
-
 
 <div class="breadcrumb">
 
@@ -891,9 +886,7 @@ Product
 
 </div>
 
-
 <div class="product-layout">
-
 
 <!-- PRODUCT IMAGE -->
 
@@ -907,11 +900,9 @@ alt="Leather Jacket">
 
 </div>
 
-
 <!-- PRODUCT INFORMATION -->
 
 <div class="product-info">
-
 
 <span
 id="productTag"
@@ -921,11 +912,9 @@ Leather Jacket
 
 </span>
 
-
 <h1 id="productName">
 Leather Jacket
 </h1>
-
 
 <div
 id="productPrice"
@@ -934,7 +923,6 @@ class="product-price">
 Rs. 0
 
 </div>
-
 
 <p
 id="productDescription"
@@ -945,7 +933,6 @@ style, comfort and everyday wear.
 
 </p>
 
-
 <label
 class="option-label"
 for="productSize">
@@ -954,13 +941,11 @@ SELECT SIZE
 
 </label>
 
-
 <select
 id="productSize"
 class="size-select">
 
 </select>
-
 
 <div class="size-note">
 
@@ -968,7 +953,6 @@ Not sure about your size?
 Check our size chart below.
 
 </div>
-
 
 <div class="action-buttons">
 
@@ -981,7 +965,6 @@ ADD TO CART
 
 </button>
 
-
 <button
 class="btn btn-outline"
 type="button"
@@ -993,9 +976,7 @@ ORDER NOW
 
 </div>
 
-
 <div class="info-box">
-
 
 <div class="info-row">
 
@@ -1011,7 +992,6 @@ Rest of Pakistan — Rs. 600
 
 </div>
 
-
 <div class="info-row">
 
 <span>
@@ -1023,7 +1003,6 @@ Support
 </span>
 
 </div>
-
 
 <div class="info-row">
 
@@ -1042,7 +1021,6 @@ Secure website checkout
 </div>
 
 </div>
-
 
 <!-- =========================
 SIZE CHART
@@ -1065,7 +1043,6 @@ If you are between two sizes, choose according to
 your preferred fit.
 </p>
 
-
 <table class="size-table">
 
 <thead>
@@ -1081,7 +1058,6 @@ your preferred fit.
 </tr>
 
 </thead>
-
 
 <tbody>
 
@@ -1129,7 +1105,6 @@ your preferred fit.
 
 </table>
 
-
 <div class="measure-note">
 
 <strong>Tip:</strong>
@@ -1142,13 +1117,11 @@ consider going one size up.
 
 </section>
 
-
 <!-- =========================
 DETAILS
 ========================= -->
 
 <section class="details-section">
-
 
 <div class="detail-card">
 
@@ -1166,7 +1139,6 @@ with jeans, trousers and casual outfits.
 </p>
 
 </div>
-
 
 <div class="detail-card">
 
@@ -1200,7 +1172,6 @@ Order directly through the website
 
 </main>
 
-
 <!-- =========================
 CHECKOUT
 ========================= -->
@@ -1209,9 +1180,7 @@ CHECKOUT
 id="checkoutOverlay"
 class="checkout-overlay">
 
-
 <div class="checkout-box">
-
 
 <div class="checkout-header">
 
@@ -1229,22 +1198,18 @@ onclick="closeCheckout()">
 
 </div>
 
-
 <!-- CHECKOUT FORM -->
 
 <div
 id="checkoutContent"
 class="checkout-body">
 
-
 <div class="checkout-product">
-
 
 <img
 id="checkoutProductImage"
 src=""
 alt="Product">
-
 
 <div class="checkout-product-info">
 
@@ -1264,8 +1229,9 @@ Rs. 0
 
 </div>
 
-
-<!-- CUSTOMER -->
+<!-- =========================
+CUSTOMER INFORMATION
+========================= -->
 
 <div class="form-group">
 
@@ -1281,7 +1247,6 @@ autocomplete="name">
 
 </div>
 
-
 <div class="form-group">
 
 <label for="custPhone">
@@ -1296,6 +1261,72 @@ autocomplete="tel">
 
 </div>
 
+<!-- COUNTRY + CITY -->
+
+<div class="form-row">
+
+<div class="form-group">
+
+<label for="custCountry">
+COUNTRY *
+</label>
+
+<select
+id="custCountry">
+
+<option value="Pakistan" selected>
+Pakistan
+</option>
+
+<option value="Afghanistan">
+Afghanistan
+</option>
+
+<option value="Bangladesh">
+Bangladesh
+</option>
+
+<option value="United Arab Emirates">
+United Arab Emirates
+</option>
+
+<option value="Saudi Arabia">
+Saudi Arabia
+</option>
+
+<option value="United Kingdom">
+United Kingdom
+</option>
+
+<option value="United States">
+United States
+</option>
+
+<option value="Other">
+Other
+</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label for="custCity">
+CITY *
+</label>
+
+<input
+id="custCity"
+type="text"
+placeholder="Enter your city"
+autocomplete="address-level2">
+
+</div>
+
+</div>
+
+<!-- ADDRESS -->
 
 <div class="form-group">
 
@@ -1305,10 +1336,12 @@ DELIVERY ADDRESS *
 
 <textarea
 id="custAddress"
-placeholder="House / Street / Area / City"></textarea>
+placeholder="House / Street / Area / Complete delivery address"
+autocomplete="street-address"></textarea>
 
 </div>
 
+<!-- DELIVERY AREA -->
 
 <div class="form-group">
 
@@ -1330,6 +1363,7 @@ Rest of Pakistan — Rs. 600
 
 </div>
 
+<!-- NOTES -->
 
 <div class="form-group">
 
@@ -1343,13 +1377,11 @@ placeholder="Optional notes"></textarea>
 
 </div>
 
-
 <!-- PAYMENT -->
 
 <div class="payment-title">
 SELECT PAYMENT METHOD
 </div>
-
 
 <div
 class="payment-option selected"
@@ -1380,7 +1412,6 @@ Pay full amount when your order is delivered. 0% discount.
 
 </div>
 
-
 <div
 class="payment-option"
 id="paymentBoxHalf">
@@ -1409,7 +1440,6 @@ Pay 50% advance and remaining 50% on delivery. 0% discount.
 
 </div>
 
-
 <div
 class="payment-option"
 id="paymentBoxFull">
@@ -1437,7 +1467,6 @@ Pay full amount in advance and receive 2% discount.
 </label>
 
 </div>
-
 
 <!-- BANK -->
 
@@ -1471,7 +1500,6 @@ payment proof/reference ready.
 
 </div>
 
-
 <!-- SUMMARY -->
 
 <div class="order-summary">
@@ -1488,7 +1516,6 @@ Rs. 0
 
 </div>
 
-
 <div class="summary-row">
 
 <span>
@@ -1500,7 +1527,6 @@ Rs. 300
 </strong>
 
 </div>
-
 
 <div class="summary-row discount">
 
@@ -1514,7 +1540,6 @@ Discount
 
 </div>
 
-
 <div class="summary-row total">
 
 <span>
@@ -1527,7 +1552,6 @@ Rs. 0
 
 </div>
 
-
 <div class="summary-row advance">
 
 <span>
@@ -1539,7 +1563,6 @@ Rs. 0
 </strong>
 
 </div>
-
 
 <div class="summary-row">
 
@@ -1555,7 +1578,6 @@ Rs. 0
 
 </div>
 
-
 <button
 id="placeOrderBtn"
 class="place-order-btn"
@@ -1566,7 +1588,6 @@ PLACE ORDER
 
 </button>
 
-
 <div class="checkout-note">
 
 By placing your order, you confirm that the
@@ -1576,7 +1597,6 @@ information provided is correct.
 
 </div>
 
-
 <!-- =========================
 SUCCESS
 ========================= -->
@@ -1585,22 +1605,18 @@ SUCCESS
 id="successContent"
 class="success-box">
 
-
 <div class="success-icon">
 ✓
 </div>
-
 
 <h2>
 Order Received
 </h2>
 
-
 <p>
 Thank you for ordering from The Leather House.
 Your order has been successfully submitted.
 </p>
-
 
 <div
 class="order-number"
@@ -1610,12 +1626,10 @@ Order ID
 
 </div>
 
-
 <p>
 Our team will contact you on your provided phone
 number for order confirmation.
 </p>
-
 
 <button
 class="success-close"
@@ -1627,11 +1641,9 @@ DONE
 
 </div>
 
-
 </div>
 
 </div>
-
 
 <!-- LOADING -->
 
@@ -1642,7 +1654,6 @@ class="loading">
 Submitting your order...
 
 </div>
-
 
 <footer>
 
@@ -1655,7 +1666,6 @@ Premium Leather Jackets
 </p>
 
 </footer>
-
 
 <script>
 
@@ -1707,7 +1717,6 @@ sizes:'S,M,L,XL'
 
 ];
 
-
 const products =
 JSON.parse(
 localStorage.getItem('lh_products') || 'null'
@@ -1720,7 +1729,6 @@ GOOGLE APPS SCRIPT
 
 const GOOGLE_SCRIPT_URL =
 'https://script.google.com/macros/s/AKfycbwtsaYU_YJ9aB0leVLBBeP18zTO01pTjdprzPaat1Gd2eV0DJ0yNT6pBjEDZKMIavINA/exec';
-
 
 const ORDER_SECRET =
 'TLH_2026_Order_8472';
@@ -1737,7 +1745,6 @@ window.location.search
 
 const productId =
 Number(params.get('id'));
-
 
 const product =
 products.find(
@@ -1804,30 +1811,25 @@ document.title =
 product.name +
 ' | The Leather House';
 
-
 document
 .getElementById('productImage')
 .src =
 product.image;
-
 
 document
 .getElementById('productImage')
 .alt =
 product.name;
 
-
 document
 .getElementById('productName')
 .textContent =
 product.name;
 
-
 document
 .getElementById('breadcrumbName')
 .textContent =
 product.name;
-
 
 document
 .getElementById('productPrice')
@@ -1836,25 +1838,21 @@ document
 Number(product.price)
 .toLocaleString('en-PK');
 
-
 document
 .getElementById('productTag')
 .textContent =
 product.tag ||
 'Leather Jacket';
 
-
 const description =
 'Premium ' +
 product.name +
 ' designed for timeless style, comfort and everyday wear.';
 
-
 document
 .getElementById('productDescription')
 .textContent =
 description;
-
 
 document
 .getElementById('detailDescription')
@@ -1866,7 +1864,6 @@ description;
 
 const sizeSelect =
 document.getElementById('productSize');
-
 
 sizeSelect.innerHTML =
 String(
@@ -1917,18 +1914,15 @@ if(!product){
 return;
 }
 
-
 const size =
 document
 .getElementById('productSize')
 .value;
 
-
 let cart =
 JSON.parse(
 localStorage.getItem('lh_cart') || '[]'
 );
-
 
 cart.push({
 
@@ -1938,12 +1932,10 @@ size:size
 
 });
 
-
 localStorage.setItem(
 'lh_cart',
 JSON.stringify(cart)
 );
-
 
 alert(
 product.name +
@@ -1965,36 +1957,25 @@ if(!product){
 return;
 }
 
-
 const size =
 document
 .getElementById('productSize')
 .value;
-
-
-/*
-IMPORTANT:
-Ab Home par redirect nahi hoga.
-Checkout isi page par open hoga.
-*/
 
 document
 .getElementById('checkoutProductImage')
 .src =
 product.image;
 
-
 document
 .getElementById('checkoutProductName')
 .textContent =
 product.name;
 
-
 document
 .getElementById('checkoutProductSize')
 .textContent =
 'Size: ' + size;
-
 
 document
 .getElementById('checkoutProductPrice')
@@ -2003,14 +1984,11 @@ document
 Number(product.price)
 .toLocaleString('en-PK');
 
-
 document
 .getElementById('checkoutOverlay')
 .classList.add('show');
 
-
 document.body.style.overflow='hidden';
-
 
 calculatePayment();
 
@@ -2060,39 +2038,28 @@ if(!product){
 return;
 }
 
-
 const method =
 getPaymentMethod();
-
 
 const deliveryArea =
 document.getElementById('deliveryArea')
 .value;
 
-
 const subtotal =
 Number(product.price);
-
 
 const delivery =
 deliveryArea === 'karachi'
 ? 300
 : 600;
 
-
 let discount=0;
-
 let total=0;
-
 let advanceAmount=0;
-
 let codAmount=0;
 
 
-/*
-100% COD
-0% discount
-*/
+/* 100% COD */
 
 if(method === 'cod'){
 
@@ -2109,10 +2076,7 @@ codAmount=total;
 }
 
 
-/*
-50% Advance + 50% COD
-0% discount
-*/
+/* 50% Advance + 50% COD */
 
 else if(method === 'half'){
 
@@ -2131,10 +2095,7 @@ total - advanceAmount;
 }
 
 
-/*
-100% Advance
-2% discount
-*/
+/* 100% Advance */
 
 else if(method === 'full'){
 
@@ -2160,12 +2121,10 @@ document
 .textContent =
 formatPKR(subtotal);
 
-
 document
 .getElementById('summaryDelivery')
 .textContent =
 formatPKR(delivery);
-
 
 document
 .getElementById('summaryDiscount')
@@ -2173,18 +2132,15 @@ document
 '-' +
 formatPKR(discount);
 
-
 document
 .getElementById('summaryTotal')
 .textContent =
 formatPKR(total);
 
-
 document
 .getElementById('summaryAdvance')
 .textContent =
 formatPKR(advanceAmount);
-
 
 document
 .getElementById('summaryCOD')
@@ -2196,7 +2152,6 @@ formatPKR(codAmount);
 
 const bankBox =
 document.getElementById('bankBox');
-
 
 if(method === 'half' || method === 'full'){
 
@@ -2218,14 +2173,12 @@ document
 method === 'cod'
 );
 
-
 document
 .getElementById('paymentBoxHalf')
 .classList.toggle(
 'selected',
 method === 'half'
 );
-
 
 document
 .getElementById('paymentBoxFull')
@@ -2290,13 +2243,11 @@ now.getFullYear().toString() +
 String(now.getMonth()+1).padStart(2,'0') +
 String(now.getDate()).padStart(2,'0');
 
-
 const random =
 Math.floor(
 1000 +
 Math.random()*9000
 );
-
 
 return 'TLH-' +
 date +
@@ -2316,13 +2267,11 @@ if(!product){
 return;
 }
 
-
 const name =
 document
 .getElementById('custName')
 .value
 .trim();
-
 
 const phone =
 document
@@ -2330,6 +2279,17 @@ document
 .value
 .trim();
 
+const country =
+document
+.getElementById('custCountry')
+.value
+.trim();
+
+const city =
+document
+.getElementById('custCity')
+.value
+.trim();
 
 const address =
 document
@@ -2337,12 +2297,10 @@ document
 .value
 .trim();
 
-
 const deliveryArea =
 document
 .getElementById('deliveryArea')
 .value;
-
 
 const notes =
 document
@@ -2350,18 +2308,18 @@ document
 .value
 .trim();
 
-
 const size =
 document
 .getElementById('productSize')
 .value;
 
-
 const paymentMethod =
 getPaymentMethod();
 
 
-/* VALIDATION */
+/* =====================================================
+VALIDATION
+===================================================== */
 
 if(!name){
 
@@ -2404,6 +2362,32 @@ return;
 }
 
 
+if(!country){
+
+alert('Please select your country.');
+
+document
+.getElementById('custCountry')
+.focus();
+
+return;
+
+}
+
+
+if(!city){
+
+alert('Please enter your city.');
+
+document
+.getElementById('custCity')
+.focus();
+
+return;
+
+}
+
+
 if(!address){
 
 alert('Please enter your delivery address.');
@@ -2437,19 +2421,14 @@ CALCULATE FINAL TOTALS
 const subtotal =
 Number(product.price);
 
-
 const delivery =
 deliveryArea === 'karachi'
 ? 300
 : 600;
 
-
 let discount=0;
-
 let total=0;
-
 let advanceAmount=0;
-
 let codAmount=0;
 
 
@@ -2467,7 +2446,6 @@ codAmount=total;
 
 }
 
-
 else if(paymentMethod === 'half'){
 
 discount=0;
@@ -2483,7 +2461,6 @@ codAmount =
 total - advanceAmount;
 
 }
-
 
 else if(paymentMethod === 'full'){
 
@@ -2507,7 +2484,6 @@ PAYMENT STATUS
 ===================================================== */
 
 let paymentStatus='Pending';
-
 
 if(paymentMethod === 'cod'){
 
@@ -2551,6 +2527,10 @@ date:new Date().toISOString(),
 customerName:name,
 
 customerPhone:phone,
+
+customerCountry:country,
+
+customerCity:city,
 
 customerAddress:address,
 
@@ -2613,11 +2593,9 @@ BUTTON / LOADING
 const button =
 document.getElementById('placeOrderBtn');
 
-
 button.disabled=true;
 
 button.textContent='SUBMITTING ORDER...';
-
 
 document
 .getElementById('loading')
@@ -2625,7 +2603,6 @@ document
 
 
 try{
-
 
 /*
 Send to Google Apps Script
@@ -2649,12 +2626,6 @@ JSON.stringify(orderData)
 });
 
 
-/*
-Try to read response.
-Some Apps Script deployments may return
-a non-JSON response, so this is optional.
-*/
-
 let result=null;
 
 try{
@@ -2668,11 +2639,6 @@ result=null;
 
 }
 
-
-/*
-If HTTP response is not successful,
-show error.
-*/
 
 if(!response.ok){
 
@@ -2691,21 +2657,17 @@ document
 .getElementById('loading')
 .classList.remove('show');
 
-
 button.disabled=false;
 
 button.textContent='PLACE ORDER';
-
 
 document
 .getElementById('checkoutContent')
 .style.display='none';
 
-
 document
 .getElementById('successContent')
 .style.display='block';
-
 
 document
 .getElementById('successOrderId')
@@ -2731,16 +2693,13 @@ console.error(
 error
 );
 
-
 document
 .getElementById('loading')
 .classList.remove('show');
 
-
 button.disabled=false;
 
 button.textContent='PLACE ORDER';
-
 
 alert(
 'Order submit nahi ho saka. Please internet connection check karein aur dobara try karein.'
@@ -2761,54 +2720,51 @@ document
 .getElementById('successContent')
 .style.display='none';
 
-
 document
 .getElementById('checkoutContent')
 .style.display='block';
-
 
 document
 .getElementById('checkoutOverlay')
 .classList.remove('show');
 
-
 document.body.style.overflow='';
 
 
-/*
-Reset form
-*/
+/* Reset form */
 
 document
 .getElementById('custName')
 .value='';
 
-
 document
 .getElementById('custPhone')
 .value='';
 
+document
+.getElementById('custCountry')
+.value='Pakistan';
+
+document
+.getElementById('custCity')
+.value='';
 
 document
 .getElementById('custAddress')
 .value='';
-
 
 document
 .getElementById('custNotes')
 .value='';
 
 
-/*
-Reset payment to COD
-*/
+/* Reset payment to COD */
 
 document
 .querySelector(
 'input[name="paymentMethod"][value="cod"]'
 )
 .checked=true;
-
 
 calculatePayment();
 
