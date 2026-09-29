@@ -338,10 +338,10 @@ position:relative;
 overflow:hidden;
 }
 
-.card-media a{
+.product-image-link{
 display:block;
-cursor:pointer;
 position:relative;
+cursor:pointer;
 text-decoration:none;
 }
 
@@ -354,50 +354,44 @@ background:#ddd;
 transition:.25s;
 }
 
-.card-media a:hover img{
-transform:scale(1.02);
-}
+/* ================= VIEW PRODUCT - ALWAYS VISIBLE ================= */
 
-/* CLEAR PRODUCT VIEW BUTTON */
 .product-view-overlay{
 position:absolute;
 left:50%;
 bottom:18px;
-transform:translate(-50%,0);
-background:rgba(42,22,13,.94);
+transform:translateX(-50%);
+background:rgba(42,22,13,.96);
 color:#fff;
-padding:11px 17px;
-border:1px solid rgba(255,255,255,.25);
-border-radius:3px;
+padding:12px 20px;
+border:1px solid rgba(255,255,255,.45);
+border-radius:4px;
 font-size:11px;
 font-weight:bold;
-letter-spacing:1.3px;
+letter-spacing:1.5px;
 text-transform:uppercase;
 white-space:nowrap;
-opacity:0;
-transition:opacity .25s, transform .25s, background .25s;
+opacity:1;
+z-index:5;
 pointer-events:none;
-box-shadow:0 5px 18px #0004;
+box-shadow:0 5px 18px rgba(0,0,0,.4);
+transition:.25s;
 }
 
-.card-media a:hover .product-view-overlay{
-opacity:1;
-transform:translate(-50%,-3px);
+.product-image-link:hover .product-view-overlay{
+background:var(--tobacco);
+transform:translate(-50%,-4px);
 }
 
-.card-media a:focus-visible .product-view-overlay{
-opacity:1;
+.product-image-link:hover img{
+transform:scale(1.03);
 }
 
-@media(max-width:650px){
-.product-view-overlay{
-opacity:1;
-bottom:10px;
-font-size:9px;
-padding:9px 12px;
-letter-spacing:1px;
+.product-image-link:focus-visible{
+outline:3px solid var(--gold);
+outline-offset:-3px;
 }
-}
+
 .tag{
 position:absolute;
 left:12px;
@@ -409,6 +403,7 @@ font-size:10px;
 letter-spacing:1px;
 text-transform:uppercase;
 pointer-events:none;
+z-index:6;
 }
 
 .card-body{
@@ -963,6 +958,16 @@ gap:12px;
 
 .card img{
 height:260px;
+}
+
+/* MOBILE VIEW PRODUCT ALWAYS VISIBLE */
+
+.product-view-overlay{
+left:50%;
+bottom:10px;
+padding:9px 12px;
+font-size:9px;
+letter-spacing:1px;
 }
 
 .section{
@@ -1626,8 +1631,6 @@ will appear when advance payment is selected.
 </div>
 
 
-<!-- CUSTOMER DETAILS -->
-
 <h3>
 Customer Details
 </h3>
@@ -1690,8 +1693,6 @@ placeholder="Any size or delivery note">
 
 </div>
 
-
-<!-- PAYMENT -->
 
 <div class="payment-title">
 Select Payment Method
@@ -1766,8 +1767,6 @@ Pay the full amount in advance and receive 2% discount.
 </div>
 
 
-<!-- BANK DETAILS -->
-
 <div
 class="bank-box"
 id="bankBox">
@@ -1830,8 +1829,6 @@ transaction/reference number ready.
 
 </div>
 
-
-<!-- PAYMENT SUMMARY -->
 
 <div
 class="payment-summary"
@@ -2486,13 +2483,14 @@ href="./product.html?id=${encodeURIComponent(p.id)}"
 class="product-image-link"
 aria-label="View ${escapeHtml(p.name)}"
 target="_self">
-<span class="product-view-overlay">
-VIEW PRODUCT →
-</span>
 
 <img
 src="${p.image}"
 alt="${escapeHtml(p.name)}">
+
+<span class="product-view-overlay">
+VIEW PRODUCT →
+</span>
 
 </a>
 
@@ -2857,8 +2855,6 @@ document
 }
 
 
-/* BANK DETAILS */
-
 if(
 method==='half' ||
 method==='full'
@@ -2908,11 +2904,6 @@ let advance=0;
 let cod=originalTotal;
 
 
-/*
-100% COD
-0% discount
-*/
-
 if(selectedPayment==='cod'){
 
 discount=0;
@@ -2925,11 +2916,6 @@ cod=originalTotal;
 
 }
 
-
-/*
-50% ADVANCE + 50% COD
-0% discount
-*/
 
 if(selectedPayment==='half'){
 
@@ -2945,11 +2931,6 @@ originalTotal-advance;
 
 }
 
-
-/*
-100% ADVANCE
-2% discount
-*/
 
 if(selectedPayment==='full'){
 
@@ -3198,8 +3179,6 @@ return;
 }
 
 
-/* PAYMENT */
-
 const payment =
 calculatePayment();
 
@@ -3232,8 +3211,6 @@ paymentMethod=
 }
 
 
-/* ITEMS */
-
 const items =
 
 cart.map(x=>
@@ -3244,8 +3221,6 @@ x.size+
 money(x.price)
 ).join('\n');
 
-
-/* PAYLOAD */
 
 const payload={
 
@@ -3294,8 +3269,6 @@ notes:notes
 };
 
 
-/* BUTTON */
-
 button.disabled=true;
 
 button.classList.add('loading');
@@ -3312,7 +3285,6 @@ message.innerHTML=
 
 
 try{
-
 
 const response =
 await fetch(
@@ -3362,8 +3334,6 @@ data.error ||
 }
 
 
-/* CLEAR */
-
 document
 .getElementById('custName')
 .value='';
@@ -3390,8 +3360,6 @@ closeModal(
 'checkoutModal'
 );
 
-
-/* SUCCESS */
 
 document
 .getElementById('successOrderId')
