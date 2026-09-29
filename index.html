@@ -3,14 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>The Leather House | Premium Leather Jackets</title>
-
-<meta name="description"
-content="The Leather House — premium leather jackets for men and women.">
+<meta name="description" content="The Leather House — premium leather jackets for men and women.">
 
 <style>
-
 :root{
 --espresso:#2a160d;
 --brown:#4b2413;
@@ -47,7 +43,10 @@ button,input,select,textarea{
 font:inherit
 }
 
-/* HEADER */
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 header{
 position:sticky;
@@ -128,7 +127,10 @@ padding:3px 6px;
 color:#fff
 }
 
-/* HERO */
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
 min-height:650px;
@@ -136,7 +138,12 @@ padding:100px 7%;
 display:flex;
 align-items:center;
 background:
-linear-gradient(90deg,#1e100bd9 0%,#32180fbb 44%,#32180f20 75%),
+linear-gradient(
+90deg,
+#1e100bd9 0%,
+#32180fbb 44%,
+#32180f20 75%
+),
 url('https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=2000&q=90')
 center/cover;
 color:#fff
@@ -201,7 +208,10 @@ color:var(--brown);
 border-color:var(--brown)
 }
 
-/* SECTION */
+
+/* =========================================================
+   SECTIONS
+========================================================= */
 
 .section{
 padding:78px 5%
@@ -228,7 +238,10 @@ line-height:1.7;
 margin:0
 }
 
-/* CATEGORY */
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
 
 .categories{
 display:grid;
@@ -249,7 +262,11 @@ background-position:center
 content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(90deg,#25130ddd,#25130d22)
+background:linear-gradient(
+90deg,
+#25130ddd,
+#25130d22
+)
 }
 
 .cat-content{
@@ -270,7 +287,10 @@ margin:0 0 18px;
 color:#f3e8df
 }
 
-/* FILTER */
+
+/* =========================================================
+   FILTERS
+========================================================= */
 
 .filters{
 display:flex;
@@ -296,7 +316,10 @@ color:#fff;
 border-color:var(--brown)
 }
 
-/* PRODUCTS */
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
 
 .products{
 display:grid;
@@ -319,34 +342,25 @@ box-shadow:0 12px 28px #3b1b0c18
 }
 
 .card-media{
-position:relative;
+position:relative
+}
+
+.card-media a{
+display:block;
 cursor:pointer
 }
 
-.card-media img{
+.card img{
 display:block;
 width:100%;
 height:350px;
 object-fit:cover;
-background:#ddd
+background:#ddd;
+transition:.25s
 }
 
-.card-media:after{
-content:"VIEW DETAILS";
-position:absolute;
-inset:auto 0 0 0;
-background:#2a160dd9;
-color:#fff;
-text-align:center;
-padding:10px;
-font-size:10px;
-letter-spacing:2px;
-opacity:0;
-transition:.2s
-}
-
-.card-media:hover:after{
-opacity:1
+.card-media a:hover img{
+transform:scale(1.02)
 }
 
 .tag{
@@ -359,7 +373,7 @@ padding:6px 9px;
 font-size:10px;
 letter-spacing:1px;
 text-transform:uppercase;
-z-index:2
+pointer-events:none
 }
 
 .card-body{
@@ -411,7 +425,10 @@ padding:11px 6px;
 font-size:11px
 }
 
-/* STORY */
+
+/* =========================================================
+   STORY
+========================================================= */
 
 .story{
 display:grid;
@@ -448,7 +465,10 @@ margin-top:28px;
 color:var(--brown)
 }
 
-/* FEATURES */
+
+/* =========================================================
+   FEATURES
+========================================================= */
 
 .features{
 display:grid;
@@ -479,7 +499,10 @@ font-size:13px;
 color:var(--muted)
 }
 
-/* CTA */
+
+/* =========================================================
+   CTA
+========================================================= */
 
 .cta{
 margin:70px 5%;
@@ -502,7 +525,10 @@ margin:8px 0
 color:#eadbd0
 }
 
-/* FOOTER */
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
 background:#29140b;
@@ -549,7 +575,10 @@ cursor:pointer;
 color:#fff
 }
 
-/* MODAL */
+
+/* =========================================================
+   MODALS
+========================================================= */
 
 .modal{
 display:none;
@@ -585,6 +614,11 @@ cursor:pointer;
 color:var(--muted)
 }
 
+
+/* =========================================================
+   CART
+========================================================= */
+
 .cart-item{
 display:flex;
 justify-content:space-between;
@@ -600,6 +634,11 @@ font-weight:bold;
 line-height:1.8;
 margin:20px 0
 }
+
+
+/* =========================================================
+   FORMS
+========================================================= */
 
 .form-grid{
 display:grid;
@@ -628,6 +667,11 @@ border-radius:4px;
 background:#fff
 }
 
+
+/* =========================================================
+   NOTICES
+========================================================= */
+
 .notice{
 background:#f0e3d6;
 padding:12px;
@@ -646,11 +690,20 @@ background:#f5dfdc;
 color:#81271e
 }
 
+
+/* =========================================================
+   ADMIN
+========================================================= */
+
 .admin-tabs{
 display:flex;
 gap:8px;
 flex-wrap:wrap;
 margin-bottom:20px
+}
+
+.admin{
+display:block
 }
 
 .admin-panel{
@@ -699,7 +752,10 @@ opacity:.6;
 pointer-events:none
 }
 
-/* RESPONSIVE */
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media(max-width:1000px){
 
@@ -719,11 +775,12 @@ grid-template-columns:repeat(2,1fr)
 grid-template-columns:1fr 1fr
 }
 
-.card-media img{
+.card img{
 height:330px
 }
 
 }
+
 
 @media(max-width:650px){
 
@@ -763,7 +820,7 @@ grid-template-columns:1fr 1fr;
 gap:12px
 }
 
-.card-media img{
+.card img{
 height:260px
 }
 
@@ -810,11 +867,16 @@ flex-direction:column
 }
 
 }
-
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
 <header>
 
@@ -832,14 +894,27 @@ PREMIUM LEATHER JACKETS
 
 </a>
 
+
 <nav>
 
-<a href="#home">Home</a>
-<a href="#shop">Jackets</a>
-<a href="#about">Our Story</a>
-<a href="#contact">Contact</a>
+<a href="#home">
+Home
+</a>
+
+<a href="#shop">
+Jackets
+</a>
+
+<a href="#about">
+Our Story
+</a>
+
+<a href="#contact">
+Contact
+</a>
 
 </nav>
+
 
 <div class="header-actions">
 
@@ -852,6 +927,7 @@ onclick="openAdminLogin();return false">
 
 </a>
 
+
 <span
 class="cart"
 onclick="openCart()">
@@ -861,9 +937,7 @@ onclick="openCart()">
 <i
 class="badge"
 id="cartCount">
-
 0
-
 </i>
 
 </span>
@@ -873,7 +947,14 @@ id="cartCount">
 </header>
 
 
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
 <main>
+
+
+<!-- HERO -->
 
 <section
 class="hero"
@@ -905,6 +986,7 @@ SHOP JACKETS →
 
 </a>
 
+
 <a
 class="btn btn-light"
 href="#about">
@@ -919,6 +1001,8 @@ OUR STORY
 
 </section>
 
+
+<!-- CATEGORIES -->
 
 <section class="section">
 
@@ -940,6 +1024,7 @@ Discover carefully selected leather jackets for men and women.
 
 
 <div class="categories">
+
 
 <div
 class="category"
@@ -1001,6 +1086,8 @@ SHOP WOMEN →
 </section>
 
 
+<!-- SHOP -->
+
 <section
 class="section"
 id="shop">
@@ -1033,6 +1120,7 @@ All
 
 </button>
 
+
 <button
 class="filter"
 data-filter="men"
@@ -1041,6 +1129,7 @@ onclick="setFilter('men')">
 Men
 
 </button>
+
 
 <button
 class="filter"
@@ -1062,6 +1151,8 @@ id="productGrid">
 </section>
 
 
+<!-- STORY -->
+
 <section
 class="story"
 id="about">
@@ -1069,6 +1160,7 @@ id="about">
 <img
 src="https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?auto=format&fit=crop&w=1200&q=85"
 alt="Leather jacket collection">
+
 
 <div class="story-copy">
 
@@ -1105,7 +1197,10 @@ The Leather House
 </section>
 
 
+<!-- FEATURES -->
+
 <div class="features">
+
 
 <div class="feature">
 
@@ -1135,7 +1230,7 @@ Delivery Charges
 </b>
 
 <span>
-Karachi Rs. 300 | Pakistan Rs. 600
+Karachi Rs. 300 &nbsp;|&nbsp; Pakistan Rs. 600
 </span>
 
 </div>
@@ -1157,8 +1252,27 @@ WhatsApp Support
 
 </div>
 
+
+<div class="feature">
+
+<div class="feature-icon">
+✓
 </div>
 
+<b>
+Easy Ordering
+</b>
+
+<span>
+Order directly from our website
+</span>
+
+</div>
+
+</div>
+
+
+<!-- CTA -->
 
 <section class="cta">
 
@@ -1184,12 +1298,18 @@ EXPLORE JACKETS →
 
 </section>
 
+
 </main>
 
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer id="contact">
 
 <div class="footer-grid">
+
 
 <div>
 
@@ -1215,9 +1335,17 @@ black and classic leather.
 Quick Links
 </h3>
 
-<a href="#home">Home</a>
-<a href="#shop">Jackets</a>
-<a href="#about">Our Story</a>
+<a href="#home">
+Home
+</a>
+
+<a href="#shop">
+Jackets
+</a>
+
+<a href="#about">
+Our Story
+</a>
 
 </div>
 
@@ -1228,9 +1356,17 @@ Quick Links
 Customer Care
 </h3>
 
-<a href="#">Size Guide</a>
-<a href="#">Shipping Policy</a>
-<a href="#">Exchange Policy</a>
+<a href="#">
+Size Guide
+</a>
+
+<a href="#">
+Shipping Policy
+</a>
+
+<a href="#">
+Exchange Policy
+</a>
 
 </div>
 
@@ -1280,7 +1416,9 @@ Admin
 </footer>
 
 
-<!-- CART -->
+<!-- =========================================================
+     CART MODAL
+========================================================= -->
 
 <div
 class="modal"
@@ -1301,6 +1439,7 @@ Your Cart
 </h2>
 
 <div id="cartItems"></div>
+
 
 <div
 class="field"
@@ -1326,10 +1465,12 @@ Rest of Pakistan — Rs. 600
 
 </div>
 
+
 <div
 class="cart-total"
 id="cartTotal">
 </div>
+
 
 <button
 class="btn"
@@ -1345,7 +1486,9 @@ PROCEED TO ORDER →
 </div>
 
 
-<!-- CHECKOUT -->
+<!-- =========================================================
+     CHECKOUT MODAL
+========================================================= -->
 
 <div
 class="modal"
@@ -1372,7 +1515,9 @@ The Leather House. You do not need to log in to WhatsApp.
 
 </div>
 
+
 <div class="form-grid">
+
 
 <div class="field">
 
@@ -1411,8 +1556,7 @@ Delivery Address
 <textarea
 id="custAddress"
 rows="3"
-autocomplete="street-address">
-</textarea>
+autocomplete="street-address"></textarea>
 
 </div>
 
@@ -1440,17 +1584,21 @@ PLACE ORDER →
 
 </button>
 
+
 <div
 id="orderMessage"
 style="margin-top:15px">
-</div>
 
 </div>
 
 </div>
 
+</div>
 
-<!-- SUCCESS -->
+
+<!-- =========================================================
+     SUCCESS MODAL
+========================================================= -->
 
 <div
 class="modal"
@@ -1481,6 +1629,7 @@ Thank you for ordering from The Leather House.
 </p>
 
 <div
+class="order-number"
 id="successOrderId"
 style="font-size:28px;font-family:Georgia,serif;color:var(--tobacco)">
 </div>
@@ -1507,7 +1656,9 @@ CONTINUE SHOPPING
 </div>
 
 
-<!-- ADMIN LOGIN -->
+<!-- =========================================================
+     ADMIN LOGIN
+========================================================= -->
 
 <div
 class="modal"
@@ -1565,7 +1716,9 @@ style="color:#9b251b">
 </div>
 
 
-<!-- ADMIN -->
+<!-- =========================================================
+     ADMIN PANEL
+========================================================= -->
 
 <div
 class="modal"
@@ -1581,6 +1734,8 @@ onclick="closeModal('adminModal')">
 
 </span>
 
+<div class="admin">
+
 <h2>
 The Leather House — Admin Panel
 </h2>
@@ -1588,9 +1743,10 @@ The Leather House — Admin Panel
 <div class="notice">
 
 Customers cannot see this panel.
-Add jackets, prices, sizes and pictures here.
+Add jackets, prices, sizes and delivery charges here.
 
 </div>
+
 
 <div class="admin-tabs">
 
@@ -1602,6 +1758,7 @@ onclick="showAdmin('addPanel')">
 
 </button>
 
+
 <button
 class="btn btn-outline"
 onclick="showAdmin('productsPanel')">
@@ -1610,6 +1767,7 @@ Manage Jackets
 
 </button>
 
+
 <button
 class="btn btn-outline"
 onclick="loadOrders()">
@@ -1617,6 +1775,7 @@ onclick="loadOrders()">
 Orders
 
 </button>
+
 
 <button
 class="btn btn-outline"
@@ -1629,11 +1788,14 @@ Change Password
 </div>
 
 
+<!-- ADD PANEL -->
+
 <div
 id="addPanel"
 class="admin-panel show">
 
 <div class="form-grid">
+
 
 <div class="field">
 
@@ -1646,6 +1808,7 @@ id="pName"
 placeholder="Classic Brown Jacket">
 
 </div>
+
 
 <div class="field">
 
@@ -1664,6 +1827,7 @@ placeholder="14999">
 
 
 <div class="form-grid">
+
 
 <div class="field">
 
@@ -1715,6 +1879,20 @@ accept="image/*">
 </div>
 
 
+<div class="field">
+
+<label>
+Delivery Charges
+</label>
+
+<input
+id="deliveryCharge"
+value="Karachi Rs. 300 | Pakistan Rs. 600"
+readonly>
+
+</div>
+
+
 <button
 class="btn"
 onclick="addProduct()">
@@ -1725,6 +1903,8 @@ SAVE JACKET
 
 </div>
 
+
+<!-- PRODUCTS PANEL -->
 
 <div
 id="productsPanel"
@@ -1738,6 +1918,8 @@ id="adminList">
 </div>
 
 
+<!-- EDIT PANEL -->
+
 <div
 id="editPanel"
 class="admin-panel">
@@ -1748,6 +1930,7 @@ Edit Jacket
 
 <div class="form-grid">
 
+
 <div class="field">
 
 <label>
@@ -1757,6 +1940,7 @@ Jacket Name
 <input id="eName">
 
 </div>
+
 
 <div class="field">
 
@@ -1774,6 +1958,7 @@ type="number">
 
 
 <div class="form-grid">
+
 
 <div class="field">
 
@@ -1812,8 +1997,7 @@ Available Sizes
 <div class="field">
 
 <label>
-Replace Jacket Picture
-
+Replace Jacket Picture (optional)
 </label>
 
 <input
@@ -1832,6 +2016,7 @@ SAVE CHANGES
 
 </button>
 
+
 <button
 class="btn btn-outline"
 onclick="showAdmin('productsPanel')">
@@ -1840,10 +2025,13 @@ CANCEL
 
 </button>
 
+
 <p id="editMsg"></p>
 
 </div>
 
+
+<!-- PASSWORD PANEL -->
 
 <div
 id="passwordPanel"
@@ -1852,6 +2040,7 @@ class="admin-panel">
 <h3>
 Change Admin Password
 </h3>
+
 
 <div class="field">
 
@@ -1865,6 +2054,7 @@ id="currentPassword">
 
 </div>
 
+
 <div class="field">
 
 <label>
@@ -1877,6 +2067,7 @@ id="newPassword">
 
 </div>
 
+
 <div class="field">
 
 <label>
@@ -1888,6 +2079,7 @@ type="password"
 id="confirmPassword">
 
 </div>
+
 
 <button
 class="btn"
@@ -1905,30 +2097,35 @@ SAVE NEW PASSWORD
 
 </div>
 
+</div>
+
 
 <script>
 
-/* ================================
-GOOGLE APPS SCRIPT
-================================ */
+
+/* =========================================================
+   GOOGLE APPS SCRIPT CONFIGURATION
+========================================================= */
 
 const GOOGLE_SCRIPT_URL =
 'https://script.google.com/macros/s/AKfycbwtsaYU_YJ9aB0leVLBBeP18zTO01pTjdprzPaat1Gd2eV0DJ0yNT6pBjEDZkKMIavINA/exec';
+
 
 const GOOGLE_SECRET_KEY =
 'TLH_2026_Order_8472';
 
 
-/* ================================
-GOOGLE SHEET URL
-================================ */
+/* =========================================================
+   GOOGLE SHEET URL
+========================================================= */
 
-const GOOGLE_SHEET_URL='';
+const GOOGLE_SHEET_URL =
+'';
 
 
-/* ================================
-DEFAULT PRODUCTS
-================================ */
+/* =========================================================
+   DEFAULT PRODUCTS
+========================================================= */
 
 const defaultProducts=[
 
@@ -1975,31 +2172,44 @@ sizes:'S,M,L,XL'
 ];
 
 
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
 let products =
 JSON.parse(
 localStorage.getItem('lh_products') || 'null'
 ) || defaultProducts;
 
 
+/* =========================================================
+   CART
+========================================================= */
+
 let cart=[];
+
+
+/* =========================================================
+   DELIVERY
+========================================================= */
 
 let deliveryArea =
 localStorage.getItem('lh_delivery_area') ||
 'karachi';
+
 
 let deliveryCharge =
 deliveryArea==='pakistan'
 ?600
 :300;
 
+
 let activeFilter='all';
 
-let editingProductId=null;
 
-
-/* ================================
-HELPERS
-================================ */
+/* =========================================================
+   MONEY
+========================================================= */
 
 function money(n){
 
@@ -2008,6 +2218,10 @@ Number(n).toLocaleString('en-PK');
 
 }
 
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
 
 function escapeHtml(value){
 
@@ -2021,26 +2235,14 @@ return String(value ?? '')
 }
 
 
-/* ================================
-PRODUCT DETAIL PAGE
-================================ */
-
-function openProduct(id){
-
-window.location.href=
-'product.html?id='+
-encodeURIComponent(id);
-
-}
-
-
-/* ================================
-FILTER
-================================ */
+/* =========================================================
+   FILTER
+========================================================= */
 
 function setFilter(filter){
 
 activeFilter=filter;
+
 
 document
 .querySelectorAll('.filter')
@@ -2053,14 +2255,27 @@ b.dataset.filter===filter
 
 });
 
+
 renderProducts();
+
+
+setTimeout(()=>{
+
+document
+.getElementById('shop')
+.scrollIntoView({
+behavior:'smooth'
+});
+
+},30);
 
 }
 
 
-/* ================================
-RENDER PRODUCTS
-================================ */
+/* =========================================================
+   RENDER PRODUCTS
+   IMAGE CLICK -> PRODUCT PAGE
+========================================================= */
 
 function renderProducts(){
 
@@ -2080,13 +2295,19 @@ list.length
 
 <article class="card">
 
-<div
-class="card-media"
-onclick="openProduct(${p.id})">
+<div class="card-media">
+
+<a
+href="product.html?id=${encodeURIComponent(p.id)}"
+style="display:block;text-decoration:none;cursor:pointer"
+aria-label="View ${escapeHtml(p.name)}">
 
 <img
 src="${p.image}"
 alt="${escapeHtml(p.name)}">
+
+</a>
+
 
 <span class="tag">
 ${escapeHtml(p.tag || 'Leather Jacket')}
@@ -2101,6 +2322,7 @@ ${escapeHtml(p.tag || 'Leather Jacket')}
 ${escapeHtml(p.name)}
 </h3>
 
+
 <div class="price">
 ${money(p.price)}
 </div>
@@ -2112,7 +2334,9 @@ ${money(p.price)}
 SIZE
 </label>
 
-<select id="size-${p.id}">
+
+<select
+id="size-${p.id}">
 
 ${String(
 p.sizes || 'S,M,L,XL,XXL'
@@ -2134,6 +2358,7 @@ ${escapeHtml(s.trim())}
 
 <div class="card-actions">
 
+
 <button
 class="btn"
 onclick="addToCart(${p.id})">
@@ -2151,6 +2376,7 @@ ORDER NOW
 
 </button>
 
+
 </div>
 
 </div>
@@ -2164,33 +2390,39 @@ ORDER NOW
 }
 
 
-/* ================================
-ADD TO CART
-================================ */
+/* =========================================================
+   ADD TO CART
+========================================================= */
 
 function addToCart(id){
 
 const p =
 products.find(x=>x.id===id);
 
+
 if(!p)return;
+
 
 const sizeElement =
 document.getElementById(
 'size-'+id
 );
 
+
 const size =
 sizeElement
 ?sizeElement.value
 :'Standard';
+
 
 cart.push({
 ...p,
 size
 });
 
+
 updateCart();
+
 
 alert(
 'Jacket added to cart.'
@@ -2199,73 +2431,90 @@ alert(
 }
 
 
-/* ================================
-ORDER NOW
-================================ */
+/* =========================================================
+   ORDER NOW
+========================================================= */
 
 function orderNow(id){
 
 const p =
 products.find(x=>x.id===id);
 
+
 if(!p)return;
+
 
 const sizeElement =
 document.getElementById(
 'size-'+id
 );
 
+
 const size =
 sizeElement
 ?sizeElement.value
 :'Standard';
 
+
 cart=[];
+
 
 cart.push({
 ...p,
 size
 });
 
+
 updateCart();
 
-openCheckout();
+
+document
+.getElementById('checkoutModal')
+.classList.add('show');
 
 }
 
 
-/* ================================
-DELIVERY
-================================ */
+/* =========================================================
+   DELIVERY AREA
+========================================================= */
 
 function setDeliveryArea(area){
 
 deliveryArea=area;
+
 
 deliveryCharge =
 area==='pakistan'
 ?600
 :300;
 
+
 localStorage.setItem(
 'lh_delivery_area',
 area
 );
+
 
 updateCart();
 
 }
 
 
-/* ================================
-CART
-================================ */
+/* =========================================================
+   UPDATE CART
+========================================================= */
 
 function updateCart(){
 
 document
 .getElementById('cartCount')
 .textContent=cart.length;
+
+
+document
+.getElementById('deliveryArea')
+.value=deliveryArea;
 
 
 document.getElementById('cartItems').innerHTML =
@@ -2289,6 +2538,7 @@ Size: ${escapeHtml(x.size)}
 </span>
 
 </div>
+
 
 <div>
 
@@ -2330,6 +2580,7 @@ cart.length
 
 'Subtotal: '+
 money(subtotal)+
+
 '<br><span style="font-size:14px;color:var(--muted);font-weight:normal">'+
 'Delivery: '+
 money(deliveryCharge)+
@@ -2341,6 +2592,10 @@ money(subtotal+deliveryCharge)
 }
 
 
+/* =========================================================
+   REMOVE CART
+========================================================= */
+
 function removeCart(i){
 
 cart.splice(i,1);
@@ -2350,9 +2605,14 @@ updateCart();
 }
 
 
+/* =========================================================
+   OPEN CART
+========================================================= */
+
 function openCart(){
 
 updateCart();
+
 
 document
 .getElementById('cartModal')
@@ -2361,9 +2621,9 @@ document
 }
 
 
-/* ================================
-CHECKOUT
-================================ */
+/* =========================================================
+   OPEN CHECKOUT
+========================================================= */
 
 function openCheckout(){
 
@@ -2377,7 +2637,9 @@ return;
 
 }
 
+
 closeModal('cartModal');
+
 
 document
 .getElementById('checkoutModal')
@@ -2386,14 +2648,15 @@ document
 }
 
 
-/* ================================
-MODAL
-================================ */
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
 
 function closeModal(id){
 
 const modal =
 document.getElementById(id);
+
 
 if(modal){
 
@@ -2404,9 +2667,9 @@ modal.classList.remove('show');
 }
 
 
-/* ================================
-SUBMIT ORDER
-================================ */
+/* =========================================================
+   SUBMIT ORDER
+========================================================= */
 
 async function submitOrder(){
 
@@ -2414,6 +2677,7 @@ const button =
 document.getElementById(
 'submitOrderBtn'
 );
+
 
 const message =
 document.getElementById(
@@ -2449,6 +2713,8 @@ document
 .trim();
 
 
+/* VALIDATION */
+
 if(!n || !ph || !ad){
 
 message.innerHTML=
@@ -2475,6 +2741,8 @@ return;
 }
 
 
+/* CALCULATE */
+
 const subtotal =
 cart.reduce(
 (a,b)=>a+Number(b.price),
@@ -2486,9 +2754,13 @@ const total =
 subtotal+deliveryCharge;
 
 
+/* ORDER ID */
+
 const orderId =
 'TLH-'+Date.now();
 
+
+/* PAYLOAD */
 
 const payload={
 
@@ -2530,6 +2802,8 @@ notes:notes
 };
 
 
+/* LOADING */
+
 button.disabled=true;
 
 button.classList.add('loading');
@@ -2539,12 +2813,16 @@ button.textContent=
 
 
 message.innerHTML=
+
 '<div class="notice">'+
 'Submitting your order...'+
 '</div>';
 
 
 try{
+
+
+/* SEND TO GOOGLE APPS SCRIPT */
 
 const response =
 await fetch(
@@ -2570,6 +2848,7 @@ await response.text();
 
 let data;
 
+
 try{
 
 data =
@@ -2594,36 +2873,50 @@ data.error ||
 }
 
 
+/* SUCCESS */
+
 const finalOrderId =
 data.orderId ||
 orderId;
 
 
+/* CLEAR FORM */
+
 document
 .getElementById('custName')
 .value='';
+
 
 document
 .getElementById('custPhone')
 .value='';
 
+
 document
 .getElementById('custAddress')
 .value='';
+
 
 document
 .getElementById('custNotes')
 .value='';
 
 
+/* CLEAR CART */
+
 cart=[];
 
 updateCart();
+
+
+/* CLOSE CHECKOUT */
 
 closeModal(
 'checkoutModal'
 );
 
+
+/* SHOW SUCCESS */
 
 document
 .getElementById('successOrderId')
@@ -2642,6 +2935,7 @@ console.error(
 'Order error:',
 error
 );
+
 
 message.innerHTML=
 
@@ -2663,9 +2957,9 @@ button.textContent=
 }
 
 
-/* ================================
-ADMIN
-================================ */
+/* =========================================================
+   ADMIN LOGIN
+========================================================= */
 
 function openAdminLogin(){
 
@@ -2673,9 +2967,11 @@ document
 .getElementById('loginError')
 .textContent='';
 
+
 document
 .getElementById('adminPass')
 .value='';
+
 
 document
 .getElementById('loginModal')
@@ -2683,6 +2979,10 @@ document
 
 }
 
+
+/* =========================================================
+   ADMIN LOGIN
+========================================================= */
 
 function adminLogin(){
 
@@ -2710,18 +3010,25 @@ return;
 
 }
 
+
 closeModal(
 'loginModal'
 );
+
 
 document
 .getElementById('adminModal')
 .classList.add('show');
 
+
 renderAdmin();
 
 }
 
+
+/* =========================================================
+   ADMIN PANELS
+========================================================= */
 
 function showAdmin(id){
 
@@ -2731,14 +3038,17 @@ document
 x.classList.remove('show')
 );
 
+
 const panel =
 document.getElementById(id);
+
 
 if(panel){
 
 panel.classList.add('show');
 
 }
+
 
 if(id==='productsPanel'){
 
@@ -2749,13 +3059,14 @@ renderAdmin();
 }
 
 
-/* ================================
-ORDERS
-================================ */
+/* =========================================================
+   LOAD ORDERS
+========================================================= */
 
 function loadOrders(){
 
 showAdmin('productsPanel');
+
 
 const list =
 document.getElementById('adminList');
@@ -2768,6 +3079,7 @@ list.innerHTML=
 '<div class="notice success-notice">'+
 'Opening your Google Sheet...'+
 '</div>';
+
 
 window.open(
 GOOGLE_SHEET_URL,
@@ -2782,17 +3094,34 @@ return;
 list.innerHTML=
 
 '<div class="notice">'+
+
 'Orders are automatically saved in your Google Sheet.'+
+
 '<br><br>'+
-'Add your Google Sheet URL inside GOOGLE_SHEET_URL in index.html if you want the Orders button to open the sheet.'+
+
+'To make this Orders button open the sheet, add your Google Sheet URL to the GOOGLE_SHEET_URL constant in index.html.'+
+
 '</div>';
 
 }
 
 
-/* ================================
-PASSWORD
-================================ */
+/* =========================================================
+   UPDATE ORDER STATUS
+========================================================= */
+
+function updateOrderStatus(id,status){
+
+alert(
+'Order status can be managed directly in your Google Sheet.'
+);
+
+}
+
+
+/* =========================================================
+   CHANGE PASSWORD
+========================================================= */
 
 function changePassword(){
 
@@ -2801,21 +3130,25 @@ document
 .getElementById('currentPassword')
 .value;
 
+
 const next =
 document
 .getElementById('newPassword')
 .value;
+
 
 const confirmPassword =
 document
 .getElementById('confirmPassword')
 .value;
 
+
 const saved =
 localStorage.getItem(
 'lh_admin_password'
 ) ||
 'admin123';
+
 
 const msg =
 document
@@ -2824,7 +3157,8 @@ document
 
 if(current!==saved){
 
-msg.style.color='#9b251b';
+msg.style.color=
+'#9b251b';
 
 msg.textContent=
 'Current password is incorrect.';
@@ -2836,7 +3170,8 @@ return;
 
 if(next.length<6){
 
-msg.style.color='#9b251b';
+msg.style.color=
+'#9b251b';
 
 msg.textContent=
 'New password must be at least 6 characters.';
@@ -2848,7 +3183,8 @@ return;
 
 if(next!==confirmPassword){
 
-msg.style.color='#9b251b';
+msg.style.color=
+'#9b251b';
 
 msg.textContent=
 'New passwords do not match.';
@@ -2863,7 +3199,9 @@ localStorage.setItem(
 next
 );
 
-msg.style.color='#2d6b39';
+
+msg.style.color=
+'#2d6b39';
 
 msg.textContent=
 'Password changed successfully.';
@@ -2871,9 +3209,9 @@ msg.textContent=
 }
 
 
-/* ================================
-ADD PRODUCT
-================================ */
+/* =========================================================
+   ADD PRODUCT
+========================================================= */
 
 function addProduct(){
 
@@ -2883,6 +3221,7 @@ document
 .value
 .trim();
 
+
 const price =
 Number(
 document
@@ -2890,16 +3229,19 @@ document
 .value
 );
 
+
 const file =
 document
 .getElementById('pImage')
 .files[0];
+
 
 const sizes =
 document
 .getElementById('pSizes')
 .value
 .trim();
+
 
 const category =
 document
@@ -2952,9 +3294,11 @@ document
 .getElementById('pName')
 .value='';
 
+
 document
 .getElementById('pPrice')
 .value='';
+
 
 document
 .getElementById('pImage')
@@ -2978,9 +3322,9 @@ reader.readAsDataURL(file);
 }
 
 
-/* ================================
-SAVE
-================================ */
+/* =========================================================
+   SAVE PRODUCTS
+========================================================= */
 
 function saveProducts(){
 
@@ -2989,14 +3333,15 @@ localStorage.setItem(
 JSON.stringify(products)
 );
 
+
 renderProducts();
 
 }
 
 
-/* ================================
-ADMIN LIST
-================================ */
+/* =========================================================
+   RENDER ADMIN
+========================================================= */
 
 function renderAdmin(){
 
@@ -3011,6 +3356,7 @@ products.map(p=>`
 <img
 src="${p.image}"
 alt="">
+
 
 <div>
 
@@ -3040,6 +3386,7 @@ Edit
 
 </button>
 
+
 <button
 class="btn danger"
 onclick="deleteProduct(${p.id})">
@@ -3061,9 +3408,12 @@ Delete
 }
 
 
-/* ================================
-EDIT
-================================ */
+/* =========================================================
+   EDIT PRODUCT
+========================================================= */
+
+let editingProductId=null;
+
 
 function editProduct(id){
 
@@ -3072,33 +3422,42 @@ products.find(
 x=>x.id===id
 );
 
+
 if(!p)return;
 
+
 editingProductId=id;
+
 
 document
 .getElementById('eName')
 .value=p.name;
 
+
 document
 .getElementById('ePrice')
 .value=p.price;
+
 
 document
 .getElementById('eCategory')
 .value=p.category;
 
+
 document
 .getElementById('eSizes')
 .value=p.sizes;
+
 
 document
 .getElementById('eImage')
 .value='';
 
+
 document
 .getElementById('editMsg')
 .textContent='';
+
 
 showAdmin(
 'editPanel'
@@ -3107,9 +3466,9 @@ showAdmin(
 }
 
 
-/* ================================
-UPDATE
-================================ */
+/* =========================================================
+   UPDATE PRODUCT
+========================================================= */
 
 function updateProduct(){
 
@@ -3118,13 +3477,16 @@ products.find(
 x=>x.id===editingProductId
 );
 
+
 if(!p)return;
+
 
 const name =
 document
 .getElementById('eName')
 .value
 .trim();
+
 
 const price =
 Number(
@@ -3133,16 +3495,19 @@ document
 .value
 );
 
+
 const category =
 document
 .getElementById('eCategory')
 .value;
+
 
 const sizes =
 document
 .getElementById('eSizes')
 .value
 .trim();
+
 
 const file =
 document
@@ -3154,7 +3519,9 @@ if(!name || !price){
 
 document
 .getElementById('editMsg')
-.style.color='#9b251b';
+.style.color=
+'#9b251b';
+
 
 document
 .getElementById('editMsg')
@@ -3178,19 +3545,23 @@ p.sizes=
 sizes ||
 'S,M,L,XL,XXL';
 
+
 if(image){
 
 p.image=image;
 
 }
 
+
 saveProducts();
 
 renderAdmin();
 
+
 alert(
 'Jacket updated successfully.'
 );
+
 
 showAdmin(
 'productsPanel'
@@ -3204,8 +3575,10 @@ if(file){
 const reader =
 new FileReader();
 
+
 reader.onload=()=>
 finish(reader.result);
+
 
 reader.readAsDataURL(file);
 
@@ -3218,9 +3591,9 @@ finish(null);
 }
 
 
-/* ================================
-DELETE
-================================ */
+/* =========================================================
+   DELETE PRODUCT
+========================================================= */
 
 function deleteProduct(id){
 
@@ -3235,6 +3608,7 @@ products.filter(
 p=>p.id!==id
 );
 
+
 saveProducts();
 
 renderAdmin();
@@ -3244,13 +3618,14 @@ renderAdmin();
 }
 
 
-/* ================================
-START
-================================ */
+/* =========================================================
+   INITIALIZE
+========================================================= */
 
 renderProducts();
 
 updateCart();
+
 
 </script>
 
