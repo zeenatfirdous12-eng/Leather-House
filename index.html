@@ -3,10 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>The Leather House | Premium Leather Jackets</title>
-<meta name="description" content="The Leather House — premium leather jackets for men and women.">
+
+<meta name="description"
+content="The Leather House — premium leather jackets for men and women.">
 
 <style>
+
 :root{
 --espresso:#2a160d;
 --brown:#4b2413;
@@ -17,36 +21,34 @@
 --ink:#20140e;
 --muted:#79685d;
 --line:#e2d3c5;
---gold:#c7a06a
+--gold:#c7a06a;
 }
 
 *{
-box-sizing:border-box
+box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth
+scroll-behavior:smooth;
 }
 
 body{
 margin:0;
 font-family:Arial,Helvetica,sans-serif;
 background:var(--cream);
-color:var(--ink)
+color:var(--ink);
 }
 
 h1,h2,h3,.brand{
-font-family:Georgia,'Times New Roman',serif
+font-family:Georgia,'Times New Roman',serif;
 }
 
 button,input,select,textarea{
-font:inherit
+font:inherit;
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* ================= HEADER ================= */
 
 header{
 position:sticky;
@@ -59,13 +61,13 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 padding:13px 5%;
-box-shadow:0 5px 25px #0002
+box-shadow:0 5px 25px #0002;
 }
 
 .brand{
 font-size:25px;
 letter-spacing:1.5px;
-line-height:1
+line-height:1;
 }
 
 .brand small{
@@ -73,12 +75,12 @@ display:block;
 font:9px Arial;
 letter-spacing:3px;
 margin-top:7px;
-color:#dbc7b7
+color:#dbc7b7;
 }
 
 nav{
 display:flex;
-gap:24px
+gap:24px;
 }
 
 nav a{
@@ -86,17 +88,17 @@ color:#fff;
 text-decoration:none;
 font-size:13px;
 text-transform:uppercase;
-letter-spacing:1px
+letter-spacing:1px;
 }
 
 nav a:hover{
-color:#e0b88f
+color:#e0b88f;
 }
 
 .header-actions{
 display:flex;
 align-items:center;
-gap:14px
+gap:14px;
 }
 
 .admin-link{
@@ -107,13 +109,13 @@ color:#fff;
 text-decoration:none;
 font-size:11px;
 text-transform:uppercase;
-letter-spacing:1px
+letter-spacing:1px;
 }
 
 .cart{
 position:relative;
 cursor:pointer;
-font-size:18px
+font-size:18px;
 }
 
 .badge{
@@ -124,13 +126,11 @@ background:var(--tan);
 border-radius:20px;
 font:10px Arial;
 padding:3px 6px;
-color:#fff
+color:#fff;
 }
 
 
-/* =========================================================
-   HERO
-========================================================= */
+/* ================= HERO ================= */
 
 .hero{
 min-height:650px;
@@ -146,38 +146,38 @@ linear-gradient(
 ),
 url('https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=2000&q=90')
 center/cover;
-color:#fff
+color:#fff;
 }
 
 .hero-content{
-max-width:680px
+max-width:680px;
 }
 
 .eyebrow{
 font-size:12px;
 letter-spacing:5px;
 text-transform:uppercase;
-color:#e3c7b1
+color:#e3c7b1;
 }
 
 .hero h1{
 font-size:clamp(44px,6vw,76px);
 line-height:.98;
-margin:18px 0
+margin:18px 0;
 }
 
 .hero p{
 font-size:18px;
 line-height:1.7;
 color:#f3e8df;
-max-width:560px
+max-width:560px;
 }
 
 .hero-buttons{
 display:flex;
 gap:12px;
 flex-wrap:wrap;
-margin-top:28px
+margin-top:28px;
 }
 
 .btn{
@@ -190,63 +190,59 @@ border-radius:3px;
 text-decoration:none;
 font-weight:bold;
 cursor:pointer;
-letter-spacing:.4px
+letter-spacing:.4px;
 }
 
 .btn:hover{
-filter:brightness(1.08)
+filter:brightness(1.08);
 }
 
 .btn-light{
 background:transparent;
-border-color:#fff
+border-color:#fff;
 }
 
 .btn-outline{
 background:transparent;
 color:var(--brown);
-border-color:var(--brown)
+border-color:var(--brown);
 }
 
 
-/* =========================================================
-   SECTIONS
-========================================================= */
+/* ================= SECTIONS ================= */
 
 .section{
-padding:78px 5%
+padding:78px 5%;
 }
 
 .section-head{
 text-align:center;
 max-width:720px;
-margin:0 auto 38px
+margin:0 auto 38px;
 }
 
 .section-head .eyebrow{
-color:var(--tobacco)
+color:var(--tobacco);
 }
 
 .section-title{
 font-size:40px;
-margin:9px 0 12px
+margin:9px 0 12px;
 }
 
 .section-head p{
 color:var(--muted);
 line-height:1.7;
-margin:0
+margin:0;
 }
 
 
-/* =========================================================
-   CATEGORIES
-========================================================= */
+/* ================= CATEGORIES ================= */
 
 .categories{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:22px
+gap:22px;
 }
 
 .category{
@@ -255,7 +251,7 @@ border-radius:6px;
 overflow:hidden;
 position:relative;
 background-size:cover;
-background-position:center
+background-position:center;
 }
 
 .category:after{
@@ -266,7 +262,7 @@ background:linear-gradient(
 90deg,
 #25130ddd,
 #25130d22
-)
+);
 }
 
 .cat-content{
@@ -274,30 +270,28 @@ position:absolute;
 z-index:2;
 left:38px;
 bottom:35px;
-color:#fff
+color:#fff;
 }
 
 .cat-content h3{
 font-size:35px;
-margin:0 0 15px
+margin:0 0 15px;
 }
 
 .cat-content p{
 margin:0 0 18px;
-color:#f3e8df
+color:#f3e8df;
 }
 
 
-/* =========================================================
-   FILTERS
-========================================================= */
+/* ================= FILTERS ================= */
 
 .filters{
 display:flex;
 justify-content:center;
 gap:8px;
 flex-wrap:wrap;
-margin-bottom:30px
+margin-bottom:30px;
 }
 
 .filter{
@@ -306,25 +300,23 @@ background:var(--paper);
 padding:10px 17px;
 border-radius:30px;
 cursor:pointer;
-color:var(--brown)
+color:var(--brown);
 }
 
 .filter.active,
 .filter:hover{
 background:var(--brown);
 color:#fff;
-border-color:var(--brown)
+border-color:var(--brown);
 }
 
 
-/* =========================================================
-   PRODUCTS
-========================================================= */
+/* ================= PRODUCTS ================= */
 
 .products{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:22px
+gap:22px;
 }
 
 .card{
@@ -333,21 +325,21 @@ border:1px solid var(--line);
 border-radius:6px;
 overflow:hidden;
 transition:.25s;
-box-shadow:0 5px 18px #3b1b0c0a
+box-shadow:0 5px 18px #3b1b0c0a;
 }
 
 .card:hover{
 transform:translateY(-4px);
-box-shadow:0 12px 28px #3b1b0c18
+box-shadow:0 12px 28px #3b1b0c18;
 }
 
 .card-media{
-position:relative
+position:relative;
 }
 
 .card-media a{
 display:block;
-cursor:pointer
+cursor:pointer;
 }
 
 .card img{
@@ -356,11 +348,11 @@ width:100%;
 height:350px;
 object-fit:cover;
 background:#ddd;
-transition:.25s
+transition:.25s;
 }
 
 .card-media a:hover img{
-transform:scale(1.02)
+transform:scale(1.02);
 }
 
 .tag{
@@ -373,35 +365,35 @@ padding:6px 9px;
 font-size:10px;
 letter-spacing:1px;
 text-transform:uppercase;
-pointer-events:none
+pointer-events:none;
 }
 
 .card-body{
-padding:17px
+padding:17px;
 }
 
 .card h3{
 font-size:19px;
-margin:0 0 7px
+margin:0 0 7px;
 }
 
 .price{
 font-weight:bold;
 color:var(--tobacco);
-font-size:19px
+font-size:19px;
 }
 
 .size-row{
 display:flex;
 align-items:center;
 gap:8px;
-margin-top:13px
+margin-top:13px;
 }
 
 .size-row label{
 font-size:12px;
 font-weight:bold;
-color:var(--muted)
+color:var(--muted);
 }
 
 .size-row select{
@@ -409,52 +401,50 @@ flex:1;
 padding:9px;
 border:1px solid var(--line);
 background:#fff;
-border-radius:3px
+border-radius:3px;
 }
 
 .card-actions{
 display:flex;
 gap:8px;
-margin-top:13px
+margin-top:13px;
 }
 
 .card-actions .btn{
 flex:1;
 text-align:center;
 padding:11px 6px;
-font-size:11px
+font-size:11px;
 }
 
 
-/* =========================================================
-   STORY
-========================================================= */
+/* ================= STORY ================= */
 
 .story{
 display:grid;
 grid-template-columns:1fr 1fr;
-background:#fff
+background:#fff;
 }
 
 .story img{
 width:100%;
 height:100%;
 min-height:480px;
-object-fit:cover
+object-fit:cover;
 }
 
 .story-copy{
-padding:70px 8%
+padding:70px 8%;
 }
 
 .story-copy h2{
 font-size:43px;
-margin:12px 0 18px
+margin:12px 0 18px;
 }
 
 .story-copy p{
 color:var(--muted);
-line-height:1.8
+line-height:1.8;
 }
 
 .signature{
@@ -462,13 +452,11 @@ font-family:Georgia,serif;
 font-style:italic;
 font-size:20px;
 margin-top:28px;
-color:var(--brown)
+color:var(--brown);
 }
 
 
-/* =========================================================
-   FEATURES
-========================================================= */
+/* ================= FEATURES ================= */
 
 .features{
 display:grid;
@@ -477,32 +465,30 @@ background:#fff;
 padding:30px 5%;
 border-top:1px solid var(--line);
 border-bottom:1px solid var(--line);
-gap:20px
+gap:20px;
 }
 
 .feature{
 text-align:center;
-padding:12px
+padding:12px;
 }
 
 .feature-icon{
-font-size:24px
+font-size:24px;
 }
 
 .feature b{
 display:block;
-margin:8px 0 6px
+margin:8px 0 6px;
 }
 
 .feature span{
 font-size:13px;
-color:var(--muted)
+color:var(--muted);
 }
 
 
-/* =========================================================
-   CTA
-========================================================= */
+/* ================= CTA ================= */
 
 .cta{
 margin:70px 5%;
@@ -513,37 +499,35 @@ color:#fff;
 background:
 linear-gradient(90deg,#32170d,#6d3820),
 url('https://images.unsplash.com/photo-1520975682031-ae4a1a8a6b80?auto=format&fit=crop&w=1600&q=80')
-center/cover
+center/cover;
 }
 
 .cta h2{
 font-size:40px;
-margin:8px 0
+margin:8px 0;
 }
 
 .cta p{
-color:#eadbd0
+color:#eadbd0;
 }
 
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* ================= FOOTER ================= */
 
 footer{
 background:#29140b;
 color:#eee;
-padding:55px 5% 22px
+padding:55px 5% 22px;
 }
 
 .footer-grid{
 display:grid;
 grid-template-columns:2fr 1fr 1fr 1.3fr;
-gap:35px
+gap:35px;
 }
 
 .footer-grid h3{
-font-size:17px
+font-size:17px;
 }
 
 .footer-grid a{
@@ -551,13 +535,13 @@ display:block;
 color:#d9c8bd;
 text-decoration:none;
 margin:10px 0;
-font-size:13px
+font-size:13px;
 }
 
 .footer-grid p{
 color:#d9c8bd;
 font-size:13px;
-line-height:1.6
+line-height:1.6;
 }
 
 .copyright{
@@ -566,19 +550,17 @@ border-top:1px solid #ffffff22;
 margin-top:35px;
 padding-top:20px;
 font-size:12px;
-color:#bdaea4
+color:#bdaea4;
 }
 
 .copyright .admin-footer{
 float:right;
 cursor:pointer;
-color:#fff
+color:#fff;
 }
 
 
-/* =========================================================
-   MODALS
-========================================================= */
+/* ================= MODALS ================= */
 
 .modal{
 display:none;
@@ -588,11 +570,11 @@ background:#000a;
 z-index:100;
 align-items:center;
 justify-content:center;
-padding:18px
+padding:18px;
 }
 
 .modal.show{
-display:flex
+display:flex;
 }
 
 .modal-box{
@@ -602,7 +584,7 @@ max-height:92vh;
 overflow:auto;
 border-radius:7px;
 padding:30px;
-position:relative
+position:relative;
 }
 
 .close{
@@ -611,20 +593,18 @@ right:19px;
 top:13px;
 font-size:28px;
 cursor:pointer;
-color:var(--muted)
+color:var(--muted);
 }
 
 
-/* =========================================================
-   CART
-========================================================= */
+/* ================= CART ================= */
 
 .cart-item{
 display:flex;
 justify-content:space-between;
 gap:20px;
 border-bottom:1px solid var(--line);
-padding:15px 0
+padding:15px 0;
 }
 
 .cart-total{
@@ -632,29 +612,27 @@ text-align:right;
 font-size:18px;
 font-weight:bold;
 line-height:1.8;
-margin:20px 0
+margin:20px 0;
 }
 
 
-/* =========================================================
-   FORMS
-========================================================= */
+/* ================= FORMS ================= */
 
 .form-grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:14px
+gap:14px;
 }
 
 .field{
-margin-bottom:14px
+margin-bottom:14px;
 }
 
 .field label{
 display:block;
 font-size:12px;
 font-weight:bold;
-margin-bottom:6px
+margin-bottom:6px;
 }
 
 .field input,
@@ -664,59 +642,181 @@ width:100%;
 padding:12px;
 border:1px solid #cdbbad;
 border-radius:4px;
-background:#fff
+background:#fff;
 }
 
 
-/* =========================================================
-   NOTICES
-========================================================= */
+/* ================= PAYMENT ================= */
+
+.payment-title{
+font-family:Georgia,serif;
+font-size:22px;
+margin:25px 0 12px;
+}
+
+.payment-options{
+display:grid;
+gap:10px;
+}
+
+.payment-option{
+border:2px solid var(--line);
+background:#fff;
+padding:15px;
+border-radius:7px;
+cursor:pointer;
+transition:.2s;
+}
+
+.payment-option:hover{
+border-color:var(--tobacco);
+}
+
+.payment-option.selected{
+border-color:var(--tobacco);
+background:#fff7f1;
+}
+
+.payment-option input{
+width:auto;
+margin-right:8px;
+}
+
+.payment-name{
+font-weight:bold;
+}
+
+.payment-description{
+display:block;
+font-size:12px;
+color:var(--muted);
+margin-top:5px;
+margin-left:25px;
+}
+
+.bank-box{
+display:none;
+background:#f3e4d6;
+border:1px solid #d8bca4;
+padding:18px;
+border-radius:7px;
+margin-top:15px;
+}
+
+.bank-box.show{
+display:block;
+}
+
+.bank-box h3{
+margin-top:0;
+}
+
+.bank-detail{
+display:flex;
+justify-content:space-between;
+gap:15px;
+border-bottom:1px solid #d6bda8;
+padding:9px 0;
+font-size:14px;
+}
+
+.bank-detail:last-child{
+border-bottom:0;
+}
+
+.bank-label{
+color:var(--muted);
+}
+
+.bank-value{
+font-weight:bold;
+text-align:right;
+}
+
+.payment-summary{
+background:#fff;
+border:1px solid var(--line);
+border-radius:6px;
+padding:17px;
+margin:18px 0;
+}
+
+.summary-line{
+display:flex;
+justify-content:space-between;
+padding:6px 0;
+font-size:14px;
+}
+
+.summary-total{
+font-size:19px;
+font-weight:bold;
+border-top:1px solid var(--line);
+padding-top:12px;
+margin-top:8px;
+}
+
+.discount-line{
+color:#277039;
+font-weight:bold;
+}
+
+.advance-line{
+color:var(--brown);
+font-weight:bold;
+}
+
+.cod-line{
+color:var(--tobacco);
+font-weight:bold;
+}
+
+
+/* ================= NOTICE ================= */
 
 .notice{
 background:#f0e3d6;
 padding:12px;
 border-radius:4px;
 font-size:13px;
-margin-bottom:18px
+margin-bottom:18px;
 }
 
 .success-notice{
 background:#e4f1e5;
-color:#285c31
+color:#285c31;
 }
 
 .error-notice{
 background:#f5dfdc;
-color:#81271e
+color:#81271e;
 }
 
 
-/* =========================================================
-   ADMIN
-========================================================= */
+/* ================= ADMIN ================= */
 
 .admin-tabs{
 display:flex;
 gap:8px;
 flex-wrap:wrap;
-margin-bottom:20px
+margin-bottom:20px;
 }
 
 .admin{
-display:block
+display:block;
 }
 
 .admin-panel{
-display:none
+display:none;
 }
 
 .admin-panel.show{
-display:block
+display:block;
 }
 
 .admin-list{
 display:grid;
-gap:10px
+gap:10px;
 }
 
 .admin-row{
@@ -727,56 +827,54 @@ gap:15px;
 background:#fff;
 padding:12px;
 border:1px solid var(--line);
-border-radius:5px
+border-radius:5px;
 }
 
 .admin-row img{
 width:58px;
 height:58px;
-object-fit:cover
+object-fit:cover;
 }
 
 .row-left{
 display:flex;
 align-items:center;
-gap:12px
+gap:12px;
 }
 
 .danger{
 background:#8f281d;
-border-color:#8f281d
+border-color:#8f281d;
 }
 
 .loading{
 opacity:.6;
-pointer-events:none
+pointer-events:none;
 }
 
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:1000px){
 
 nav{
-display:none
+display:none;
 }
 
 .products{
-grid-template-columns:repeat(2,1fr)
+grid-template-columns:repeat(2,1fr);
 }
 
 .features{
-grid-template-columns:repeat(2,1fr)
+grid-template-columns:repeat(2,1fr);
 }
 
 .footer-grid{
-grid-template-columns:1fr 1fr
+grid-template-columns:1fr 1fr;
 }
 
 .card img{
-height:330px
+height:330px;
 }
 
 }
@@ -785,85 +883,94 @@ height:330px
 @media(max-width:650px){
 
 .brand{
-font-size:19px
+font-size:19px;
 }
 
 .brand small{
 font-size:7px;
-letter-spacing:2px
+letter-spacing:2px;
 }
 
 .admin-link{
-display:none
+display:none;
 }
 
 .hero{
 min-height:570px;
-padding:70px 6%
+padding:70px 6%;
 }
 
 .hero h1{
-font-size:43px
+font-size:43px;
 }
 
 .categories,
 .story{
-grid-template-columns:1fr
+grid-template-columns:1fr;
 }
 
 .category{
-height:300px
+height:300px;
 }
 
 .products{
 grid-template-columns:1fr 1fr;
-gap:12px
+gap:12px;
 }
 
 .card img{
-height:260px
+height:260px;
 }
 
 .section{
-padding:55px 4%
+padding:55px 4%;
 }
 
 .section-title,
 .story-copy h2,
 .cta h2{
-font-size:31px
+font-size:31px;
 }
 
 .story-copy{
-padding:45px 7%
+padding:45px 7%;
 }
 
 .features{
 grid-template-columns:1fr 1fr;
-padding:20px 4%
+padding:20px 4%;
 }
 
 .footer-grid{
-grid-template-columns:1fr
+grid-template-columns:1fr;
 }
 
 .form-grid{
-grid-template-columns:1fr
+grid-template-columns:1fr;
 }
 
 .copyright .admin-footer{
 float:none;
 display:block;
-margin-top:10px
+margin-top:10px;
 }
 
 .cta{
 margin:45px 4%;
-padding:45px 6%
+padding:45px 6%;
 }
 
 .card-actions{
-flex-direction:column
+flex-direction:column;
+}
+
+.bank-detail{
+flex-direction:column;
+gap:3px;
+}
+
+.bank-value{
+text-align:left;
 }
 
 }
@@ -874,9 +981,7 @@ flex-direction:column
 <body>
 
 
-<!-- =========================================================
-     HEADER
-========================================================= -->
+<!-- ================= HEADER ================= -->
 
 <header>
 
@@ -897,21 +1002,13 @@ PREMIUM LEATHER JACKETS
 
 <nav>
 
-<a href="#home">
-Home
-</a>
+<a href="#home">Home</a>
 
-<a href="#shop">
-Jackets
-</a>
+<a href="#shop">Jackets</a>
 
-<a href="#about">
-Our Story
-</a>
+<a href="#about">Our Story</a>
 
-<a href="#contact">
-Contact
-</a>
+<a href="#contact">Contact</a>
 
 </nav>
 
@@ -926,7 +1023,6 @@ onclick="openAdminLogin();return false">
 🔐 Admin Login
 
 </a>
-
 
 <span
 class="cart"
@@ -947,14 +1043,10 @@ id="cartCount">
 </header>
 
 
-<!-- =========================================================
-     MAIN
-========================================================= -->
+<!-- ================= MAIN ================= -->
 
 <main>
 
-
-<!-- HERO -->
 
 <section
 class="hero"
@@ -986,7 +1078,6 @@ SHOP JACKETS →
 
 </a>
 
-
 <a
 class="btn btn-light"
 href="#about">
@@ -1002,7 +1093,7 @@ OUR STORY
 </section>
 
 
-<!-- CATEGORIES -->
+<!-- ================= CATEGORIES ================= -->
 
 <section class="section">
 
@@ -1086,7 +1177,7 @@ SHOP WOMEN →
 </section>
 
 
-<!-- SHOP -->
+<!-- ================= SHOP ================= -->
 
 <section
 class="section"
@@ -1120,7 +1211,6 @@ All
 
 </button>
 
-
 <button
 class="filter"
 data-filter="men"
@@ -1129,7 +1219,6 @@ onclick="setFilter('men')">
 Men
 
 </button>
-
 
 <button
 class="filter"
@@ -1151,7 +1240,7 @@ id="productGrid">
 </section>
 
 
-<!-- STORY -->
+<!-- ================= STORY ================= -->
 
 <section
 class="story"
@@ -1197,7 +1286,7 @@ The Leather House
 </section>
 
 
-<!-- FEATURES -->
+<!-- ================= FEATURES ================= -->
 
 <div class="features">
 
@@ -1230,7 +1319,7 @@ Delivery Charges
 </b>
 
 <span>
-Karachi Rs. 300 &nbsp;|&nbsp; Pakistan Rs. 600
+Karachi Rs. 300 | Pakistan Rs. 600
 </span>
 
 </div>
@@ -1272,7 +1361,7 @@ Order directly from our website
 </div>
 
 
-<!-- CTA -->
+<!-- ================= CTA ================= -->
 
 <section class="cta">
 
@@ -1298,13 +1387,10 @@ EXPLORE JACKETS →
 
 </section>
 
-
 </main>
 
 
-<!-- =========================================================
-     FOOTER
-========================================================= -->
+<!-- ================= FOOTER ================= -->
 
 <footer id="contact">
 
@@ -1335,17 +1421,11 @@ black and classic leather.
 Quick Links
 </h3>
 
-<a href="#home">
-Home
-</a>
+<a href="#home">Home</a>
 
-<a href="#shop">
-Jackets
-</a>
+<a href="#shop">Jackets</a>
 
-<a href="#about">
-Our Story
-</a>
+<a href="#about">Our Story</a>
 
 </div>
 
@@ -1356,17 +1436,11 @@ Our Story
 Customer Care
 </h3>
 
-<a href="#">
-Size Guide
-</a>
+<a href="#">Size Guide</a>
 
-<a href="#">
-Shipping Policy
-</a>
+<a href="#">Shipping Policy</a>
 
-<a href="#">
-Exchange Policy
-</a>
+<a href="#">Exchange Policy</a>
 
 </div>
 
@@ -1416,9 +1490,7 @@ Admin
 </footer>
 
 
-<!-- =========================================================
-     CART MODAL
-========================================================= -->
+<!-- ================= CART MODAL ================= -->
 
 <div
 class="modal"
@@ -1429,9 +1501,7 @@ id="cartModal">
 <span
 class="close"
 onclick="closeModal('cartModal')">
-
 ×
-
 </span>
 
 <h2>
@@ -1486,9 +1556,7 @@ PROCEED TO ORDER →
 </div>
 
 
-<!-- =========================================================
-     CHECKOUT MODAL
-========================================================= -->
+<!-- ================= CHECKOUT MODAL ================= -->
 
 <div
 class="modal"
@@ -1499,21 +1567,27 @@ id="checkoutModal">
 <span
 class="close"
 onclick="closeModal('checkoutModal')">
-
 ×
-
 </span>
 
 <h2>
 Place Your Order
 </h2>
 
+
 <div class="notice">
 
-Your order will be submitted directly to
-The Leather House. You do not need to log in to WhatsApp.
+Choose your payment method below. Bank transfer details
+will appear when advance payment is selected.
 
 </div>
+
+
+<!-- CUSTOMER DETAILS -->
+
+<h3>
+Customer Details
+</h3>
 
 
 <div class="form-grid">
@@ -1574,6 +1648,155 @@ placeholder="Any size or delivery note">
 </div>
 
 
+<!-- PAYMENT -->
+
+<div class="payment-title">
+Select Payment Method
+</div>
+
+
+<div class="payment-options">
+
+
+<label
+class="payment-option"
+id="payment-cod-option">
+
+<input
+type="radio"
+name="paymentMethod"
+value="cod"
+onchange="selectPayment('cod')">
+
+<span class="payment-name">
+100% Cash on Delivery
+</span>
+
+<span class="payment-description">
+Pay 100% when your order is delivered. No discount.
+</span>
+
+</label>
+
+
+<label
+class="payment-option"
+id="payment-half-option">
+
+<input
+type="radio"
+name="paymentMethod"
+value="half"
+onchange="selectPayment('half')">
+
+<span class="payment-name">
+50% Advance + 50% COD
+</span>
+
+<span class="payment-description">
+Pay 50% in advance and remaining 50% on delivery. No discount.
+</span>
+
+</label>
+
+
+<label
+class="payment-option"
+id="payment-full-option">
+
+<input
+type="radio"
+name="paymentMethod"
+value="full"
+onchange="selectPayment('full')">
+
+<span class="payment-name">
+100% Advance — 2% Discount
+</span>
+
+<span class="payment-description">
+Pay the full amount in advance and receive 2% discount.
+</span>
+
+</label>
+
+</div>
+
+
+<!-- BANK DETAILS -->
+
+<div
+class="bank-box"
+id="bankBox">
+
+<h3>
+🏦 HBL Bank Payment
+</h3>
+
+<p>
+Please transfer the required advance/payment to this account.
+</p>
+
+
+<div class="bank-detail">
+
+<span class="bank-label">
+Bank
+</span>
+
+<span class="bank-value">
+HBL
+</span>
+
+</div>
+
+
+<div class="bank-detail">
+
+<span class="bank-label">
+Account Title
+</span>
+
+<span class="bank-value">
+Sajid
+</span>
+
+</div>
+
+
+<div class="bank-detail">
+
+<span class="bank-label">
+Account Number
+</span>
+
+<span class="bank-value">
+00597901153803
+</span>
+
+</div>
+
+
+<div class="notice"
+style="margin-top:15px;margin-bottom:0">
+
+After transferring the amount, please keep your
+transaction/reference number ready.
+
+</div>
+
+</div>
+
+
+<!-- PAYMENT SUMMARY -->
+
+<div
+class="payment-summary"
+id="paymentSummary">
+
+</div>
+
+
 <button
 class="btn"
 id="submitOrderBtn"
@@ -1588,7 +1811,6 @@ PLACE ORDER →
 <div
 id="orderMessage"
 style="margin-top:15px">
-
 </div>
 
 </div>
@@ -1596,9 +1818,7 @@ style="margin-top:15px">
 </div>
 
 
-<!-- =========================================================
-     SUCCESS MODAL
-========================================================= -->
+<!-- ================= SUCCESS ================= -->
 
 <div
 class="modal"
@@ -1611,9 +1831,7 @@ style="max-width:500px;text-align:center">
 <span
 class="close"
 onclick="closeModal('successModal')">
-
 ×
-
 </span>
 
 <div style="font-size:45px">
@@ -1629,18 +1847,13 @@ Thank you for ordering from The Leather House.
 </p>
 
 <div
-class="order-number"
 id="successOrderId"
 style="font-size:28px;font-family:Georgia,serif;color:var(--tobacco)">
 </div>
 
 <p
+id="successPaymentText"
 style="color:var(--muted);font-size:14px">
-
-Your order has been saved successfully.
-Our team will contact you on your provided
-phone/WhatsApp number.
-
 </p>
 
 <button
@@ -1656,9 +1869,7 @@ CONTINUE SHOPPING
 </div>
 
 
-<!-- =========================================================
-     ADMIN LOGIN
-========================================================= -->
+<!-- ================= ADMIN LOGIN ================= -->
 
 <div
 class="modal"
@@ -1671,9 +1882,7 @@ style="max-width:420px">
 <span
 class="close"
 onclick="closeModal('loginModal')">
-
 ×
-
 </span>
 
 <h2>
@@ -1716,9 +1925,7 @@ style="color:#9b251b">
 </div>
 
 
-<!-- =========================================================
-     ADMIN PANEL
-========================================================= -->
+<!-- ================= ADMIN ================= -->
 
 <div
 class="modal"
@@ -1729,9 +1936,7 @@ id="adminModal">
 <span
 class="close"
 onclick="closeModal('adminModal')">
-
 ×
-
 </span>
 
 <div class="admin">
@@ -1739,13 +1944,6 @@ onclick="closeModal('adminModal')">
 <h2>
 The Leather House — Admin Panel
 </h2>
-
-<div class="notice">
-
-Customers cannot see this panel.
-Add jackets, prices, sizes and delivery charges here.
-
-</div>
 
 
 <div class="admin-tabs">
@@ -1787,8 +1985,6 @@ Change Password
 
 </div>
 
-
-<!-- ADD PANEL -->
 
 <div
 id="addPanel"
@@ -1879,20 +2075,6 @@ accept="image/*">
 </div>
 
 
-<div class="field">
-
-<label>
-Delivery Charges
-</label>
-
-<input
-id="deliveryCharge"
-value="Karachi Rs. 300 | Pakistan Rs. 600"
-readonly>
-
-</div>
-
-
 <button
 class="btn"
 onclick="addProduct()">
@@ -1903,8 +2085,6 @@ SAVE JACKET
 
 </div>
 
-
-<!-- PRODUCTS PANEL -->
 
 <div
 id="productsPanel"
@@ -1917,8 +2097,6 @@ id="adminList">
 
 </div>
 
-
-<!-- EDIT PANEL -->
 
 <div
 id="editPanel"
@@ -2031,8 +2209,6 @@ CANCEL
 </div>
 
 
-<!-- PASSWORD PANEL -->
-
 <div
 id="passwordPanel"
 class="admin-panel">
@@ -2103,29 +2279,19 @@ SAVE NEW PASSWORD
 <script>
 
 
-/* =========================================================
-   GOOGLE APPS SCRIPT CONFIGURATION
-========================================================= */
+/* ================= CONFIG ================= */
 
 const GOOGLE_SCRIPT_URL =
 'https://script.google.com/macros/s/AKfycbwtsaYU_YJ9aB0leVLBBeP18zTO01pTjdprzPaat1Gd2eV0DJ0yNT6pBjEDZkKMIavINA/exec';
 
-
 const GOOGLE_SECRET_KEY =
 'TLH_2026_Order_8472';
-
-
-/* =========================================================
-   GOOGLE SHEET URL
-========================================================= */
 
 const GOOGLE_SHEET_URL =
 '';
 
 
-/* =========================================================
-   DEFAULT PRODUCTS
-========================================================= */
+/* ================= PRODUCTS ================= */
 
 const defaultProducts=[
 
@@ -2172,44 +2338,29 @@ sizes:'S,M,L,XL'
 ];
 
 
-/* =========================================================
-   PRODUCTS
-========================================================= */
-
 let products =
 JSON.parse(
 localStorage.getItem('lh_products') || 'null'
 ) || defaultProducts;
 
 
-/* =========================================================
-   CART
-========================================================= */
-
 let cart=[];
-
-
-/* =========================================================
-   DELIVERY
-========================================================= */
 
 let deliveryArea =
 localStorage.getItem('lh_delivery_area') ||
 'karachi';
-
 
 let deliveryCharge =
 deliveryArea==='pakistan'
 ?600
 :300;
 
-
 let activeFilter='all';
 
+let selectedPayment='cod';
 
-/* =========================================================
-   MONEY
-========================================================= */
+
+/* ================= MONEY ================= */
 
 function money(n){
 
@@ -2219,9 +2370,7 @@ Number(n).toLocaleString('en-PK');
 }
 
 
-/* =========================================================
-   ESCAPE HTML
-========================================================= */
+/* ================= ESCAPE ================= */
 
 function escapeHtml(value){
 
@@ -2235,14 +2384,11 @@ return String(value ?? '')
 }
 
 
-/* =========================================================
-   FILTER
-========================================================= */
+/* ================= FILTER ================= */
 
 function setFilter(filter){
 
 activeFilter=filter;
-
 
 document
 .querySelectorAll('.filter')
@@ -2255,9 +2401,7 @@ b.dataset.filter===filter
 
 });
 
-
 renderProducts();
-
 
 setTimeout(()=>{
 
@@ -2272,10 +2416,7 @@ behavior:'smooth'
 }
 
 
-/* =========================================================
-   RENDER PRODUCTS
-   IMAGE CLICK -> PRODUCT PAGE
-========================================================= */
+/* ================= PRODUCTS ================= */
 
 function renderProducts(){
 
@@ -2308,7 +2449,6 @@ alt="${escapeHtml(p.name)}">
 
 </a>
 
-
 <span class="tag">
 ${escapeHtml(p.tag || 'Leather Jacket')}
 </span>
@@ -2322,7 +2462,6 @@ ${escapeHtml(p.tag || 'Leather Jacket')}
 ${escapeHtml(p.name)}
 </h3>
 
-
 <div class="price">
 ${money(p.price)}
 </div>
@@ -2333,7 +2472,6 @@ ${money(p.price)}
 <label>
 SIZE
 </label>
-
 
 <select
 id="size-${p.id}">
@@ -2358,7 +2496,6 @@ ${escapeHtml(s.trim())}
 
 <div class="card-actions">
 
-
 <button
 class="btn"
 onclick="addToCart(${p.id})">
@@ -2376,7 +2513,6 @@ ORDER NOW
 
 </button>
 
-
 </div>
 
 </div>
@@ -2390,39 +2526,31 @@ ORDER NOW
 }
 
 
-/* =========================================================
-   ADD TO CART
-========================================================= */
+/* ================= CART ================= */
 
 function addToCart(id){
 
 const p =
 products.find(x=>x.id===id);
 
-
 if(!p)return;
-
 
 const sizeElement =
 document.getElementById(
 'size-'+id
 );
 
-
 const size =
 sizeElement
 ?sizeElement.value
 :'Standard';
-
 
 cart.push({
 ...p,
 size
 });
 
-
 updateCart();
-
 
 alert(
 'Jacket added to cart.'
@@ -2431,79 +2559,59 @@ alert(
 }
 
 
-/* =========================================================
-   ORDER NOW
-========================================================= */
-
 function orderNow(id){
 
 const p =
 products.find(x=>x.id===id);
 
-
 if(!p)return;
-
 
 const sizeElement =
 document.getElementById(
 'size-'+id
 );
 
-
 const size =
 sizeElement
 ?sizeElement.value
 :'Standard';
 
-
 cart=[];
-
 
 cart.push({
 ...p,
 size
 });
 
-
 updateCart();
 
-
-document
-.getElementById('checkoutModal')
-.classList.add('show');
+openCheckout();
 
 }
 
 
-/* =========================================================
-   DELIVERY AREA
-========================================================= */
+/* ================= DELIVERY ================= */
 
 function setDeliveryArea(area){
 
 deliveryArea=area;
-
 
 deliveryCharge =
 area==='pakistan'
 ?600
 :300;
 
-
 localStorage.setItem(
 'lh_delivery_area',
 area
 );
-
 
 updateCart();
 
 }
 
 
-/* =========================================================
-   UPDATE CART
-========================================================= */
+/* ================= CART UPDATE ================= */
 
 function updateCart(){
 
@@ -2592,9 +2700,7 @@ money(subtotal+deliveryCharge)
 }
 
 
-/* =========================================================
-   REMOVE CART
-========================================================= */
+/* ================= REMOVE ================= */
 
 function removeCart(i){
 
@@ -2605,14 +2711,11 @@ updateCart();
 }
 
 
-/* =========================================================
-   OPEN CART
-========================================================= */
+/* ================= OPEN CART ================= */
 
 function openCart(){
 
 updateCart();
-
 
 document
 .getElementById('cartModal')
@@ -2621,9 +2724,7 @@ document
 }
 
 
-/* =========================================================
-   OPEN CHECKOUT
-========================================================= */
+/* ================= OPEN CHECKOUT ================= */
 
 function openCheckout(){
 
@@ -2637,9 +2738,29 @@ return;
 
 }
 
-
 closeModal('cartModal');
 
+selectedPayment='cod';
+
+document
+.querySelectorAll(
+'input[name="paymentMethod"]'
+)
+.forEach(x=>{
+x.checked=false;
+});
+
+document
+.querySelectorAll('.payment-option')
+.forEach(x=>{
+x.classList.remove('selected');
+});
+
+document
+.getElementById('bankBox')
+.classList.remove('show');
+
+updatePaymentSummary();
 
 document
 .getElementById('checkoutModal')
@@ -2648,15 +2769,309 @@ document
 }
 
 
-/* =========================================================
-   CLOSE MODAL
-========================================================= */
+/* ================= PAYMENT ================= */
+
+function selectPayment(method){
+
+selectedPayment=method;
+
+
+document
+.querySelectorAll('.payment-option')
+.forEach(x=>{
+x.classList.remove('selected');
+});
+
+
+if(method==='cod'){
+
+document
+.getElementById('payment-cod-option')
+.classList.add('selected');
+
+}
+
+
+if(method==='half'){
+
+document
+.getElementById('payment-half-option')
+.classList.add('selected');
+
+}
+
+
+if(method==='full'){
+
+document
+.getElementById('payment-full-option')
+.classList.add('selected');
+
+}
+
+
+/* BANK DETAILS */
+
+if(
+method==='half' ||
+method==='full'
+){
+
+document
+.getElementById('bankBox')
+.classList.add('show');
+
+}else{
+
+document
+.getElementById('bankBox')
+.classList.remove('show');
+
+}
+
+
+updatePaymentSummary();
+
+}
+
+
+/* ================= PAYMENT CALCULATION ================= */
+
+function calculatePayment(){
+
+const subtotal =
+cart.reduce(
+(a,b)=>a+Number(b.price),
+0
+);
+
+const delivery =
+Number(deliveryCharge);
+
+const originalTotal =
+subtotal+delivery;
+
+
+let discount=0;
+
+let payable=originalTotal;
+
+let advance=0;
+
+let cod=originalTotal;
+
+
+/*
+100% COD
+0% discount
+*/
+
+if(selectedPayment==='cod'){
+
+discount=0;
+
+payable=originalTotal;
+
+advance=0;
+
+cod=originalTotal;
+
+}
+
+
+/*
+50% ADVANCE + 50% COD
+0% discount
+*/
+
+if(selectedPayment==='half'){
+
+discount=0;
+
+payable=originalTotal;
+
+advance=
+Math.round(originalTotal*0.50);
+
+cod=
+originalTotal-advance;
+
+}
+
+
+/*
+100% ADVANCE
+2% discount
+*/
+
+if(selectedPayment==='full'){
+
+discount=
+Math.round(originalTotal*0.02);
+
+payable=
+originalTotal-discount;
+
+advance=payable;
+
+cod=0;
+
+}
+
+
+return{
+subtotal,
+delivery,
+originalTotal,
+discount,
+payable,
+advance,
+cod
+};
+
+}
+
+
+/* ================= PAYMENT SUMMARY ================= */
+
+function updatePaymentSummary(){
+
+const box =
+document.getElementById(
+'paymentSummary'
+);
+
+
+if(!cart.length){
+
+box.innerHTML='';
+
+return;
+
+}
+
+
+const x =
+calculatePayment();
+
+
+let html=`
+
+<div class="summary-line">
+
+<span>
+Products
+</span>
+
+<b>
+${money(x.subtotal)}
+</b>
+
+</div>
+
+
+<div class="summary-line">
+
+<span>
+Delivery
+</span>
+
+<b>
+${money(x.delivery)}
+</b>
+
+</div>
+
+
+<div class="summary-line">
+
+<span>
+Original Total
+</span>
+
+<b>
+${money(x.originalTotal)}
+</b>
+
+</div>
+`;
+
+
+if(x.discount>0){
+
+html+=`
+
+<div class="summary-line discount-line">
+
+<span>
+2% Advance Payment Discount
+</span>
+
+<b>
+- ${money(x.discount)}
+</b>
+
+</div>
+
+`;
+
+}
+
+
+html+=`
+
+<div class="summary-line summary-total">
+
+<span>
+Final Total
+</span>
+
+<b>
+${money(x.payable)}
+</b>
+
+</div>
+
+
+<div class="summary-line advance-line">
+
+<span>
+Advance Payment
+</span>
+
+<b>
+${money(x.advance)}
+</b>
+
+</div>
+
+
+<div class="summary-line cod-line">
+
+<span>
+Remaining COD
+</span>
+
+<b>
+${money(x.cod)}
+</b>
+
+</div>
+
+`;
+
+
+box.innerHTML=html;
+
+}
+
+
+/* ================= CLOSE ================= */
 
 function closeModal(id){
 
 const modal =
 document.getElementById(id);
-
 
 if(modal){
 
@@ -2667,9 +3082,7 @@ modal.classList.remove('show');
 }
 
 
-/* =========================================================
-   SUBMIT ORDER
-========================================================= */
+/* ================= SUBMIT ORDER ================= */
 
 async function submitOrder(){
 
@@ -2677,7 +3090,6 @@ const button =
 document.getElementById(
 'submitOrderBtn'
 );
-
 
 const message =
 document.getElementById(
@@ -2713,8 +3125,6 @@ document
 .trim();
 
 
-/* VALIDATION */
-
 if(!n || !ph || !ad){
 
 message.innerHTML=
@@ -2741,23 +3151,51 @@ return;
 }
 
 
-/* CALCULATE */
+/* PAYMENT */
 
-const subtotal =
-cart.reduce(
-(a,b)=>a+Number(b.price),
-0
-);
+const payment =
+calculatePayment();
 
-
-const total =
-subtotal+deliveryCharge;
-
-
-/* ORDER ID */
 
 const orderId =
 'TLH-'+Date.now();
+
+
+let paymentMethod='';
+
+if(selectedPayment==='cod'){
+
+paymentMethod=
+'100% COD';
+
+}
+
+if(selectedPayment==='half'){
+
+paymentMethod=
+'50% Advance + 50% COD';
+
+}
+
+if(selectedPayment==='full'){
+
+paymentMethod=
+'100% Advance';
+
+}
+
+
+/* ITEMS */
+
+const items =
+
+cart.map(x=>
+x.name+
+' | Size: '+
+x.size+
+' | '+
+money(x.price)
+).join('\n');
 
 
 /* PAYLOAD */
@@ -2781,28 +3219,35 @@ deliveryArea==='karachi'
 ?'Karachi'
 :'Rest of Pakistan',
 
-items:
+items:items,
 
-cart.map(x=>
-x.name+
-' | Size: '+
-x.size+
-' | '+
-money(x.price)
-).join('\n'),
+subtotal:payment.subtotal,
 
-subtotal:subtotal,
+delivery:payment.delivery,
 
-delivery:deliveryCharge,
+originalTotal:payment.originalTotal,
 
-total:total,
+discount:payment.discount,
+
+total:payment.payable,
+
+advanceAmount:payment.advance,
+
+codAmount:payment.cod,
+
+paymentMethod:paymentMethod,
+
+paymentStatus:
+selectedPayment==='cod'
+?'COD — Pending'
+:'Bank Transfer — Pending Verification',
 
 notes:notes
 
 };
 
 
-/* LOADING */
+/* BUTTON */
 
 button.disabled=true;
 
@@ -2821,8 +3266,6 @@ message.innerHTML=
 
 try{
 
-
-/* SEND TO GOOGLE APPS SCRIPT */
 
 const response =
 await fetch(
@@ -2848,7 +3291,6 @@ await response.text();
 
 let data;
 
-
 try{
 
 data =
@@ -2873,55 +3315,82 @@ data.error ||
 }
 
 
-/* SUCCESS */
-
-const finalOrderId =
-data.orderId ||
-orderId;
-
-
-/* CLEAR FORM */
+/* CLEAR */
 
 document
 .getElementById('custName')
 .value='';
 
-
 document
 .getElementById('custPhone')
 .value='';
 
-
 document
 .getElementById('custAddress')
 .value='';
-
 
 document
 .getElementById('custNotes')
 .value='';
 
 
-/* CLEAR CART */
-
 cart=[];
 
 updateCart();
 
-
-/* CLOSE CHECKOUT */
 
 closeModal(
 'checkoutModal'
 );
 
 
-/* SHOW SUCCESS */
+/* SUCCESS */
 
 document
 .getElementById('successOrderId')
 .textContent=
-'Order #'+finalOrderId;
+'Order #'+
+(data.orderId || orderId);
+
+
+let successText='';
+
+if(selectedPayment==='cod'){
+
+successText=
+'Payment method: 100% Cash on Delivery. '+
+'Amount to pay on delivery: '+
+money(payment.cod);
+
+}
+
+if(selectedPayment==='half'){
+
+successText=
+'Payment method: 50% Advance + 50% COD. '+
+'Please transfer '+
+money(payment.advance)+
+' to HBL. Remaining '+
+money(payment.cod)+
+' will be payable on delivery.';
+
+}
+
+if(selectedPayment==='full'){
+
+successText=
+'Payment method: 100% Advance. '+
+'Please transfer '+
+money(payment.advance)+
+' to HBL. You received a 2% discount.';
+
+}
+
+
+document
+.getElementById('successPaymentText')
+.textContent=
+successText;
 
 
 document
@@ -2957,9 +3426,7 @@ button.textContent=
 }
 
 
-/* =========================================================
-   ADMIN LOGIN
-========================================================= */
+/* ================= ADMIN ================= */
 
 function openAdminLogin(){
 
@@ -2967,11 +3434,9 @@ document
 .getElementById('loginError')
 .textContent='';
 
-
 document
 .getElementById('adminPass')
 .value='';
-
 
 document
 .getElementById('loginModal')
@@ -2980,17 +3445,12 @@ document
 }
 
 
-/* =========================================================
-   ADMIN LOGIN
-========================================================= */
-
 function adminLogin(){
 
 const entered =
 document
 .getElementById('adminPass')
 .value;
-
 
 const saved =
 localStorage.getItem(
@@ -3010,25 +3470,18 @@ return;
 
 }
 
-
 closeModal(
 'loginModal'
 );
-
 
 document
 .getElementById('adminModal')
 .classList.add('show');
 
-
 renderAdmin();
 
 }
 
-
-/* =========================================================
-   ADMIN PANELS
-========================================================= */
 
 function showAdmin(id){
 
@@ -3038,17 +3491,14 @@ document
 x.classList.remove('show')
 );
 
-
 const panel =
 document.getElementById(id);
-
 
 if(panel){
 
 panel.classList.add('show');
 
 }
-
 
 if(id==='productsPanel'){
 
@@ -3059,27 +3509,14 @@ renderAdmin();
 }
 
 
-/* =========================================================
-   LOAD ORDERS
-========================================================= */
-
 function loadOrders(){
 
 showAdmin('productsPanel');
 
-
 const list =
 document.getElementById('adminList');
 
-
 if(GOOGLE_SHEET_URL){
-
-list.innerHTML=
-
-'<div class="notice success-notice">'+
-'Opening your Google Sheet...'+
-'</div>';
-
 
 window.open(
 GOOGLE_SHEET_URL,
@@ -3090,38 +3527,16 @@ return;
 
 }
 
-
 list.innerHTML=
 
 '<div class="notice">'+
-
-'Orders are automatically saved in your Google Sheet.'+
-
-'<br><br>'+
-
-'To make this Orders button open the sheet, add your Google Sheet URL to the GOOGLE_SHEET_URL constant in index.html.'+
-
+'Orders are automatically saved in your Google Sheet. Add your Google Sheet URL to GOOGLE_SHEET_URL if you want the Orders button to open it.'+
 '</div>';
 
 }
 
 
-/* =========================================================
-   UPDATE ORDER STATUS
-========================================================= */
-
-function updateOrderStatus(id,status){
-
-alert(
-'Order status can be managed directly in your Google Sheet.'
-);
-
-}
-
-
-/* =========================================================
-   CHANGE PASSWORD
-========================================================= */
+/* ================= PASSWORD ================= */
 
 function changePassword(){
 
@@ -3130,25 +3545,21 @@ document
 .getElementById('currentPassword')
 .value;
 
-
 const next =
 document
 .getElementById('newPassword')
 .value;
-
 
 const confirmPassword =
 document
 .getElementById('confirmPassword')
 .value;
 
-
 const saved =
 localStorage.getItem(
 'lh_admin_password'
 ) ||
 'admin123';
-
 
 const msg =
 document
@@ -3157,8 +3568,7 @@ document
 
 if(current!==saved){
 
-msg.style.color=
-'#9b251b';
+msg.style.color='#9b251b';
 
 msg.textContent=
 'Current password is incorrect.';
@@ -3167,11 +3577,9 @@ return;
 
 }
 
-
 if(next.length<6){
 
-msg.style.color=
-'#9b251b';
+msg.style.color='#9b251b';
 
 msg.textContent=
 'New password must be at least 6 characters.';
@@ -3180,11 +3588,9 @@ return;
 
 }
 
-
 if(next!==confirmPassword){
 
-msg.style.color=
-'#9b251b';
+msg.style.color='#9b251b';
 
 msg.textContent=
 'New passwords do not match.';
@@ -3193,15 +3599,12 @@ return;
 
 }
 
-
 localStorage.setItem(
 'lh_admin_password',
 next
 );
 
-
-msg.style.color=
-'#2d6b39';
+msg.style.color='#2d6b39';
 
 msg.textContent=
 'Password changed successfully.';
@@ -3209,9 +3612,7 @@ msg.textContent=
 }
 
 
-/* =========================================================
-   ADD PRODUCT
-========================================================= */
+/* ================= ADD PRODUCT ================= */
 
 function addProduct(){
 
@@ -3221,7 +3622,6 @@ document
 .value
 .trim();
 
-
 const price =
 Number(
 document
@@ -3229,19 +3629,16 @@ document
 .value
 );
 
-
 const file =
 document
 .getElementById('pImage')
 .files[0];
-
 
 const sizes =
 document
 .getElementById('pSizes')
 .value
 .trim();
-
 
 const category =
 document
@@ -3294,11 +3691,9 @@ document
 .getElementById('pName')
 .value='';
 
-
 document
 .getElementById('pPrice')
 .value='';
-
 
 document
 .getElementById('pImage')
@@ -3308,7 +3703,6 @@ document
 alert(
 'Jacket added successfully.'
 );
-
 
 showAdmin(
 'productsPanel'
@@ -3322,9 +3716,7 @@ reader.readAsDataURL(file);
 }
 
 
-/* =========================================================
-   SAVE PRODUCTS
-========================================================= */
+/* ================= SAVE PRODUCTS ================= */
 
 function saveProducts(){
 
@@ -3333,15 +3725,12 @@ localStorage.setItem(
 JSON.stringify(products)
 );
 
-
 renderProducts();
 
 }
 
 
-/* =========================================================
-   RENDER ADMIN
-========================================================= */
+/* ================= ADMIN PRODUCTS ================= */
 
 function renderAdmin(){
 
@@ -3356,7 +3745,6 @@ products.map(p=>`
 <img
 src="${p.image}"
 alt="">
-
 
 <div>
 
@@ -3408,10 +3796,6 @@ Delete
 }
 
 
-/* =========================================================
-   EDIT PRODUCT
-========================================================= */
-
 let editingProductId=null;
 
 
@@ -3422,42 +3806,33 @@ products.find(
 x=>x.id===id
 );
 
-
 if(!p)return;
 
-
 editingProductId=id;
-
 
 document
 .getElementById('eName')
 .value=p.name;
 
-
 document
 .getElementById('ePrice')
 .value=p.price;
-
 
 document
 .getElementById('eCategory')
 .value=p.category;
 
-
 document
 .getElementById('eSizes')
 .value=p.sizes;
-
 
 document
 .getElementById('eImage')
 .value='';
 
-
 document
 .getElementById('editMsg')
 .textContent='';
-
 
 showAdmin(
 'editPanel'
@@ -3466,10 +3841,6 @@ showAdmin(
 }
 
 
-/* =========================================================
-   UPDATE PRODUCT
-========================================================= */
-
 function updateProduct(){
 
 const p =
@@ -3477,16 +3848,13 @@ products.find(
 x=>x.id===editingProductId
 );
 
-
 if(!p)return;
-
 
 const name =
 document
 .getElementById('eName')
 .value
 .trim();
-
 
 const price =
 Number(
@@ -3495,19 +3863,16 @@ document
 .value
 );
 
-
 const category =
 document
 .getElementById('eCategory')
 .value;
-
 
 const sizes =
 document
 .getElementById('eSizes')
 .value
 .trim();
-
 
 const file =
 document
@@ -3519,9 +3884,7 @@ if(!name || !price){
 
 document
 .getElementById('editMsg')
-.style.color=
-'#9b251b';
-
+.style.color='#9b251b';
 
 document
 .getElementById('editMsg')
@@ -3545,23 +3908,19 @@ p.sizes=
 sizes ||
 'S,M,L,XL,XXL';
 
-
 if(image){
 
 p.image=image;
 
 }
 
-
 saveProducts();
 
 renderAdmin();
 
-
 alert(
 'Jacket updated successfully.'
 );
-
 
 showAdmin(
 'productsPanel'
@@ -3575,10 +3934,8 @@ if(file){
 const reader =
 new FileReader();
 
-
 reader.onload=()=>
 finish(reader.result);
-
 
 reader.readAsDataURL(file);
 
@@ -3590,10 +3947,6 @@ finish(null);
 
 }
 
-
-/* =========================================================
-   DELETE PRODUCT
-========================================================= */
 
 function deleteProduct(id){
 
@@ -3608,7 +3961,6 @@ products.filter(
 p=>p.id!==id
 );
 
-
 saveProducts();
 
 renderAdmin();
@@ -3618,14 +3970,11 @@ renderAdmin();
 }
 
 
-/* =========================================================
-   INITIALIZE
-========================================================= */
+/* ================= INITIALIZE ================= */
 
 renderProducts();
 
 updateCart();
-
 
 </script>
 
