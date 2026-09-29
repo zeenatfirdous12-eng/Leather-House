@@ -354,7 +354,8 @@ background:#ddd;
 transition:.25s;
 }
 
-/* ================= VIEW PRODUCT - ALWAYS VISIBLE ================= */
+
+/* ================= VIEW PRODUCT ================= */
 
 .product-view-overlay{
 position:absolute;
@@ -683,6 +684,13 @@ border-radius:4px;
 background:#fff;
 }
 
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+outline:2px solid #c7a06a55;
+border-color:var(--tobacco);
+}
+
 
 /* ================= PAYMENT ================= */
 
@@ -960,8 +968,6 @@ gap:12px;
 height:260px;
 }
 
-/* MOBILE VIEW PRODUCT ALWAYS VISIBLE */
-
 .product-view-overlay{
 left:50%;
 bottom:10px;
@@ -1025,7 +1031,6 @@ text-align:left;
 </style>
 </head>
 
-
 <body>
 
 
@@ -1051,11 +1056,8 @@ PREMIUM LEATHER JACKETS
 <nav>
 
 <a href="#home">Home</a>
-
 <a href="#shop">Jackets</a>
-
 <a href="#about">Our Story</a>
-
 <a href="#contact">Contact</a>
 
 </nav>
@@ -1163,7 +1165,6 @@ Discover carefully selected leather jackets for men and women.
 
 
 <div class="categories">
-
 
 <div
 class="category"
@@ -1338,7 +1339,6 @@ The Leather House
 
 <div class="features">
 
-
 <div class="feature">
 
 <div class="feature-icon">
@@ -1444,7 +1444,6 @@ EXPLORE JACKETS →
 
 <div class="footer-grid">
 
-
 <div>
 
 <h2 style="margin-top:0">
@@ -1470,9 +1469,7 @@ Quick Links
 </h3>
 
 <a href="#home">Home</a>
-
 <a href="#shop">Jackets</a>
-
 <a href="#about">Our Story</a>
 
 </div>
@@ -1485,9 +1482,7 @@ Customer Care
 </h3>
 
 <a href="#">Size Guide</a>
-
 <a href="#">Shipping Policy</a>
-
 <a href="#">Exchange Policy</a>
 
 </div>
@@ -1636,18 +1631,20 @@ Customer Details
 </h3>
 
 
-<div class="form-grid">
+<!-- ================= NAME + PHONE ================= -->
 
+<div class="form-grid">
 
 <div class="field">
 
 <label>
-Full Name
+Full Name *
 </label>
 
 <input
 id="custName"
-autocomplete="name">
+autocomplete="name"
+placeholder="Your full name">
 
 </div>
 
@@ -1655,14 +1652,66 @@ autocomplete="name">
 <div class="field">
 
 <label>
-Phone / WhatsApp
+Phone / WhatsApp *
 </label>
 
 <input
 id="custPhone"
-autocomplete="tel">
+autocomplete="tel"
+placeholder="03XXXXXXXXX">
 
 </div>
+
+</div>
+
+
+<!-- ================= COUNTRY + CITY ================= -->
+
+<div class="form-grid">
+
+<div class="field">
+
+<label>
+Country *
+</label>
+
+<select
+id="custCountry"
+autocomplete="country-name">
+
+<option value="Pakistan" selected>
+Pakistan
+</option>
+
+<option value="Afghanistan">
+Afghanistan
+</option>
+
+<option value="Bangladesh">
+Bangladesh
+</option>
+
+<option value="United Arab Emirates">
+United Arab Emirates
+</option>
+
+<option value="Saudi Arabia">
+Saudi Arabia
+</option>
+
+<option value="United Kingdom">
+United Kingdom
+</option>
+
+<option value="United States">
+United States
+</option>
+
+<option value="Other">
+Other
+</option>
+
+</select>
 
 </div>
 
@@ -1670,16 +1719,38 @@ autocomplete="tel">
 <div class="field">
 
 <label>
-Delivery Address
+City *
+</label>
+
+<input
+id="custCity"
+type="text"
+placeholder="e.g. Karachi"
+autocomplete="address-level2">
+
+</div>
+
+</div>
+
+
+<!-- ================= ADDRESS ================= -->
+
+<div class="field">
+
+<label>
+Delivery Address *
 </label>
 
 <textarea
 id="custAddress"
 rows="3"
-autocomplete="street-address"></textarea>
+autocomplete="street-address"
+placeholder="Complete delivery address"></textarea>
 
 </div>
 
+
+<!-- ================= NOTES ================= -->
 
 <div class="field">
 
@@ -1693,6 +1764,8 @@ placeholder="Any size or delivery note">
 
 </div>
 
+
+<!-- ================= PAYMENT ================= -->
 
 <div class="payment-title">
 Select Payment Method
@@ -1767,6 +1840,8 @@ Pay the full amount in advance and receive 2% discount.
 </div>
 
 
+<!-- ================= BANK ================= -->
+
 <div
 class="bank-box"
 id="bankBox">
@@ -1819,7 +1894,8 @@ Account Number
 </div>
 
 
-<div class="notice"
+<div
+class="notice"
 style="margin-top:15px;margin-bottom:0">
 
 After transferring the amount, please keep your
@@ -1830,10 +1906,11 @@ transaction/reference number ready.
 </div>
 
 
+<!-- ================= PAYMENT SUMMARY ================= -->
+
 <div
 class="payment-summary"
 id="paymentSummary">
-
 </div>
 
 
@@ -2026,12 +2103,13 @@ Change Password
 </div>
 
 
+<!-- ================= ADD PRODUCT ================= -->
+
 <div
 id="addPanel"
 class="admin-panel show">
 
 <div class="form-grid">
-
 
 <div class="field">
 
@@ -2063,7 +2141,6 @@ placeholder="14999">
 
 
 <div class="form-grid">
-
 
 <div class="field">
 
@@ -2126,6 +2203,8 @@ SAVE JACKET
 </div>
 
 
+<!-- ================= PRODUCTS PANEL ================= -->
+
 <div
 id="productsPanel"
 class="admin-panel">
@@ -2138,6 +2217,8 @@ id="adminList">
 </div>
 
 
+<!-- ================= EDIT PANEL ================= -->
+
 <div
 id="editPanel"
 class="admin-panel">
@@ -2147,7 +2228,6 @@ Edit Jacket
 </h3>
 
 <div class="form-grid">
-
 
 <div class="field">
 
@@ -2176,7 +2256,6 @@ type="number">
 
 
 <div class="form-grid">
-
 
 <div class="field">
 
@@ -2248,6 +2327,8 @@ CANCEL
 
 </div>
 
+
+<!-- ================= PASSWORD PANEL ================= -->
 
 <div
 id="passwordPanel"
@@ -2805,6 +2886,10 @@ document
 .getElementById('bankBox')
 .classList.remove('show');
 
+document
+.getElementById('orderMessage')
+.innerHTML='';
+
 updatePaymentSummary();
 
 document
@@ -3139,6 +3224,20 @@ document
 .trim();
 
 
+const country =
+document
+.getElementById('custCountry')
+.value
+.trim();
+
+
+const city =
+document
+.getElementById('custCity')
+.value
+.trim();
+
+
 const ad =
 document
 .getElementById('custAddress')
@@ -3153,12 +3252,14 @@ document
 .trim();
 
 
-if(!n || !ph || !ad){
+/* ================= VALIDATION ================= */
+
+if(!n || !ph || !country || !city || !ad){
 
 message.innerHTML=
 
 '<div class="notice error-notice">'+
-'Please fill your name, phone and address.'+
+'Please fill your name, phone, country, city and address.'+
 '</div>';
 
 return;
@@ -3179,6 +3280,8 @@ return;
 }
 
 
+/* ================= PAYMENT ================= */
+
 const payment =
 calculatePayment();
 
@@ -3189,12 +3292,14 @@ const orderId =
 
 let paymentMethod='';
 
+
 if(selectedPayment==='cod'){
 
 paymentMethod=
 '100% COD';
 
 }
+
 
 if(selectedPayment==='half'){
 
@@ -3203,6 +3308,7 @@ paymentMethod=
 
 }
 
+
 if(selectedPayment==='full'){
 
 paymentMethod=
@@ -3210,6 +3316,8 @@ paymentMethod=
 
 }
 
+
+/* ================= ITEMS ================= */
 
 const items =
 
@@ -3222,52 +3330,91 @@ money(x.price)
 ).join('\n');
 
 
+/* ================= PAYLOAD ================= */
+
 const payload={
 
-secret:GOOGLE_SECRET_KEY,
+secret:
+GOOGLE_SECRET_KEY,
 
-orderId:orderId,
+orderId:
+orderId,
 
-date:new Date().toISOString(),
+date:
+new Date().toISOString(),
 
-name:n,
+name:
+n,
 
-phone:ph,
+phone:
+ph,
 
-address:ad,
+/*
+Country and City are sent
+to Google Apps Script.
+*/
+
+customerCountry:
+country,
+
+customerCity:
+city,
+
+/*
+Address is sent in both formats
+for compatibility.
+*/
+
+customerAddress:
+ad,
+
+address:
+ad,
 
 deliveryArea:
 deliveryArea==='karachi'
 ?'Karachi'
 :'Rest of Pakistan',
 
-items:items,
+items:
+items,
 
-subtotal:payment.subtotal,
+subtotal:
+payment.subtotal,
 
-delivery:payment.delivery,
+delivery:
+payment.delivery,
 
-originalTotal:payment.originalTotal,
+originalTotal:
+payment.originalTotal,
 
-discount:payment.discount,
+discount:
+payment.discount,
 
-total:payment.payable,
+total:
+payment.payable,
 
-advanceAmount:payment.advance,
+advanceAmount:
+payment.advance,
 
-codAmount:payment.cod,
+codAmount:
+payment.cod,
 
-paymentMethod:paymentMethod,
+paymentMethod:
+paymentMethod,
 
 paymentStatus:
 selectedPayment==='cod'
 ?'COD — Pending'
 :'Bank Transfer — Pending Verification',
 
-notes:notes
+notes:
+notes
 
 };
 
+
+/* ================= BUTTON ================= */
 
 button.disabled=true;
 
@@ -3283,6 +3430,8 @@ message.innerHTML=
 'Submitting your order...'+
 '</div>';
 
+
+/* ================= SEND ================= */
 
 try{
 
@@ -3334,32 +3483,53 @@ data.error ||
 }
 
 
+/* ================= RESET FORM ================= */
+
 document
 .getElementById('custName')
 .value='';
+
 
 document
 .getElementById('custPhone')
 .value='';
 
+
+document
+.getElementById('custCountry')
+.value='Pakistan';
+
+
+document
+.getElementById('custCity')
+.value='';
+
+
 document
 .getElementById('custAddress')
 .value='';
+
 
 document
 .getElementById('custNotes')
 .value='';
 
 
+/* ================= CLEAR CART ================= */
+
 cart=[];
 
 updateCart();
 
 
+/* ================= CLOSE CHECKOUT ================= */
+
 closeModal(
 'checkoutModal'
 );
 
+
+/* ================= SUCCESS ID ================= */
 
 document
 .getElementById('successOrderId')
@@ -3368,7 +3538,10 @@ document
 (data.orderId || orderId);
 
 
+/* ================= SUCCESS PAYMENT ================= */
+
 let successText='';
+
 
 if(selectedPayment==='cod'){
 
@@ -3378,6 +3551,7 @@ successText=
 money(payment.cod);
 
 }
+
 
 if(selectedPayment==='half'){
 
@@ -3390,6 +3564,7 @@ money(payment.cod)+
 ' will be payable on delivery.';
 
 }
+
 
 if(selectedPayment==='full'){
 
@@ -3407,6 +3582,8 @@ document
 .textContent=
 successText;
 
+
+/* ================= SHOW SUCCESS ================= */
 
 document
 .getElementById('successModal')
