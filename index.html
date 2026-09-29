@@ -335,11 +335,14 @@ box-shadow:0 12px 28px #3b1b0c18;
 
 .card-media{
 position:relative;
+overflow:hidden;
 }
 
 .card-media a{
 display:block;
 cursor:pointer;
+position:relative;
+text-decoration:none;
 }
 
 .card img{
@@ -355,6 +358,46 @@ transition:.25s;
 transform:scale(1.02);
 }
 
+/* CLEAR PRODUCT VIEW BUTTON */
+.product-view-overlay{
+position:absolute;
+left:50%;
+bottom:18px;
+transform:translate(-50%,0);
+background:rgba(42,22,13,.94);
+color:#fff;
+padding:11px 17px;
+border:1px solid rgba(255,255,255,.25);
+border-radius:3px;
+font-size:11px;
+font-weight:bold;
+letter-spacing:1.3px;
+text-transform:uppercase;
+white-space:nowrap;
+opacity:0;
+transition:opacity .25s, transform .25s, background .25s;
+pointer-events:none;
+box-shadow:0 5px 18px #0004;
+}
+
+.card-media a:hover .product-view-overlay{
+opacity:1;
+transform:translate(-50%,-3px);
+}
+
+.card-media a:focus-visible .product-view-overlay{
+opacity:1;
+}
+
+@media(max-width:650px){
+.product-view-overlay{
+opacity:1;
+bottom:10px;
+font-size:9px;
+padding:9px 12px;
+letter-spacing:1px;
+}
+}
 .tag{
 position:absolute;
 left:12px;
@@ -2440,12 +2483,16 @@ list.length
 
 <a
 href="product.html?id=${encodeURIComponent(p.id)}"
-style="display:block;text-decoration:none;cursor:pointer"
+class="product-image-link"
 aria-label="View ${escapeHtml(p.name)}">
 
 <img
 src="${p.image}"
 alt="${escapeHtml(p.name)}">
+
+<span class="product-view-overlay">
+VIEW PRODUCT →
+</span>
 
 </a>
 
