@@ -360,7 +360,6 @@ transform:scale(1.02);
 
 /* CLEAR PRODUCT VIEW BUTTON */
 .product-view-overlay{
-  display:none !important;
 position:absolute;
 left:50%;
 bottom:18px;
@@ -2487,6 +2486,9 @@ href="./product.html?id=${encodeURIComponent(p.id)}"
 class="product-image-link"
 aria-label="View ${escapeHtml(p.name)}"
 target="_self">
+<span class="product-view-overlay">
+VIEW PRODUCT →
+</span>
 
 <img
 src="${p.image}"
