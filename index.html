@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>The Leather House | Premium Leather Jackets</title>
 
@@ -10,7 +10,6 @@
 content="The Leather House — premium leather jackets for men and women.">
 
 <style>
-
 :root{
 --espresso:#2a160d;
 --brown:#4b2413;
@@ -24,13 +23,9 @@ content="The Leather House — premium leather jackets for men and women.">
 --gold:#c7a06a;
 }
 
-*{
-box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
-html{
-scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
 margin:0;
@@ -43,9 +38,7 @@ h1,h2,h3,.brand{
 font-family:Georgia,'Times New Roman',serif;
 }
 
-button,input,select,textarea{
-font:inherit;
-}
+button,input,select,textarea{font:inherit}
 
 
 /* ================= HEADER ================= */
@@ -91,9 +84,7 @@ text-transform:uppercase;
 letter-spacing:1px;
 }
 
-nav a:hover{
-color:#e0b88f;
-}
+nav a:hover{color:#e0b88f}
 
 .header-actions{
 display:flex;
@@ -138,20 +129,13 @@ padding:100px 7%;
 display:flex;
 align-items:center;
 background:
-linear-gradient(
-90deg,
-#1e100bd9 0%,
-#32180fbb 44%,
-#32180f20 75%
-),
+linear-gradient(90deg,#1e100bd9 0%,#32180fbb 44%,#32180f20 75%),
 url('https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=2000&q=90')
 center/cover;
 color:#fff;
 }
 
-.hero-content{
-max-width:680px;
-}
+.hero-content{max-width:680px}
 
 .eyebrow{
 font-size:12px;
@@ -193,9 +177,7 @@ cursor:pointer;
 letter-spacing:.4px;
 }
 
-.btn:hover{
-filter:brightness(1.08);
-}
+.btn:hover{filter:brightness(1.08)}
 
 .btn-light{
 background:transparent;
@@ -211,9 +193,7 @@ border-color:var(--brown);
 
 /* ================= SECTIONS ================= */
 
-.section{
-padding:78px 5%;
-}
+.section{padding:78px 5%}
 
 .section-head{
 text-align:center;
@@ -221,9 +201,7 @@ max-width:720px;
 margin:0 auto 38px;
 }
 
-.section-head .eyebrow{
-color:var(--tobacco);
-}
+.section-head .eyebrow{color:var(--tobacco)}
 
 .section-title{
 font-size:40px;
@@ -258,11 +236,7 @@ background-position:center;
 content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(
-90deg,
-#25130ddd,
-#25130d22
-);
+background:linear-gradient(90deg,#25130ddd,#25130d22);
 }
 
 .cat-content{
@@ -354,11 +328,8 @@ background:#ddd;
 transition:.25s;
 }
 
-.card-media a:hover img{
-transform:scale(1.02);
-}
+.card-media a:hover img{transform:scale(1.02)}
 
-/* CLEAR PRODUCT VIEW BUTTON */
 .product-view-overlay{
 position:absolute;
 left:50%;
@@ -375,29 +346,17 @@ letter-spacing:1.3px;
 text-transform:uppercase;
 white-space:nowrap;
 opacity:0;
-transition:opacity .25s, transform .25s, background .25s;
+transition:.25s;
 pointer-events:none;
 box-shadow:0 5px 18px #0004;
 }
 
-.card-media a:hover .product-view-overlay{
+.card-media a:hover .product-view-overlay,
+.card-media a:focus-visible .product-view-overlay{
 opacity:1;
 transform:translate(-50%,-3px);
 }
 
-.card-media a:focus-visible .product-view-overlay{
-opacity:1;
-}
-
-@media(max-width:650px){
-.product-view-overlay{
-opacity:1;
-bottom:10px;
-font-size:9px;
-padding:9px 12px;
-letter-spacing:1px;
-}
-}
 .tag{
 position:absolute;
 left:12px;
@@ -411,9 +370,7 @@ text-transform:uppercase;
 pointer-events:none;
 }
 
-.card-body{
-padding:17px;
-}
+.card-body{padding:17px}
 
 .card h3{
 font-size:19px;
@@ -476,9 +433,7 @@ min-height:480px;
 object-fit:cover;
 }
 
-.story-copy{
-padding:70px 8%;
-}
+.story-copy{padding:70px 8%}
 
 .story-copy h2{
 font-size:43px;
@@ -516,9 +471,7 @@ text-align:center;
 padding:12px;
 }
 
-.feature-icon{
-font-size:24px;
-}
+.feature-icon{font-size:24px}
 
 .feature b{
 display:block;
@@ -550,9 +503,7 @@ font-size:40px;
 margin:8px 0;
 }
 
-.cta p{
-color:#eadbd0;
-}
+.cta p{color:#eadbd0}
 
 
 /* ================= FOOTER ================= */
@@ -569,9 +520,7 @@ grid-template-columns:2fr 1fr 1fr 1.3fr;
 gap:35px;
 }
 
-.footer-grid h3{
-font-size:17px;
-}
+.footer-grid h3{font-size:17px}
 
 .footer-grid a{
 display:block;
@@ -616,9 +565,7 @@ justify-content:center;
 padding:18px;
 }
 
-.modal.show{
-display:flex;
-}
+.modal.show{display:flex}
 
 .modal-box{
 background:var(--paper);
@@ -667,9 +614,7 @@ grid-template-columns:1fr 1fr;
 gap:14px;
 }
 
-.field{
-margin-bottom:14px;
-}
+.field{margin-bottom:14px}
 
 .field label{
 display:block;
@@ -725,9 +670,7 @@ width:auto;
 margin-right:8px;
 }
 
-.payment-name{
-font-weight:bold;
-}
+.payment-name{font-weight:bold}
 
 .payment-description{
 display:block;
@@ -746,13 +689,9 @@ border-radius:7px;
 margin-top:15px;
 }
 
-.bank-box.show{
-display:block;
-}
+.bank-box.show{display:block}
 
-.bank-box h3{
-margin-top:0;
-}
+.bank-box h3{margin-top:0}
 
 .bank-detail{
 display:flex;
@@ -763,13 +702,9 @@ padding:9px 0;
 font-size:14px;
 }
 
-.bank-detail:last-child{
-border-bottom:0;
-}
+.bank-detail:last-child{border-bottom:0}
 
-.bank-label{
-color:var(--muted);
-}
+.bank-label{color:var(--muted)}
 
 .bank-value{
 font-weight:bold;
@@ -845,17 +780,9 @@ flex-wrap:wrap;
 margin-bottom:20px;
 }
 
-.admin{
-display:block;
-}
+.admin-panel{display:none}
 
-.admin-panel{
-display:none;
-}
-
-.admin-panel.show{
-display:block;
-}
+.admin-panel.show{display:block}
 
 .admin-list{
 display:grid;
@@ -900,74 +827,51 @@ pointer-events:none;
 
 @media(max-width:1000px){
 
-nav{
-display:none;
-}
+nav{display:none}
 
-.products{
-grid-template-columns:repeat(2,1fr);
-}
+.products{grid-template-columns:repeat(2,1fr)}
 
-.features{
-grid-template-columns:repeat(2,1fr);
-}
+.features{grid-template-columns:repeat(2,1fr)}
 
-.footer-grid{
-grid-template-columns:1fr 1fr;
-}
+.footer-grid{grid-template-columns:1fr 1fr}
 
-.card img{
-height:330px;
-}
+.card img{height:330px}
 
 }
-
 
 @media(max-width:650px){
 
-.brand{
-font-size:19px;
-}
+.brand{font-size:19px}
 
 .brand small{
 font-size:7px;
 letter-spacing:2px;
 }
 
-.admin-link{
-display:none;
-}
+.admin-link{display:none}
 
 .hero{
 min-height:570px;
 padding:70px 6%;
 }
 
-.hero h1{
-font-size:43px;
-}
+.hero h1{font-size:43px}
 
 .categories,
 .story{
 grid-template-columns:1fr;
 }
 
-.category{
-height:300px;
-}
+.category{height:300px}
 
 .products{
 grid-template-columns:1fr 1fr;
 gap:12px;
 }
 
-.card img{
-height:260px;
-}
+.card img{height:260px}
 
-.section{
-padding:55px 4%;
-}
+.section{padding:55px 4%}
 
 .section-title,
 .story-copy h2,
@@ -975,22 +879,16 @@ padding:55px 4%;
 font-size:31px;
 }
 
-.story-copy{
-padding:45px 7%;
-}
+.story-copy{padding:45px 7%}
 
 .features{
 grid-template-columns:1fr 1fr;
 padding:20px 4%;
 }
 
-.footer-grid{
-grid-template-columns:1fr;
-}
+.footer-grid{grid-template-columns:1fr}
 
-.form-grid{
-grid-template-columns:1fr;
-}
+.form-grid{grid-template-columns:1fr}
 
 .copyright .admin-footer{
 float:none;
@@ -1003,26 +901,28 @@ margin:45px 4%;
 padding:45px 6%;
 }
 
-.card-actions{
-flex-direction:column;
-}
+.card-actions{flex-direction:column}
 
 .bank-detail{
 flex-direction:column;
 gap:3px;
 }
 
-.bank-value{
-text-align:left;
+.bank-value{text-align:left}
+
+.product-view-overlay{
+opacity:1;
+bottom:10px;
+font-size:9px;
+padding:9px 12px;
+letter-spacing:1px;
 }
 
 }
 </style>
 </head>
 
-
 <body>
-
 
 <!-- ================= HEADER ================= -->
 
@@ -1031,30 +931,18 @@ text-align:left;
 <a href="#home" style="color:#fff;text-decoration:none">
 
 <div class="brand">
-
 THE LEATHER HOUSE
-
-<small>
-PREMIUM LEATHER JACKETS
-</small>
-
+<small>PREMIUM LEATHER JACKETS</small>
 </div>
 
 </a>
 
-
 <nav>
-
 <a href="#home">Home</a>
-
 <a href="#shop">Jackets</a>
-
 <a href="#about">Our Story</a>
-
 <a href="#contact">Contact</a>
-
 </nav>
-
 
 <div class="header-actions">
 
@@ -1062,23 +950,14 @@ PREMIUM LEATHER JACKETS
 class="admin-link"
 href="#"
 onclick="openAdminLogin();return false">
-
 🔐 Admin Login
-
 </a>
 
 <span
 class="cart"
 onclick="openCart()">
-
 🛒
-
-<i
-class="badge"
-id="cartCount">
-0
-</i>
-
+<i class="badge" id="cartCount">0</i>
 </span>
 
 </div>
@@ -1090,16 +969,11 @@ id="cartCount">
 
 <main>
 
-
-<section
-class="hero"
-id="home">
+<section class="hero" id="home">
 
 <div class="hero-content">
 
-<div class="eyebrow">
-THE LEATHER HOUSE
-</div>
+<div class="eyebrow">THE LEATHER HOUSE</div>
 
 <h1>
 CRAFTED IN LEATHER.<br>
@@ -1113,20 +987,12 @@ everyday confidence and lasting comfort.
 
 <div class="hero-buttons">
 
-<a
-class="btn"
-href="#shop">
-
+<a class="btn" href="#shop">
 SHOP JACKETS →
-
 </a>
 
-<a
-class="btn btn-light"
-href="#about">
-
+<a class="btn btn-light" href="#about">
 OUR STORY
-
 </a>
 
 </div>
@@ -1142,9 +1008,7 @@ OUR STORY
 
 <div class="section-head">
 
-<div class="eyebrow">
-EXPLORE THE COLLECTION
-</div>
+<div class="eyebrow">EXPLORE THE COLLECTION</div>
 
 <h2 class="section-title">
 Shop By Category
@@ -1156,9 +1020,7 @@ Discover carefully selected leather jackets for men and women.
 
 </div>
 
-
 <div class="categories">
-
 
 <div
 class="category"
@@ -1166,21 +1028,15 @@ style="background-image:url('https://images.unsplash.com/photo-1551488831-00ddcb
 
 <div class="cat-content">
 
-<h3>
-Men's Jackets
-</h3>
+<h3>Men's Jackets</h3>
 
-<p>
-Classic, biker &amp; everyday styles
-</p>
+<p>Classic, biker &amp; everyday styles</p>
 
 <a
 class="btn"
 href="#shop"
 onclick="setFilter('men')">
-
 SHOP MEN →
-
 </a>
 
 </div>
@@ -1194,21 +1050,15 @@ style="background-image:url('https://images.unsplash.com/photo-1551028719-00167b
 
 <div class="cat-content">
 
-<h3>
-Women's Jackets
-</h3>
+<h3>Women's Jackets</h3>
 
-<p>
-Modern cuts with timeless leather
-</p>
+<p>Modern cuts with timeless leather</p>
 
 <a
 class="btn"
 href="#shop"
 onclick="setFilter('women')">
-
 SHOP WOMEN →
-
 </a>
 
 </div>
@@ -1222,15 +1072,11 @@ SHOP WOMEN →
 
 <!-- ================= SHOP ================= -->
 
-<section
-class="section"
-id="shop">
+<section class="section" id="shop">
 
 <div class="section-head">
 
-<div class="eyebrow">
-THE COLLECTION
-</div>
+<div class="eyebrow">THE COLLECTION</div>
 
 <h2 class="section-title">
 Our Leather Jackets
@@ -1242,38 +1088,30 @@ Choose your style, select your size and order directly.
 
 </div>
 
-
 <div class="filters">
 
 <button
 class="filter active"
 data-filter="all"
 onclick="setFilter('all')">
-
 All
-
 </button>
 
 <button
 class="filter"
 data-filter="men"
 onclick="setFilter('men')">
-
 Men
-
 </button>
 
 <button
 class="filter"
 data-filter="women"
 onclick="setFilter('women')">
-
 Women
-
 </button>
 
 </div>
-
 
 <div
 class="products"
@@ -1285,23 +1123,18 @@ id="productGrid">
 
 <!-- ================= STORY ================= -->
 
-<section
-class="story"
-id="about">
+<section class="story" id="about">
 
 <img
 src="https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?auto=format&fit=crop&w=1200&q=85"
 alt="Leather jacket collection">
-
 
 <div class="story-copy">
 
 <div
 class="eyebrow"
 style="color:var(--tobacco)">
-
 OUR STORY
-
 </div>
 
 <h2>
@@ -1333,72 +1166,28 @@ The Leather House
 
 <div class="features">
 
+<div class="feature">
+<div class="feature-icon">◆</div>
+<b>Premium Quality</b>
+<span>Jackets selected for style and durability</span>
+</div>
 
 <div class="feature">
-
-<div class="feature-icon">
-◆
+<div class="feature-icon">◇</div>
+<b>Delivery Charges</b>
+<span>Karachi Rs. 300 | Pakistan Rs. 600</span>
 </div>
-
-<b>
-Premium Quality
-</b>
-
-<span>
-Jackets selected for style and durability
-</span>
-
-</div>
-
 
 <div class="feature">
-
-<div class="feature-icon">
-◇
+<div class="feature-icon">✦</div>
+<b>WhatsApp Support</b>
+<span>+92 311 2674115</span>
 </div>
-
-<b>
-Delivery Charges
-</b>
-
-<span>
-Karachi Rs. 300 | Pakistan Rs. 600
-</span>
-
-</div>
-
 
 <div class="feature">
-
-<div class="feature-icon">
-✦
-</div>
-
-<b>
-WhatsApp Support
-</b>
-
-<span>
-+92 311 2674115
-</span>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-✓
-</div>
-
-<b>
-Easy Ordering
-</b>
-
-<span>
-Order directly from our website
-</span>
-
+<div class="feature-icon">✓</div>
+<b>Easy Ordering</b>
+<span>Order directly from our website</span>
 </div>
 
 </div>
@@ -1412,20 +1201,14 @@ Order directly from our website
 READY FOR YOUR NEXT JACKET?
 </div>
 
-<h2>
-Find your signature leather.
-</h2>
+<h2>Find your signature leather.</h2>
 
 <p>
 Browse the collection and order directly through our website.
 </p>
 
-<a
-class="btn"
-href="#shop">
-
+<a class="btn" href="#shop">
 EXPLORE JACKETS →
-
 </a>
 
 </section>
@@ -1439,16 +1222,13 @@ EXPLORE JACKETS →
 
 <div class="footer-grid">
 
-
 <div>
 
 <h2 style="margin-top:0">
 THE LEATHER HOUSE
 </h2>
 
-<p>
-Premium Leather Jackets
-</p>
+<p>Premium Leather Jackets</p>
 
 <p>
 Timeless styles in tobacco brown,
@@ -1457,64 +1237,44 @@ black and classic leather.
 
 </div>
 
-
 <div>
 
-<h3>
-Quick Links
-</h3>
+<h3>Quick Links</h3>
 
 <a href="#home">Home</a>
-
 <a href="#shop">Jackets</a>
-
 <a href="#about">Our Story</a>
 
 </div>
 
-
 <div>
 
-<h3>
-Customer Care
-</h3>
+<h3>Customer Care</h3>
 
 <a href="#">Size Guide</a>
-
 <a href="#">Shipping Policy</a>
-
 <a href="#">Exchange Policy</a>
 
 </div>
 
-
 <div>
 
-<h3>
-Contact
-</h3>
+<h3>Contact</h3>
 
-<p>
-+92 311 2674115
-</p>
+<p>+92 311 2674115</p>
 
-<p>
-info@theleatherhouse.pk
-</p>
+<p>info@theleatherhouse.pk</p>
 
 <a
 class="btn"
 href="https://wa.me/923112674115"
 target="_blank">
-
 CHAT ON WHATSAPP
-
 </a>
 
 </div>
 
 </div>
-
 
 <div class="copyright">
 
@@ -1523,9 +1283,7 @@ CHAT ON WHATSAPP
 <span
 class="admin-footer"
 onclick="openAdminLogin()">
-
 Admin
-
 </span>
 
 </div>
@@ -1535,9 +1293,7 @@ Admin
 
 <!-- ================= CART MODAL ================= -->
 
-<div
-class="modal"
-id="cartModal">
+<div class="modal" id="cartModal">
 
 <div class="modal-box">
 
@@ -1547,19 +1303,16 @@ onclick="closeModal('cartModal')">
 ×
 </span>
 
-<h2>
-Your Cart
-</h2>
+<h2>Your Cart</h2>
 
 <div id="cartItems"></div>
-
 
 <div
 class="field"
 style="margin-top:16px">
 
 <label>
-Delivery Area
+DELIVERY AREA *
 </label>
 
 <select
@@ -1578,20 +1331,16 @@ Rest of Pakistan — Rs. 600
 
 </div>
 
-
 <div
 class="cart-total"
 id="cartTotal">
 </div>
 
-
 <button
 class="btn"
 style="width:100%"
 onclick="openCheckout()">
-
 PROCEED TO ORDER →
-
 </button>
 
 </div>
@@ -1601,9 +1350,7 @@ PROCEED TO ORDER →
 
 <!-- ================= CHECKOUT MODAL ================= -->
 
-<div
-class="modal"
-id="checkoutModal">
+<div class="modal" id="checkoutModal">
 
 <div class="modal-box">
 
@@ -1613,53 +1360,96 @@ onclick="closeModal('checkoutModal')">
 ×
 </span>
 
-<h2>
-Place Your Order
-</h2>
-
+<h2>Place Your Order</h2>
 
 <div class="notice">
-
 Choose your payment method below. Bank transfer details
 will appear when advance payment is selected.
-
 </div>
 
 
 <!-- CUSTOMER DETAILS -->
 
-<h3>
-Customer Details
-</h3>
-
+<h3>Customer Details</h3>
 
 <div class="form-grid">
-
 
 <div class="field">
 
 <label>
-Full Name
+FULL NAME *
 </label>
 
 <input
 id="custName"
-autocomplete="name">
+autocomplete="name"
+placeholder="Your full name">
 
 </div>
-
 
 <div class="field">
 
 <label>
-Phone / WhatsApp
+PHONE / WHATSAPP *
 </label>
 
 <input
 id="custPhone"
-autocomplete="tel">
+autocomplete="tel"
+placeholder="+92 3XX XXXXXXX">
 
 </div>
+
+</div>
+
+
+<!-- COUNTRY + CITY -->
+
+<div class="form-grid">
+
+<div class="field">
+
+<label>
+COUNTRY *
+</label>
+
+<select
+id="custCountry"
+autocomplete="country-name">
+
+<option value="Pakistan" selected>
+Pakistan
+</option>
+
+<option value="Afghanistan">
+Afghanistan
+</option>
+
+<option value="Bangladesh">
+Bangladesh
+</option>
+
+<option value="United Arab Emirates">
+United Arab Emirates
+</option>
+
+<option value="Saudi Arabia">
+Saudi Arabia
+</option>
+
+<option value="United Kingdom">
+United Kingdom
+</option>
+
+<option value="United States">
+United States
+</option>
+
+<option value="Other">
+Other
+</option>
+
+</select>
 
 </div>
 
@@ -1667,13 +1457,56 @@ autocomplete="tel">
 <div class="field">
 
 <label>
-Delivery Address
+CITY *
+</label>
+
+<input
+id="custCity"
+type="text"
+placeholder="e.g. Karachi"
+autocomplete="address-level2">
+
+</div>
+
+</div>
+
+
+<!-- DELIVERY AREA -->
+
+<div class="field">
+
+<label>
+DELIVERY AREA *
+</label>
+
+<select
+id="checkoutDeliveryArea"
+onchange="setDeliveryArea(this.value)">
+
+<option value="karachi">
+Karachi — Rs. 300
+</option>
+
+<option value="pakistan">
+Rest of Pakistan — Rs. 600
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>
+DELIVERY ADDRESS *
 </label>
 
 <textarea
 id="custAddress"
 rows="3"
-autocomplete="street-address"></textarea>
+autocomplete="street-address"
+placeholder="Complete delivery address"></textarea>
 
 </div>
 
@@ -1681,7 +1514,7 @@ autocomplete="street-address"></textarea>
 <div class="field">
 
 <label>
-Notes
+NOTES
 </label>
 
 <input
@@ -1697,9 +1530,7 @@ placeholder="Any size or delivery note">
 Select Payment Method
 </div>
 
-
 <div class="payment-options">
-
 
 <label
 class="payment-option"
@@ -1772,55 +1603,38 @@ Pay the full amount in advance and receive 2% discount.
 class="bank-box"
 id="bankBox">
 
-<h3>
-🏦 HBL Bank Payment
-</h3>
+<h3>🏦 HBL Bank Payment</h3>
 
 <p>
 Please transfer the required advance/payment to this account.
 </p>
 
-
 <div class="bank-detail">
 
-<span class="bank-label">
-Bank
-</span>
+<span class="bank-label">Bank</span>
 
-<span class="bank-value">
-HBL
-</span>
+<span class="bank-value">HBL</span>
 
 </div>
 
-
 <div class="bank-detail">
 
-<span class="bank-label">
-Account Title
-</span>
+<span class="bank-label">Account Title</span>
 
-<span class="bank-value">
-Sajid
-</span>
+<span class="bank-value">Sajid</span>
 
 </div>
 
-
 <div class="bank-detail">
 
-<span class="bank-label">
-Account Number
-</span>
+<span class="bank-label">Account Number</span>
 
-<span class="bank-value">
-00597901153803
-</span>
+<span class="bank-value">00597901153803</span>
 
 </div>
 
-
-<div class="notice"
+<div
+class="notice"
 style="margin-top:15px;margin-bottom:0">
 
 After transferring the amount, please keep your
@@ -1836,7 +1650,6 @@ transaction/reference number ready.
 <div
 class="payment-summary"
 id="paymentSummary">
-
 </div>
 
 
@@ -1845,9 +1658,7 @@ class="btn"
 id="submitOrderBtn"
 style="width:100%"
 onclick="submitOrder()">
-
 PLACE ORDER →
-
 </button>
 
 
@@ -1863,9 +1674,7 @@ style="margin-top:15px">
 
 <!-- ================= SUCCESS ================= -->
 
-<div
-class="modal"
-id="successModal">
+<div class="modal" id="successModal">
 
 <div
 class="modal-box"
@@ -1877,13 +1686,9 @@ onclick="closeModal('successModal')">
 ×
 </span>
 
-<div style="font-size:45px">
-✓
-</div>
+<div style="font-size:45px">✓</div>
 
-<h2>
-Order Received
-</h2>
+<h2>Order Received</h2>
 
 <p style="color:var(--muted)">
 Thank you for ordering from The Leather House.
@@ -1902,9 +1707,7 @@ style="color:var(--muted);font-size:14px">
 <button
 class="btn"
 onclick="closeModal('successModal')">
-
 CONTINUE SHOPPING
-
 </button>
 
 </div>
@@ -1914,9 +1717,7 @@ CONTINUE SHOPPING
 
 <!-- ================= ADMIN LOGIN ================= -->
 
-<div
-class="modal"
-id="loginModal">
+<div class="modal" id="loginModal">
 
 <div
 class="modal-box"
@@ -1928,9 +1729,7 @@ onclick="closeModal('loginModal')">
 ×
 </span>
 
-<h2>
-Admin Login
-</h2>
+<h2>Admin Login</h2>
 
 <div class="notice">
 Store management is available only to the admin.
@@ -1938,9 +1737,7 @@ Store management is available only to the admin.
 
 <div class="field">
 
-<label>
-Password
-</label>
+<label>Password</label>
 
 <input
 type="password"
@@ -1953,9 +1750,7 @@ onkeydown="if(event.key==='Enter')adminLogin()">
 class="btn"
 style="width:100%"
 onclick="adminLogin()">
-
 LOGIN
-
 </button>
 
 <p
@@ -1970,9 +1765,7 @@ style="color:#9b251b">
 
 <!-- ================= ADMIN ================= -->
 
-<div
-class="modal"
-id="adminModal">
+<div class="modal" id="adminModal">
 
 <div class="modal-box">
 
@@ -1984,50 +1777,38 @@ onclick="closeModal('adminModal')">
 
 <div class="admin">
 
-<h2>
-The Leather House — Admin Panel
-</h2>
-
+<h2>The Leather House — Admin Panel</h2>
 
 <div class="admin-tabs">
 
 <button
 class="btn"
 onclick="showAdmin('addPanel')">
-
 + Add Jacket
-
 </button>
-
 
 <button
 class="btn btn-outline"
 onclick="showAdmin('productsPanel')">
-
 Manage Jackets
-
 </button>
-
 
 <button
 class="btn btn-outline"
 onclick="loadOrders()">
-
 Orders
-
 </button>
-
 
 <button
 class="btn btn-outline"
 onclick="showAdmin('passwordPanel')">
-
 Change Password
-
 </button>
 
 </div>
 
+
+<!-- ADD -->
 
 <div
 id="addPanel"
@@ -2035,12 +1816,9 @@ class="admin-panel show">
 
 <div class="form-grid">
 
-
 <div class="field">
 
-<label>
-Jacket Name
-</label>
+<label>Jacket Name</label>
 
 <input
 id="pName"
@@ -2048,12 +1826,9 @@ placeholder="Classic Brown Jacket">
 
 </div>
 
-
 <div class="field">
 
-<label>
-Price (Rs.)
-</label>
+<label>Price (Rs.)</label>
 
 <input
 id="pPrice"
@@ -2067,33 +1842,23 @@ placeholder="14999">
 
 <div class="form-grid">
 
-
 <div class="field">
 
-<label>
-Category
-</label>
+<label>Category</label>
 
 <select id="pCategory">
 
-<option value="men">
-Men
-</option>
+<option value="men">Men</option>
 
-<option value="women">
-Women
-</option>
+<option value="women">Women</option>
 
 </select>
 
 </div>
 
-
 <div class="field">
 
-<label>
-Available Sizes
-</label>
+<label>Available Sizes</label>
 
 <input
 id="pSizes"
@@ -2106,9 +1871,7 @@ value="S,M,L,XL,XXL">
 
 <div class="field">
 
-<label>
-Jacket Picture
-</label>
+<label>Jacket Picture</label>
 
 <input
 id="pImage"
@@ -2117,17 +1880,16 @@ accept="image/*">
 
 </div>
 
-
 <button
 class="btn"
 onclick="addProduct()">
-
 SAVE JACKET
-
 </button>
 
 </div>
 
+
+<!-- PRODUCTS -->
 
 <div
 id="productsPanel"
@@ -2141,33 +1903,27 @@ id="adminList">
 </div>
 
 
+<!-- EDIT -->
+
 <div
 id="editPanel"
 class="admin-panel">
 
-<h3>
-Edit Jacket
-</h3>
+<h3>Edit Jacket</h3>
 
 <div class="form-grid">
 
-
 <div class="field">
 
-<label>
-Jacket Name
-</label>
+<label>Jacket Name</label>
 
 <input id="eName">
 
 </div>
 
-
 <div class="field">
 
-<label>
-Price (Rs.)
-</label>
+<label>Price (Rs.)</label>
 
 <input
 id="ePrice"
@@ -2180,33 +1936,23 @@ type="number">
 
 <div class="form-grid">
 
-
 <div class="field">
 
-<label>
-Category
-</label>
+<label>Category</label>
 
 <select id="eCategory">
 
-<option value="men">
-Men
-</option>
+<option value="men">Men</option>
 
-<option value="women">
-Women
-</option>
+<option value="women">Women</option>
 
 </select>
 
 </div>
 
-
 <div class="field">
 
-<label>
-Available Sizes
-</label>
+<label>Available Sizes</label>
 
 <input id="eSizes">
 
@@ -2232,40 +1978,31 @@ accept="image/*">
 <button
 class="btn"
 onclick="updateProduct()">
-
 SAVE CHANGES
-
 </button>
-
 
 <button
 class="btn btn-outline"
 onclick="showAdmin('productsPanel')">
-
 CANCEL
-
 </button>
-
 
 <p id="editMsg"></p>
 
 </div>
 
 
+<!-- PASSWORD -->
+
 <div
 id="passwordPanel"
 class="admin-panel">
 
-<h3>
-Change Admin Password
-</h3>
-
+<h3>Change Admin Password</h3>
 
 <div class="field">
 
-<label>
-Current Password
-</label>
+<label>Current Password</label>
 
 <input
 type="password"
@@ -2273,12 +2010,9 @@ id="currentPassword">
 
 </div>
 
-
 <div class="field">
 
-<label>
-New Password
-</label>
+<label>New Password</label>
 
 <input
 type="password"
@@ -2286,12 +2020,9 @@ id="newPassword">
 
 </div>
 
-
 <div class="field">
 
-<label>
-Confirm New Password
-</label>
+<label>Confirm New Password</label>
 
 <input
 type="password"
@@ -2299,13 +2030,10 @@ id="confirmPassword">
 
 </div>
 
-
 <button
 class="btn"
 onclick="changePassword()">
-
 SAVE NEW PASSWORD
-
 </button>
 
 <p id="passwordMsg"></p>
@@ -2321,8 +2049,9 @@ SAVE NEW PASSWORD
 
 <script>
 
-
-/* ================= CONFIG ================= */
+/* =========================================================
+   CONFIG
+========================================================= */
 
 const GOOGLE_SCRIPT_URL =
 'https://script.google.com/macros/s/AKfycbwtsaYU_YJ9aB0leVLBBeP18zTO01pTjdprzPaat1Gd2eV0DJ0yNT6pBjEDZkKMIavINA/exec';
@@ -2333,12 +2062,13 @@ const GOOGLE_SECRET_KEY =
 const GOOGLE_SHEET_URL =
 '';
 
-// Admin password is stored securely on Google Apps Script.
-// Do NOT store admin password in localStorage.
-const ADMIN_API_URL = GOOGLE_SCRIPT_URL;
+const ADMIN_API_URL =
+GOOGLE_SCRIPT_URL;
 
 
-/* ================= PRODUCTS ================= */
+/* =========================================================
+   VARIABLES
+========================================================= */
 
 const defaultProducts=[];
 
@@ -2359,8 +2089,12 @@ let activeFilter='all';
 
 let selectedPayment='cod';
 
+let editingProductId=null;
 
-/* ================= MONEY ================= */
+
+/* =========================================================
+   MONEY
+========================================================= */
 
 function money(n){
 
@@ -2370,7 +2104,9 @@ Number(n).toLocaleString('en-PK');
 }
 
 
-/* ================= ESCAPE ================= */
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
 
 function escapeHtml(value){
 
@@ -2384,7 +2120,9 @@ return String(value ?? '')
 }
 
 
-/* ================= FILTER ================= */
+/* =========================================================
+   FILTER
+========================================================= */
 
 function setFilter(filter){
 
@@ -2393,42 +2131,43 @@ activeFilter=filter;
 document
 .querySelectorAll('.filter')
 .forEach(b=>{
-
 b.classList.toggle(
 'active',
 b.dataset.filter===filter
 );
-
 });
 
 renderProducts();
 
 setTimeout(()=>{
 
-document
-.getElementById('shop')
-.scrollIntoView({
+const shop=document.getElementById('shop');
+
+if(shop){
+shop.scrollIntoView({
 behavior:'smooth'
 });
+}
 
 },30);
 
 }
 
 
-/* ================= PRODUCTS ================= */
+/* =========================================================
+   PRODUCTS
+========================================================= */
 
 function renderProducts(){
 
-const list =
+const list=
 activeFilter==='all'
 ?products
 :products.filter(
 p=>p.category===activeFilter
 );
 
-
-document.getElementById('productGrid').innerHTML =
+document.getElementById('productGrid').innerHTML=
 
 list.length
 
@@ -2444,7 +2183,7 @@ class="product-image-link"
 aria-label="View ${escapeHtml(p.name)}">
 
 <img
-src="${p.image}"
+src="${escapeHtml(p.image)}"
 alt="${escapeHtml(p.name)}">
 
 <span class="product-view-overlay">
@@ -2470,15 +2209,11 @@ ${escapeHtml(p.name)}
 ${money(p.price)}
 </div>
 
-
 <div class="size-row">
 
-<label>
-SIZE
-</label>
+<label>SIZE</label>
 
-<select
-id="size-${p.id}">
+<select id="size-${p.id}">
 
 ${String(
 p.sizes || 'S,M,L,XL,XXL'
@@ -2502,19 +2237,14 @@ ${escapeHtml(s.trim())}
 
 <button
 class="btn"
-onclick="addToCart(${p.id})">
-
+onclick="addToCart('${encodeURIComponent(p.id)}')">
 ADD TO CART
-
 </button>
-
 
 <button
 class="btn"
-onclick="orderNow(${p.id})">
-
+onclick="orderNow('${encodeURIComponent(p.id)}')">
 ORDER NOW
-
 </button>
 
 </div>
@@ -2530,21 +2260,37 @@ ORDER NOW
 }
 
 
-/* ================= CART ================= */
+/* =========================================================
+   GET PRODUCT
+========================================================= */
+
+function getProductById(id){
+
+id=decodeURIComponent(String(id));
+
+return products.find(
+x=>String(x.id)===String(id)
+);
+
+}
+
+
+/* =========================================================
+   ADD TO CART
+========================================================= */
 
 function addToCart(id){
 
-const p =
-products.find(x=>x.id===id);
+const p=getProductById(id);
 
 if(!p)return;
 
-const sizeElement =
+const sizeElement=
 document.getElementById(
-'size-'+id
+'size-'+p.id
 );
 
-const size =
+const size=
 sizeElement
 ?sizeElement.value
 :'Standard';
@@ -2556,26 +2302,27 @@ size
 
 updateCart();
 
-alert(
-'Jacket added to cart.'
-);
+alert('Jacket added to cart.');
 
 }
 
 
+/* =========================================================
+   ORDER NOW
+========================================================= */
+
 function orderNow(id){
 
-const p =
-products.find(x=>x.id===id);
+const p=getProductById(id);
 
 if(!p)return;
 
-const sizeElement =
+const sizeElement=
 document.getElementById(
-'size-'+id
+'size-'+p.id
 );
 
-const size =
+const size=
 sizeElement
 ?sizeElement.value
 :'Standard';
@@ -2594,13 +2341,15 @@ openCheckout();
 }
 
 
-/* ================= DELIVERY ================= */
+/* =========================================================
+   DELIVERY
+========================================================= */
 
 function setDeliveryArea(area){
 
 deliveryArea=area;
 
-deliveryCharge =
+deliveryCharge=
 area==='pakistan'
 ?600
 :300;
@@ -2610,12 +2359,30 @@ localStorage.setItem(
 area
 );
 
+const cartArea=
+document.getElementById('deliveryArea');
+
+if(cartArea){
+cartArea.value=area;
+}
+
+const checkoutArea=
+document.getElementById('checkoutDeliveryArea');
+
+if(checkoutArea){
+checkoutArea.value=area;
+}
+
 updateCart();
+
+updatePaymentSummary();
 
 }
 
 
-/* ================= CART UPDATE ================= */
+/* =========================================================
+   CART
+========================================================= */
 
 function updateCart(){
 
@@ -2624,12 +2391,23 @@ document
 .textContent=cart.length;
 
 
-document
-.getElementById('deliveryArea')
-.value=deliveryArea;
+const cartArea=
+document.getElementById('deliveryArea');
+
+if(cartArea){
+cartArea.value=deliveryArea;
+}
 
 
-document.getElementById('cartItems').innerHTML =
+const checkoutArea=
+document.getElementById('checkoutDeliveryArea');
+
+if(checkoutArea){
+checkoutArea.value=deliveryArea;
+}
+
+
+document.getElementById('cartItems').innerHTML=
 
 cart.length
 
@@ -2651,7 +2429,6 @@ Size: ${escapeHtml(x.size)}
 
 </div>
 
-
 <div>
 
 <b>
@@ -2663,9 +2440,7 @@ ${money(x.price)}
 <button
 onclick="removeCart(${i})"
 style="border:0;background:none;color:#8d241c;cursor:pointer">
-
 Remove
-
 </button>
 
 </div>
@@ -2677,14 +2452,13 @@ Remove
 :'<p>Your cart is empty.</p>';
 
 
-const subtotal =
+const subtotal=
 cart.reduce(
 (a,b)=>a+Number(b.price),
 0
 );
 
-
-document.getElementById('cartTotal').innerHTML =
+document.getElementById('cartTotal').innerHTML=
 
 cart.length
 
@@ -2692,7 +2466,6 @@ cart.length
 
 'Subtotal: '+
 money(subtotal)+
-
 '<br><span style="font-size:14px;color:var(--muted);font-weight:normal">'+
 'Delivery: '+
 money(deliveryCharge)+
@@ -2704,7 +2477,9 @@ money(subtotal+deliveryCharge)
 }
 
 
-/* ================= REMOVE ================= */
+/* =========================================================
+   REMOVE
+========================================================= */
 
 function removeCart(i){
 
@@ -2712,10 +2487,14 @@ cart.splice(i,1);
 
 updateCart();
 
+updatePaymentSummary();
+
 }
 
 
-/* ================= OPEN CART ================= */
+/* =========================================================
+   OPEN CART
+========================================================= */
 
 function openCart(){
 
@@ -2728,15 +2507,15 @@ document
 }
 
 
-/* ================= OPEN CHECKOUT ================= */
+/* =========================================================
+   OPEN CHECKOUT
+========================================================= */
 
 function openCheckout(){
 
 if(!cart.length){
 
-alert(
-'Please add a jacket first.'
-);
+alert('Please add a jacket first.');
 
 return;
 
@@ -2764,6 +2543,17 @@ document
 .getElementById('bankBox')
 .classList.remove('show');
 
+
+document
+.getElementById('checkoutDeliveryArea')
+.value=deliveryArea;
+
+
+document
+.getElementById('orderMessage')
+.innerHTML='';
+
+
 updatePaymentSummary();
 
 document
@@ -2773,12 +2563,13 @@ document
 }
 
 
-/* ================= PAYMENT ================= */
+/* =========================================================
+   PAYMENT
+========================================================= */
 
 function selectPayment(method){
 
 selectedPayment=method;
-
 
 document
 .querySelectorAll('.payment-option')
@@ -2788,33 +2579,25 @@ x.classList.remove('selected');
 
 
 if(method==='cod'){
-
 document
 .getElementById('payment-cod-option')
 .classList.add('selected');
-
 }
 
 
 if(method==='half'){
-
 document
 .getElementById('payment-half-option')
 .classList.add('selected');
-
 }
 
 
 if(method==='full'){
-
 document
 .getElementById('payment-full-option')
 .classList.add('selected');
-
 }
 
-
-/* BANK DETAILS */
 
 if(
 method==='half' ||
@@ -2833,65 +2616,52 @@ document
 
 }
 
-
 updatePaymentSummary();
 
 }
 
 
-/* ================= PAYMENT CALCULATION ================= */
+/* =========================================================
+   PAYMENT CALCULATION
+========================================================= */
 
 function calculatePayment(){
 
-const subtotal =
+const subtotal=
 cart.reduce(
 (a,b)=>a+Number(b.price),
 0
 );
 
-const delivery =
+const delivery=
 Number(deliveryCharge);
 
-const originalTotal =
+const originalTotal=
 subtotal+delivery;
 
-
 let discount=0;
-
 let payable=originalTotal;
-
 let advance=0;
-
 let cod=originalTotal;
 
 
-/*
-100% COD
-0% discount
-*/
+/* 100% COD */
 
 if(selectedPayment==='cod'){
 
 discount=0;
-
 payable=originalTotal;
-
 advance=0;
-
 cod=originalTotal;
 
 }
 
 
-/*
-50% ADVANCE + 50% COD
-0% discount
-*/
+/* 50% ADVANCE */
 
 if(selectedPayment==='half'){
 
 discount=0;
-
 payable=originalTotal;
 
 advance=
@@ -2903,10 +2673,7 @@ originalTotal-advance;
 }
 
 
-/*
-100% ADVANCE
-2% discount
-*/
+/* 100% ADVANCE */
 
 if(selectedPayment==='full'){
 
@@ -2922,7 +2689,6 @@ cod=0;
 
 }
 
-
 return{
 subtotal,
 delivery,
@@ -2936,15 +2702,16 @@ cod
 }
 
 
-/* ================= PAYMENT SUMMARY ================= */
+/* =========================================================
+   PAYMENT SUMMARY
+========================================================= */
 
 function updatePaymentSummary(){
 
-const box =
+const box=
 document.getElementById(
 'paymentSummary'
 );
-
 
 if(!cart.length){
 
@@ -2954,18 +2721,14 @@ return;
 
 }
 
-
-const x =
+const x=
 calculatePayment();
-
 
 let html=`
 
 <div class="summary-line">
 
-<span>
-Products
-</span>
+<span>Products</span>
 
 <b>
 ${money(x.subtotal)}
@@ -2976,9 +2739,7 @@ ${money(x.subtotal)}
 
 <div class="summary-line">
 
-<span>
-Delivery
-</span>
+<span>Delivery</span>
 
 <b>
 ${money(x.delivery)}
@@ -2989,15 +2750,14 @@ ${money(x.delivery)}
 
 <div class="summary-line">
 
-<span>
-Original Total
-</span>
+<span>Original Total</span>
 
 <b>
 ${money(x.originalTotal)}
 </b>
 
 </div>
+
 `;
 
 
@@ -3026,9 +2786,7 @@ html+=`
 
 <div class="summary-line summary-total">
 
-<span>
-Final Total
-</span>
+<span>Final Total</span>
 
 <b>
 ${money(x.payable)}
@@ -3039,9 +2797,7 @@ ${money(x.payable)}
 
 <div class="summary-line advance-line">
 
-<span>
-Advance Payment
-</span>
+<span>Advance Payment</span>
 
 <b>
 ${money(x.advance)}
@@ -3052,9 +2808,7 @@ ${money(x.advance)}
 
 <div class="summary-line cod-line">
 
-<span>
-Remaining COD
-</span>
+<span>Remaining COD</span>
 
 <b>
 ${money(x.cod)}
@@ -3064,77 +2818,92 @@ ${money(x.cod)}
 
 `;
 
-
 box.innerHTML=html;
 
 }
 
 
-/* ================= CLOSE ================= */
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
 
 function closeModal(id){
 
-const modal =
+const modal=
 document.getElementById(id);
 
 if(modal){
-
 modal.classList.remove('show');
-
 }
 
 }
 
 
-/* ================= SUBMIT ORDER ================= */
+/* =========================================================
+   SUBMIT ORDER
+========================================================= */
 
 async function submitOrder(){
 
-const button =
+const button=
 document.getElementById(
 'submitOrderBtn'
 );
 
-const message =
+const message=
 document.getElementById(
 'orderMessage'
 );
 
 
-const n =
+const n=
 document
 .getElementById('custName')
 .value
 .trim();
 
 
-const ph =
+const ph=
 document
 .getElementById('custPhone')
 .value
 .trim();
 
 
-const ad =
+const country=
+document
+.getElementById('custCountry')
+.value
+.trim();
+
+
+const city=
+document
+.getElementById('custCity')
+.value
+.trim();
+
+
+const ad=
 document
 .getElementById('custAddress')
 .value
 .trim();
 
 
-const notes =
+const notes=
 document
 .getElementById('custNotes')
 .value
 .trim();
 
 
-if(!n || !ph || !ad){
+if(!n || !ph || !country || !city || !ad){
 
 message.innerHTML=
 
 '<div class="notice error-notice">'+
-'Please fill your name, phone and address.'+
+'Please fill your name, phone, country, city and address.'+
 '</div>';
 
 return;
@@ -3157,42 +2926,31 @@ return;
 
 /* PAYMENT */
 
-const payment =
+const payment=
 calculatePayment();
 
-
-const orderId =
+const orderId=
 'TLH-'+Date.now();
 
 
 let paymentMethod='';
 
 if(selectedPayment==='cod'){
-
-paymentMethod=
-'100% COD';
-
+paymentMethod='100% COD';
 }
 
 if(selectedPayment==='half'){
-
-paymentMethod=
-'50% Advance + 50% COD';
-
+paymentMethod='50% Advance + 50% COD';
 }
 
 if(selectedPayment==='full'){
-
-paymentMethod=
-'100% Advance';
-
+paymentMethod='100% Advance';
 }
 
 
 /* ITEMS */
 
-const items =
-
+const items=
 cart.map(x=>
 x.name+
 ' | Size: '+
@@ -3215,6 +2973,16 @@ date:new Date().toISOString(),
 name:n,
 
 phone:ph,
+
+customerCountry:country,
+
+country:country,
+
+customerCity:city,
+
+city:city,
+
+customerAddress:ad,
 
 address:ad,
 
@@ -3260,18 +3028,13 @@ button.classList.add('loading');
 button.textContent=
 'PLACING ORDER...';
 
-
 message.innerHTML=
-
-'<div class="notice">'+
-'Submitting your order...'+
-'</div>';
+'<div class="notice">Submitting your order...</div>';
 
 
 try{
 
-
-const response =
+const response=
 await fetch(
 GOOGLE_SCRIPT_URL,
 {
@@ -3289,7 +3052,7 @@ JSON.stringify(payload)
 );
 
 
-const responseText =
+const responseText=
 await response.text();
 
 
@@ -3297,7 +3060,7 @@ let data;
 
 try{
 
-data =
+data=
 JSON.parse(responseText);
 
 }catch(error){
@@ -3319,7 +3082,7 @@ data.error ||
 }
 
 
-/* CLEAR */
+/* CLEAR CUSTOMER DETAILS */
 
 document
 .getElementById('custName')
@@ -3327,6 +3090,14 @@ document
 
 document
 .getElementById('custPhone')
+.value='';
+
+document
+.getElementById('custCountry')
+.value='Pakistan';
+
+document
+.getElementById('custCity')
 .value='';
 
 document
@@ -3342,10 +3113,7 @@ cart=[];
 
 updateCart();
 
-
-closeModal(
-'checkoutModal'
-);
+closeModal('checkoutModal');
 
 
 /* SUCCESS */
@@ -3359,6 +3127,7 @@ document
 
 let successText='';
 
+
 if(selectedPayment==='cod'){
 
 successText=
@@ -3367,6 +3136,7 @@ successText=
 money(payment.cod);
 
 }
+
 
 if(selectedPayment==='half'){
 
@@ -3379,6 +3149,7 @@ money(payment.cod)+
 ' will be payable on delivery.';
 
 }
+
 
 if(selectedPayment==='full'){
 
@@ -3409,7 +3180,6 @@ console.error(
 error
 );
 
-
 message.innerHTML=
 
 '<div class="notice error-notice">'+
@@ -3430,7 +3200,9 @@ button.textContent=
 }
 
 
-/* ================= ADMIN ================= */
+/* =========================================================
+   ADMIN LOGIN
+========================================================= */
 
 function openAdminLogin(){
 
@@ -3451,48 +3223,69 @@ document
 
 async function adminLogin(){
 
-const entered =
+const entered=
 document
 .getElementById('adminPass')
 .value
 .trim();
 
-const errorBox =
+const errorBox=
 document.getElementById('loginError');
 
 if(!entered){
-errorBox.textContent='Please enter your password.';
+
+errorBox.textContent=
+'Please enter your password.';
+
 return;
+
 }
 
-const button =
-document.querySelector('#loginModal .btn');
+const button=
+document.querySelector(
+'#loginModal .btn'
+);
 
 button.disabled=true;
 button.textContent='CHECKING...';
 errorBox.textContent='';
 
+
 try{
 
-const response =
-await fetch(ADMIN_API_URL,{
+const response=
+await fetch(
+ADMIN_API_URL,
+{
 method:'POST',
-headers:{
-'Content-Type':'text/plain;charset=utf-8'
-},
-body:JSON.stringify({
-action:'admin_login',
-secret:GOOGLE_SECRET_KEY,
-password:entered
-})
-});
 
-const result =
+headers:{
+'Content-Type':
+'text/plain;charset=utf-8'
+},
+
+body:
+JSON.stringify({
+
+action:'admin_login',
+
+secret:GOOGLE_SECRET_KEY,
+
+password:entered
+
+})
+
+}
+);
+
+
+const result=
 await response.json();
+
 
 if(!result.ok){
 
-errorBox.textContent =
+errorBox.textContent=
 result.error ||
 'Incorrect password.';
 
@@ -3500,9 +3293,15 @@ return;
 
 }
 
-// Remove any old device-local password.
-localStorage.removeItem('lh_admin_password');
-sessionStorage.setItem('lh_admin_session_password', entered);
+
+localStorage.removeItem(
+'lh_admin_password'
+);
+
+sessionStorage.setItem(
+'lh_admin_session_password',
+entered
+);
 
 closeModal('loginModal');
 
@@ -3514,7 +3313,7 @@ renderAdmin();
 
 }catch(error){
 
-errorBox.textContent =
+errorBox.textContent=
 'Login service is unavailable. Please try again.';
 
 }finally{
@@ -3527,6 +3326,10 @@ button.textContent='LOGIN';
 }
 
 
+/* =========================================================
+   ADMIN PANELS
+========================================================= */
+
 function showAdmin(id){
 
 document
@@ -3535,29 +3338,29 @@ document
 x.classList.remove('show')
 );
 
-const panel =
+const panel=
 document.getElementById(id);
 
 if(panel){
-
 panel.classList.add('show');
-
 }
 
 if(id==='productsPanel'){
-
 renderAdmin();
-
 }
 
 }
 
+
+/* =========================================================
+   ORDERS
+========================================================= */
 
 function loadOrders(){
 
 showAdmin('productsPanel');
 
-const list =
+const list=
 document.getElementById('adminList');
 
 if(GOOGLE_SHEET_URL){
@@ -3580,124 +3383,188 @@ list.innerHTML=
 }
 
 
-/* ================= PASSWORD ================= */
+/* =========================================================
+   CHANGE PASSWORD
+========================================================= */
 
 async function changePassword(){
 
-const current =
+const current=
 document
 .getElementById('currentPassword')
 .value
 .trim();
 
-const next =
+const next=
 document
 .getElementById('newPassword')
 .value;
 
-const confirmPassword =
+const confirmPassword=
 document
 .getElementById('confirmPassword')
 .value;
 
-const msg =
+const msg=
 document.getElementById('passwordMsg');
+
 
 if(!current){
 
 msg.style.color='#9b251b';
-msg.textContent='Please enter your current password.';
+
+msg.textContent=
+'Please enter your current password.';
+
 return;
 
 }
+
 
 if(next.length<6){
 
 msg.style.color='#9b251b';
-msg.textContent='New password must be at least 6 characters.';
+
+msg.textContent=
+'New password must be at least 6 characters.';
+
 return;
 
 }
+
 
 if(next!==confirmPassword){
 
 msg.style.color='#9b251b';
-msg.textContent='New passwords do not match.';
+
+msg.textContent=
+'New passwords do not match.';
+
 return;
 
 }
 
-const button =
-document.querySelector('#passwordPanel .btn');
+
+const button=
+document.querySelector(
+'#passwordPanel .btn'
+);
 
 button.disabled=true;
 button.textContent='SAVING...';
 
+
 try{
 
-const response =
-await fetch(ADMIN_API_URL,{
+const response=
+await fetch(
+ADMIN_API_URL,
+{
 method:'POST',
-headers:{
-'Content-Type':'text/plain;charset=utf-8'
-},
-body:JSON.stringify({
-action:'change_admin_password',
-secret:GOOGLE_SECRET_KEY,
-currentPassword:current,
-newPassword:next
-})
-});
 
-const result =
+headers:{
+'Content-Type':
+'text/plain;charset=utf-8'
+},
+
+body:
+JSON.stringify({
+
+action:'change_admin_password',
+
+secret:GOOGLE_SECRET_KEY,
+
+currentPassword:current,
+
+newPassword:next
+
+})
+
+}
+);
+
+
+const result=
 await response.json();
+
 
 if(!result.ok){
 
 msg.style.color='#9b251b';
-msg.textContent =
+
+msg.textContent=
 result.error ||
 'Password could not be changed.';
+
 return;
 
 }
 
-// Keep the current admin session valid on this device/tab.
-localStorage.removeItem('lh_admin_password');
-sessionStorage.setItem('lh_admin_session_password', next);
 
-document.getElementById('currentPassword').value='';
-document.getElementById('newPassword').value='';
-document.getElementById('confirmPassword').value='';
+localStorage.removeItem(
+'lh_admin_password'
+);
+
+sessionStorage.setItem(
+'lh_admin_session_password',
+next
+);
+
+
+document
+.getElementById('currentPassword')
+.value='';
+
+document
+.getElementById('newPassword')
+.value='';
+
+document
+.getElementById('confirmPassword')
+.value='';
+
 
 msg.style.color='#2d6b39';
+
 msg.textContent=
 'Password changed successfully. The new password is now active on all devices.';
+
 
 }catch(error){
 
 msg.style.color='#9b251b';
+
 msg.textContent=
 'Password service is unavailable. Please try again.';
 
 }finally{
 
 button.disabled=false;
-button.textContent='SAVE NEW PASSWORD';
+
+button.textContent=
+'SAVE NEW PASSWORD';
 
 }
 
 }
 
 
-/* ================= ADD PRODUCT ================= */
+/* =========================================================
+   ADMIN SESSION
+========================================================= */
 
 function getAdminSessionPassword(){
 
-return sessionStorage.getItem('lh_admin_session_password') || '';
+return sessionStorage.getItem(
+'lh_admin_session_password'
+) || '';
 
 }
 
+
+/* =========================================================
+   COMPRESS IMAGE
+========================================================= */
 
 async function compressImage(file){
 
@@ -3705,9 +3572,11 @@ return new Promise((resolve,reject)=>{
 
 const reader=new FileReader();
 
+
 reader.onload=()=>{
 
 const img=new Image();
+
 
 img.onload=()=>{
 
@@ -3716,35 +3585,79 @@ const maxSize=1600;
 let width=img.width;
 let height=img.height;
 
+
 if(width>maxSize || height>maxSize){
 
-const scale=Math.min(maxSize/width,maxSize/height);
-width=Math.round(width*scale);
-height=Math.round(height*scale);
+const scale=
+Math.min(
+maxSize/width,
+maxSize/height
+);
+
+width=
+Math.round(width*scale);
+
+height=
+Math.round(height*scale);
 
 }
 
-const canvas=document.createElement('canvas');
+
+const canvas=
+document.createElement('canvas');
+
 canvas.width=width;
 canvas.height=height;
 
-const ctx=canvas.getContext('2d');
-ctx.drawImage(img,0,0,width,height);
+
+const ctx=
+canvas.getContext('2d');
+
+ctx.drawImage(
+img,
+0,
+0,
+width,
+height
+);
+
 
 resolve({
-imageData:canvas.toDataURL('image/jpeg',0.82),
-mimeType:'image/jpeg',
-imageName:(file.name || 'jacket.jpg').replace(/\.[^.]+$/,'')+'.jpg'
+
+imageData:
+canvas.toDataURL(
+'image/jpeg',
+0.82
+),
+
+mimeType:
+'image/jpeg',
+
+imageName:
+(file.name || 'jacket.jpg')
+.replace(/\.[^.]+$/,'')+
+'.jpg'
+
 });
 
 };
 
-img.onerror=()=>reject(new Error('Could not read the image.'));
+
+img.onerror=()=>
+reject(
+new Error('Could not read the image.')
+);
+
 img.src=reader.result;
 
 };
 
-reader.onerror=()=>reject(new Error('Could not read the image.'));
+
+reader.onerror=()=>
+reject(
+new Error('Could not read the image.')
+);
+
 reader.readAsDataURL(file);
 
 });
@@ -3752,47 +3665,88 @@ reader.readAsDataURL(file);
 }
 
 
+/* =========================================================
+   LOAD PRODUCTS
+========================================================= */
+
 async function loadProducts(){
 
 try{
 
-const response=await fetch(
+const response=
+await fetch(
 GOOGLE_SCRIPT_URL+
 '?action=products&secret='+
-encodeURIComponent(GOOGLE_SECRET_KEY)+
-'&t='+Date.now(),
-{cache:'no-store'}
+encodeURIComponent(
+GOOGLE_SECRET_KEY
+)+
+'&t='+
+Date.now(),
+{
+cache:'no-store'
+}
 );
 
-const result=await response.json();
+
+const result=
+await response.json();
+
 
 if(!result.ok){
-throw new Error(result.error || 'Products could not be loaded.');
+
+throw new Error(
+result.error ||
+'Products could not be loaded.'
+);
+
 }
 
-products=Array.isArray(result.products)
+
+products=
+Array.isArray(result.products)
 ?result.products
 :[];
 
+
 renderProducts();
 
-if(document.getElementById('adminModal').classList.contains('show')){
+
+if(
+document
+.getElementById('adminModal')
+.classList
+.contains('show')
+){
+
 renderAdmin();
+
 }
+
 
 }catch(error){
 
-console.error('Products load error:',error);
+console.error(
+'Products load error:',
+error
+);
 
 products=[];
 
 renderProducts();
 
-const grid=document.getElementById('productGrid');
+
+const grid=
+document.getElementById(
+'productGrid'
+);
+
 if(grid){
 
 grid.innerHTML=
-'<div class="notice error-notice">Products could not be loaded right now. Please refresh the page.</div>';
+
+'<div class="notice error-notice">'+
+'Products could not be loaded right now. Please refresh the page.'+
+'</div>';
 
 }
 
@@ -3800,105 +3754,250 @@ grid.innerHTML=
 
 }
 
+
+/* =========================================================
+   ADD PRODUCT
+========================================================= */
 
 async function addProduct(){
 
-const name=document.getElementById('pName').value.trim();
-const price=Number(document.getElementById('pPrice').value);
-const file=document.getElementById('pImage').files[0];
-const sizes=document.getElementById('pSizes').value.trim();
-const category=document.getElementById('pCategory').value;
+const name=
+document
+.getElementById('pName')
+.value
+.trim();
+
+const price=
+Number(
+document
+.getElementById('pPrice')
+.value
+);
+
+const file=
+document
+.getElementById('pImage')
+.files[0];
+
+const sizes=
+document
+.getElementById('pSizes')
+.value
+.trim();
+
+const category=
+document
+.getElementById('pCategory')
+.value;
+
 
 if(!name || !price || !file){
-alert('Please enter name, price and picture.');
+
+alert(
+'Please enter name, price and picture.'
+);
+
 return;
+
 }
 
-const button=document.querySelector('#addPanel .btn');
+
+const button=
+document.querySelector(
+'#addPanel .btn'
+);
+
 button.disabled=true;
-button.textContent='UPLOADING TO DRIVE...';
+
+button.textContent=
+'UPLOADING TO DRIVE...';
+
 
 try{
 
-const image=await compressImage(file);
+const image=
+await compressImage(file);
 
-const response=await fetch(GOOGLE_SCRIPT_URL,{
+
+const response=
+await fetch(
+GOOGLE_SCRIPT_URL,
+{
 method:'POST',
-headers:{'Content-Type':'text/plain;charset=utf-8'},
-body:JSON.stringify({
- action:'save_product',
- secret:GOOGLE_SECRET_KEY,
- adminPassword:getAdminSessionPassword(),
- name:name,
- price:price,
- category:category,
- tag:'New',
- sizes:sizes || 'S,M,L,XL,XXL',
- imageData:image.imageData,
- mimeType:image.mimeType,
- imageName:image.imageName
-})
-});
 
-const result=await response.json();
+headers:{
+'Content-Type':
+'text/plain;charset=utf-8'
+},
+
+body:
+JSON.stringify({
+
+action:'save_product',
+
+secret:GOOGLE_SECRET_KEY,
+
+adminPassword:
+getAdminSessionPassword(),
+
+name:name,
+
+price:price,
+
+category:category,
+
+tag:'New',
+
+sizes:
+sizes ||
+'S,M,L,XL,XXL',
+
+imageData:
+image.imageData,
+
+mimeType:
+image.mimeType,
+
+imageName:
+image.imageName
+
+})
+
+}
+);
+
+
+const result=
+await response.json();
+
 
 if(!result.ok){
-throw new Error(result.error || 'Jacket could not be saved.');
+
+throw new Error(
+result.error ||
+'Jacket could not be saved.'
+);
+
 }
 
-products.push(result.product);
+
+products.push(
+result.product
+);
+
 renderProducts();
+
 renderAdmin();
 
- document.getElementById('pName').value='';
- document.getElementById('pPrice').value='';
- document.getElementById('pImage').value='';
 
-alert('Jacket added successfully. Picture is now stored in Google Drive and the product is saved in Google Sheet.');
+document
+.getElementById('pName')
+.value='';
+
+document
+.getElementById('pPrice')
+.value='';
+
+document
+.getElementById('pImage')
+.value='';
+
+
+alert(
+'Jacket added successfully. Picture is now stored in Google Drive and the product is saved in Google Sheet.'
+);
+
+
 showAdmin('productsPanel');
+
 
 }catch(error){
 
 console.error(error);
-alert(error.message || 'Jacket could not be saved.');
+
+alert(
+error.message ||
+'Jacket could not be saved.'
+);
 
 }finally{
+
 button.disabled=false;
-button.textContent='SAVE JACKET';
-}
+
+button.textContent=
+'SAVE JACKET';
 
 }
 
+}
+
+
+/* =========================================================
+   ADMIN PRODUCT LIST
+========================================================= */
 
 function renderAdmin(){
 
-const list=document.getElementById('adminList');
+const list=
+document.getElementById(
+'adminList'
+);
+
 
 if(!products.length){
-list.innerHTML='<p>No jackets added yet.</p>';
+
+list.innerHTML=
+'<p>No jackets added yet.</p>';
+
 return;
+
 }
 
-list.innerHTML=products.map(p=>`
+
+list.innerHTML=
+products.map(p=>`
 
 <div class="admin-row">
 
 <div class="row-left">
 
-<img src="${escapeHtml(p.image)}" alt="">
+<img
+src="${escapeHtml(p.image)}"
+alt="">
 
 <div>
-<b>${escapeHtml(p.name)}</b><br>
-${money(p.price)} · ${escapeHtml(p.category)} · ${escapeHtml(p.sizes)}
+
+<b>
+${escapeHtml(p.name)}
+</b>
+
+<br>
+
+${money(p.price)}
+·
+${escapeHtml(p.category)}
+·
+${escapeHtml(p.sizes)}
+
 </div>
 
 </div>
+
 
 <div style="display:flex;gap:8px">
 
-<button class="btn btn-outline" onclick="editProduct('${encodeURIComponent(p.id)}')">Edit</button>
+<button
+class="btn btn-outline"
+onclick="editProduct('${encodeURIComponent(p.id)}')">
+Edit
+</button>
 
-<button class="btn danger" onclick="deleteProduct('${encodeURIComponent(p.id)}')">Delete</button>
+
+<button
+class="btn danger"
+onclick="deleteProduct('${encodeURIComponent(p.id)}')">
+Delete
+</button>
 
 </div>
 
@@ -3909,142 +4008,325 @@ ${money(p.price)} · ${escapeHtml(p.category)} · ${escapeHtml(p.sizes)}
 }
 
 
-let editingProductId=null;
-
+/* =========================================================
+   EDIT PRODUCT
+========================================================= */
 
 function editProduct(id){
 
 id=decodeURIComponent(id);
 
-const p=products.find(x=>String(x.id)===String(id));
+const p=
+products.find(
+x=>String(x.id)===String(id)
+);
+
 if(!p)return;
+
 
 editingProductId=id;
 
-document.getElementById('eName').value=p.name;
-document.getElementById('ePrice').value=p.price;
-document.getElementById('eCategory').value=p.category;
-document.getElementById('eSizes').value=p.sizes;
-document.getElementById('eImage').value='';
-document.getElementById('editMsg').textContent='';
+
+document
+.getElementById('eName')
+.value=p.name;
+
+document
+.getElementById('ePrice')
+.value=p.price;
+
+document
+.getElementById('eCategory')
+.value=p.category;
+
+document
+.getElementById('eSizes')
+.value=p.sizes;
+
+document
+.getElementById('eImage')
+.value='';
+
+document
+.getElementById('editMsg')
+.textContent='';
+
 
 showAdmin('editPanel');
 
 }
 
 
+/* =========================================================
+   UPDATE PRODUCT
+========================================================= */
+
 async function updateProduct(){
 
-const p=products.find(x=>String(x.id)===String(editingProductId));
+const p=
+products.find(
+x=>String(x.id)===
+String(editingProductId)
+);
+
 if(!p)return;
 
-const name=document.getElementById('eName').value.trim();
-const price=Number(document.getElementById('ePrice').value);
-const category=document.getElementById('eCategory').value;
-const sizes=document.getElementById('eSizes').value.trim();
-const file=document.getElementById('eImage').files[0];
-const msg=document.getElementById('editMsg');
+
+const name=
+document
+.getElementById('eName')
+.value
+.trim();
+
+const price=
+Number(
+document
+.getElementById('ePrice')
+.value
+);
+
+const category=
+document
+.getElementById('eCategory')
+.value;
+
+const sizes=
+document
+.getElementById('eSizes')
+.value
+.trim();
+
+const file=
+document
+.getElementById('eImage')
+.files[0];
+
+const msg=
+document
+.getElementById('editMsg');
+
 
 if(!name || !price){
+
 msg.style.color='#9b251b';
-msg.textContent='Please enter jacket name and price.';
+
+msg.textContent=
+'Please enter jacket name and price.';
+
 return;
+
 }
 
-const button=document.querySelector('#editPanel .btn');
+
+const button=
+document.querySelector(
+'#editPanel .btn'
+);
+
 button.disabled=true;
+
 button.textContent='SAVING...';
+
 
 try{
 
 let imagePayload={};
 
+
 if(file){
-const image=await compressImage(file);
+
+const image=
+await compressImage(file);
+
+
 imagePayload={
-imageData:image.imageData,
-mimeType:image.mimeType,
-imageName:image.imageName
+
+imageData:
+image.imageData,
+
+mimeType:
+image.mimeType,
+
+imageName:
+image.imageName
+
 };
+
 }
 
-const response=await fetch(GOOGLE_SCRIPT_URL,{
-method:'POST',
-headers:{'Content-Type':'text/plain;charset=utf-8'},
-body:JSON.stringify({
- action:'update_product',
- secret:GOOGLE_SECRET_KEY,
- adminPassword:getAdminSessionPassword(),
- id:String(editingProductId),
- name:name,
- price:price,
- category:category,
- tag:p.tag || 'New',
- sizes:sizes || 'S,M,L,XL,XXL',
- ...imagePayload
-})
-});
 
-const result=await response.json();
+const response=
+await fetch(
+GOOGLE_SCRIPT_URL,
+{
+method:'POST',
+
+headers:{
+'Content-Type':
+'text/plain;charset=utf-8'
+},
+
+body:
+JSON.stringify({
+
+action:'update_product',
+
+secret:GOOGLE_SECRET_KEY,
+
+adminPassword:
+getAdminSessionPassword(),
+
+id:String(
+editingProductId
+),
+
+name:name,
+
+price:price,
+
+category:category,
+
+tag:p.tag || 'New',
+
+sizes:
+sizes ||
+'S,M,L,XL,XXL',
+
+...imagePayload
+
+})
+
+}
+);
+
+
+const result=
+await response.json();
+
 
 if(!result.ok){
-throw new Error(result.error || 'Jacket could not be updated.');
+
+throw new Error(
+result.error ||
+'Jacket could not be updated.'
+);
+
 }
+
 
 await loadProducts();
 
-alert('Jacket updated successfully.');
+
+alert(
+'Jacket updated successfully.'
+);
+
+
 showAdmin('productsPanel');
+
 
 }catch(error){
 
 msg.style.color='#9b251b';
-msg.textContent=error.message || 'Jacket could not be updated.';
+
+msg.textContent=
+error.message ||
+'Jacket could not be updated.';
 
 }finally{
+
 button.disabled=false;
-button.textContent='SAVE CHANGES';
-}
+
+button.textContent=
+'SAVE CHANGES';
 
 }
 
+}
+
+
+/* =========================================================
+   DELETE PRODUCT
+========================================================= */
 
 async function deleteProduct(id){
 
 id=decodeURIComponent(id);
 
-if(!confirm('Delete this jacket?'))return;
+
+if(
+!confirm(
+'Delete this jacket?'
+)
+)return;
+
 
 try{
 
-const response=await fetch(GOOGLE_SCRIPT_URL,{
+const response=
+await fetch(
+GOOGLE_SCRIPT_URL,
+{
 method:'POST',
-headers:{'Content-Type':'text/plain;charset=utf-8'},
-body:JSON.stringify({
- action:'delete_product',
- secret:GOOGLE_SECRET_KEY,
- adminPassword:getAdminSessionPassword(),
- id:String(id)
-})
-});
 
-const result=await response.json();
+headers:{
+'Content-Type':
+'text/plain;charset=utf-8'
+},
+
+body:
+JSON.stringify({
+
+action:'delete_product',
+
+secret:
+GOOGLE_SECRET_KEY,
+
+adminPassword:
+getAdminSessionPassword(),
+
+id:String(id)
+
+})
+
+}
+);
+
+
+const result=
+await response.json();
+
 
 if(!result.ok){
-throw new Error(result.error || 'Jacket could not be deleted.');
+
+throw new Error(
+result.error ||
+'Jacket could not be deleted.'
+);
+
 }
+
 
 await loadProducts();
+
 renderAdmin();
 
+
 }catch(error){
-alert(error.message || 'Jacket could not be deleted.');
-}
+
+alert(
+error.message ||
+'Jacket could not be deleted.'
+);
 
 }
 
+}
 
-/* ================= INITIALIZE ================= */
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
 
 renderProducts();
 
