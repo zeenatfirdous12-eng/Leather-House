@@ -1,1655 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Product | The Leather House</title>
-
-<style>
-
-:root{
---espresso:#2a160d;
---brown:#4b2413;
---tobacco:#9b542d;
---tan:#c17a49;
---cream:#f6eee4;
---paper:#fffaf5;
---ink:#20140e;
---muted:#79685d;
---line:#e2d3c5;
---green:#287a45;
-}
-
-*{
-box-sizing:border-box;
-}
-
-body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:var(--cream);
-color:var(--ink);
-}
-
-h1,h2,h3,.brand{
-font-family:Georgia,'Times New Roman',serif;
-}
-
-/* =========================
-HEADER
-========================= */
-
-header{
-position:sticky;
-top:0;
-z-index:50;
-background:rgba(38,20,12,.98);
-color:#fff;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:14px 5%;
-box-shadow:0 5px 25px #0002;
-}
-
-.brand{
-font-size:24px;
-letter-spacing:1.5px;
-}
-
-.brand small{
-display:block;
-font:9px Arial;
-letter-spacing:3px;
-margin-top:6px;
-color:#dbc7b7;
-}
-
-.header-right{
-display:flex;
-align-items:center;
-gap:15px;
-}
-
-.back{
-color:#fff;
-text-decoration:none;
-font-size:12px;
-letter-spacing:1px;
-text-transform:uppercase;
-}
-
-/* =========================
-PAGE
-========================= */
-
-.product-page{
-max-width:1200px;
-margin:auto;
-padding:55px 5% 80px;
-}
-
-.breadcrumb{
-font-size:12px;
-color:var(--muted);
-margin-bottom:25px;
-}
-
-.breadcrumb a{
-color:var(--brown);
-text-decoration:none;
-}
-
-.product-layout{
-display:grid;
-grid-template-columns:1.05fr .95fr;
-gap:55px;
-align-items:start;
-}
-
-/* =========================
-IMAGE
-========================= */
-
-.product-image-box{
-background:#fff;
-border:1px solid var(--line);
-padding:12px;
-border-radius:6px;
-position:sticky;
-top:100px;
-}
-
-.product-image{
-width:100%;
-height:650px;
-object-fit:cover;
-display:block;
-border-radius:3px;
-}
-
-/* =========================
-INFO
-========================= */
-
-.product-info{
-padding:10px 0;
-}
-
-.product-tag{
-display:inline-block;
-background:var(--brown);
-color:#fff;
-padding:7px 10px;
-font-size:10px;
-letter-spacing:1.5px;
-text-transform:uppercase;
-margin-bottom:15px;
-}
-
-.product-info h1{
-font-size:48px;
-line-height:1.05;
-margin:5px 0 15px;
-}
-
-.product-price{
-font-size:27px;
-font-weight:bold;
-color:var(--tobacco);
-margin-bottom:22px;
-}
-
-.description{
-font-size:15px;
-line-height:1.8;
-color:var(--muted);
-margin-bottom:28px;
-}
-
-.option-label{
-font-size:12px;
-font-weight:bold;
-letter-spacing:1px;
-margin-bottom:8px;
-display:block;
-}
-
-.size-select{
-width:100%;
-padding:14px;
-border:1px solid #cdbbad;
-background:#fff;
-border-radius:4px;
-font-size:15px;
-margin-bottom:10px;
-}
-
-.size-note{
-font-size:12px;
-color:var(--muted);
-margin-bottom:22px;
-}
-
-.action-buttons{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-}
-
-.btn{
-display:block;
-width:100%;
-background:var(--tobacco);
-color:#fff;
-border:1px solid var(--tobacco);
-padding:15px 20px;
-border-radius:3px;
-font-weight:bold;
-cursor:pointer;
-text-align:center;
-text-decoration:none;
-letter-spacing:.5px;
-}
-
-.btn:hover{
-filter:brightness(1.08);
-}
-
-.btn-outline{
-background:transparent;
-color:var(--brown);
-border-color:var(--brown);
-}
-
-/* =========================
-INFO BOX
-========================= */
-
-.info-box{
-margin-top:28px;
-border-top:1px solid var(--line);
-border-bottom:1px solid var(--line);
-}
-
-.info-row{
-display:flex;
-justify-content:space-between;
-gap:20px;
-padding:16px 0;
-border-bottom:1px solid var(--line);
-font-size:13px;
-}
-
-.info-row:last-child{
-border-bottom:0;
-}
-
-.info-row span:first-child{
-font-weight:bold;
-color:var(--brown);
-}
-
-.info-row span:last-child{
-color:var(--muted);
-text-align:right;
-}
-
-/* =========================
-SIZE CHART
-========================= */
-
-.size-chart-section{
-margin-top:70px;
-background:#fff;
-padding:45px;
-border:1px solid var(--line);
-border-radius:6px;
-}
-
-.section-eyebrow{
-font-size:11px;
-letter-spacing:4px;
-color:var(--tobacco);
-text-transform:uppercase;
-}
-
-.size-chart-section h2{
-font-size:35px;
-margin:10px 0;
-}
-
-.size-chart-section p{
-color:var(--muted);
-font-size:14px;
-line-height:1.7;
-}
-
-.size-table{
-width:100%;
-border-collapse:collapse;
-margin-top:25px;
-background:#fff;
-}
-
-.size-table th,
-.size-table td{
-border:1px solid var(--line);
-padding:14px;
-text-align:center;
-font-size:13px;
-}
-
-.size-table th{
-background:var(--brown);
-color:#fff;
-}
-
-.measure-note{
-background:var(--cream);
-padding:15px;
-margin-top:20px;
-font-size:13px;
-line-height:1.7;
-color:var(--muted);
-}
-
-/* =========================
-DESCRIPTION
-========================= */
-
-.details-section{
-margin-top:30px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-}
-
-.detail-card{
-background:#fff;
-border:1px solid var(--line);
-padding:30px;
-border-radius:6px;
-}
-
-.detail-card h3{
-margin-top:0;
-font-size:22px;
-}
-
-.detail-card p,
-.detail-card li{
-font-size:14px;
-line-height:1.8;
-color:var(--muted);
-}
-
-/* =========================
-CHECKOUT
-========================= */
-
-.checkout-overlay{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.72);
-z-index:999;
-overflow-y:auto;
-padding:30px 15px;
-}
-
-.checkout-overlay.show{
-display:block;
-}
-
-.checkout-box{
-max-width:720px;
-margin:20px auto;
-background:var(--paper);
-border-radius:8px;
-box-shadow:0 20px 70px #0007;
-overflow:hidden;
-}
-
-.checkout-header{
-background:var(--brown);
-color:#fff;
-padding:22px 25px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:15px;
-}
-
-.checkout-header h2{
-margin:0;
-font-size:25px;
-}
-
-.close-checkout{
-background:transparent;
-border:0;
-color:#fff;
-font-size:28px;
-cursor:pointer;
-line-height:1;
-}
-
-.checkout-body{
-padding:25px;
-}
-
-.checkout-product{
-display:flex;
-align-items:center;
-gap:15px;
-background:#fff;
-border:1px solid var(--line);
-padding:12px;
-border-radius:5px;
-margin-bottom:22px;
-}
-
-.checkout-product img{
-width:80px;
-height:90px;
-object-fit:cover;
-border-radius:3px;
-}
-
-.checkout-product-info{
-flex:1;
-}
-
-.checkout-product-info strong{
-display:block;
-font-size:15px;
-margin-bottom:7px;
-}
-
-.checkout-product-info span{
-font-size:13px;
-color:var(--muted);
-display:block;
-margin-top:3px;
-}
-
-.form-group{
-margin-bottom:17px;
-}
-
-.form-group label{
-display:block;
-font-size:12px;
-font-weight:bold;
-letter-spacing:.6px;
-margin-bottom:7px;
-color:var(--brown);
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select{
-width:100%;
-padding:13px;
-border:1px solid #cdbbad;
-border-radius:4px;
-background:#fff;
-font-family:Arial,sans-serif;
-font-size:14px;
-outline:none;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus{
-border-color:var(--tobacco);
-}
-
-.form-group textarea{
-min-height:90px;
-resize:vertical;
-}
-
-.form-row{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:14px;
-}
-
-/* =========================
-PAYMENT
-========================= */
-
-.payment-title{
-font-size:14px;
-font-weight:bold;
-color:var(--brown);
-margin:25px 0 12px;
-}
-
-.payment-option{
-border:1px solid var(--line);
-background:#fff;
-padding:15px;
-border-radius:5px;
-margin-bottom:10px;
-cursor:pointer;
-transition:.2s;
-}
-
-.payment-option:hover{
-border-color:var(--tobacco);
-}
-
-.payment-option.selected{
-border-color:var(--tobacco);
-background:#fff7f1;
-}
-
-.payment-option label{
-display:flex;
-align-items:flex-start;
-gap:10px;
-cursor:pointer;
-}
-
-.payment-option input{
-margin-top:3px;
-}
-
-.payment-name{
-font-weight:bold;
-font-size:14px;
-}
-
-.payment-desc{
-font-size:12px;
-color:var(--muted);
-margin-top:4px;
-}
-
-.order-summary{
-background:#fff;
-border:1px solid var(--line);
-border-radius:5px;
-padding:18px;
-margin-top:22px;
-}
-
-.summary-row{
-display:flex;
-justify-content:space-between;
-gap:15px;
-font-size:14px;
-padding:8px 0;
-}
-
-.summary-row.discount{
-color:var(--green);
-}
-
-.summary-row.total{
-border-top:1px solid var(--line);
-margin-top:7px;
-padding-top:15px;
-font-weight:bold;
-font-size:18px;
-color:var(--brown);
-}
-
-.summary-row.advance{
-color:var(--tobacco);
-font-weight:bold;
-}
-
-.bank-box{
-display:none;
-background:#fff7f1;
-border:1px solid #d9b49b;
-padding:15px;
-border-radius:5px;
-margin-top:12px;
-font-size:13px;
-line-height:1.8;
-}
-
-.bank-box.show{
-display:block;
-}
-
-.place-order-btn{
-width:100%;
-border:0;
-background:var(--brown);
-color:#fff;
-padding:17px;
-font-size:15px;
-font-weight:bold;
-letter-spacing:.5px;
-border-radius:4px;
-cursor:pointer;
-margin-top:22px;
-}
-
-.place-order-btn:hover{
-background:#35190e;
-}
-
-.place-order-btn:disabled{
-opacity:.65;
-cursor:not-allowed;
-}
-
-.checkout-note{
-font-size:11px;
-color:var(--muted);
-text-align:center;
-line-height:1.6;
-margin-top:12px;
-}
-
-/* =========================
-SUCCESS
-========================= */
-
-.success-box{
-display:none;
-text-align:center;
-padding:45px 25px;
-}
-
-.success-icon{
-width:65px;
-height:65px;
-border-radius:50%;
-background:var(--green);
-color:#fff;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:32px;
-margin:0 auto 18px;
-}
-
-.success-box h2{
-margin:0 0 10px;
-font-size:30px;
-}
-
-.success-box p{
-color:var(--muted);
-font-size:14px;
-line-height:1.7;
-}
-
-.order-number{
-display:inline-block;
-background:var(--cream);
-border:1px solid var(--line);
-padding:12px 18px;
-font-weight:bold;
-color:var(--brown);
-margin:12px 0 20px;
-}
-
-.success-close{
-display:inline-block;
-background:var(--brown);
-color:#fff;
-padding:13px 25px;
-border:0;
-border-radius:4px;
-cursor:pointer;
-font-weight:bold;
-}
-
-/* =========================
-FOOTER
-========================= */
-
-footer{
-background:#29140b;
-color:#eee;
-padding:40px 5%;
-text-align:center;
-}
-
-footer p{
-color:#cdbdb2;
-font-size:13px;
-}
-
-/* =========================
-LOADING
-========================= */
-
-.loading{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.65);
-display:none;
-align-items:center;
-justify-content:center;
-z-index:2000;
-color:#fff;
-font-size:16px;
-font-weight:bold;
-}
-
-.loading.show{
-display:flex;
-}
-
-/* =========================
-MOBILE
-========================= */
-
-@media(max-width:800px){
-
-.product-layout{
-grid-template-columns:1fr;
-gap:30px;
-}
-
-.product-image-box{
-position:static;
-}
-
-.product-image{
-height:520px;
-}
-
-.product-info h1{
-font-size:38px;
-}
-
-.action-buttons{
-grid-template-columns:1fr;
-}
-
-.size-chart-section{
-padding:25px 15px;
-overflow-x:auto;
-}
-
-.size-table{
-min-width:650px;
-}
-
-.details-section{
-grid-template-columns:1fr;
-}
-
-.checkout-overlay{
-padding:10px;
-}
-
-.checkout-box{
-margin:5px auto;
-}
-
-.checkout-header{
-padding:18px;
-}
-
-.checkout-body{
-padding:18px;
-}
-
-.form-row{
-grid-template-columns:1fr;
-}
-
-}
-
-@media(max-width:500px){
-
-header{
-padding:12px 4%;
-}
-
-.brand{
-font-size:18px;
-}
-
-.brand small{
-font-size:6px;
-}
-
-.back{
-font-size:10px;
-}
-
-.product-page{
-padding:35px 4% 60px;
-}
-
-.product-image{
-height:430px;
-}
-
-.product-info h1{
-font-size:32px;
-}
-
-.product-price{
-font-size:24px;
-}
-
-.checkout-product img{
-width:65px;
-height:75px;
-}
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<header>
-
-<a
-href="index.html"
-style="color:#fff;text-decoration:none">
-
-<div class="brand">
-
-THE LEATHER HOUSE
-
-<small>
-PREMIUM LEATHER JACKETS
-</small>
-
-</div>
-
-</a>
-
-<div class="header-right">
-
-<a
-class="back"
-href="index.html#shop">
-
-← BACK TO JACKETS
-
-</a>
-
-</div>
-
-</header>
-
-
-<main class="product-page">
-
-<div class="breadcrumb">
-
-<a href="index.html">
-Home
-</a>
-
-&nbsp; / &nbsp;
-
-<a href="index.html#shop">
-Jackets
-</a>
-
-&nbsp; / &nbsp;
-
-<span id="breadcrumbName">
-Product
-</span>
-
-</div>
-
-
-<div class="product-layout">
-
-
-<div class="product-image-box">
-
-<img
-id="productImage"
-class="product-image"
-src=""
-alt="Leather Jacket">
-
-</div>
-
-
-<div class="product-info">
-
-<span
-id="productTag"
-class="product-tag">
-
-Leather Jacket
-
-</span>
-
-<h1 id="productName">
-Leather Jacket
-</h1>
-
-<div
-id="productPrice"
-class="product-price">
-
-Rs. 0
-
-</div>
-
-<p
-id="productDescription"
-class="description">
-
-Premium leather jacket designed for timeless
-style, comfort and everyday wear.
-
-</p>
-
-
-<label
-class="option-label"
-for="productSize">
-
-SELECT SIZE
-
-</label>
-
-<select
-id="productSize"
-class="size-select">
-
-</select>
-
-
-<div class="size-note">
-
-Not sure about your size?
-Check our size chart below.
-
-</div>
-
-
-<div class="action-buttons">
-
-<button
-class="btn"
-type="button"
-onclick="addToCart()">
-
-ADD TO CART
-
-</button>
-
-<button
-class="btn btn-outline"
-type="button"
-onclick="orderNow()">
-
-ORDER NOW
-
-</button>
-
-</div>
-
-
-<div class="info-box">
-
-<div class="info-row">
-
-<span>
-Delivery
-</span>
-
-<span>
-Karachi — Rs. 300
-<br>
-Rest of Pakistan — Rs. 600
-</span>
-
-</div>
-
-<div class="info-row">
-
-<span>
-Support
-</span>
-
-<span>
-+92 311 2674115
-</span>
-
-</div>
-
-<div class="info-row">
-
-<span>
-Ordering
-</span>
-
-<span>
-Secure website checkout
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<section class="size-chart-section">
-
-<div class="section-eyebrow">
-SIZE GUIDE
-</div>
-
-<h2>
-Find Your Perfect Fit
-</h2>
-
-<p>
-Measure around your chest while wearing a light
-shirt. Compare your measurement with the chart below.
-If you are between two sizes, choose according to
-your preferred fit.
-</p>
-
-
-<table class="size-table">
-
-<thead>
-
-<tr>
-
-<th>Size</th>
-<th>Chest</th>
-<th>Shoulder</th>
-<th>Sleeve</th>
-<th>Jacket Length</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-<td>S</td>
-<td>38"</td>
-<td>17"</td>
-<td>24.5"</td>
-<td>25"</td>
-</tr>
-
-<tr>
-<td>M</td>
-<td>40"</td>
-<td>17.5"</td>
-<td>25"</td>
-<td>26"</td>
-</tr>
-
-<tr>
-<td>L</td>
-<td>42"</td>
-<td>18"</td>
-<td>25.5"</td>
-<td>27"</td>
-</tr>
-
-<tr>
-<td>XL</td>
-<td>44"</td>
-<td>18.5"</td>
-<td>26"</td>
-<td>28"</td>
-</tr>
-
-<tr>
-<td>XXL</td>
-<td>46"</td>
-<td>19"</td>
-<td>26.5"</td>
-<td>29"</td>
-</tr>
-
-</tbody>
-
-</table>
-
-
-<div class="measure-note">
-
-<strong>Tip:</strong>
-
-For a comfortable regular fit, use your actual
-chest measurement. For a slightly relaxed fit,
-consider going one size up.
-
-</div>
-
-</section>
-
-
-<section class="details-section">
-
-<div class="detail-card">
-
-<h3>
-About This Jacket
-</h3>
-
-<p id="detailDescription">
-
-A premium leather jacket created for people who
-want a classic look that works across seasons.
-
-</p>
-
-</div>
-
-
-<div class="detail-card">
-
-<h3>
-Delivery &amp; Support
-</h3>
-
-<ul>
-
-<li>
-Karachi delivery: Rs. 300
-</li>
-
-<li>
-Rest of Pakistan: Rs. 600
-</li>
-
-<li>
-WhatsApp support: +92 311 2674115
-</li>
-
-<li>
-Order directly through the website
-</li>
-
-</ul>
-
-</div>
-
-</section>
-
-</main>
-
-
-<!-- =========================
-CHECKOUT
-========================= -->
-
-<div
-id="checkoutOverlay"
-class="checkout-overlay">
-
-<div class="checkout-box">
-
-<div class="checkout-header">
-
-<h2>
-Complete Your Order
-</h2>
-
-<button
-type="button"
-class="close-checkout"
-onclick="closeCheckout()">
-
-×
-</button>
-
-</div>
-
-
-<div
-id="checkoutContent"
-class="checkout-body">
-
-<div class="checkout-product">
-
-<img
-id="checkoutProductImage"
-src=""
-alt="Product">
-
-<div class="checkout-product-info">
-
-<strong id="checkoutProductName">
-Product
-</strong>
-
-<span id="checkoutProductSize">
-Size: -
-</span>
-
-<span id="checkoutProductPrice">
-Rs. 0
-</span>
-
-</div>
-
-</div>
-
-
-<div class="form-group">
-
-<label for="custName">
-FULL NAME *
-</label>
-
-<input
-id="custName"
-type="text"
-placeholder="Enter your full name"
-autocomplete="name">
-
-</div>
-
-
-<div class="form-group">
-
-<label for="custPhone">
-PHONE NUMBER *
-</label>
-
-<input
-id="custPhone"
-type="tel"
-placeholder="03XXXXXXXXX"
-autocomplete="tel">
-
-</div>
-
-
-<div class="form-row">
-
-<div class="form-group">
-
-<label for="custCountry">
-COUNTRY *
-</label>
-
-<select
-id="custCountry">
-
-<option value="Pakistan" selected>
-Pakistan
-</option>
-
-<option value="Afghanistan">
-Afghanistan
-</option>
-
-<option value="Bangladesh">
-Bangladesh
-</option>
-
-<option value="United Arab Emirates">
-United Arab Emirates
-</option>
-
-<option value="Saudi Arabia">
-Saudi Arabia
-</option>
-
-<option value="United Kingdom">
-United Kingdom
-</option>
-
-<option value="United States">
-United States
-</option>
-
-<option value="Other">
-Other
-</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label for="custCity">
-CITY *
-</label>
-
-<input
-id="custCity"
-type="text"
-placeholder="Enter your city"
-autocomplete="address-level2">
-
-</div>
-
-</div>
-
-
-<div class="form-group">
-
-<label for="custAddress">
-DELIVERY ADDRESS *
-</label>
-
-<textarea
-id="custAddress"
-placeholder="House / Street / Area / Complete delivery address"
-autocomplete="street-address"></textarea>
-
-</div>
-
-
-<div class="form-group">
-
-<label for="deliveryArea">
-DELIVERY AREA *
-</label>
-
-<select id="deliveryArea">
-
-<option value="karachi">
-Karachi — Rs. 300
-</option>
-
-<option value="rest">
-Rest of Pakistan — Rs. 600
-</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label for="custNotes">
-ORDER NOTES
-</label>
-
-<textarea
-id="custNotes"
-placeholder="Optional notes"></textarea>
-
-</div>
-
-
-<div class="payment-title">
-SELECT PAYMENT METHOD
-</div>
-
-
-<div
-class="payment-option selected"
-id="paymentBoxCod">
-
-<label>
-
-<input
-type="radio"
-name="paymentMethod"
-value="cod"
-checked
-onchange="calculatePayment()">
-
-<div>
-
-<div class="payment-name">
-100% Cash on Delivery
-</div>
-
-<div class="payment-desc">
-Pay full amount when your order is delivered. 0% discount.
-</div>
-
-</div>
-
-</label>
-
-</div>
-
-
-<div
-class="payment-option"
-id="paymentBoxHalf">
-
-<label>
-
-<input
-type="radio"
-name="paymentMethod"
-value="half"
-onchange="calculatePayment()">
-
-<div>
-
-<div class="payment-name">
-50% Advance + 50% COD
-</div>
-
-<div class="payment-desc">
-Pay 50% advance and remaining 50% on delivery. 0% discount.
-</div>
-
-</div>
-
-</label>
-
-</div>
-
-
-<div
-class="payment-option"
-id="paymentBoxFull">
-
-<label>
-
-<input
-type="radio"
-name="paymentMethod"
-value="full"
-onchange="calculatePayment()">
-
-<div>
-
-<div class="payment-name">
-100% Advance — 2% Discount
-</div>
-
-<div class="payment-desc">
-Pay full amount in advance and receive 2% discount.
-</div>
-
-</div>
-
-</label>
-
-</div>
-
-
-<div
-id="bankBox"
-class="bank-box">
-
-<strong>
-Advance Payment Bank Details
-</strong>
-
-<br>
-
-Bank:
-HBL
-
-<br>
-
-Account Title:
-Sajid
-
-<br>
-
-Account Number:
-00597901153803
-
-<br><br>
-
-After making the advance payment, please keep your
-payment proof/reference ready.
-
-</div>
-
-
-<div class="order-summary">
-
-<div class="summary-row">
-
-<span>
-Product
-</span>
-
-<strong id="summaryProduct">
-Rs. 0
-</strong>
-
-</div>
-
-
-<div class="summary-row">
-
-<span>
-Delivery
-</span>
-
-<strong id="summaryDelivery">
-Rs. 300
-</strong>
-
-</div>
-
-
-<div class="summary-row discount">
-
-<span>
-Discount
-</span>
-
-<strong id="summaryDiscount">
--Rs. 0
-</strong>
-
-</div>
-
-
-<div class="summary-row total">
-
-<span>
-Total
-</span>
-
-<strong id="summaryTotal">
-Rs. 0
-</strong>
-
-</div>
-
-
-<div class="summary-row advance">
-
-<span>
-Advance Amount
-</span>
-
-<strong id="summaryAdvance">
-Rs. 0
-</strong>
-
-</div>
-
-
-<div class="summary-row">
-
-<span>
-COD Amount
-</span>
-
-<strong id="summaryCOD">
-Rs. 0
-</strong>
-
-</div>
-
-</div>
-
-
-<button
-id="placeOrderBtn"
-class="place-order-btn"
-type="button"
-onclick="submitOrder()">
-
-PLACE ORDER
-
-</button>
-
-
-<div class="checkout-note">
-
-By placing your order, you confirm that the
-information provided is correct.
-
-</div>
-
-</div>
-
-
-<div
-id="successContent"
-class="success-box">
-
-<div class="success-icon">
-✓
-</div>
-
-<h2>
-Order Received
-</h2>
-
-<p>
-Thank you for ordering from The Leather House.
-Your order has been successfully submitted.
-</p>
-
-<div
-class="order-number"
-id="successOrderId">
-
-Order ID
-
-</div>
-
-<p>
-Our team will contact you on your provided phone
-number for order confirmation.
-</p>
-
-<button
-class="success-close"
-onclick="finishOrder()">
-
-DONE
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div
-id="loading"
-class="loading">
-
-Submitting your order...
-
-</div>
-
-
-<footer>
-
-<strong>
-THE LEATHER HOUSE
-</strong>
-
-<p>
-Premium Leather Jackets
-</p>
-
-</footer>
-
-
 <script>
 
 /* =====================================================
@@ -1657,195 +5,229 @@ GOOGLE APPS SCRIPT
 ===================================================== */
 
 const GOOGLE_SCRIPT_URL =
-'https://script.google.com/macros/s/AKfycbwtsaYU_YJ9aB0BLeVLBBeP18zTO01pTjdprzPaat1Gd2eV0DJ0yNT6pBjEDZKMIavINA/exec';
+'https://script.google.com/macros/s/AKfycbwtsaYU_YJ9aB0LeVLBBeP18zTO01pTjdprzPaat1Gd2eV0DJ0yNT6pBjEDZKMIavINA/exec';
 
 const ORDER_SECRET =
 'TLH_2026_Order_8472';
 
 
 /* =====================================================
-DEFAULT PRODUCTS
-===================================================== */
-
-const defaultProducts=[
-
-{
-id:1,
-name:'Classic Brown Leather Jacket',
-price:14999,
-category:'men',
-tag:'Best Seller',
-image:'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=900&q=85',
-sizes:'S,M,L,XL,XXL'
-},
-
-{
-id:2,
-name:'Black Biker Leather Jacket',
-price:16999,
-category:'men',
-tag:'Classic',
-image:'https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?auto=format&fit=crop&w=900&q=85',
-sizes:'S,M,L,XL,XXL'
-},
-
-{
-id:3,
-name:'Vintage Brown Leather Jacket',
-price:15999,
-category:'women',
-tag:'New',
-image:'https://images.unsplash.com/photo-1548883354-94bcfe321cbb?auto=format&fit=crop&w=900&q=85',
-sizes:'S,M,L,XL'
-},
-
-{
-id:4,
-name:'Premium Black Leather Jacket',
-price:17999,
-category:'women',
-tag:'Premium',
-image:'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85',
-sizes:'S,M,L,XL'
-}
-
-];
-
-
-/* =====================================================
-READ PRODUCT FROM URL
+URL PRODUCT ID
 ===================================================== */
 
 const params =
 new URLSearchParams(window.location.search);
 
-
-/*
-IMPORTANT:
-
-Index page will send these values:
-
-product.html?
-id=123
-&name=...
-&price=...
-&image=...
-&sizes=...
-&tag=...
-*/
-
 const urlId =
 params.get('id');
 
-const urlName =
-params.get('name');
 
-const urlPrice =
-params.get('price');
+/* =====================================================
+PRODUCT
+===================================================== */
 
-const urlImage =
-params.get('image');
-
-const urlSizes =
-params.get('sizes');
-
-const urlTag =
-params.get('tag');
+let product = null;
 
 
 /* =====================================================
-GET LOCAL PRODUCTS
+ESCAPE HTML
 ===================================================== */
 
-let localProducts=[];
+function escapeHTML(value){
+
+return String(value ?? '')
+
+.replace(/&/g,'&amp;')
+.replace(/</g,'&lt;')
+.replace(/>/g,'&gt;')
+.replace(/"/g,'&quot;')
+.replace(/'/g,'&#039;');
+
+}
+
+
+/* =====================================================
+LOAD PRODUCT FROM GOOGLE APPS SCRIPT
+===================================================== */
+
+async function loadProduct(){
+
+if(!urlId){
+
+showProductNotFound();
+return;
+
+}
+
 
 try{
 
-localProducts =
-JSON.parse(
-localStorage.getItem('lh_products') || '[]'
+const url =
+GOOGLE_SCRIPT_URL +
+'?action=products' +
+'&secret=' +
+encodeURIComponent(ORDER_SECRET);
+
+
+const response =
+await fetch(url,{
+method:'GET',
+cache:'no-store'
+});
+
+
+if(!response.ok){
+
+throw new Error(
+'Products request failed: ' +
+response.status
 );
 
-if(!Array.isArray(localProducts)){
-localProducts=[];
-}
-
-}catch(error){
-
-localProducts=[];
-
 }
 
 
-/* =====================================================
-FIND PRODUCT
-===================================================== */
-
-let product=null;
+const result =
+await response.json();
 
 
-/*
-1. First try URL product data.
-This is important for products added
-from Admin / Drive.
-*/
+console.log(
+'Products API response:',
+result
+);
 
-if(
-urlName &&
-urlPrice &&
-urlImage
+
+/* ---------------------------------------------
+GET PRODUCTS ARRAY
+--------------------------------------------- */
+
+let products = [];
+
+
+if(Array.isArray(result)){
+
+products = result;
+
+}
+
+else if(
+result &&
+Array.isArray(result.products)
 ){
 
-product={
+products = result.products;
+
+}
+
+else if(
+result &&
+result.data &&
+Array.isArray(result.data)
+){
+
+products = result.data;
+
+}
+
+else if(
+result &&
+result.data &&
+Array.isArray(result.data.products)
+){
+
+products = result.data.products;
+
+}
+
+
+/* ---------------------------------------------
+FIND PRODUCT
+--------------------------------------------- */
+
+product =
+products.find(
+p =>
+String(p.id) === String(urlId)
+);
+
+
+/* ---------------------------------------------
+IF NOT FOUND
+--------------------------------------------- */
+
+if(!product){
+
+console.warn(
+'Product ID not found:',
+urlId,
+products
+);
+
+showProductNotFound();
+
+return;
+
+}
+
+
+/* ---------------------------------------------
+NORMALIZE PRODUCT
+--------------------------------------------- */
+
+product = {
 
 id:
-urlId || Date.now(),
+product.id,
 
 name:
-urlName,
+product.name ||
+product.productName ||
+'Leather Jacket',
 
 price:
-Number(urlPrice) || 0,
+Number(
+product.price ||
+product.productPrice ||
+0
+),
 
-image:
-urlImage,
-
-sizes:
-urlSizes || 'S,M,L,XL,XXL',
+category:
+product.category ||
+'men',
 
 tag:
-urlTag || 'New'
+product.tag ||
+'Leather Jacket',
+
+image:
+product.image ||
+product.imageUrl ||
+product.imageURL ||
+'',
+
+sizes:
+product.sizes ||
+'S,M,L,XL,XXL'
 
 };
 
-}
+
+/* ---------------------------------------------
+DISPLAY
+--------------------------------------------- */
+
+displayProduct();
 
 
-/*
-2. If URL data is not present,
-try localStorage.
-*/
+}catch(error){
 
-if(!product && urlId){
-
-product =
-localProducts.find(
-p => String(p.id) === String(urlId)
+console.error(
+'Product loading error:',
+error
 );
 
+showProductNotFound();
+
 }
-
-
-/*
-3. Try default products.
-*/
-
-if(!product && urlId){
-
-product =
-defaultProducts.find(
-p => String(p.id) === String(urlId)
-);
 
 }
 
@@ -1854,9 +236,9 @@ p => String(p.id) === String(urlId)
 PRODUCT NOT FOUND
 ===================================================== */
 
-if(!product){
+function showProductNotFound(){
 
-document.body.innerHTML=`
+document.body.innerHTML = `
 
 <div style="
 min-height:100vh;
@@ -1865,22 +247,31 @@ align-items:center;
 justify-content:center;
 text-align:center;
 padding:30px;
-font-family:Arial;
+font-family:Arial,Helvetica,sans-serif;
+background:#f6eee4;
+color:#20140e;
 ">
 
 <div>
 
 <h1 style="
-font-family:Georgia,serif;
+font-family:Georgia,'Times New Roman',serif;
 font-size:42px;
+margin-bottom:12px;
 ">
 
 Product Not Found
 
 </h1>
 
-<p>
+<p style="
+color:#79685d;
+font-size:15px;
+margin-bottom:25px;
+">
+
 This jacket is no longer available.
+
 </p>
 
 <a
@@ -1892,6 +283,7 @@ background:#9b542d;
 color:#fff;
 text-decoration:none;
 border-radius:3px;
+font-weight:bold;
 ">
 
 BACK TO JACKETS
@@ -1904,28 +296,35 @@ BACK TO JACKETS
 
 `;
 
-}else{
+}
+
 
 /* =====================================================
 DISPLAY PRODUCT
 ===================================================== */
+
+function displayProduct(){
 
 document.title =
 product.name +
 ' | The Leather House';
 
 
-document
-.getElementById('productImage')
-.src =
+/* IMAGE */
+
+const image =
+document.getElementById(
+'productImage'
+);
+
+image.src =
 product.image;
 
-
-document
-.getElementById('productImage')
-.alt =
+image.alt =
 product.name;
 
+
+/* NAME */
 
 document
 .getElementById('productName')
@@ -1933,11 +332,15 @@ document
 product.name;
 
 
+/* BREADCRUMB */
+
 document
 .getElementById('breadcrumbName')
 .textContent =
 product.name;
 
+
+/* PRICE */
 
 document
 .getElementById('productPrice')
@@ -1947,12 +350,16 @@ Number(product.price)
 .toLocaleString('en-PK');
 
 
+/* TAG */
+
 document
 .getElementById('productTag')
 .textContent =
 product.tag ||
 'Leather Jacket';
 
+
+/* DESCRIPTION */
 
 const description =
 'Premium ' +
@@ -1972,52 +379,63 @@ document
 description;
 
 
-/* SIZE */
+/* =====================================================
+SIZES
+===================================================== */
 
 const sizeSelect =
-document.getElementById('productSize');
+document.getElementById(
+'productSize'
+);
 
 
-sizeSelect.innerHTML =
+let sizes = [];
+
+
+if(Array.isArray(product.sizes)){
+
+sizes =
+product.sizes;
+
+}
+
+else{
+
+sizes =
 String(
 product.sizes ||
 'S,M,L,XL,XXL'
 )
-.split(',')
-.map(size=>{
-
-const cleanSize =
-size.trim();
-
-return `
-<option value="${escapeHTML(cleanSize)}">
-${escapeHTML(cleanSize)}
-</option>
-`;
-
-})
-.join('');
+.split(',');
 
 }
 
 
-/* =====================================================
-ESCAPE HTML
-===================================================== */
+sizes =
+sizes
+.map(size => String(size).trim())
+.filter(Boolean);
 
-function escapeHTML(value){
 
-return String(value)
+if(!sizes.length){
 
-.replace(/&/g,'&amp;')
+sizes =
+['S','M','L','XL','XXL'];
 
-.replace(/</g,'&lt;')
+}
 
-.replace(/>/g,'&gt;')
 
-.replace(/"/g,'&quot;')
+sizeSelect.innerHTML =
+sizes
+.map(size => `
 
-.replace(/'/g,'&#039;');
+<option value="${escapeHTML(size)}">
+${escapeHTML(size)}
+</option>
+
+`)
+.join('');
+
 
 }
 
@@ -2029,8 +447,11 @@ ADD TO CART
 function addToCart(){
 
 if(!product){
+
 return;
+
 }
+
 
 const size =
 document
@@ -2038,7 +459,8 @@ document
 .value;
 
 
-let cart=[];
+let cart = [];
+
 
 try{
 
@@ -2048,7 +470,9 @@ localStorage.getItem('lh_cart') || '[]'
 );
 
 if(!Array.isArray(cart)){
+
 cart=[];
+
 }
 
 }catch(error){
@@ -2090,7 +514,9 @@ ORDER NOW
 function orderNow(){
 
 if(!product){
+
 return;
+
 }
 
 
@@ -2115,7 +541,8 @@ product.name;
 document
 .getElementById('checkoutProductSize')
 .textContent =
-'Size: ' + size;
+'Size: ' +
+size;
 
 
 document
@@ -2128,10 +555,12 @@ Number(product.price)
 
 document
 .getElementById('checkoutOverlay')
-.classList.add('show');
+.classList
+.add('show');
 
 
-document.body.style.overflow='hidden';
+document.body.style.overflow =
+'hidden';
 
 
 calculatePayment();
@@ -2147,7 +576,9 @@ function closeCheckout(){
 
 document
 .getElementById('checkoutOverlay')
-.classList.remove('show');
+.classList
+.remove('show');
+
 
 document.body.style.overflow='';
 
@@ -2179,7 +610,9 @@ CALCULATE PAYMENT
 function calculatePayment(){
 
 if(!product){
+
 return;
+
 }
 
 
@@ -2188,7 +621,8 @@ getPaymentMethod();
 
 
 const deliveryArea =
-document.getElementById('deliveryArea')
+document
+.getElementById('deliveryArea')
 .value;
 
 
@@ -2208,7 +642,7 @@ let advanceAmount=0;
 let codAmount=0;
 
 
-/* COD */
+/* 100% COD */
 
 if(method === 'cod'){
 
@@ -2225,7 +659,7 @@ codAmount=total;
 }
 
 
-/* HALF */
+/* 50% ADVANCE */
 
 else if(method === 'half'){
 
@@ -2236,7 +670,9 @@ subtotal +
 delivery;
 
 advanceAmount =
-Math.round(total * .50);
+Math.round(
+total * 0.50
+);
 
 codAmount =
 total -
@@ -2245,12 +681,14 @@ advanceAmount;
 }
 
 
-/* FULL */
+/* 100% ADVANCE */
 
 else if(method === 'full'){
 
 discount =
-Math.round(subtotal * .02);
+Math.round(
+subtotal * 0.02
+);
 
 total =
 subtotal +
@@ -2303,10 +741,12 @@ document
 formatPKR(codAmount);
 
 
-/* BANK */
+/* BANK DETAILS */
 
 const bankBox =
-document.getElementById('bankBox');
+document.getElementById(
+'bankBox'
+);
 
 
 if(
@@ -2314,11 +754,15 @@ method === 'half' ||
 method === 'full'
 ){
 
-bankBox.classList.add('show');
+bankBox
+.classList
+.add('show');
 
 }else{
 
-bankBox.classList.remove('show');
+bankBox
+.classList
+.remove('show');
 
 }
 
@@ -2327,7 +771,8 @@ bankBox.classList.remove('show');
 
 document
 .getElementById('paymentBoxCod')
-.classList.toggle(
+.classList
+.toggle(
 'selected',
 method === 'cod'
 );
@@ -2335,7 +780,8 @@ method === 'cod'
 
 document
 .getElementById('paymentBoxHalf')
-.classList.toggle(
+.classList
+.toggle(
 'selected',
 method === 'half'
 );
@@ -2343,7 +789,8 @@ method === 'half'
 
 document
 .getElementById('paymentBoxFull')
-.classList.toggle(
+.classList
+.toggle(
 'selected',
 method === 'full'
 );
@@ -2352,7 +799,7 @@ method === 'full'
 
 
 /* =====================================================
-DELIVERY
+DELIVERY CHANGE
 ===================================================== */
 
 document
@@ -2364,7 +811,7 @@ calculatePayment
 
 
 /* =====================================================
-FORMAT
+FORMAT PKR
 ===================================================== */
 
 function formatPKR(number){
@@ -2377,13 +824,16 @@ Number(number || 0)
 
 
 /* =====================================================
-PHONE
+PHONE VALIDATION
 ===================================================== */
 
 function validatePhone(phone){
 
 const cleaned =
-phone.replace(/[\s-]/g,'');
+phone.replace(
+/[\s-]/g,
+''
+);
 
 return /^(\+92|0092|03)\d{9,10}$/
 .test(cleaned);
@@ -2435,7 +885,9 @@ SUBMIT ORDER
 async function submitOrder(){
 
 if(!product){
+
 return;
+
 }
 
 
@@ -2596,7 +1048,9 @@ return;
 }
 
 
-/* TOTALS */
+/* =====================================================
+TOTALS
+===================================================== */
 
 const subtotal =
 Number(product.price);
@@ -2668,39 +1122,49 @@ codAmount=0;
 }
 
 
-/* STATUS */
+/* =====================================================
+PAYMENT STATUS
+===================================================== */
 
-let paymentStatus='Pending';
+let paymentStatus =
+'Pending';
 
 
 if(paymentMethod === 'cod'){
 
-paymentStatus='COD';
+paymentStatus =
+'COD';
 
 }
 
 else if(paymentMethod === 'half'){
 
-paymentStatus='50% Advance Pending';
+paymentStatus =
+'50% Advance Pending';
 
 }
 
 else if(paymentMethod === 'full'){
 
-paymentStatus='100% Advance Pending';
+paymentStatus =
+'100% Advance Pending';
 
 }
 
 
-/* ORDER ID */
+/* =====================================================
+ORDER ID
+===================================================== */
 
 const orderId =
 generateOrderId();
 
 
-/* ORDER */
+/* =====================================================
+ORDER DATA
+===================================================== */
 
-const orderData={
+const orderData = {
 
 secret:
 ORDER_SECRET,
@@ -2711,26 +1175,47 @@ orderId,
 date:
 new Date().toISOString(),
 
+/* CUSTOMER */
+
 customerName:
+name,
+
+name:
 name,
 
 customerPhone:
 phone,
 
+phone:
+phone,
+
 customerCountry:
+country,
+
+country:
 country,
 
 customerCity:
 city,
 
+city:
+city,
+
 customerAddress:
 address,
+
+address:
+address,
+
+/* DELIVERY */
 
 deliveryArea:
 
 deliveryArea === 'karachi'
 ? 'Karachi'
 : 'Rest of Pakistan',
+
+/* PRODUCT */
 
 items:[
 
@@ -2754,6 +1239,8 @@ quantity:1
 
 ],
 
+/* AMOUNTS */
+
 subtotal:
 subtotal,
 
@@ -2775,12 +1262,16 @@ advanceAmount,
 codAmount:
 codAmount,
 
+/* PAYMENT */
+
 paymentMethod:
 
 paymentMethod === 'cod'
+
 ? '100% COD'
 
 : paymentMethod === 'half'
+
 ? '50% Advance + 50% COD'
 
 : '100% Advance',
@@ -2794,7 +1285,9 @@ notes
 };
 
 
-/* BUTTON */
+/* =====================================================
+SUBMIT
+===================================================== */
 
 const button =
 document.getElementById(
@@ -2804,13 +1297,14 @@ document.getElementById(
 
 button.disabled=true;
 
-button.textContent=
+button.textContent =
 'SUBMITTING ORDER...';
 
 
 document
 .getElementById('loading')
-.classList.add('show');
+.classList
+.add('show');
 
 
 try{
@@ -2874,12 +1368,13 @@ result.error ||
 
 document
 .getElementById('loading')
-.classList.remove('show');
+.classList
+.remove('show');
 
 
 button.disabled=false;
 
-button.textContent=
+button.textContent =
 'PLACE ORDER';
 
 
@@ -2900,7 +1395,7 @@ document
 orderId;
 
 
-/* SAVE */
+/* SAVE LAST ORDER */
 
 localStorage.setItem(
 'lh_last_order',
@@ -2918,12 +1413,13 @@ error
 
 document
 .getElementById('loading')
-.classList.remove('show');
+.classList
+.remove('show');
 
 
 button.disabled=false;
 
-button.textContent=
+button.textContent =
 'PLACE ORDER';
 
 
@@ -2937,7 +1433,7 @@ alert(
 
 
 /* =====================================================
-FINISH
+FINISH ORDER
 ===================================================== */
 
 function finishOrder(){
@@ -2954,7 +1450,8 @@ document
 
 document
 .getElementById('checkoutOverlay')
-.classList.remove('show');
+.classList
+.remove('show');
 
 
 document.body.style.overflow='';
@@ -2991,6 +1488,11 @@ document
 
 
 document
+.getElementById('deliveryArea')
+.value='karachi';
+
+
+document
 .querySelector(
 'input[name="paymentMethod"][value="cod"]'
 )
@@ -3023,7 +1525,7 @@ closeCheckout();
 
 
 /* =====================================================
-ESC
+ESC KEY
 ===================================================== */
 
 document.addEventListener(
@@ -3039,8 +1541,11 @@ closeCheckout();
 }
 );
 
+
+/* =====================================================
+START
+===================================================== */
+
+loadProduct();
+
 </script>
-
-</body>
-
-</html>
