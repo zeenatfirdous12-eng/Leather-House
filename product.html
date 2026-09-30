@@ -1,3477 +1,2795 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 
 <meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
-<title>Product | The Leather House</title>
+<title>The Leather House — Product</title>
 
 <style>
 
-:root{
---espresso:#2a160d;
---brown:#4b2413;
---tobacco:#9b542d;
---tan:#c17a49;
---cream:#f6eee4;
---paper:#fffaf5;
---ink:#20140e;
---muted:#79685d;
---line:#e2d3c5;
---green:#287a45;
+*{
+  box-sizing:border-box;
 }
 
-*{
-box-sizing:border-box;
+html{
+  scroll-behavior:smooth;
 }
 
 body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:var(--cream);
-color:var(--ink);
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f7f4ef;
+  color:#211b16;
 }
 
-h1,h2,h3,.brand{
-font-family:Georgia,'Times New Roman',serif;
+button,
+input,
+select,
+textarea{
+  font:inherit;
 }
 
-/* =========================
-HEADER
-========================= */
+button{
+  cursor:pointer;
+}
 
-header{
-position:sticky;
-top:0;
-z-index:50;
-background:rgba(38,20,12,.98);
-color:#fff;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:14px 5%;
-box-shadow:0 5px 25px #0002;
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+
+/* HEADER */
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#17120f;
+  color:#fff;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.header-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:18px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
 
 .brand{
-font-size:24px;
-letter-spacing:1.5px;
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:1px;
 }
 
-.brand small{
-display:block;
-font:9px Arial;
-letter-spacing:3px;
-margin-top:6px;
-color:#dbc7b7;
+.back-link{
+  color:#fff;
+  opacity:.9;
+  font-size:14px;
 }
 
-.header-right{
-display:flex;
-align-items:center;
-gap:15px;
+
+/* MAIN */
+
+.container{
+  width:min(1200px,92%);
+  margin:0 auto;
 }
 
-.back{
-color:#fff;
-text-decoration:none;
-font-size:12px;
-letter-spacing:1px;
-text-transform:uppercase;
+.product-section{
+  padding:55px 0;
 }
 
-/* =========================
-PAGE
-========================= */
-
-.product-page{
-max-width:1200px;
-margin:auto;
-padding:55px 5% 80px;
+.product-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:start;
 }
 
-.breadcrumb{
-font-size:12px;
-color:var(--muted);
-margin-bottom:25px;
-}
 
-.breadcrumb a{
-color:var(--brown);
-text-decoration:none;
-}
+/* IMAGE */
 
-.product-layout{
-display:grid;
-grid-template-columns:1.05fr .95fr;
-gap:55px;
-align-items:start;
-}
-
-/* =========================
-IMAGE
-========================= */
-
-.product-image-box{
-background:#fff;
-border:1px solid var(--line);
-padding:12px;
-border-radius:6px;
-position:sticky;
-top:100px;
+.product-image-wrap{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 15px 45px rgba(0,0,0,.08);
+  min-height:520px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .product-image{
-width:100%;
-height:650px;
-object-fit:cover;
-display:block;
-border-radius:3px;
+  width:100%;
+  height:auto;
+  max-height:680px;
+  object-fit:contain;
+  display:block;
 }
 
-/* =========================
-INFO
-========================= */
 
-.product-info{
-padding:10px 0;
-}
+/* DETAILS */
 
 .product-tag{
-display:inline-block;
-background:var(--brown);
-color:#fff;
-padding:7px 10px;
-font-size:10px;
-letter-spacing:1.5px;
-text-transform:uppercase;
-margin-bottom:15px;
+  display:inline-block;
+  background:#211b16;
+  color:#fff;
+  padding:7px 12px;
+  border-radius:50px;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:15px;
 }
 
-.product-info h1{
-font-size:48px;
-line-height:1.05;
-margin:5px 0 15px;
+.product-title{
+  margin:0 0 15px;
+  font-size:42px;
+  line-height:1.1;
 }
 
 .product-price{
-font-size:27px;
-font-weight:bold;
-color:var(--tobacco);
-margin-bottom:22px;
+  font-size:28px;
+  font-weight:800;
+  margin:0 0 20px;
 }
 
-.description{
-font-size:15px;
-line-height:1.8;
-color:var(--muted);
-margin-bottom:28px;
+.product-description{
+  color:#665e57;
+  line-height:1.7;
+  font-size:16px;
 }
 
-.option-label{
-font-size:12px;
-font-weight:bold;
-letter-spacing:1px;
-margin-bottom:8px;
-display:block;
+.option-title{
+  margin:28px 0 10px;
+  font-size:14px;
+  font-weight:800;
 }
 
-.size-select{
-width:100%;
-padding:14px;
-border:1px solid #cdbbad;
-background:#fff;
-border-radius:4px;
-font-size:15px;
-margin-bottom:10px;
+.size-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
 }
 
-.size-note{
-font-size:12px;
-color:var(--muted);
-margin-bottom:22px;
+.size-btn{
+  border:1px solid #cfc6bd;
+  background:#fff;
+  padding:11px 18px;
+  border-radius:8px;
+  min-width:50px;
 }
 
-.action-buttons{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
+.size-btn.active{
+  background:#211b16;
+  color:#fff;
+  border-color:#211b16;
+}
+
+.action-row{
+  display:flex;
+  gap:12px;
+  margin-top:28px;
 }
 
 .btn{
-display:block;
-width:100%;
-background:var(--tobacco);
-color:#fff;
-border:1px solid var(--tobacco);
-padding:15px 20px;
-border-radius:3px;
-font-weight:bold;
-cursor:pointer;
-text-align:center;
-text-decoration:none;
-letter-spacing:.5px;
+  border:0;
+  border-radius:10px;
+  padding:15px 20px;
+  font-weight:800;
 }
 
-.btn:hover{
-filter:brightness(1.08);
+.btn-primary{
+  background:#211b16;
+  color:#fff;
+  flex:1;
 }
 
-.btn-outline{
-background:transparent;
-color:var(--brown);
-border-color:var(--brown);
+.btn-secondary{
+  background:#e8ded3;
+  color:#211b16;
+  flex:1;
 }
 
-/* =========================
-INFO BOX
-========================= */
-
-.info-box{
-margin-top:28px;
-border-top:1px solid var(--line);
-border-bottom:1px solid var(--line);
+.info-cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:30px;
 }
 
-.info-row{
-display:flex;
-justify-content:space-between;
-gap:20px;
-padding:16px 0;
-border-bottom:1px solid var(--line);
-font-size:13px;
+.info-card{
+  background:#fff;
+  padding:17px;
+  border-radius:12px;
+  text-align:center;
+  font-size:13px;
 }
 
-.info-row:last-child{
-border-bottom:0;
+
+/* BELOW */
+
+.content-card{
+  background:#fff;
+  border-radius:16px;
+  padding:28px;
+  margin-top:28px;
+  box-shadow:0 8px 30px rgba(0,0,0,.05);
 }
 
-.info-row span:first-child{
-font-weight:bold;
-color:var(--brown);
-}
-
-.info-row span:last-child{
-color:var(--muted);
-text-align:right;
-}
-
-/* =========================
-SIZE CHART
-========================= */
-
-.size-chart-section{
-margin-top:70px;
-background:#fff;
-padding:45px;
-border:1px solid var(--line);
-border-radius:6px;
-}
-
-.section-eyebrow{
-font-size:11px;
-letter-spacing:4px;
-color:var(--tobacco);
-text-transform:uppercase;
-}
-
-.size-chart-section h2{
-font-size:35px;
-margin:10px 0;
-}
-
-.size-chart-section p{
-color:var(--muted);
-font-size:14px;
-line-height:1.7;
+.content-card h2{
+  margin-top:0;
 }
 
 .size-table{
-width:100%;
-border-collapse:collapse;
-margin-top:25px;
-background:#fff;
+  width:100%;
+  border-collapse:collapse;
 }
 
 .size-table th,
 .size-table td{
-border:1px solid var(--line);
-padding:14px;
-text-align:center;
-font-size:13px;
+  padding:12px;
+  border-bottom:1px solid #eee;
+  text-align:left;
 }
 
-.size-table th{
-background:var(--brown);
-color:#fff;
+
+/* CHECKOUT */
+
+.overlay{
+  position:fixed;
+  inset:0;
+  z-index:500;
+  background:rgba(0,0,0,.68);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
 }
 
-.measure-note{
-background:var(--cream);
-padding:15px;
-margin-top:20px;
-font-size:13px;
-line-height:1.7;
-color:var(--muted);
+.overlay.show{
+  display:flex;
 }
 
-/* =========================
-DESCRIPTION
-========================= */
-
-.details-section{
-margin-top:30px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
+.checkout{
+  background:#fff;
+  width:min(760px,100%);
+  max-height:92vh;
+  overflow:auto;
+  border-radius:18px;
+  padding:28px;
+  position:relative;
 }
 
-.detail-card{
-background:#fff;
-border:1px solid var(--line);
-padding:30px;
-border-radius:6px;
+.close-btn{
+  position:absolute;
+  right:18px;
+  top:15px;
+  width:36px;
+  height:36px;
+  border:0;
+  border-radius:50%;
+  background:#eee;
+  font-size:20px;
 }
 
-.detail-card h3{
-margin-top:0;
-font-size:22px;
+.checkout h2{
+  margin-top:0;
 }
 
-.detail-card p,
-.detail-card li{
-font-size:14px;
-line-height:1.8;
-color:var(--muted);
-}
-
-/* =========================
-CHECKOUT
-========================= */
-
-.checkout-overlay{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.72);
-z-index:999;
-overflow-y:auto;
-padding:30px 15px;
-}
-
-.checkout-overlay.show{
-display:block;
-}
-
-.checkout-box{
-max-width:720px;
-margin:20px auto;
-background:var(--paper);
-border-radius:8px;
-box-shadow:0 20px 70px #0007;
-overflow:hidden;
-}
-
-.checkout-header{
-background:var(--brown);
-color:#fff;
-padding:22px 25px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:15px;
-}
-
-.checkout-header h2{
-margin:0;
-font-size:25px;
-}
-
-.close-checkout{
-background:transparent;
-border:0;
-color:#fff;
-font-size:28px;
-cursor:pointer;
-line-height:1;
-}
-
-.checkout-body{
-padding:25px;
-}
-
-.checkout-product{
-display:flex;
-align-items:center;
-gap:15px;
-background:#fff;
-border:1px solid var(--line);
-padding:12px;
-border-radius:5px;
-margin-bottom:22px;
-}
-
-.checkout-product img{
-width:80px;
-height:90px;
-object-fit:cover;
-border-radius:3px;
-}
-
-.checkout-product-info{
-flex:1;
-}
-
-.checkout-product-info strong{
-display:block;
-font-size:15px;
-margin-bottom:7px;
-}
-
-.checkout-product-info span{
-font-size:13px;
-color:var(--muted);
-display:block;
-margin-top:3px;
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
 }
 
 .form-group{
-margin-bottom:17px;
+  margin-bottom:14px;
+}
+
+.form-group.full{
+  grid-column:1/-1;
 }
 
 .form-group label{
-display:block;
-font-size:12px;
-font-weight:bold;
-letter-spacing:.6px;
-margin-bottom:7px;
-color:var(--brown);
+  display:block;
+  margin-bottom:6px;
+  font-size:13px;
+  font-weight:700;
 }
 
 .form-group input,
-.form-group textarea,
-.form-group select{
-width:100%;
-padding:13px;
-border:1px solid #cdbbad;
-border-radius:4px;
-background:#fff;
-font-family:Arial,sans-serif;
-font-size:14px;
-outline:none;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus{
-border-color:var(--tobacco);
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #d6cec6;
+  border-radius:9px;
+  background:#fff;
 }
 
 .form-group textarea{
-min-height:90px;
-resize:vertical;
+  min-height:90px;
+  resize:vertical;
 }
 
-.form-row{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:14px;
-}
 
-/* =========================
-PAYMENT
-========================= */
+/* PAYMENT */
 
-.payment-title{
-font-size:14px;
-font-weight:bold;
-color:var(--brown);
-margin:25px 0 12px;
+.payment-options{
+  display:grid;
+  gap:10px;
+  margin-top:10px;
 }
 
 .payment-option{
-border:1px solid var(--line);
-background:#fff;
-padding:15px;
-border-radius:5px;
-margin-bottom:10px;
-cursor:pointer;
-transition:.2s;
-}
-
-.payment-option:hover{
-border-color:var(--tobacco);
-}
-
-.payment-option.selected{
-border-color:var(--tobacco);
-background:#fff7f1;
+  border:1px solid #d9d0c8;
+  border-radius:10px;
+  padding:14px;
 }
 
 .payment-option label{
-display:flex;
-align-items:flex-start;
-gap:10px;
-cursor:pointer;
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  cursor:pointer;
 }
 
-.payment-option input{
-margin-top:3px;
+.payment-option small{
+  display:block;
+  color:#716860;
+  margin-top:5px;
 }
 
-.payment-name{
-font-weight:bold;
-font-size:14px;
+.bank-details{
+  display:none;
+  background:#f6f2ed;
+  padding:15px;
+  border-radius:10px;
+  margin-top:12px;
+  line-height:1.7;
 }
 
-.payment-desc{
-font-size:12px;
-color:var(--muted);
-margin-top:4px;
+.bank-details.show{
+  display:block;
 }
 
-.order-summary{
-background:#fff;
-border:1px solid var(--line);
-border-radius:5px;
-padding:18px;
-margin-top:22px;
+
+/* SUMMARY */
+
+.summary{
+  margin-top:20px;
+  padding:18px;
+  border-radius:12px;
+  background:#f6f2ed;
 }
 
 .summary-row{
-display:flex;
-justify-content:space-between;
-gap:15px;
-font-size:14px;
-padding:8px 0;
-}
-
-.summary-row.discount{
-color:var(--green);
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  margin:8px 0;
 }
 
 .summary-row.total{
-border-top:1px solid var(--line);
-margin-top:7px;
-padding-top:15px;
-font-weight:bold;
-font-size:18px;
-color:var(--brown);
+  font-weight:800;
+  font-size:18px;
+  padding-top:12px;
+  border-top:1px solid #ddd;
 }
 
-.summary-row.advance{
-color:var(--tobacco);
-font-weight:bold;
+.discount-text{
+  color:#18753b;
 }
 
-.bank-box{
-display:none;
-background:#fff7f1;
-border:1px solid #d9b49b;
-padding:15px;
-border-radius:5px;
-margin-top:12px;
-font-size:13px;
-line-height:1.8;
+
+/* SUCCESS */
+
+.success-screen{
+  display:none;
+  text-align:center;
+  padding:30px 10px;
 }
 
-.bank-box.show{
-display:block;
-}
-
-.place-order-btn{
-width:100%;
-border:0;
-background:var(--brown);
-color:#fff;
-padding:17px;
-font-size:15px;
-font-weight:bold;
-letter-spacing:.5px;
-border-radius:4px;
-cursor:pointer;
-margin-top:22px;
-}
-
-.place-order-btn:hover{
-background:#35190e;
-}
-
-.place-order-btn:disabled{
-opacity:.65;
-cursor:not-allowed;
-}
-
-.checkout-note{
-font-size:11px;
-color:var(--muted);
-text-align:center;
-line-height:1.6;
-margin-top:12px;
-}
-
-/* =========================
-SUCCESS
-========================= */
-
-.success-box{
-display:none;
-text-align:center;
-padding:45px 25px;
+.success-screen.show{
+  display:block;
 }
 
 .success-icon{
-width:65px;
-height:65px;
-border-radius:50%;
-background:var(--green);
-color:#fff;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:32px;
-margin:0 auto 18px;
-}
-
-.success-box h2{
-margin:0 0 10px;
-font-size:30px;
-}
-
-.success-box p{
-color:var(--muted);
-font-size:14px;
-line-height:1.7;
+  font-size:60px;
+  margin-bottom:15px;
 }
 
 .order-number{
-display:inline-block;
-background:var(--cream);
-border:1px solid var(--line);
-padding:12px 18px;
-font-weight:bold;
-color:var(--brown);
-margin:12px 0 20px;
+  font-size:22px;
+  font-weight:800;
 }
 
-.success-close{
-display:inline-block;
-background:var(--brown);
-color:#fff;
-padding:13px 25px;
-border:0;
-border-radius:4px;
-cursor:pointer;
-font-weight:bold;
-}
 
-/* =========================
-FOOTER
-========================= */
-
-footer{
-background:#29140b;
-color:#eee;
-padding:40px 5%;
-text-align:center;
-}
-
-footer p{
-color:#cdbdb2;
-font-size:13px;
-}
-
-/* =========================
-LOADING
-========================= */
+/* LOADING */
 
 .loading{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.65);
-display:none;
-align-items:center;
-justify-content:center;
-z-index:2000;
-color:#fff;
-font-size:16px;
-font-weight:bold;
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  background:#f7f4ef;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.loading.show{
-display:flex;
+.loading.hidden{
+  display:none;
 }
 
-/* =========================
-ERROR
-========================= */
-
-.product-error{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:30px;
-background:var(--cream);
+.loading-box{
+  text-align:center;
 }
 
-.product-error-box{
-max-width:520px;
-background:#fff;
-padding:45px 30px;
-border:1px solid var(--line);
-border-radius:8px;
-box-shadow:0 15px 45px #0001;
+.spinner{
+  width:42px;
+  height:42px;
+  border:4px solid #ddd;
+  border-top-color:#211b16;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+  margin:0 auto 15px;
 }
 
-.product-error-box h1{
-font-size:38px;
-margin:0 0 12px;
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
 }
 
-.product-error-box p{
-color:var(--muted);
-line-height:1.7;
-font-size:14px;
+
+/* ERROR */
+
+.error-screen{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+  text-align:center;
 }
 
-.product-error-box a{
-display:inline-block;
-margin-top:15px;
-padding:14px 22px;
-background:var(--tobacco);
-color:#fff;
-text-decoration:none;
-border-radius:3px;
-font-weight:bold;
+.error-box{
+  max-width:650px;
+  background:#fff;
+  border-radius:18px;
+  padding:35px;
+  box-shadow:0 15px 50px rgba(0,0,0,.08);
 }
 
-/* =========================
-MOBILE
-========================= */
+.error-box h1{
+  margin-top:0;
+}
+
+.error-box code{
+  display:block;
+  margin-top:15px;
+  padding:12px;
+  background:#f4f1ed;
+  border-radius:8px;
+  word-break:break-all;
+  text-align:left;
+  font-size:12px;
+}
+
+
+/* FOOTER */
+
+footer{
+  background:#17120f;
+  color:#fff;
+  padding:35px 20px;
+  margin-top:60px;
+}
+
+.footer-inner{
+  max-width:1200px;
+  margin:auto;
+  text-align:center;
+  opacity:.9;
+}
+
+
+/* MOBILE */
 
 @media(max-width:800px){
 
-.product-layout{
-grid-template-columns:1fr;
-gap:30px;
-}
+  .product-grid{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
 
-.product-image-box{
-position:static;
-}
+  .product-title{
+    font-size:32px;
+  }
 
-.product-image{
-height:520px;
-}
+  .product-image-wrap{
+    min-height:350px;
+  }
 
-.product-info h1{
-font-size:38px;
-}
-
-.action-buttons{
-grid-template-columns:1fr;
-}
-
-.size-chart-section{
-padding:25px 15px;
-overflow-x:auto;
-}
-
-.size-table{
-min-width:650px;
-}
-
-.details-section{
-grid-template-columns:1fr;
-}
-
-.checkout-overlay{
-padding:10px;
-}
-
-.checkout-box{
-margin:5px auto;
-}
-
-.checkout-header{
-padding:18px;
-}
-
-.checkout-body{
-padding:18px;
-}
-
-.form-row{
-grid-template-columns:1fr;
-}
+  .info-cards{
+    grid-template-columns:1fr;
+  }
 
 }
 
-@media(max-width:500px){
+@media(max-width:600px){
 
-header{
-padding:12px 4%;
-}
+  .form-grid{
+    grid-template-columns:1fr;
+  }
 
-.brand{
-font-size:18px;
-}
+  .form-group.full{
+    grid-column:auto;
+  }
 
-.brand small{
-font-size:6px;
-}
+  .action-row{
+    flex-direction:column;
+  }
 
-.back{
-font-size:10px;
-}
-
-.product-page{
-padding:35px 4% 60px;
-}
-
-.product-image{
-height:430px;
-}
-
-.product-info h1{
-font-size:32px;
-}
-
-.product-price{
-font-size:24px;
-}
-
-.checkout-product img{
-width:65px;
-height:75px;
-}
+  .checkout{
+    padding:20px;
+  }
 
 }
 
 </style>
-
 </head>
+
 
 <body>
 
-<header>
 
-<a
-href="index.html"
-style="color:#fff;text-decoration:none">
+<!-- LOADING -->
 
-<div class="brand">
+<div
+  class="loading"
+  id="loading"
+>
 
-THE LEATHER HOUSE
+  <div class="loading-box">
 
-<small>
-PREMIUM LEATHER JACKETS
-</small>
+    <div class="spinner"></div>
 
-</div>
+    <strong>
+      Loading jacket...
+    </strong>
 
-</a>
-
-<div class="header-right">
-
-<a
-class="back"
-href="index.html#shop">
-
-← BACK TO JACKETS
-
-</a>
+  </div>
 
 </div>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+  <div class="header-inner">
+
+    <a
+      href="./index.html"
+      class="brand"
+    >
+      THE LEATHER HOUSE
+    </a>
+
+    <a
+      href="./index.html"
+      class="back-link"
+    >
+      ← Back to Jackets
+    </a>
+
+  </div>
 
 </header>
 
 
-<main class="product-page">
+<!-- PRODUCT -->
 
-<div class="breadcrumb">
+<main>
 
-<a href="index.html">
-Home
-</a>
+<section class="product-section">
 
-&nbsp; / &nbsp;
+  <div class="container">
 
-<a href="index.html#shop">
-Jackets
-</a>
+    <div
+      class="product-grid"
+      id="productArea"
+    >
 
-&nbsp; / &nbsp;
+      <div class="product-image-wrap">
 
-<span id="breadcrumbName">
-Product
-</span>
+        <img
+          id="productImage"
+          class="product-image"
+          src=""
+          alt="Leather Jacket"
+        >
 
-</div>
+      </div>
 
 
-<div class="product-layout">
+      <div class="product-details">
 
+        <span
+          id="productTag"
+          class="product-tag"
+        >
+          New
+        </span>
 
-<div class="product-image-box">
 
-<img
-id="productImage"
-class="product-image"
-src=""
-alt="Leather Jacket">
+        <h1
+          id="productName"
+          class="product-title"
+        >
+          Loading...
+        </h1>
 
-</div>
 
+        <div
+          id="productPrice"
+          class="product-price"
+        >
+          Rs. 0
+        </div>
 
-<div class="product-info">
 
-<span
-id="productTag"
-class="product-tag">
+        <p
+          id="productDescription"
+          class="product-description"
+        >
+          Premium leather jacket from The Leather House.
+        </p>
 
-Leather Jacket
 
-</span>
+        <div class="option-title">
+          SELECT SIZE
+        </div>
 
-<h1 id="productName">
-Loading Product...
-</h1>
 
-<div
-id="productPrice"
-class="product-price">
+        <div
+          id="sizeButtons"
+          class="size-buttons"
+        ></div>
 
-Rs. 0
 
-</div>
+        <div class="action-row">
 
-<p
-id="productDescription"
-class="description">
+          <button
+            class="btn btn-secondary"
+            id="addCartBtn"
+            type="button"
+          >
+            Add to Cart
+          </button>
 
-Loading product information...
+          <button
+            class="btn btn-primary"
+            id="orderNowBtn"
+            type="button"
+          >
+            Order Now
+          </button>
 
-</p>
+        </div>
 
 
-<label
-class="option-label"
-for="productSize">
+        <div class="info-cards">
 
-SELECT SIZE
+          <div class="info-card">
+            🚚<br>
+            Delivery Available
+          </div>
 
-</label>
+          <div class="info-card">
+            💳<br>
+            Multiple Payments
+          </div>
 
-<select
-id="productSize"
-class="size-select">
+          <div class="info-card">
+            🛡️<br>
+            Quality Leather
+          </div>
 
-<option>
-Loading...
-</option>
+        </div>
 
-</select>
+      </div>
 
+    </div>
 
-<div class="size-note">
 
-Not sure about your size?
-Check our size chart below.
+    <!-- ABOUT -->
 
-</div>
+    <div class="content-card">
 
+      <h2>
+        About This Jacket
+      </h2>
 
-<div class="action-buttons">
+      <p>
+        Premium leather craftsmanship with a clean,
+        timeless design. Each jacket is prepared with
+        attention to detail and quality.
+      </p>
 
-<button
-class="btn"
-type="button"
-onclick="addToCart()">
+    </div>
 
-ADD TO CART
 
-</button>
+    <!-- SIZE -->
 
-<button
-class="btn btn-outline"
-type="button"
-onclick="orderNow()">
+    <div class="content-card">
 
-ORDER NOW
+      <h2>
+        Size Chart
+      </h2>
 
-</button>
+      <table class="size-table">
 
-</div>
+        <thead>
 
+          <tr>
+            <th>Size</th>
+            <th>Chest</th>
+            <th>Length</th>
+          </tr>
 
-<div class="info-box">
+        </thead>
 
-<div class="info-row">
+        <tbody>
 
-<span>
-Delivery
-</span>
+          <tr>
+            <td>S</td>
+            <td>38"</td>
+            <td>25"</td>
+          </tr>
 
-<span>
-Karachi — Rs. 300
-<br>
-Rest of Pakistan — Rs. 600
-</span>
+          <tr>
+            <td>M</td>
+            <td>40"</td>
+            <td>26"</td>
+          </tr>
 
-</div>
+          <tr>
+            <td>L</td>
+            <td>42"</td>
+            <td>27"</td>
+          </tr>
 
-<div class="info-row">
+          <tr>
+            <td>XL</td>
+            <td>44"</td>
+            <td>28"</td>
+          </tr>
 
-<span>
-Support
-</span>
+          <tr>
+            <td>XXL</td>
+            <td>46"</td>
+            <td>29"</td>
+          </tr>
 
-<span>
-+92 311 2674115
-</span>
+        </tbody>
 
-</div>
+      </table>
 
-<div class="info-row">
+    </div>
 
-<span>
-Ordering
-</span>
 
-<span>
-Secure website checkout
-</span>
+    <!-- DELIVERY -->
 
-</div>
+    <div class="content-card">
 
-</div>
+      <h2>
+        Delivery & Support
+      </h2>
 
-</div>
+      <p>
+        Karachi delivery: Rs. 300
+      </p>
 
-</div>
+      <p>
+        Rest of Pakistan: Rs. 600
+      </p>
 
+      <p>
+        For order support, our team will contact you
+        using the phone / WhatsApp number provided
+        during checkout.
+      </p>
 
-<section class="size-chart-section">
+    </div>
 
-<div class="section-eyebrow">
-SIZE GUIDE
-</div>
-
-<h2>
-Find Your Perfect Fit
-</h2>
-
-<p>
-Measure around your chest while wearing a light
-shirt. Compare your measurement with the chart below.
-If you are between two sizes, choose according to
-your preferred fit.
-</p>
-
-
-<table class="size-table">
-
-<thead>
-
-<tr>
-
-<th>Size</th>
-<th>Chest</th>
-<th>Shoulder</th>
-<th>Sleeve</th>
-<th>Jacket Length</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-<td>S</td>
-<td>38"</td>
-<td>17"</td>
-<td>24.5"</td>
-<td>25"</td>
-</tr>
-
-<tr>
-<td>M</td>
-<td>40"</td>
-<td>17.5"</td>
-<td>25"</td>
-<td>26"</td>
-</tr>
-
-<tr>
-<td>L</td>
-<td>42"</td>
-<td>18"</td>
-<td>25.5"</td>
-<td>27"</td>
-</tr>
-
-<tr>
-<td>XL</td>
-<td>44"</td>
-<td>18.5"</td>
-<td>26"</td>
-<td>28"</td>
-</tr>
-
-<tr>
-<td>XXL</td>
-<td>46"</td>
-<td>19"</td>
-<td>26.5"</td>
-<td>29"</td>
-</tr>
-
-</tbody>
-
-</table>
-
-
-<div class="measure-note">
-
-<strong>Tip:</strong>
-
-For a comfortable regular fit, use your actual
-chest measurement. For a slightly relaxed fit,
-consider going one size up.
-
-</div>
-
-</section>
-
-
-<section class="details-section">
-
-<div class="detail-card">
-
-<h3>
-About This Jacket
-</h3>
-
-<p id="detailDescription">
-
-A premium leather jacket created for people who
-want a classic look that works across seasons.
-
-</p>
-
-</div>
-
-
-<div class="detail-card">
-
-<h3>
-Delivery &amp; Support
-</h3>
-
-<ul>
-
-<li>
-Karachi delivery: Rs. 300
-</li>
-
-<li>
-Rest of Pakistan: Rs. 600
-</li>
-
-<li>
-WhatsApp support: +92 311 2674115
-</li>
-
-<li>
-Order directly through the website
-</li>
-
-</ul>
-
-</div>
+  </div>
 
 </section>
 
 </main>
 
 
-<!-- =========================
-CHECKOUT
-========================= -->
+<!-- CHECKOUT -->
 
 <div
-id="checkoutOverlay"
-class="checkout-overlay">
+  class="overlay"
+  id="checkoutOverlay"
+>
 
-<div class="checkout-box">
+  <div class="checkout">
 
-<div class="checkout-header">
+    <button
+      class="close-btn"
+      id="closeCheckout"
+      type="button"
+    >
+      ×
+    </button>
 
-<h2>
-Complete Your Order
-</h2>
 
-<button
-type="button"
-class="close-checkout"
-onclick="closeCheckout()">
+    <div id="checkoutFormArea">
 
-×
-</button>
+      <h2>
+        Complete Your Order
+      </h2>
+
+
+      <form id="orderForm">
+
+        <div class="form-grid">
+
+
+          <div class="form-group">
+
+            <label>
+              Name *
+            </label>
+
+            <input
+              id="customerName"
+              type="text"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Phone / WhatsApp *
+            </label>
+
+            <input
+              id="customerPhone"
+              type="tel"
+              placeholder="03XXXXXXXXX"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Country *
+            </label>
+
+            <input
+              id="customerCountry"
+              type="text"
+              value="Pakistan"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              City *
+            </label>
+
+            <input
+              id="customerCity"
+              type="text"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group full">
+
+            <label>
+              Full Address *
+            </label>
+
+            <textarea
+              id="customerAddress"
+              required
+            ></textarea>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Delivery Area *
+            </label>
+
+            <select
+              id="deliveryArea"
+              required
+            >
+
+              <option value="">
+                Select area
+              </option>
+
+              <option value="Karachi">
+                Karachi
+              </option>
+
+              <option value="Rest of Pakistan">
+                Rest of Pakistan
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Size *
+            </label>
+
+            <select
+              id="checkoutSize"
+              required
+            ></select>
+
+          </div>
+
+
+          <div class="form-group full">
+
+            <label>
+              Notes
+            </label>
+
+            <textarea
+              id="orderNotes"
+              placeholder="Any special instructions?"
+            ></textarea>
+
+          </div>
+
+        </div>
+
+
+        <h3>
+          Payment Method
+        </h3>
+
+
+        <div class="payment-options">
+
+
+          <div class="payment-option">
+
+            <label>
+
+              <input
+                type="radio"
+                name="paymentMethod"
+                value="COD"
+                checked
+              >
+
+              <span>
+
+                <strong>
+                  100% COD
+                </strong>
+
+                <small>
+                  Pay the full amount when the order is delivered.
+                </small>
+
+              </span>
+
+            </label>
+
+          </div>
+
+
+          <div class="payment-option">
+
+            <label>
+
+              <input
+                type="radio"
+                name="paymentMethod"
+                value="Half Advance"
+              >
+
+              <span>
+
+                <strong>
+                  50% Advance + 50% COD
+                </strong>
+
+                <small>
+                  Pay 50% in advance and remaining 50% on delivery.
+                </small>
+
+              </span>
+
+            </label>
+
+          </div>
+
+
+          <div class="payment-option">
+
+            <label>
+
+              <input
+                type="radio"
+                name="paymentMethod"
+                value="Full Advance"
+              >
+
+              <span>
+
+                <strong>
+                  100% Advance — 2% Discount
+                </strong>
+
+                <small>
+                  Full advance payment receives 2% discount.
+                </small>
+
+              </span>
+
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="bank-details"
+          id="bankDetails"
+        >
+
+          <strong>
+            HBL Bank Details
+          </strong>
+
+          <br>
+
+          Account Title:
+          <strong>Sajid</strong>
+
+          <br>
+
+          Account Number:
+          <strong>00597901153803</strong>
+
+        </div>
+
+
+        <!-- SUMMARY -->
+
+        <div class="summary">
+
+          <div class="summary-row">
+
+            <span>
+              Product
+            </span>
+
+            <strong id="summaryProduct">
+              -
+            </strong>
+
+          </div>
+
+
+          <div class="summary-row">
+
+            <span>
+              Subtotal
+            </span>
+
+            <strong id="summarySubtotal">
+              Rs. 0
+            </strong>
+
+          </div>
+
+
+          <div class="summary-row">
+
+            <span>
+              Delivery
+            </span>
+
+            <strong id="summaryDelivery">
+              Rs. 0
+            </strong>
+
+          </div>
+
+
+          <div
+            class="summary-row"
+            id="discountRow"
+            style="display:none"
+          >
+
+            <span>
+              Discount
+            </span>
+
+            <strong
+              id="summaryDiscount"
+              class="discount-text"
+            >
+              - Rs. 0
+            </strong>
+
+          </div>
+
+
+          <div class="summary-row total">
+
+            <span>
+              Total
+            </span>
+
+            <strong id="summaryTotal">
+              Rs. 0
+            </strong>
+
+          </div>
+
+
+          <div
+            class="summary-row"
+            id="advanceRow"
+          >
+
+            <span>
+              Advance
+            </span>
+
+            <strong id="summaryAdvance">
+              Rs. 0
+            </strong>
+
+          </div>
+
+
+          <div class="summary-row">
+
+            <span>
+              COD Amount
+            </span>
+
+            <strong id="summaryCOD">
+              Rs. 0
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="btn btn-primary"
+          style="width:100%;margin-top:20px"
+          type="submit"
+          id="placeOrderBtn"
+        >
+          Place Order
+        </button>
+
+
+      </form>
+
+    </div>
+
+
+    <!-- SUCCESS -->
+
+    <div
+      class="success-screen"
+      id="successScreen"
+    >
+
+      <div class="success-icon">
+        ✓
+      </div>
+
+      <h2>
+        Order Received
+      </h2>
+
+      <p>
+        Thank you for ordering from
+        The Leather House.
+      </p>
+
+      <p>
+        Your Order ID:
+      </p>
+
+      <div
+        class="order-number"
+        id="successOrderId"
+      >
+        -
+      </div>
+
+      <p>
+        Our team will contact you shortly.
+      </p>
+
+      <button
+        class="btn btn-primary"
+        type="button"
+        id="continueShoppingBtn"
+      >
+        Continue Shopping
+      </button>
+
+    </div>
+
+  </div>
 
 </div>
 
 
-<div
-id="checkoutContent"
-class="checkout-body">
-
-<div class="checkout-product">
-
-<img
-id="checkoutProductImage"
-src=""
-alt="Product">
-
-<div class="checkout-product-info">
-
-<strong id="checkoutProductName">
-Product
-</strong>
-
-<span id="checkoutProductSize">
-Size: -
-</span>
-
-<span id="checkoutProductPrice">
-Rs. 0
-</span>
-
-</div>
-
-</div>
-
-
-<div class="form-group">
-
-<label for="custName">
-FULL NAME *
-</label>
-
-<input
-id="custName"
-type="text"
-placeholder="Enter your full name"
-autocomplete="name">
-
-</div>
-
-
-<div class="form-group">
-
-<label for="custPhone">
-PHONE NUMBER *
-</label>
-
-<input
-id="custPhone"
-type="tel"
-placeholder="03XXXXXXXXX"
-autocomplete="tel">
-
-</div>
-
-
-<div class="form-row">
-
-<div class="form-group">
-
-<label for="custCountry">
-COUNTRY *
-</label>
-
-<select
-id="custCountry"
-autocomplete="country-name">
-
-<option value="Pakistan" selected>
-Pakistan
-</option>
-
-<option value="Afghanistan">
-Afghanistan
-</option>
-
-<option value="Bangladesh">
-Bangladesh
-</option>
-
-<option value="United Arab Emirates">
-United Arab Emirates
-</option>
-
-<option value="Saudi Arabia">
-Saudi Arabia
-</option>
-
-<option value="United Kingdom">
-United Kingdom
-</option>
-
-<option value="United States">
-United States
-</option>
-
-<option value="Other">
-Other
-</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label for="custCity">
-CITY *
-</label>
-
-<input
-id="custCity"
-type="text"
-placeholder="Enter your city"
-autocomplete="address-level2">
-
-</div>
-
-</div>
-
-
-<div class="form-group">
-
-<label for="custAddress">
-DELIVERY ADDRESS *
-</label>
-
-<textarea
-id="custAddress"
-placeholder="House / Street / Area / Complete delivery address"
-autocomplete="street-address"></textarea>
-
-</div>
-
-
-<div class="form-group">
-
-<label for="deliveryArea">
-DELIVERY AREA *
-</label>
-
-<select id="deliveryArea">
-
-<option value="karachi">
-Karachi — Rs. 300
-</option>
-
-<option value="rest">
-Rest of Pakistan — Rs. 600
-</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label for="custNotes">
-ORDER NOTES
-</label>
-
-<textarea
-id="custNotes"
-placeholder="Optional notes"></textarea>
-
-</div>
-
-
-<div class="payment-title">
-SELECT PAYMENT METHOD
-</div>
-
-
-<div
-class="payment-option selected"
-id="paymentBoxCod">
-
-<label>
-
-<input
-type="radio"
-name="paymentMethod"
-value="cod"
-checked
-onchange="calculatePayment()">
-
-<div>
-
-<div class="payment-name">
-100% Cash on Delivery
-</div>
-
-<div class="payment-desc">
-Pay full amount when your order is delivered. 0% discount.
-</div>
-
-</div>
-
-</label>
-
-</div>
-
-
-<div
-class="payment-option"
-id="paymentBoxHalf">
-
-<label>
-
-<input
-type="radio"
-name="paymentMethod"
-value="half"
-onchange="calculatePayment()">
-
-<div>
-
-<div class="payment-name">
-50% Advance + 50% COD
-</div>
-
-<div class="payment-desc">
-Pay 50% advance and remaining 50% on delivery. 0% discount.
-</div>
-
-</div>
-
-</label>
-
-</div>
-
-
-<div
-class="payment-option"
-id="paymentBoxFull">
-
-<label>
-
-<input
-type="radio"
-name="paymentMethod"
-value="full"
-onchange="calculatePayment()">
-
-<div>
-
-<div class="payment-name">
-100% Advance — 2% Discount
-</div>
-
-<div class="payment-desc">
-Pay full amount in advance and receive 2% discount.
-</div>
-
-</div>
-
-</label>
-
-</div>
-
-
-<div
-id="bankBox"
-class="bank-box">
-
-<strong>
-Advance Payment Bank Details
-</strong>
-
-<br>
-
-Bank:
-HBL
-
-<br>
-
-Account Title:
-Sajid
-
-<br>
-
-Account Number:
-00597901153803
-
-<br><br>
-
-After making the advance payment, please keep your
-payment proof/reference ready.
-
-</div>
-
-
-<div class="order-summary">
-
-<div class="summary-row">
-
-<span>
-Product
-</span>
-
-<strong id="summaryProduct">
-Rs. 0
-</strong>
-
-</div>
-
-
-<div class="summary-row">
-
-<span>
-Delivery
-</span>
-
-<strong id="summaryDelivery">
-Rs. 300
-</strong>
-
-</div>
-
-
-<div class="summary-row discount">
-
-<span>
-Discount
-</span>
-
-<strong id="summaryDiscount">
--Rs. 0
-</strong>
-
-</div>
-
-
-<div class="summary-row total">
-
-<span>
-Total
-</span>
-
-<strong id="summaryTotal">
-Rs. 0
-</strong>
-
-</div>
-
-
-<div class="summary-row advance">
-
-<span>
-Advance Amount
-</span>
-
-<strong id="summaryAdvance">
-Rs. 0
-</strong>
-
-</div>
-
-
-<div class="summary-row">
-
-<span>
-COD Amount
-</span>
-
-<strong id="summaryCOD">
-Rs. 0
-</strong>
-
-</div>
-
-</div>
-
-
-<button
-id="placeOrderBtn"
-class="place-order-btn"
-type="button"
-onclick="submitOrder()">
-
-PLACE ORDER
-
-</button>
-
-
-<div class="checkout-note">
-
-By placing your order, you confirm that the
-information provided is correct.
-
-</div>
-
-</div>
-
-
-<div
-id="successContent"
-class="success-box">
-
-<div class="success-icon">
-✓
-</div>
-
-<h2>
-Order Received
-</h2>
-
-<p>
-Thank you for ordering from The Leather House.
-Your order has been successfully submitted.
-</p>
-
-<div
-class="order-number"
-id="successOrderId">
-
-Order ID
-
-</div>
-
-<p>
-Our team will contact you on your provided phone
-number for order confirmation.
-</p>
-
-<button
-class="success-close"
-onclick="finishOrder()">
-
-DONE
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div
-id="loading"
-class="loading">
-
-Submitting your order...
-
-</div>
-
+<!-- FOOTER -->
 
 <footer>
 
-<strong>
-THE LEATHER HOUSE
-</strong>
+  <div class="footer-inner">
 
-<p>
-Premium Leather Jackets
-</p>
+    © The Leather House
+
+  </div>
 
 </footer>
 
 
 <script>
 
-/* =====================================================
-CONFIG
-===================================================== */
+/* =========================================================
+   CONFIG
+========================================================= */
 
 const GOOGLE_SCRIPT_URL =
-'https://script.google.com/macros/s/AKfycbwtsaYU_YJ9aB0leVLBBeP18zTO01pTjdprzPaat1Gd2eV0DJ0yNT6pBjEDZKMIavINA/exec';
+  'https://script.google.com/macros/s/AKfycbz7btondYoYTivxnti7VSjHaTqr9LISPg4dAteKFjiXQLFLYv-CcdW0jBovtocJx6vyqg/exec';
 
 const ORDER_SECRET =
-'TLH_2026_Order_8472';
+  'TLH_2026_Order_8472';
 
 
-/* =====================================================
-URL
-===================================================== */
+/* =========================================================
+   STATE
+========================================================= */
 
-const params =
-new URLSearchParams(
-window.location.search
-);
+let currentProduct = null;
 
-const urlId =
-params.get('id');
+let selectedSize = '';
+
+let selectedPayment = 'COD';
 
 
-/* =====================================================
-PRODUCT
-===================================================== */
+/* =========================================================
+   HELPERS
+========================================================= */
 
-let product = null;
+function money(value){
 
-
-/* =====================================================
-HTML ESCAPE
-===================================================== */
-
-function escapeHTML(value){
-
-return String(value ?? '')
-
-.replace(/&/g,'&amp;')
-.replace(/</g,'&lt;')
-.replace(/>/g,'&gt;')
-.replace(/"/g,'&quot;')
-.replace(/'/g,'&#039;');
+  return 'Rs. ' +
+    Number(value || 0)
+      .toLocaleString('en-PK');
 
 }
 
-
-/* =====================================================
-PRODUCT ERROR SCREEN
-===================================================== */
-
-function showProductError(message){
-
-document.body.innerHTML = `
-
-<div class="product-error">
-
-<div class="product-error-box">
-
-<h1>
-Product Not Found
-</h1>
-
-<p>
-${escapeHTML(message)}
-</p>
-
-<a href="index.html#shop">
-BACK TO JACKETS
-</a>
-
-</div>
-
-</div>
-
-`;
-
-}
-
-
-/* =====================================================
-NORMALIZE PRODUCT
-===================================================== */
 
 function normalizeProduct(p){
 
-if(!p){
-return null;
-}
+  if (!p) {
+    return null;
+  }
 
-return {
+  return {
 
-id:
-p.id ??
-p.ID ??
-p.productId ??
-p.productID,
+    id:
+      String(
+        p.id ||
+        p.productId ||
+        p['Product ID'] ||
+        ''
+      ).trim(),
 
-name:
-p.name ??
-p.Name ??
-p.productName ??
-p['Product Name'] ??
-'Leather Jacket',
+    name:
+      String(
+        p.name ||
+        p.productName ||
+        p['Product Name'] ||
+        ''
+      ).trim(),
 
-price:
-Number(
-p.price ??
-p.Price ??
-p.productPrice ??
-p['Price'] ??
-0
-),
+    price:
+      Number(
+        p.price ||
+        p['Price'] ||
+        0
+      ) || 0,
 
-category:
-p.category ??
-p.Category ??
-'men',
+    category:
+      String(
+        p.category ||
+        p.Category ||
+        'men'
+      ),
 
-tag:
-p.tag ??
-p.Tag ??
-p.productTag ??
-'Leather Jacket',
+    tag:
+      String(
+        p.tag ||
+        p.Tag ||
+        'New'
+      ),
 
-image:
-p.image ??
-p.Image ??
-p.imageUrl ??
-p.imageURL ??
-p['Image URL'] ??
-'',
+    sizes:
+      String(
+        p.sizes ||
+        p.Sizes ||
+        'S,M,L,XL,XXL'
+      ),
 
-sizes:
-p.sizes ??
-p.Sizes ??
-p.availableSizes ??
-p['Available Sizes'] ??
-'S,M,L,XL,XXL'
+    image:
+      String(
+        p.image ||
+        p.imageUrl ||
+        p.imageURL ||
+        p['Image URL'] ||
+        ''
+      ).trim()
 
-};
-
-}
-
-
-/* =====================================================
-EXTRACT PRODUCTS
-===================================================== */
-
-function extractProducts(result){
-
-if(Array.isArray(result)){
-
-return result;
+  };
 
 }
 
 
-if(
-result &&
-Array.isArray(result.products)
-){
+function extractProducts(data){
 
-return result.products;
+  if (!data) {
+    return [];
+  }
 
-}
+  if (Array.isArray(data)) {
+    return data.map(normalizeProduct).filter(Boolean);
+  }
 
+  if (Array.isArray(data.products)) {
+    return data.products
+      .map(normalizeProduct)
+      .filter(Boolean);
+  }
 
-if(
-result &&
-Array.isArray(result.data)
-){
+  if (
+    data.data &&
+    Array.isArray(data.data.products)
+  ) {
+    return data.data.products
+      .map(normalizeProduct)
+      .filter(Boolean);
+  }
 
-return result.data;
+  if (data.data && Array.isArray(data.data)) {
+    return data.data
+      .map(normalizeProduct)
+      .filter(Boolean);
+  }
 
-}
-
-
-if(
-result &&
-result.data &&
-Array.isArray(result.data.products)
-){
-
-return result.data.products;
-
-}
-
-
-if(
-result &&
-result.result &&
-Array.isArray(result.result)
-){
-
-return result.result;
+  return [];
 
 }
 
 
-if(
-result &&
-result.result &&
-Array.isArray(result.result.products)
-){
+/* =========================================================
+   ERROR SCREEN
+========================================================= */
 
-return result.result.products;
+function showProductError(message){
+
+  document
+    .getElementById('loading')
+    .classList.add('hidden');
+
+
+  document.body.innerHTML = `
+
+    <div class="error-screen">
+
+      <div class="error-box">
+
+        <h1>
+          Product Load Error
+        </h1>
+
+        <p>
+          ${escapeHtml(message)}
+        </p>
+
+        <p>
+          Please go back and try again.
+        </p>
+
+        <a
+          href="./index.html"
+          class="btn btn-primary"
+          style="display:inline-block"
+        >
+          ← Back to Jackets
+        </a>
+
+        <code>
+          ${escapeHtml(
+            GOOGLE_SCRIPT_URL +
+            '?action=products&secret=' +
+            ORDER_SECRET
+          )}
+        </code>
+
+      </div>
+
+    </div>
+
+  `;
 
 }
 
 
-return [];
+function escapeHtml(value){
+
+  return String(value || '')
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#039;');
 
 }
 
 
-/* =====================================================
-LOAD PRODUCT
-===================================================== */
+/* =========================================================
+   LOAD PRODUCT
+========================================================= */
 
 async function loadProduct(){
 
-if(!urlId){
-
-showProductError(
-'Product ID missing. Please go back to the jackets page and open the product again.'
-);
-
-return;
-
-}
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
 
 
-/* show loading product */
-
-document
-.getElementById('productName')
-.textContent =
-'Loading Product...';
+  const productId =
+    String(
+      params.get('id') || ''
+    ).trim();
 
 
-try{
+  if (!productId){
 
-const apiUrl =
-GOOGLE_SCRIPT_URL +
-'?action=products' +
-'&secret=' +
-encodeURIComponent(
-ORDER_SECRET
-);
+    showProductError(
+      'Product ID URL mein nahi mila.'
+    );
 
+    return;
 
-const response =
-await fetch(
-apiUrl,
-{
-method:'GET',
-cache:'no-store'
-}
-);
+  }
 
 
-if(!response.ok){
+  try {
 
-throw new Error(
-'Products server returned HTTP ' +
-response.status
-);
-
-}
-
-
-const result =
-await response.json();
+    const url =
+      GOOGLE_SCRIPT_URL +
+      '?action=products&secret=' +
+      encodeURIComponent(
+        ORDER_SECRET
+      );
 
 
-console.log(
-'The Leather House products response:',
-result
-);
+    const response =
+      await fetch(
+        url,
+        {
+          method:'GET',
+          cache:'no-store',
+          redirect:'follow'
+        }
+      );
 
 
-const products =
-extractProducts(result);
+    if (!response.ok){
+
+      throw new Error(
+        'Server returned HTTP ' +
+        response.status
+      );
+
+    }
 
 
-console.log(
-'Products received:',
-products
-);
+    const text =
+      await response.text();
 
 
-/* find product */
-
-const found =
-products.find(
-p =>
-String(
-p.id ??
-p.ID ??
-p.productId ??
-p.productID
-)
-===
-String(urlId)
-);
+    let data;
 
 
-if(!found){
+    try {
 
-showProductError(
-'This jacket could not be found in the current product list.'
-);
+      data =
+        JSON.parse(text);
 
-return;
+    } catch(parseError){
 
-}
+      throw new Error(
+        'Apps Script ne JSON ke bajaye invalid response diya.'
+      );
 
-
-product =
-normalizeProduct(found);
-
-
-if(!product){
-
-showProductError(
-'Product data could not be loaded.'
-);
-
-return;
-
-}
+    }
 
 
-/* image check */
+    if (!data.ok){
 
-if(!product.image){
+      throw new Error(
+        data.error ||
+        'Products load nahi ho sake.'
+      );
 
-showProductError(
-'This product does not have an image assigned yet.'
-);
-
-return;
-
-}
+    }
 
 
-/* display */
+    const products =
+      extractProducts(data);
 
-displayProduct();
+
+    if (!products.length){
+
+      throw new Error(
+        'Products sheet mein koi active product nahi mila.'
+      );
+
+    }
 
 
-}catch(error){
+    currentProduct =
+      products.find(
+        p =>
+          String(p.id) ===
+          String(productId)
+      );
 
-console.error(
-'PRODUCT LOAD ERROR:',
-error
-);
 
-showProductError(
-'Product load nahi ho saka. Please make sure the Google Apps Script is deployed and the product is available.'
-);
+    if (!currentProduct){
 
-}
+      throw new Error(
+        'Product ID "' +
+        productId +
+        '" Products sheet mein nahi mila.'
+      );
+
+    }
+
+
+    displayProduct();
+
+
+  } catch(error){
+
+    console.error(
+      'Product loading error:',
+      error
+    );
+
+
+    showProductError(
+      error.message ||
+      'Product load nahi ho saka.'
+    );
+
+  }
 
 }
 
 
-/* =====================================================
-DISPLAY PRODUCT
-===================================================== */
+/* =========================================================
+   DISPLAY PRODUCT
+========================================================= */
 
 function displayProduct(){
 
-document.title =
-product.name +
-' | The Leather House';
+  document.title =
+    currentProduct.name +
+    ' — The Leather House';
 
 
-/* image */
-
-const image =
-document.getElementById(
-'productImage'
-);
-
-image.src =
-product.image;
-
-image.alt =
-product.name;
+  const image =
+    document.getElementById(
+      'productImage'
+    );
 
 
-/* name */
-
-document
-.getElementById('productName')
-.textContent =
-product.name;
+  image.src =
+    currentProduct.image;
 
 
-/* breadcrumb */
-
-document
-.getElementById('breadcrumbName')
-.textContent =
-product.name;
+  image.alt =
+    currentProduct.name;
 
 
-/* price */
+  image.onerror =
+    function(){
 
-document
-.getElementById('productPrice')
-.textContent =
-'Rs. ' +
-Number(product.price)
-.toLocaleString('en-PK');
+      image.style.display =
+        'none';
 
-
-/* tag */
-
-document
-.getElementById('productTag')
-.textContent =
-product.tag ||
-'Leather Jacket';
+    };
 
 
-/* description */
-
-const description =
-'Premium ' +
-product.name +
-' designed for timeless style, comfort and everyday wear.';
+  document.getElementById(
+    'productTag'
+  ).textContent =
+    currentProduct.tag;
 
 
-document
-.getElementById('productDescription')
-.textContent =
-description;
+  document.getElementById(
+    'productName'
+  ).textContent =
+    currentProduct.name;
 
 
-document
-.getElementById('detailDescription')
-.textContent =
-description;
+  document.getElementById(
+    'productPrice'
+  ).textContent =
+    money(
+      currentProduct.price
+    );
 
 
-/* sizes */
-
-const sizeSelect =
-document.getElementById(
-'productSize'
-);
+  document.getElementById(
+    'productDescription'
+  ).textContent =
+    'Premium leather jacket from The Leather House.';
 
 
-let sizes=[];
+  buildSizes();
 
 
-if(
-Array.isArray(product.sizes)
-){
-
-sizes =
-product.sizes;
-
-}else{
-
-sizes =
-String(
-product.sizes ||
-'S,M,L,XL,XXL'
-)
-.split(',');
+  document
+    .getElementById('loading')
+    .classList.add('hidden');
 
 }
 
 
-sizes =
-sizes
-.map(
-size =>
-String(size).trim()
-)
-.filter(Boolean);
+/* =========================================================
+   SIZE
+========================================================= */
 
+function getSizes(){
 
-if(!sizes.length){
+  return String(
+    currentProduct.sizes ||
+    'S,M,L,XL,XXL'
+  )
 
-sizes=[
-'S',
-'M',
-'L',
-'XL',
-'XXL'
-];
+  .split(',')
 
-}
+  .map(
+    s => s.trim()
+  )
 
-
-sizeSelect.innerHTML =
-sizes
-.map(
-size => `
-
-<option value="${escapeHTML(size)}">
-${escapeHTML(size)}
-</option>
-
-`
-)
-.join('');
+  .filter(Boolean);
 
 }
 
 
-/* =====================================================
-ADD TO CART
-===================================================== */
+function buildSizes(){
+
+  const sizes =
+    getSizes();
+
+
+  const container =
+    document.getElementById(
+      'sizeButtons'
+    );
+
+
+  const checkoutSelect =
+    document.getElementById(
+      'checkoutSize'
+    );
+
+
+  container.innerHTML = '';
+
+  checkoutSelect.innerHTML = '';
+
+
+  sizes.forEach(
+    function(size,index){
+
+      const button =
+        document.createElement(
+          'button'
+        );
+
+
+      button.type =
+        'button';
+
+
+      button.className =
+        'size-btn' +
+        (
+          index === 0
+            ? ' active'
+            : ''
+        );
+
+
+      button.textContent =
+        size;
+
+
+      button.addEventListener(
+        'click',
+        function(){
+
+          selectSize(size);
+
+        }
+      );
+
+
+      container.appendChild(
+        button
+      );
+
+
+      const option =
+        document.createElement(
+          'option'
+        );
+
+
+      option.value =
+        size;
+
+
+      option.textContent =
+        size;
+
+
+      checkoutSelect.appendChild(
+        option
+      );
+
+    }
+  );
+
+
+  selectedSize =
+    sizes[0] || '';
+
+
+  checkoutSelect.value =
+    selectedSize;
+
+}
+
+
+function selectSize(size){
+
+  selectedSize =
+    size;
+
+
+  document
+    .querySelectorAll(
+      '.size-btn'
+    )
+    .forEach(
+      function(button){
+
+        button.classList.toggle(
+          'active',
+          button.textContent === size
+        );
+
+      }
+    );
+
+
+  document.getElementById(
+    'checkoutSize'
+  ).value =
+    size;
+
+}
+
+
+/* =========================================================
+   CART
+========================================================= */
 
 function addToCart(){
 
-if(!product){
-
-alert(
-'Product is still loading.'
-);
-
-return;
-
-}
+  if (!currentProduct) {
+    return;
+  }
 
 
-const size =
-document
-.getElementById('productSize')
-.value;
+  if (!selectedSize){
+
+    alert(
+      'Please select a size first.'
+    );
+
+    return;
+
+  }
 
 
-let cart=[];
+  let cart = [];
 
 
-try{
+  try {
 
-cart =
-JSON.parse(
-localStorage.getItem(
-'lh_cart'
-) || '[]'
-);
+    cart =
+      JSON.parse(
+        localStorage.getItem(
+          'lh_cart'
+        ) || '[]'
+      );
 
+  } catch(error){
 
-if(!Array.isArray(cart)){
+    cart = [];
 
-cart=[];
-
-}
-
-}catch(error){
-
-cart=[];
-
-}
+  }
 
 
-cart.push({
-
-...product,
-
-size:size
-
-});
-
-
-localStorage.setItem(
-'lh_cart',
-JSON.stringify(cart)
-);
+  const existing =
+    cart.find(
+      item =>
+        String(item.id) ===
+          String(currentProduct.id) &&
+        String(item.size) ===
+          String(selectedSize)
+    );
 
 
-alert(
-product.name +
-' — Size ' +
-size +
-' added to cart.'
-);
+  if (existing){
 
-}
+    existing.quantity =
+      Number(
+        existing.quantity || 1
+      ) + 1;
 
+  } else {
 
-/* =====================================================
-ORDER NOW
-===================================================== */
+    cart.push({
 
-function orderNow(){
+      id:
+        currentProduct.id,
 
-if(!product){
+      name:
+        currentProduct.name,
 
-alert(
-'Product is still loading.'
-);
+      price:
+        currentProduct.price,
 
-return;
+      image:
+        currentProduct.image,
 
-}
+      size:
+        selectedSize,
 
+      quantity:
+        1
 
-const size =
-document
-.getElementById('productSize')
-.value;
+    });
 
-
-document
-.getElementById(
-'checkoutProductImage'
-)
-.src =
-product.image;
+  }
 
 
-document
-.getElementById(
-'checkoutProductName'
-)
-.textContent =
-product.name;
+  localStorage.setItem(
+    'lh_cart',
+    JSON.stringify(cart)
+  );
 
 
-document
-.getElementById(
-'checkoutProductSize'
-)
-.textContent =
-'Size: ' +
-size;
-
-
-document
-.getElementById(
-'checkoutProductPrice'
-)
-.textContent =
-'Rs. ' +
-Number(product.price)
-.toLocaleString('en-PK');
-
-
-document
-.getElementById(
-'checkoutOverlay'
-)
-.classList
-.add('show');
-
-
-document.body.style.overflow =
-'hidden';
-
-
-calculatePayment();
+  alert(
+    'Jacket cart mein add ho gayi.'
+  );
 
 }
 
 
-/* =====================================================
-CLOSE CHECKOUT
-===================================================== */
+/* =========================================================
+   CHECKOUT
+========================================================= */
+
+function openCheckout(){
+
+  if (!currentProduct) {
+    return;
+  }
+
+
+  if (!selectedSize){
+
+    alert(
+      'Please select a size first.'
+    );
+
+    return;
+
+  }
+
+
+  document
+    .getElementById(
+      'checkoutOverlay'
+    )
+    .classList.add('show');
+
+
+  document
+    .getElementById(
+      'checkoutSize'
+    ).value =
+      selectedSize;
+
+
+  calculatePayment();
+
+}
+
 
 function closeCheckout(){
 
-document
-.getElementById(
-'checkoutOverlay'
-)
-.classList
-.remove('show');
-
-
-document.body.style.overflow='';
+  document
+    .getElementById(
+      'checkoutOverlay'
+    )
+    .classList.remove(
+      'show'
+    );
 
 }
 
 
-/* =====================================================
-PAYMENT METHOD
-===================================================== */
-
-function getPaymentMethod(){
-
-const selected =
-document.querySelector(
-'input[name="paymentMethod"]:checked'
-);
-
-
-return selected
-?
-selected.value
-:
-'cod';
-
-}
-
-
-/* =====================================================
-CALCULATE PAYMENT
-===================================================== */
+/* =========================================================
+   PAYMENT CALCULATION
+========================================================= */
 
 function calculatePayment(){
 
-if(!product){
+  if (!currentProduct) {
+    return;
+  }
 
-return;
+
+  const deliveryArea =
+    document.getElementById(
+      'deliveryArea'
+    ).value;
+
+
+  let delivery = 0;
+
+
+  if (
+    deliveryArea ===
+    'Karachi'
+  ){
+
+    delivery = 300;
+
+  } else if (
+    deliveryArea ===
+    'Rest of Pakistan'
+  ){
+
+    delivery = 600;
+
+  }
+
+
+  const subtotal =
+    Number(
+      currentProduct.price
+    ) || 0;
+
+
+  const originalTotal =
+    subtotal +
+    delivery;
+
+
+  let discount = 0;
+
+  let total =
+    originalTotal;
+
+  let advance = 0;
+
+  let cod = 0;
+
+
+  if (
+    selectedPayment ===
+    'Half Advance'
+  ){
+
+    advance =
+      Math.round(
+        originalTotal * 0.5
+      );
+
+    cod =
+      originalTotal -
+      advance;
+
+  }
+
+
+  if (
+    selectedPayment ===
+    'Full Advance'
+  ){
+
+    discount =
+      Math.round(
+        subtotal * 0.02
+      );
+
+    total =
+      originalTotal -
+      discount;
+
+    advance =
+      total;
+
+    cod = 0;
+
+  }
+
+
+  if (
+    selectedPayment ===
+    'COD'
+  ){
+
+    advance = 0;
+
+    cod =
+      total;
+
+  }
+
+
+  document.getElementById(
+    'summaryProduct'
+  ).textContent =
+    currentProduct.name +
+    ' / ' +
+    selectedSize;
+
+
+  document.getElementById(
+    'summarySubtotal'
+  ).textContent =
+    money(subtotal);
+
+
+  document.getElementById(
+    'summaryDelivery'
+  ).textContent =
+    money(delivery);
+
+
+  document.getElementById(
+    'summaryTotal'
+  ).textContent =
+    money(total);
+
+
+  document.getElementById(
+    'summaryAdvance'
+  ).textContent =
+    money(advance);
+
+
+  document.getElementById(
+    'summaryCOD'
+  ).textContent =
+    money(cod);
+
+
+  const discountRow =
+    document.getElementById(
+      'discountRow'
+    );
+
+
+  if (discount > 0){
+
+    discountRow.style.display =
+      'flex';
+
+
+    document.getElementById(
+      'summaryDiscount'
+    ).textContent =
+      '- ' +
+      money(discount);
+
+  } else {
+
+    discountRow.style.display =
+      'none';
+
+  }
+
+
+  const bankDetails =
+    document.getElementById(
+      'bankDetails'
+    );
+
+
+  if (
+    selectedPayment ===
+    'Half Advance' ||
+    selectedPayment ===
+    'Full Advance'
+  ){
+
+    bankDetails.classList.add(
+      'show'
+    );
+
+  } else {
+
+    bankDetails.classList.remove(
+      'show'
+    );
+
+  }
 
 }
 
 
-const method =
-getPaymentMethod();
+/* =========================================================
+   SUBMIT ORDER
+========================================================= */
+
+async function submitOrder(event){
+
+  event.preventDefault();
 
 
-const deliveryArea =
-document
-.getElementById(
-'deliveryArea'
-)
-.value;
+  if (!currentProduct){
+
+    alert(
+      'Product information unavailable.'
+    );
+
+    return;
+
+  }
 
 
-const subtotal =
-Number(product.price);
+  const name =
+    document.getElementById(
+      'customerName'
+    ).value.trim();
 
 
-const delivery =
-deliveryArea === 'karachi'
-?
-300
-:
-600;
+  const phone =
+    document.getElementById(
+      'customerPhone'
+    ).value.trim();
 
 
-let discount=0;
-let total=0;
-let advanceAmount=0;
-let codAmount=0;
+  const country =
+    document.getElementById(
+      'customerCountry'
+    ).value.trim();
 
 
-/* COD */
+  const city =
+    document.getElementById(
+      'customerCity'
+    ).value.trim();
 
-if(method === 'cod'){
 
-discount=0;
+  const address =
+    document.getElementById(
+      'customerAddress'
+    ).value.trim();
 
-total =
-subtotal +
-delivery;
 
-advanceAmount=0;
+  const deliveryArea =
+    document.getElementById(
+      'deliveryArea'
+    ).value;
 
-codAmount =
-total;
+
+  const size =
+    document.getElementById(
+      'checkoutSize'
+    ).value;
+
+
+  const notes =
+    document.getElementById(
+      'orderNotes'
+    ).value.trim();
+
+
+  if (
+    !name ||
+    !phone ||
+    !country ||
+    !city ||
+    !address ||
+    !deliveryArea ||
+    !size
+  ){
+
+    alert(
+      'Please complete all required fields.'
+    );
+
+    return;
+
+  }
+
+
+  /* Pakistan phone */
+
+  const phonePattern =
+    /^(\+92|0092|03)\d{9,10}$/;
+
+
+  if (
+    !phonePattern.test(
+      phone.replace(/[\s-]/g,'')
+    )
+  ){
+
+    alert(
+      'Please enter a valid Pakistan phone / WhatsApp number.'
+    );
+
+    return;
+
+  }
+
+
+  const delivery =
+    deliveryArea === 'Karachi'
+      ? 300
+      : 600;
+
+
+  const subtotal =
+    Number(
+      currentProduct.price
+    ) || 0;
+
+
+  const originalTotal =
+    subtotal +
+    delivery;
+
+
+  let discount = 0;
+
+  let total =
+    originalTotal;
+
+  let advanceAmount = 0;
+
+  let codAmount =
+    originalTotal;
+
+
+  if (
+    selectedPayment ===
+    'Half Advance'
+  ){
+
+    advanceAmount =
+      Math.round(
+        originalTotal * 0.5
+      );
+
+    codAmount =
+      originalTotal -
+      advanceAmount;
+
+  }
+
+
+  if (
+    selectedPayment ===
+    'Full Advance'
+  ){
+
+    discount =
+      Math.round(
+        subtotal * 0.02
+      );
+
+    total =
+      originalTotal -
+      discount;
+
+    advanceAmount =
+      total;
+
+    codAmount = 0;
+
+  }
+
+
+  if (
+    selectedPayment ===
+    'COD'
+  ){
+
+    total =
+      originalTotal;
+
+    advanceAmount = 0;
+
+    codAmount =
+      total;
+
+  }
+
+
+  const items =
+    currentProduct.name +
+    ' | Size: ' +
+    size +
+    ' | Qty: 1';
+
+
+  const orderId =
+    'TLH-' +
+    Date.now();
+
+
+  const payload = {
+
+    action: 'order',
+
+    secret:
+      ORDER_SECRET,
+
+    orderId:
+      orderId,
+
+    date:
+      new Date().toISOString(),
+
+    customerName:
+      name,
+
+    customerPhone:
+      phone,
+
+    customerCountry:
+      country,
+
+    customerCity:
+      city,
+
+    customerAddress:
+      address,
+
+    deliveryArea:
+      deliveryArea,
+
+    items:
+      items,
+
+    subtotal:
+      subtotal,
+
+    delivery:
+      delivery,
+
+    originalTotal:
+      originalTotal,
+
+    discount:
+      discount,
+
+    total:
+      total,
+
+    advanceAmount:
+      advanceAmount,
+
+    codAmount:
+      codAmount,
+
+    paymentMethod:
+      selectedPayment,
+
+    paymentStatus:
+      selectedPayment === 'COD'
+        ? 'Pending'
+        : 'Advance Pending',
+
+    notes:
+      notes
+
+  };
+
+
+  const button =
+    document.getElementById(
+      'placeOrderBtn'
+    );
+
+
+  button.disabled =
+    true;
+
+  button.textContent =
+    'Placing Order...';
+
+
+  try {
+
+    const response =
+      await fetch(
+        GOOGLE_SCRIPT_URL,
+        {
+
+          method:'POST',
+
+          headers:{
+            'Content-Type':
+              'text/plain;charset=utf-8'
+          },
+
+          body:
+            JSON.stringify(payload)
+
+        }
+      );
+
+
+    const text =
+      await response.text();
+
+
+    let data;
+
+
+    try {
+
+      data =
+        JSON.parse(text);
+
+    } catch(error){
+
+      throw new Error(
+        'Server ne invalid response diya.'
+      );
+
+    }
+
+
+    if (!data.ok){
+
+      throw new Error(
+        data.error ||
+        'Order save nahi hua.'
+      );
+
+    }
+
+
+    try {
+
+      localStorage.setItem(
+
+        'lh_last_order',
+
+        JSON.stringify({
+
+          orderId:
+            data.orderId ||
+            orderId,
+
+          customerName:
+            name,
+
+          customerPhone:
+            phone,
+
+          total:
+            total,
+
+          paymentMethod:
+            selectedPayment
+
+        })
+
+      );
+
+    } catch(ignore){}
+
+
+    document
+      .getElementById(
+        'checkoutFormArea'
+      )
+      .style.display =
+      'none';
+
+
+    document
+      .getElementById(
+        'successScreen'
+      )
+      .classList.add(
+        'show'
+      );
+
+
+    document.getElementById(
+      'successOrderId'
+    ).textContent =
+      data.orderId ||
+      orderId;
+
+
+  } catch(error){
+
+    console.error(
+      'Order error:',
+      error
+    );
+
+
+    alert(
+      error.message ||
+      'Order place nahi ho saka. Please try again.'
+    );
+
+
+    button.disabled =
+      false;
+
+    button.textContent =
+      'Place Order';
+
+  }
 
 }
 
 
-/* HALF */
+/* =========================================================
+   PAYMENT EVENTS
+========================================================= */
 
-else if(method === 'half'){
+function setupPaymentEvents(){
 
-discount=0;
+  document
+    .querySelectorAll(
+      'input[name="paymentMethod"]'
+    )
+    .forEach(
+      function(radio){
 
-total =
-subtotal +
-delivery;
+        radio.addEventListener(
+          'change',
+          function(){
 
-advanceAmount =
-Math.round(
-total * 0.50
-);
+            selectedPayment =
+              radio.value;
 
-codAmount =
-total -
-advanceAmount;
+            calculatePayment();
 
-}
+          }
+        );
 
-
-/* FULL */
-
-else if(method === 'full'){
-
-discount =
-Math.round(
-subtotal * 0.02
-);
-
-total =
-subtotal +
-delivery -
-discount;
-
-advanceAmount =
-total;
-
-codAmount=0;
+      }
+    );
 
 }
 
 
-/* summary */
-
-document
-.getElementById(
-'summaryProduct'
-)
-.textContent =
-formatPKR(
-subtotal
-);
-
-
-document
-.getElementById(
-'summaryDelivery'
-)
-.textContent =
-formatPKR(
-delivery
-);
-
-
-document
-.getElementById(
-'summaryDiscount'
-)
-.textContent =
-'-' +
-formatPKR(
-discount
-);
-
-
-document
-.getElementById(
-'summaryTotal'
-)
-.textContent =
-formatPKR(
-total
-);
-
-
-document
-.getElementById(
-'summaryAdvance'
-)
-.textContent =
-formatPKR(
-advanceAmount
-);
-
-
-document
-.getElementById(
-'summaryCOD'
-)
-.textContent =
-formatPKR(
-codAmount
-);
-
-
-/* bank */
-
-const bankBox =
-document.getElementById(
-'bankBox'
-);
-
-
-if(
-method === 'half' ||
-method === 'full'
-){
-
-bankBox
-.classList
-.add('show');
-
-}else{
-
-bankBox
-.classList
-.remove('show');
-
-}
-
-
-/* payment UI */
-
-document
-.getElementById(
-'paymentBoxCod'
-)
-.classList
-.toggle(
-'selected',
-method === 'cod'
-);
-
-
-document
-.getElementById(
-'paymentBoxHalf'
-)
-.classList
-.toggle(
-'selected',
-method === 'half'
-);
-
-
-document
-.getElementById(
-'paymentBoxFull'
-)
-.classList
-.toggle(
-'selected',
-method === 'full'
-);
-
-}
-
-
-/* =====================================================
-DELIVERY
-===================================================== */
-
-document
-.getElementById(
-'deliveryArea'
-)
-.addEventListener(
-'change',
-calculatePayment
-);
-
-
-/* =====================================================
-FORMAT
-===================================================== */
-
-function formatPKR(number){
-
-return 'Rs. ' +
-Number(
-number || 0
-)
-.toLocaleString(
-'en-PK'
-);
-
-}
-
-
-/* =====================================================
-PHONE
-===================================================== */
-
-function validatePhone(phone){
-
-const cleaned =
-phone.replace(
-/[\s-]/g,
-''
-);
-
-
-return /^(\+92|0092|03)\d{9,10}$/
-.test(cleaned);
-
-}
-
-
-/* =====================================================
-ORDER ID
-===================================================== */
-
-function generateOrderId(){
-
-const now =
-new Date();
-
-
-const date =
-now.getFullYear()
-.toString() +
-
-String(
-now.getMonth()+1
-)
-.padStart(
-2,
-'0'
-) +
-
-String(
-now.getDate()
-)
-.padStart(
-2,
-'0'
-);
-
-
-const random =
-Math.floor(
-1000 +
-Math.random()*9000
-);
-
-
-return 'TLH-' +
-date +
-'-' +
-random;
-
-}
-
-
-/* =====================================================
-SUBMIT ORDER
-===================================================== */
-
-async function submitOrder(){
-
-if(!product){
-
-return;
-
-}
-
-
-const name =
-document
-.getElementById(
-'custName'
-)
-.value
-.trim();
-
-
-const phone =
-document
-.getElementById(
-'custPhone'
-)
-.value
-.trim();
-
-
-const country =
-document
-.getElementById(
-'custCountry'
-)
-.value
-.trim();
-
-
-const city =
-document
-.getElementById(
-'custCity'
-)
-.value
-.trim();
-
-
-const address =
-document
-.getElementById(
-'custAddress'
-)
-.value
-.trim();
-
-
-const deliveryArea =
-document
-.getElementById(
-'deliveryArea'
-)
-.value;
-
-
-const notes =
-document
-.getElementById(
-'custNotes'
-)
-.value
-.trim();
-
-
-const size =
-document
-.getElementById(
-'productSize'
-)
-.value;
-
-
-const paymentMethod =
-getPaymentMethod();
-
-
-/* validation */
-
-if(!name){
-
-alert(
-'Please enter your full name.'
-);
-
-document
-.getElementById(
-'custName'
-)
-.focus();
-
-return;
-
-}
-
-
-if(!phone){
-
-alert(
-'Please enter your phone number.'
-);
-
-document
-.getElementById(
-'custPhone'
-)
-.focus();
-
-return;
-
-}
-
-
-if(!validatePhone(phone)){
-
-alert(
-'Please enter a valid Pakistan phone number.'
-);
-
-document
-.getElementById(
-'custPhone'
-)
-.focus();
-
-return;
-
-}
-
-
-if(!country){
-
-alert(
-'Please select your country.'
-);
-
-return;
-
-}
-
-
-if(!city){
-
-alert(
-'Please enter your city.'
-);
-
-document
-.getElementById(
-'custCity'
-)
-.focus();
-
-return;
-
-}
-
-
-if(!address){
-
-alert(
-'Please enter your delivery address.'
-);
-
-document
-.getElementById(
-'custAddress'
-)
-.focus();
-
-return;
-
-}
-
-
-if(!size){
-
-alert(
-'Please select a size.'
-);
-
-return;
-
-}
-
-
-/* totals */
-
-const subtotal =
-Number(product.price);
-
-
-const delivery =
-deliveryArea === 'karachi'
-?
-300
-:
-600;
-
-
-let discount=0;
-let total=0;
-let advanceAmount=0;
-let codAmount=0;
-
-
-/* COD */
-
-if(paymentMethod === 'cod'){
-
-discount=0;
-
-total =
-subtotal +
-delivery;
-
-advanceAmount=0;
-
-codAmount =
-total;
-
-}
-
-
-/* HALF */
-
-else if(paymentMethod === 'half'){
-
-discount=0;
-
-total =
-subtotal +
-delivery;
-
-advanceAmount =
-Math.round(
-total * 0.50
-);
-
-codAmount =
-total -
-advanceAmount;
-
-}
-
-
-/* FULL */
-
-else if(paymentMethod === 'full'){
-
-discount =
-Math.round(
-subtotal * 0.02
-);
-
-total =
-subtotal +
-delivery -
-discount;
-
-advanceAmount =
-total;
-
-codAmount=0;
-
-}
-
-
-/* payment status */
-
-let paymentStatus =
-'Pending';
-
-
-if(paymentMethod === 'cod'){
-
-paymentStatus =
-'COD';
-
-}
-
-else if(paymentMethod === 'half'){
-
-paymentStatus =
-'50% Advance Pending';
-
-}
-
-else if(paymentMethod === 'full'){
-
-paymentStatus =
-'100% Advance Pending';
-
-}
-
-
-/* order ID */
-
-const orderId =
-generateOrderId();
-
-
-/* order data */
-
-const orderData = {
-
-secret:
-ORDER_SECRET,
-
-orderId:
-orderId,
-
-date:
-new Date()
-.toISOString(),
-
-customerName:
-name,
-
-customerPhone:
-phone,
-
-customerCountry:
-country,
-
-country:
-country,
-
-customerCity:
-city,
-
-city:
-city,
-
-customerAddress:
-address,
-
-address:
-address,
-
-deliveryArea:
-
-deliveryArea === 'karachi'
-?
-'Karachi'
-:
-'Rest of Pakistan',
-
-items:[
-
-{
-
-id:
-product.id,
-
-name:
-product.name,
-
-price:
-Number(
-product.price
-),
-
-size:
-size,
-
-quantity:1
-
-}
-
-],
-
-subtotal:
-subtotal,
-
-delivery:
-delivery,
-
-originalTotal:
-subtotal +
-delivery,
-
-discount:
-discount,
-
-total:
-total,
-
-advanceAmount:
-advanceAmount,
-
-codAmount:
-codAmount,
-
-paymentMethod:
-
-paymentMethod === 'cod'
-
-?
-'100% COD'
-
-:
-paymentMethod === 'half'
-
-?
-'50% Advance + 50% COD'
-
-:
-'100% Advance',
-
-paymentStatus:
-paymentStatus,
-
-notes:
-notes
-
-};
-
-
-/* button */
-
-const button =
-document.getElementById(
-'placeOrderBtn'
-);
-
-
-button.disabled=true;
-
-button.textContent =
-'SUBMITTING ORDER...';
-
-
-document
-.getElementById(
-'loading'
-)
-.classList
-.add('show');
-
-
-try{
-
-const response =
-await fetch(
-GOOGLE_SCRIPT_URL,
-{
-
-method:'POST',
-
-headers:{
-'Content-Type':
-'application/json'
-},
-
-body:
-JSON.stringify(
-orderData
-)
-
-});
-
-
-let result=null;
-
-
-try{
-
-result =
-await response.json();
-
-}catch(error){
-
-result=null;
-
-}
-
-
-if(!response.ok){
-
-throw new Error(
-'Server returned an error.'
-);
-
-}
-
-
-if(
-result &&
-result.ok === false
-){
-
-throw new Error(
-result.error ||
-'Order could not be saved.'
-);
-
-}
-
-
-/* success */
-
-document
-.getElementById(
-'loading'
-)
-.classList
-.remove('show');
-
-
-button.disabled=false;
-
-button.textContent =
-'PLACE ORDER';
-
-
-document
-.getElementById(
-'checkoutContent'
-)
-.style
-.display='none';
-
-
-document
-.getElementById(
-'successContent'
-)
-.style
-.display='block';
-
-
-document
-.getElementById(
-'successOrderId'
-)
-.textContent =
-'Order ID: ' +
-orderId;
-
-
-/* save */
-
-localStorage.setItem(
-'lh_last_order',
-JSON.stringify(
-orderData
-)
-);
-
-
-}catch(error){
-
-console.error(
-'Order submission error:',
-error
-);
-
-
-document
-.getElementById(
-'loading'
-)
-.classList
-.remove('show');
-
-
-button.disabled=false;
-
-button.textContent =
-'PLACE ORDER';
-
-
-alert(
-'Order submit nahi ho saka. Please internet connection check karein aur dobara try karein.'
-);
-
-}
-
-}
-
-
-/* =====================================================
-FINISH
-===================================================== */
-
-function finishOrder(){
-
-document
-.getElementById(
-'successContent'
-)
-.style
-.display='none';
-
-
-document
-.getElementById(
-'checkoutContent'
-)
-.style
-.display='block';
-
-
-document
-.getElementById(
-'checkoutOverlay'
-)
-.classList
-.remove('show');
-
-
-document.body.style.overflow='';
-
-
-document
-.getElementById(
-'custName'
-)
-.value='';
-
-
-document
-.getElementById(
-'custPhone'
-)
-.value='';
-
-
-document
-.getElementById(
-'custCountry'
-)
-.value='Pakistan';
-
-
-document
-.getElementById(
-'custCity'
-)
-.value='';
-
-
-document
-.getElementById(
-'custAddress'
-)
-.value='';
-
-
-document
-.getElementById(
-'custNotes'
-)
-.value='';
-
-
-document
-.getElementById(
-'deliveryArea'
-)
-.value='karachi';
-
-
-document
-.querySelector(
-'input[name="paymentMethod"][value="cod"]'
-)
-.checked=true;
-
-
-calculatePayment();
-
-}
-
-
-/* =====================================================
-OUTSIDE CLICK
-===================================================== */
-
-document
-.getElementById(
-'checkoutOverlay'
-)
-.addEventListener(
-'click',
-function(event){
-
-if(
-event.target === this
-){
-
-closeCheckout();
-
-}
-
-}
-);
-
-
-/* =====================================================
-ESC
-===================================================== */
+/* =========================================================
+   INIT
+========================================================= */
 
 document.addEventListener(
-'keydown',
-function(event){
+  'DOMContentLoaded',
+  function(){
 
-if(
-event.key === 'Escape'
-){
+    document
+      .getElementById(
+        'addCartBtn'
+      )
+      .addEventListener(
+        'click',
+        addToCart
+      );
 
-closeCheckout();
 
-}
+    document
+      .getElementById(
+        'orderNowBtn'
+      )
+      .addEventListener(
+        'click',
+        openCheckout
+      );
 
-}
+
+    document
+      .getElementById(
+        'closeCheckout'
+      )
+      .addEventListener(
+        'click',
+        closeCheckout
+      );
+
+
+    document
+      .getElementById(
+        'deliveryArea'
+      )
+      .addEventListener(
+        'change',
+        calculatePayment
+      );
+
+
+    document
+      .getElementById(
+        'checkoutSize'
+      )
+      .addEventListener(
+        'change',
+        function(){
+
+          selectedSize =
+            this.value;
+
+          calculatePayment();
+
+        }
+      );
+
+
+    document
+      .getElementById(
+        'orderForm'
+      )
+      .addEventListener(
+        'submit',
+        submitOrder
+      );
+
+
+    document
+      .getElementById(
+        'continueShoppingBtn'
+      )
+      .addEventListener(
+        'click',
+        function(){
+
+          window.location.href =
+            './index.html';
+
+        }
+      );
+
+
+    document
+      .getElementById(
+        'checkoutOverlay'
+      )
+      .addEventListener(
+        'click',
+        function(event){
+
+          if (
+            event.target ===
+            this
+          ){
+
+            closeCheckout();
+
+          }
+
+        }
+      );
+
+
+    document.addEventListener(
+      'keydown',
+      function(event){
+
+        if (
+          event.key === 'Escape'
+        ){
+
+          closeCheckout();
+
+        }
+
+      }
+    );
+
+
+    setupPaymentEvents();
+
+
+    loadProduct();
+
+  }
 );
-
-
-/* =====================================================
-START PRODUCT LOADING
-===================================================== */
-
-loadProduct();
 
 </script>
 
 </body>
-
 </html>
