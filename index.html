@@ -939,6 +939,7 @@ letter-spacing:1px;
 }
 
 html{scroll-behavior:smooth}
+
 body{
   background:
     radial-gradient(circle at 50% -10%,rgba(201,161,90,.12),transparent 32%),
@@ -946,6 +947,7 @@ body{
   color:var(--lux-cream);
   letter-spacing:.01em;
 }
+
 body::before{
   content:"";
   position:fixed;
@@ -962,15 +964,19 @@ header{
   border-bottom:1px solid var(--lux-line)!important;
   box-shadow:0 8px 35px rgba(0,0,0,.28);
 }
+
 header *{transition:all .25s ease}
+
 .logo,.brand,.site-title{
   color:var(--lux-gold2)!important;
   text-shadow:0 0 28px rgba(201,161,90,.18);
 }
+
 nav a{
   color:#eee2d2!important;
   position:relative;
 }
+
 nav a::after{
   content:"";
   position:absolute;
@@ -982,18 +988,23 @@ nav a::after{
   transform:translateX(-50%);
   transition:width .25s ease;
 }
+
 nav a:hover::after{width:80%}
+
 nav a:hover{color:var(--lux-gold2)!important}
 
 section{
   position:relative;
 }
+
 section h1,section h2,section h3{
   letter-spacing:.035em;
 }
+
 section h2{
   text-shadow:0 8px 35px rgba(0,0,0,.35);
 }
+
 section h2::after{
   content:"";
   display:block;
@@ -1003,27 +1014,50 @@ section h2::after{
   background:linear-gradient(90deg,transparent,var(--lux-gold2),transparent);
 }
 
-/* Hero */
-.hero,.hero-section,[class*="hero"]{
+
+/* =========================================================
+   HERO BACKGROUND IMAGE FIX
+   IMPORTANT:
+   Keep the original hero image while preserving the
+   luxury dark/gold visual redesign.
+   ========================================================= */
+
+.hero{
   background:
-    linear-gradient(90deg,rgba(5,3,2,.90),rgba(5,3,2,.48),rgba(5,3,2,.78)),
-    radial-gradient(circle at 72% 35%,rgba(201,161,90,.18),transparent 35%)!important;
-  min-height:clamp(520px,72vh,760px);
+    linear-gradient(
+      90deg,
+      rgba(5,3,2,.90),
+      rgba(5,3,2,.48),
+      rgba(5,3,2,.30)
+    ),
+    url('https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=2000&q=90')
+    center/cover no-repeat!important;
+
   border-bottom:1px solid var(--lux-line);
 }
-.hero h1,.hero-section h1,[class*="hero"] h1{
+
+
+/* Keep hero sizing/typography */
+.hero h1,
+.hero-section h1,
+[class*="hero"] h1{
   font-size:clamp(42px,7vw,82px)!important;
   line-height:.98!important;
   font-weight:800!important;
   letter-spacing:-.035em!important;
 }
-.hero p,.hero-section p,[class*="hero"] p{
+
+.hero p,
+.hero-section p,
+[class*="hero"] p{
   color:#d6c5b0!important;
   font-size:clamp(16px,2vw,20px)!important;
   max-width:700px;
 }
 
+
 /* Buttons */
+
 button,.btn,.button,a.btn{
   border-radius:999px!important;
   border:1px solid rgba(226,193,124,.48)!important;
@@ -1031,20 +1065,26 @@ button,.btn,.button,a.btn{
   font-weight:700!important;
   letter-spacing:.05em;
 }
+
 button:hover,.btn:hover,.button:hover,a.btn:hover{
   transform:translateY(-3px);
   box-shadow:0 15px 38px rgba(0,0,0,.40),0 0 25px rgba(201,161,90,.10);
 }
+
 button,.btn-primary,.primary,.shop-btn{
   background:linear-gradient(135deg,#d5ad68,#9b7137)!important;
   color:#160e08!important;
 }
+
 button::first-letter{color:inherit}
 
+
 /* Product grid */
+
 .products-grid,.product-grid,.products{
   gap:24px!important;
 }
+
 .product-card,.card,.product{
   background:
     linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012)),
@@ -1056,54 +1096,87 @@ button::first-letter{color:inherit}
   transform:translateY(0);
   transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease!important;
 }
+
 .product-card:hover,.card:hover,.product:hover{
   transform:translateY(-8px)!important;
   border-color:rgba(226,193,124,.48)!important;
   box-shadow:0 30px 80px rgba(0,0,0,.52),0 0 0 1px rgba(226,193,124,.06)!important;
 }
+
 .product-card img,.card img,.product img{
   transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .4s ease!important;
 }
+
 .product-card:hover img,.card:hover img,.product:hover img{
   transform:scale(1.045);
   filter:saturate(1.06) contrast(1.03);
 }
+
 .product-card h3,.card h3,.product h3{
   color:#f5eadc!important;
   font-weight:750!important;
 }
+
 .product-card .price,.price,.product-price{
   color:var(--lux-gold2)!important;
   font-weight:800!important;
 }
 
-/* Category/filter controls */
-.category,.categories button,.filter-btn,.filter button,.chip{
+
+/* =========================================================
+   CATEGORY BACKGROUND IMAGE FIX
+   IMPORTANT:
+   Use background-color instead of background shorthand.
+   The original inline background-image URLs must remain.
+   ========================================================= */
+
+.category{
+  background-color:rgba(255,255,255,.035)!important;
+  color:#eadbc9!important;
+  border:1px solid rgba(226,193,124,.22)!important;
+}
+
+
+/* Other filter controls */
+
+.categories button,.filter-btn,.filter button,.chip{
   background:rgba(255,255,255,.035)!important;
   color:#eadbc9!important;
   border:1px solid rgba(226,193,124,.22)!important;
 }
-.category:hover,.categories button:hover,.filter-btn:hover,.filter button:hover,.chip:hover,
-.category.active,.filter-btn.active,.chip.active{
-  background:rgba(201,161,90,.14)!important;
+
+.category:hover,
+.categories button:hover,
+.filter-btn:hover,
+.filter button:hover,
+.chip:hover,
+.category.active,
+.filter-btn.active,
+.chip.active{
+  background-color:rgba(201,161,90,.14)!important;
   color:var(--lux-gold2)!important;
   border-color:rgba(226,193,124,.55)!important;
 }
 
+
 /* Inputs / forms */
+
 input,select,textarea{
   background:#120d09!important;
   color:#f5eadc!important;
   border:1px solid rgba(226,193,124,.22)!important;
   border-radius:12px!important;
 }
+
 input:focus,select:focus,textarea:focus{
   outline:none!important;
   border-color:var(--lux-gold2)!important;
   box-shadow:0 0 0 3px rgba(201,161,90,.10)!important;
 }
 
+
 /* Feature / info cards */
+
 .feature,.feature-card,.info-card,.service-card{
   background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012))!important;
   border:1px solid var(--lux-line)!important;
@@ -1111,7 +1184,9 @@ input:focus,select:focus,textarea:focus{
   box-shadow:0 18px 55px rgba(0,0,0,.25)!important;
 }
 
+
 /* Modals / checkout */
+
 .modal,.modal-content,.checkout,.checkout-box,.cart-modal{
   background:#120d09!important;
   color:#f4eadb!important;
@@ -1119,11 +1194,14 @@ input:focus,select:focus,textarea:focus{
   box-shadow:0 30px 100px rgba(0,0,0,.62)!important;
   border-radius:22px!important;
 }
+
 .modal-backdrop,.overlay{
   backdrop-filter:blur(8px);
 }
 
+
 /* Footer */
+
 footer{
   background:
     radial-gradient(circle at 50% 0,rgba(201,161,90,.10),transparent 35%),
@@ -1131,40 +1209,68 @@ footer{
   border-top:1px solid var(--lux-line)!important;
   color:#bfae9a!important;
 }
+
 footer h3,footer h4{
   color:var(--lux-gold2)!important;
 }
+
 footer a{color:#cdbda9!important}
+
 footer a:hover{color:#f1d49a!important}
 
+
 /* Images */
+
 img{border-radius:inherit}
+
 img[loading="lazy"]{background:#17100c}
 
+
 /* Scrollbar */
+
 ::-webkit-scrollbar{width:10px}
+
 ::-webkit-scrollbar-track{background:#090705}
+
 ::-webkit-scrollbar-thumb{
   background:linear-gradient(#6d4d29,#b58a4b);
   border-radius:10px;
 }
 
+
 /* Mobile */
+
 @media(max-width:768px){
-  header{padding-left:14px!important;padding-right:14px!important}
-  .hero,.hero-section,[class*="hero"]{
+
+  header{
+    padding-left:14px!important;
+    padding-right:14px!important;
+  }
+
+  .hero{
     min-height:560px;
   }
-  .hero h1,.hero-section h1,[class*="hero"] h1{
+
+  .hero h1,
+  .hero-section h1,
+  [class*="hero"] h1{
     font-size:clamp(38px,12vw,58px)!important;
   }
+
   .product-card,.card,.product{
     border-radius:16px!important;
   }
-  section{padding-left:18px!important;padding-right:18px!important}
+
+  section{
+    padding-left:18px!important;
+    padding-right:18px!important;
+  }
+
 }
 
+
 /* Small luxury labels */
+
 .kicker,.eyebrow,.subtitle{
   color:var(--lux-gold2)!important;
   text-transform:uppercase;
@@ -1329,7 +1435,10 @@ THE LEATHER HOUSE — ADMIN LUXURY UI ================= */
   box-shadow:0 0 0 3px rgba(201,161,90,.16),inset 0 2px 8px rgba(0,0,0,.28)!important;
 }
 
-#adminModal input[type="file"]{padding:7px!important;color:#f2e6d9!important}
+#adminModal input[type="file"]{
+  padding:7px!important;
+  color:#f2e6d9!important;
+}
 
 #adminModal input[type="file"]::file-selector-button{
   border:0;
@@ -1361,7 +1470,10 @@ THE LEATHER HOUSE — ADMIN LUXURY UI ================= */
   filter:brightness(1.05);
 }
 
-#adminModal .admin-list{display:grid;gap:14px}
+#adminModal .admin-list{
+  display:grid;
+  gap:14px;
+}
 
 #adminModal .admin-list > *{
   border:1px solid #ddcbb4!important;
@@ -1376,6 +1488,7 @@ THE LEATHER HOUSE — ADMIN LUXURY UI ================= */
 }
 
 @media(max-width:800px){
+
   #adminModal .admin{
     padding:0 18px 28px!important;
     background:linear-gradient(to bottom,#2a160d 0,#3d2112 150px,#f5ecdf 150px,#f5ecdf 100%)!important;
@@ -1393,22 +1506,32 @@ THE LEATHER HOUSE — ADMIN LUXURY UI ================= */
     top:126px;
   }
 
-  #adminModal .admin-tabs{grid-template-columns:1fr 1fr!important}
+  #adminModal .admin-tabs{
+    grid-template-columns:1fr 1fr!important;
+  }
 
   #adminModal .form-grid{
     grid-template-columns:1fr!important;
     gap:0!important;
   }
 
-  #adminModal .admin-panel{padding:20px!important}
+  #adminModal .admin-panel{
+    padding:20px!important;
+  }
+
 }
 
 @media(max-width:480px){
-  #adminModal .admin-tabs{grid-template-columns:1fr!important}
-  #adminModal .admin-tabs .btn{width:100%!important}
+
+  #adminModal .admin-tabs{
+    grid-template-columns:1fr!important;
+  }
+
+  #adminModal .admin-tabs .btn{
+    width:100%!important;
+  }
+
 }
-
-
 
 
 /* =========================================================
@@ -1417,24 +1540,31 @@ THE LEATHER HOUSE — ADMIN LUXURY UI ================= */
    ========================================================= */
 
 /* Do NOT force generic hero-like containers to become full-screen */
+
 .hero,
 .hero-section{
   min-height:unset!important;
 }
 
+
 /* Restore the actual home hero's natural layout */
+
 .hero{
   position:relative!important;
   overflow:hidden!important;
 }
 
+
 /* Remove the earlier broad [class*=hero] rules from affecting
    unrelated hero children/columns. */
+
 [class*="hero"]{
   min-height:unset!important;
 }
 
+
 /* Keep the home hero readable without changing its structure */
+
 .hero h1,
 .hero-section h1{
   font-size:clamp(38px,5vw,68px)!important;
@@ -1450,7 +1580,9 @@ THE LEATHER HOUSE — ADMIN LUXURY UI ================= */
   line-height:1.65!important;
 }
 
+
 /* Hero buttons should stay normal buttons, not giant blocks */
+
 .hero a,
 .hero button,
 .hero .btn,
@@ -1466,27 +1598,36 @@ THE LEATHER HOUSE — ADMIN LUXURY UI ================= */
   justify-content:center!important;
 }
 
+
 /* Prevent global product/card styling from accidentally
    stretching decorative hero elements */
+
 .hero img,
 .hero-section img{
   max-width:100%;
 }
 
+
 /* Keep sections visually separated and balanced */
+
 section{
   box-sizing:border-box;
 }
 
+
 /* Home page product cards remain premium but compact */
+
 .products-grid .product-card,
 .product-grid .product-card,
 .products .product-card{
   min-height:0!important;
 }
 
+
 /* Mobile hero */
+
 @media(max-width:768px){
+
   .hero,
   .hero-section{
     min-height:unset!important;
@@ -1496,6 +1637,7 @@ section{
   .hero-section h1{
     font-size:clamp(34px,10vw,52px)!important;
   }
+
 }
 
 </style>
@@ -4681,8 +4823,7 @@ document
 .files[0];
 
 const msg=
-document
-.getElementById('editMsg');
+document.getElementById('editMsg');
 
 
 if(!name || !price){
