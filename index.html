@@ -1409,6 +1409,95 @@ THE LEATHER HOUSE — ADMIN LUXURY UI ================= */
 }
 
 
+
+
+/* =========================================================
+   HOME PAGE FIX — restore original hero/layout structure
+   while keeping the luxury colors and admin panel styling.
+   ========================================================= */
+
+/* Do NOT force generic hero-like containers to become full-screen */
+.hero,
+.hero-section{
+  min-height:unset!important;
+}
+
+/* Restore the actual home hero's natural layout */
+.hero{
+  position:relative!important;
+  overflow:hidden!important;
+}
+
+/* Remove the earlier broad [class*=hero] rules from affecting
+   unrelated hero children/columns. */
+[class*="hero"]{
+  min-height:unset!important;
+}
+
+/* Keep the home hero readable without changing its structure */
+.hero h1,
+.hero-section h1{
+  font-size:clamp(38px,5vw,68px)!important;
+  line-height:1.05!important;
+  font-weight:800!important;
+  letter-spacing:-.02em!important;
+}
+
+.hero p,
+.hero-section p{
+  max-width:720px!important;
+  font-size:clamp(16px,2vw,20px)!important;
+  line-height:1.65!important;
+}
+
+/* Hero buttons should stay normal buttons, not giant blocks */
+.hero a,
+.hero button,
+.hero .btn,
+.hero-section a,
+.hero-section button,
+.hero-section .btn{
+  display:inline-flex!important;
+  width:auto!important;
+  min-width:0!important;
+  height:auto!important;
+  min-height:48px!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+
+/* Prevent global product/card styling from accidentally
+   stretching decorative hero elements */
+.hero img,
+.hero-section img{
+  max-width:100%;
+}
+
+/* Keep sections visually separated and balanced */
+section{
+  box-sizing:border-box;
+}
+
+/* Home page product cards remain premium but compact */
+.products-grid .product-card,
+.product-grid .product-card,
+.products .product-card{
+  min-height:0!important;
+}
+
+/* Mobile hero */
+@media(max-width:768px){
+  .hero,
+  .hero-section{
+    min-height:unset!important;
+  }
+
+  .hero h1,
+  .hero-section h1{
+    font-size:clamp(34px,10vw,52px)!important;
+  }
+}
+
 </style>
 </head>
 
