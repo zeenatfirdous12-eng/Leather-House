@@ -2592,13 +2592,12 @@ value="S,M,L,XL,XXL">
 
 <div class="field">
 
-<label>Jacket Picture</label>
-
-<input
-id="pImage"
-type="file"
-accept="image/*">
-
+<label>Front Picture (required)</label>
+<input id="pImage" type="file" accept="image/*">
+</div>
+<div class="field">
+<label>Back Picture (optional)</label>
+<input id="pBackImage" type="file" accept="image/*">
 </div>
 
 <button
@@ -2684,15 +2683,12 @@ type="number">
 
 <div class="field">
 
-<label>
-Replace Jacket Picture (optional)
-</label>
-
-<input
-id="eImage"
-type="file"
-accept="image/*">
-
+<label>Replace Front Picture (optional)</label>
+<input id="eImage" type="file" accept="image/*">
+</div>
+<div class="field">
+<label>Replace Back Picture (optional)</label>
+<input id="eBackImage" type="file" accept="image/*">
 </div>
 
 
@@ -4500,6 +4496,8 @@ document
 .getElementById('pImage')
 .files[0];
 
+const backFile=document.getElementById('pBackImage').files[0];
+
 const sizes=
 document
 .getElementById('pSizes')
@@ -4536,9 +4534,12 @@ button.textContent=
 
 try{
 
-const image=
-await compressImage(file);
-
+const image=await compressImage(file);
+let backImagePayload = {};
+if (backFile) {
+  const backImage = await compressImage(backFile);
+  backImagePayload = { backImageData: backImage.imageData, backMimeType: backImage.mimeType, backImageName: backImage.imageName };
+}
 
 const response=
 await fetch(
@@ -4580,7 +4581,9 @@ mimeType:
 image.mimeType,
 
 imageName:
-image.imageName
+image.imageName,
+
+...backImagePayload
 
 })
 
@@ -4622,6 +4625,7 @@ document
 document
 .getElementById('pImage')
 .value='';
+document.getElementById('pBackImage').value='';
 
 
 alert(
@@ -4767,6 +4771,7 @@ document
 document
 .getElementById('eImage')
 .value='';
+document.getElementById('eBackImage').value='';
 
 document
 .getElementById('editMsg')
@@ -4821,6 +4826,7 @@ const file=
 document
 .getElementById('eImage')
 .files[0];
+const backFile=document.getElementById('eBackImage').files[0];
 
 const msg=
 document.getElementById('editMsg');
@@ -4854,26 +4860,15 @@ let imagePayload={};
 
 
 if(file){
-
-const image=
-await compressImage(file);
-
-
-imagePayload={
-
-imageData:
-image.imageData,
-
-mimeType:
-image.mimeType,
-
-imageName:
-image.imageName
-
-};
-
+const image=await compressImage(file);
+imagePayload={imageData:image.imageData,mimeType:image.mimeType,imageName:image.imageName};
 }
-
+if(backFile){
+const backImage=await compressImage(backFile);
+imagePayload.backImageData=backImage.imageData;
+imagePayload.backMimeType=backImage.mimeType;
+imagePayload.backImageName=backImage.imageName;
+}
 
 const response=
 await fetch(
