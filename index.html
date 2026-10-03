@@ -1751,6 +1751,105 @@ section{
   font-weight: 800 !important;
 }
 
+
+
+/* =========================================================
+   ETSY-INSPIRED MARKETPLACE REFRESH
+   Visual-only layer: preserves existing cart, admin and Sheets API.
+========================================================= */
+:root{
+  --market-ink:#222222;
+  --market-muted:#595959;
+  --market-paper:#ffffff;
+  --market-canvas:#fffdf9;
+  --market-orange:#f1641e;
+  --market-orange-dark:#bd4812;
+  --market-teal:#d8f0ed;
+  --market-lilac:#eee6fa;
+  --market-pink:#fde8e2;
+  --market-line:#e8e1d9;
+}
+body{background:var(--market-canvas)!important;color:var(--market-ink)!important}
+header{
+  display:grid!important;
+  grid-template-columns:auto minmax(220px,1fr) auto auto!important;
+  gap:24px!important;
+  padding:17px clamp(18px,4vw,58px)!important;
+  background:#fff!important;
+  color:var(--market-ink)!important;
+  border-bottom:1px solid var(--market-line)!important;
+  box-shadow:0 2px 12px rgba(0,0,0,.04)!important;
+}
+header > a:first-child{color:var(--market-ink)!important}
+.brand{font-size:23px!important;letter-spacing:.2px!important;color:var(--market-ink)!important;white-space:nowrap}
+.brand small{color:#6b5d52!important;letter-spacing:1.5px!important}
+.market-search{display:flex;align-items:center;width:100%;max-width:640px;border:2px solid var(--market-ink);border-radius:999px;overflow:hidden;background:#fff;min-width:0}
+.market-search input{border:0;outline:0;min-width:0;flex:1;padding:13px 18px;background:transparent;color:var(--market-ink);font-size:15px}
+.market-search button{border:0!important;box-shadow:none!important;border-radius:50%!important;width:42px;height:42px;margin:3px;background:var(--market-orange)!important;color:#fff!important;font-size:25px;line-height:1;padding:0;flex-shrink:0}
+nav{gap:18px!important;align-items:center}
+nav a{color:var(--market-ink)!important;font-size:12px!important;letter-spacing:.3px!important}
+nav a:hover{color:var(--market-orange)!important}
+.header-actions{gap:12px!important}
+.admin-link{color:var(--market-ink)!important;border:1px solid var(--market-line)!important;border-radius:999px!important;padding:10px 13px!important;white-space:nowrap}
+.cart{color:var(--market-ink)!important}
+.hero{min-height:490px!important;padding:clamp(55px,8vw,100px) 7%!important;background:linear-gradient(90deg,rgba(23,19,16,.78),rgba(23,19,16,.20)),url('https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=2000&q=90') center/cover!important}
+.hero .eyebrow{color:#ffe0cc!important}
+.hero h1{max-width:760px;font-size:clamp(42px,5.7vw,72px)!important;letter-spacing:-1.8px!important}
+.hero .btn{background:var(--market-orange)!important;border-color:var(--market-orange)!important;color:#fff!important}
+.hero .btn-light{background:#fff!important;color:var(--market-ink)!important;border-color:#fff!important}
+.section{background:var(--market-canvas)!important}
+.section-head{text-align:center!important;max-width:760px;margin:0 auto 30px!important}
+.section-head .eyebrow{color:var(--market-orange)!important;letter-spacing:2px!important}
+.section-title{color:var(--market-ink)!important;font-size:clamp(30px,4vw,43px)!important;letter-spacing:-.8px!important}
+.section-head p{color:var(--market-muted)!important}
+.filters{gap:10px!important}
+.filter{border:1px solid #cfc7be!important;background:#fff!important;color:var(--market-ink)!important;border-radius:999px!important;padding:10px 20px!important;box-shadow:none!important}
+.filter.active,.filter:hover{background:var(--market-ink)!important;color:#fff!important;border-color:var(--market-ink)!important}
+.products{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:22px!important}
+.card,.product-card,.product{
+  background:#fff!important;border:1px solid var(--market-line)!important;border-radius:14px!important;
+  box-shadow:0 2px 10px rgba(0,0,0,.035)!important;transform:none!important;transition:box-shadow .22s ease,border-color .22s ease!important
+}
+.card:hover,.product-card:hover,.product:hover{transform:translateY(-3px)!important;border-color:#d8c9ba!important;box-shadow:0 9px 24px rgba(0,0,0,.10)!important}
+.card-media{background:#f6f2ed!important}
+.card img{height:300px!important;object-fit:cover!important;transition:transform .3s ease!important}
+.card-media a:hover img{transform:scale(1.025)!important}
+.product-view-overlay{background:var(--market-ink)!important;border-radius:999px!important;letter-spacing:.5px!important}
+.tag{background:#fff!important;color:var(--market-ink)!important;border-radius:4px!important;font-weight:700!important}
+.card-body{padding:15px!important}
+.card h3{color:var(--market-ink)!important;font-family:Arial,Helvetica,sans-serif!important;font-size:16px!important;line-height:1.35!important;font-weight:600!important}
+.card .price,.price,.product-price{color:var(--market-ink)!important;font-size:19px!important;font-weight:800!important}
+.size-row label{color:var(--market-muted)!important}
+.size-row select{border:1px solid #d6cec6!important;border-radius:8px!important;background:#fff!important;color:var(--market-ink)!important}
+.card-actions .btn,.btn{background:var(--market-orange)!important;color:#fff!important;border:1px solid var(--market-orange)!important;border-radius:999px!important;box-shadow:none!important}
+.card-actions .btn:hover,.btn:hover{background:var(--market-orange-dark)!important;color:#fff!important;transform:translateY(-1px)!important;box-shadow:none!important}
+.story{background:#f6eee7!important}
+.story-copy h2,.story-copy p{color:var(--market-ink)!important}
+footer,.footer{background:#24201d!important}
+@media(max-width:1100px){
+  header{grid-template-columns:auto minmax(180px,1fr) auto!important;gap:14px!important}
+  header nav{display:none!important}
+  .products{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+@media(max-width:700px){
+  header{grid-template-columns:1fr auto!important;gap:12px!important;padding:13px 15px!important}
+  header > a:first-child{grid-column:1;grid-row:1}
+  .header-actions{grid-column:2;grid-row:1}
+  .market-search{grid-column:1 / -1;grid-row:2;max-width:none}
+  .brand{font-size:19px!important}
+  .admin-link{display:none!important}
+  .hero{min-height:420px!important;padding:54px 6%!important}
+  .hero h1{font-size:clamp(36px,10vw,50px)!important}
+  .products{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+  .card img{height:clamp(175px,52vw,270px)!important}
+  .card-body{padding:11px!important}
+  .card h3{font-size:14px!important}
+  .card .price,.price{font-size:16px!important}
+  .card-actions{flex-direction:column!important}
+  .card-actions .btn{width:100%!important}
+  .section{padding-left:15px!important;padding-right:15px!important}
+}
+
 </style>
 </head>
 
@@ -1768,6 +1867,11 @@ THE LEATHER HOUSE
 </div>
 
 </a>
+
+<form class="market-search" role="search" onsubmit="event.preventDefault();document.getElementById('shop').scrollIntoView({behavior:'smooth'});" aria-label="Search jackets">
+  <input id="productSearch" type="search" placeholder="Search leather jackets..." aria-label="Search leather jackets" oninput="setProductSearch(this.value)">
+  <button type="submit" aria-label="Search">⌕</button>
+</form>
 
 <nav>
 <a href="#home">Home</a>
@@ -2997,14 +3101,22 @@ function swapCardImage(img, showBack){
    PRODUCTS
 ========================================================= */
 
+let productSearchQuery = '';
+
+function setProductSearch(value){
+  productSearchQuery = String(value || '').trim().toLowerCase();
+  renderProducts();
+}
+
 function renderProducts(){
 
-const list=
-activeFilter==='all'
-?products
-:products.filter(
-p=>p.category===activeFilter
-);
+const list = products.filter(p => {
+  const categoryMatch = activeFilter === 'all' || p.category === activeFilter;
+  const query = productSearchQuery;
+  const searchMatch = !query || [p.name, p.description, p.category, p.tag]
+    .some(value => String(value || '').toLowerCase().includes(query));
+  return categoryMatch && searchMatch;
+});
 
 document.getElementById('productGrid').innerHTML=
 
