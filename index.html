@@ -1850,12 +1850,69 @@ footer,.footer{background:#24201d!important}
   .section{padding-left:15px!important;padding-right:15px!important}
 }
 
+
+/* ================= COMPLETE MARKETPLACE POLISH ================= */
+.market-announcement{display:flex;justify-content:center;align-items:center;gap:12px;min-height:36px;padding:8px 14px;background:#28231f;color:#fff;font-size:10px;font-weight:800;letter-spacing:1.7px;text-align:center}
+.market-announcement span{color:#ffc59d}
+.market-announcement a{color:#ffd0b1;text-decoration:none;margin-left:5px;white-space:nowrap}
+.market-category-nav{display:flex;justify-content:center;align-items:center;gap:clamp(18px,4vw,54px);padding:13px 20px;background:#fff;border-bottom:1px solid var(--market-line);}
+.market-category-nav a{color:#41372f;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.15px}
+.market-category-nav a:hover{color:var(--market-orange)}
+.market-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:22px clamp(18px,7vw,100px);background:#fff;border-bottom:1px solid var(--market-line)}
+.market-benefits>div{display:flex;justify-content:center;align-items:center;gap:12px;padding:8px}
+.benefit-icon{display:grid;place-items:center;width:42px;height:42px;flex:0 0 42px;border-radius:50%;background:#fff0e6;color:var(--market-orange-dark);font-size:21px}
+.market-benefits b,.market-benefits small{display:block}
+.market-benefits b{font-size:13px;color:var(--market-ink);margin-bottom:4px}
+.market-benefits small{font-size:11px;color:var(--market-muted)}
+.hero{position:relative;isolation:isolate;overflow:hidden}
+.hero:after{content:"";position:absolute;z-index:-1;right:7%;bottom:-70px;width:220px;height:220px;border:1px solid #ffffff55;border-radius:50%;box-shadow:0 0 0 24px #ffffff0d,0 0 0 48px #ffffff0a;pointer-events:none}
+.hero .eyebrow{font-weight:800;font-size:12px;letter-spacing:3px}
+.hero p{max-width:510px;font-size:clamp(15px,1.5vw,18px);line-height:1.8;color:#fff!important}
+.hero .btn{padding:14px 23px;font-weight:800;letter-spacing:.5px}
+.section{padding-top:clamp(48px,6vw,78px)!important;padding-bottom:clamp(48px,6vw,78px)!important}
+.categories{gap:22px!important}
+.category{border-radius:18px!important;overflow:hidden;box-shadow:0 8px 24px #23170f12;transition:transform .25s ease,box-shadow .25s ease}
+.category:hover{transform:translateY(-4px);box-shadow:0 16px 34px #23170f20}
+.cat-content{padding:26px!important}
+.cat-content h3{font-size:clamp(25px,3vw,34px)!important}
+#shop{scroll-margin-top:24px}
+.filters{margin-bottom:26px!important}
+.products{align-items:stretch}
+.card{overflow:hidden!important}
+.card-media{position:relative;overflow:hidden}
+.card .product-image-link{display:block;position:relative;overflow:hidden}
+.card .product-image-link img{display:block;width:100%;object-fit:cover}
+.card .product-view-overlay{padding:12px 19px!important;font-size:10px!important;font-weight:800!important;box-shadow:0 4px 15px #0002}
+.card .tag{box-shadow:0 2px 8px #0000000c;padding:7px 10px!important}
+.card-body{display:flex;flex-direction:column;gap:0}
+.card-actions{margin-top:auto;padding-top:14px}
+.card-actions .btn{min-height:40px;font-size:10px!important;font-weight:800!important;letter-spacing:.35px}
+.story{overflow:hidden}
+.story img{object-position:center}
+.features{background:#fff!important;padding-top:35px!important;padding-bottom:35px!important}
+.feature-icon{color:var(--market-orange)!important}
+.cta{border-radius:18px!important;overflow:hidden;box-shadow:0 12px 32px #24170f18}
+footer{border-top:4px solid var(--market-orange)}
+@media(max-width:700px){
+ .market-announcement{font-size:9px;letter-spacing:.7px;gap:6px;flex-wrap:wrap}
+ .market-announcement a{margin-left:2px}
+ .market-category-nav{justify-content:flex-start;overflow-x:auto;white-space:nowrap;gap:22px;padding:13px 16px}
+ .market-category-nav a{flex-shrink:0}
+ .market-benefits{grid-template-columns:1fr;gap:3px;padding:12px 18px}
+ .market-benefits>div{justify-content:flex-start;padding:7px 5px}
+ .benefit-icon{width:36px;height:36px;flex-basis:36px}
+ .hero:after{right:-75px;bottom:-85px}
+ .category{min-height:250px}
+}
+@media(prefers-reduced-motion:reduce){.category,.card,.card img{transition:none!important}}
 </style>
 </head>
 
 <body>
 
 <!-- ================= HEADER ================= -->
+
+<div class="market-announcement"><span>✦</span> TIMELESS LEATHER. EVERYDAY CONFIDENCE. <span>✦</span> <a href="#shop">SHOP THE COLLECTION →</a></div>
 
 <header>
 
@@ -1900,6 +1957,12 @@ onclick="openCart()">
 
 </header>
 
+<nav class="market-category-nav" aria-label="Browse collections">
+  <a href="#shop" onclick="setFilter('all')">All Jackets</a>
+  <a href="#shop" onclick="setFilter('men')">Men's Collection</a>
+  <a href="#shop" onclick="setFilter('women')">Women's Collection</a>
+  <a href="#about">Our Craft</a>
+</nav>
 
 <!-- ================= MAIN ================= -->
 
@@ -1937,6 +2000,11 @@ OUR STORY
 
 </section>
 
+<div class="market-benefits" aria-label="Shopping benefits">
+  <div><span class="benefit-icon">✦</span><span><b>Timeless styles</b><small>Made to wear on repeat</small></span></div>
+  <div><span class="benefit-icon">↗</span><span><b>Easy ordering</b><small>Choose your size online</small></span></div>
+  <div><span class="benefit-icon">♡</span><span><b>Personal support</b><small>Here when you need us</small></span></div>
+</div>
 
 <!-- ================= CATEGORIES ================= -->
 
