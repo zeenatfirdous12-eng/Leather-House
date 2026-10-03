@@ -123,12 +123,11 @@
       display: none;
     }
 
-    .image-placeholder {
-      color: #777;
-      font-size: 16px;
-      text-align: center;
-      padding: 30px;
-    }
+    .image-placeholder { color:#777; font-size:16px; text-align:center; padding:30px; }
+    .image-switcher { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px; }
+    .image-switcher button { border:1px solid #bbb; background:#fff; color:#111; border-radius:8px; padding:9px 16px; font-weight:700; }
+    .image-switcher button.active { background:#111; color:#fff; border-color:#111; }
+    .product-gallery { min-width:0; }
 
     /* =========================
        PRODUCT INFO
@@ -758,18 +757,15 @@
 
       <!-- PRODUCT IMAGE -->
 
+      <div class="product-gallery">
       <div class="product-image-box">
-
-        <div id="imagePlaceholder" class="image-placeholder">
-          Loading product...
-        </div>
-
-        <img
-          id="productImage"
-          class="product-image"
-          alt="Leather Jacket"
-        >
-
+        <div id="imagePlaceholder" class="image-placeholder">Loading product...</div>
+        <img id="productImage" class="product-image" alt="Leather Jacket">
+      </div>
+      <div id="imageSwitcher" class="image-switcher" style="display:none" aria-label="Choose jacket view">
+        <button type="button" id="frontImageButton" class="active" onclick="showProductImage('front')">Front View</button>
+        <button type="button" id="backImageButton" onclick="showProductImage('back')">Back View</button>
+      </div>
       </div>
 
 
@@ -1528,13 +1524,8 @@
         'Premium leather jacket from The Leather House.';
 
       const image =
-        raw.image ??
-        raw.imageUrl ??
-        raw.imageURL ??
-        raw.photo ??
-        raw.photoUrl ??
-        raw.productImage ??
-        '';
+        raw.image ?? raw.imageUrl ?? raw.imageURL ?? raw.photo ?? raw.photoUrl ?? raw.productImage ?? '';
+      const backImage = raw.backImage ?? raw.back_image ?? raw.backImageUrl ?? raw.back_image_url ?? raw.backPhoto ?? raw.backPhotoUrl ?? '';
 
       let sizes =
         raw.sizes ??
@@ -1568,6 +1559,7 @@
         price,
         description: String(description),
         image: String(image),
+        backImage: String(backImage),
         sizes
       };
 
@@ -1770,33 +1762,22 @@
 
 
       if (currentProduct.image) {
-
-        image.src =
-          currentProduct.image;
-
-        image.alt =
-          currentProduct.name;
-
-        image.style.display =
-          'block';
-
-        placeholder.style.display =
-          'none';
-
+        image.src = currentProduct.image;
+        image.alt = currentProduct.name + ' - Front View';
+        image.style.display = 'block';
+        placeholder.style.display = 'none';
       } else {
-
-        image.style.display =
-          'none';
-
-        placeholder.textContent =
-          'Product image not available.';
-
-        placeholder.style.display =
-          'block';
-
+        image.style.display = 'none';
+        placeholder.textContent = 'Product image not available.';
+        placeholder.style.display = 'block';
       }
-
-
+      const switcher = document.getElementById('imageSwitcher');
+      if (currentProduct.backImage) {
+        switcher.style.display = 'flex';
+        showProductImage('front');
+      } else {
+        switcher.style.display = 'none';
+      }
       renderSizes();
 
     }
@@ -1805,6 +1786,20 @@
     /* =========================================
        RENDER SIZES
     ========================================== */
+
+    function showProductImage(view) {
+      if (!currentProduct) return;
+      const image = document.getElementById('productImage');
+      const isBack = view === 'back' && !!currentProduct.backImage;
+      const src = isBack ? currentProduct.backImage : currentProduct.image;
+      if (!src) return;
+      image.src = src;
+      image.alt = currentProduct.name + (isBack ? ' - Back View' : ' - Front View');
+      image.style.display = 'block';
+      document.getElementById('imagePlaceholder').style.display = 'none';
+      document.getElementById('frontImageButton').classList.toggle('active', !isBack);
+      document.getElementById('backImageButton').classList.toggle('active', isBack);
+    }
 
     function renderSizes() {
 
