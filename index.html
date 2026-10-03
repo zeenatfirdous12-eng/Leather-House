@@ -2983,6 +2983,17 @@ behavior:'smooth'
 
 
 /* =========================================================
+   PRODUCT IMAGE HOVER: FRONT / BACK
+========================================================= */
+function swapCardImage(img, showBack){
+  if(!img) return;
+  const front = img.dataset.frontImage || img.getAttribute('src') || '';
+  const back = img.dataset.backImage || '';
+  img.src = (showBack && back) ? back : front;
+}
+
+
+/* =========================================================
    PRODUCTS
 ========================================================= */
 
@@ -3012,7 +3023,11 @@ aria-label="View ${escapeHtml(p.name)}">
 
 <img
 src="${escapeHtml(p.image)}"
-alt="${escapeHtml(p.name)}">
+data-front-image="${escapeHtml(p.image)}"
+data-back-image="${escapeHtml(p.backImage || p.back_image || p.backImageUrl || '')}"
+alt="${escapeHtml(p.name)}"
+onmouseenter="swapCardImage(this, true)"
+onmouseleave="swapCardImage(this, false)">
 
 <span class="product-view-overlay">
 VIEW PRODUCT →
