@@ -103,31 +103,13 @@
        PRODUCT IMAGE
     ========================== */
 
-    .product-image-box {
-      position: relative;
-      width: 100%;
-      min-height: 540px;
-      background: #e9e5de;
-      border-radius: 18px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 35px rgba(0,0,0,.08);
-    }
-
-    .product-image {
-      width: 100%;
-      height: 540px;
-      object-fit: cover;
-      display: none;
-    }
-
-    .image-placeholder { color:#777; font-size:16px; text-align:center; padding:30px; }
-    .image-switcher { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px; }
-    .image-switcher button { border:1px solid #bbb; background:#fff; color:#111; border-radius:8px; padding:9px 16px; font-weight:700; }
-    .image-switcher button.active { background:#111; color:#fff; border-color:#111; }
     .product-gallery { min-width:0; }
+    .product-photo-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:start; }
+    .product-photo-card { min-width:0; background:#e9e5de; border-radius:16px; overflow:hidden; box-shadow:0 10px 35px rgba(0,0,0,.08); }
+    .product-photo-card img { display:block; width:100%; height:440px; object-fit:cover; }
+    .product-photo-label { padding:10px 12px; text-align:center; background:#fff; font-size:12px; font-weight:800; letter-spacing:1px; }
+    .image-placeholder { color:#777; font-size:16px; text-align:center; padding:30px; }
+    .image-switcher { display:none !important; }
 
     /* =========================
        PRODUCT INFO
@@ -647,11 +629,7 @@
         gap: 35px;
       }
 
-      .product-image-box,
-      .product-image {
-        height: 480px;
-        min-height: 480px;
-      }
+      .product-photo-card img { height: 380px; }
 
       .benefits {
         grid-template-columns: 1fr;
@@ -680,11 +658,9 @@
         padding: 30px 15px 55px;
       }
 
-      .product-image-box,
-      .product-image {
-        height: 390px;
-        min-height: 390px;
-      }
+      .product-photo-grid { grid-template-columns:1fr 1fr; gap:8px; }
+      .product-photo-card img { height:260px; }
+      .product-photo-label { padding:8px 4px; font-size:10px; }
 
       .product-title {
         font-size: 32px;
@@ -758,14 +734,17 @@
       <!-- PRODUCT IMAGE -->
 
       <div class="product-gallery">
-      <div class="product-image-box">
-        <div id="imagePlaceholder" class="image-placeholder">Loading product...</div>
-        <img id="productImage" class="product-image" alt="Leather Jacket">
-      </div>
-      <div id="imageSwitcher" class="image-switcher" style="display:none" aria-label="Choose jacket view">
-        <button type="button" id="frontImageButton" class="active" onclick="showProductImage('front')">Front View</button>
-        <button type="button" id="backImageButton" onclick="showProductImage('back')">Back View</button>
-      </div>
+        <div class="product-photo-grid">
+          <div class="product-photo-card">
+            <div id="imagePlaceholder" class="image-placeholder">Loading product...</div>
+            <img id="productImage" alt="Leather Jacket - Front View" style="display:none">
+            <div class="product-photo-label">FRONT VIEW</div>
+          </div>
+          <div class="product-photo-card" id="backPhotoCard" style="display:none">
+            <img id="backProductImage" alt="Leather Jacket - Back View">
+            <div class="product-photo-label">BACK VIEW</div>
+          </div>
+        </div>
       </div>
 
 
@@ -1771,12 +1750,14 @@
         placeholder.textContent = 'Product image not available.';
         placeholder.style.display = 'block';
       }
-      const switcher = document.getElementById('imageSwitcher');
+      const backCard = document.getElementById('backPhotoCard');
+      const backImage = document.getElementById('backProductImage');
       if (currentProduct.backImage) {
-        switcher.style.display = 'flex';
-        showProductImage('front');
+        backImage.src = currentProduct.backImage;
+        backImage.alt = currentProduct.name + ' - Back View';
+        backCard.style.display = 'block';
       } else {
-        switcher.style.display = 'none';
+        backCard.style.display = 'none';
       }
       renderSizes();
 
@@ -1797,8 +1778,7 @@
       image.alt = currentProduct.name + (isBack ? ' - Back View' : ' - Front View');
       image.style.display = 'block';
       document.getElementById('imagePlaceholder').style.display = 'none';
-      document.getElementById('frontImageButton').classList.toggle('active', !isBack);
-      document.getElementById('backImageButton').classList.toggle('active', isBack);
+
     }
 
     function renderSizes() {
