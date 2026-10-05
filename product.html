@@ -1593,6 +1593,10 @@
         raw.backPhoto ??
         raw.backPhotoUrl ??
         raw.backProductImage ??
+        raw.back_image ??
+        raw.back_image_url ??
+        raw.BackImage ??
+        raw.BackImageUrl ??
         '';
 
       let sizes =
@@ -1856,7 +1860,7 @@
 
           backImage.onerror = function(){
             console.warn('Back image could not be loaded:', currentProduct.backImage);
-            backImage.style.display = 'none';
+            backImage.alt = currentProduct.name + ' Back View';
           };
 
         } else {
