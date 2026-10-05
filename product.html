@@ -1,3464 +1,2578 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>The Leather House — Product</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7f5f1;
-      color: #171717;
-      line-height: 1.6;
-    }
-
-    button,
-    input,
-    select,
-    textarea {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* =========================
-       HEADER
-    ========================== */
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: #111;
-      color: #fff;
-      border-bottom: 1px solid #292929;
-    }
-
-    .header-inner {
-      max-width: 1200px;
-      margin: auto;
-      min-height: 72px;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      white-space: nowrap;
-    }
-
-    .back-link {
-      color: #ddd;
-      font-size: 14px;
-      font-weight: 600;
-      transition: .2s;
-    }
-
-    .back-link:hover {
-      color: #fff;
-    }
-
-    /* =========================
-       MAIN
-    ========================== */
-
-    .page-wrap {
-      max-width: 1200px;
-      margin: auto;
-      padding: 55px 24px 80px;
-    }
-
-    .product-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 55px;
-      align-items: start;
-    }
-
-    /* =========================
-       PRODUCT IMAGES
-       FINAL FIX
-    ========================== */
-
-    .product-image-box {
-      position: relative;
-      width: 100%;
-      min-width: 0;
-      background: #e9e5de;
-      border-radius: 18px;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: start;
-      gap: 2px;
-      box-shadow: 0 10px 35px rgba(0,0,0,.08);
-    }
-
-    .product-image {
-      width: 100%;
-      height: 540px;
-      min-width: 0;
-      min-height: 540px;
-      object-fit: cover;
-      object-position: center center;
-      display: none;
-      background: #e9e5de;
-      margin: 0;
-      padding: 0;
-    }
-
-    .product-back-image {
-      display: none;
-    }
-
-    /*
-      IMPORTANT:
-      Placeholder absolute hai.
-      Is liye ye front/back image ka grid cell
-      occupy nahi karega.
-    */
-
-    .image-placeholder {
-      position: absolute;
-      inset: 0;
-      z-index: 5;
-      width: 100%;
-      min-height: 540px;
-      color: #777;
-      font-size: 16px;
-      text-align: center;
-      padding: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #e9e5de;
-    }
-
-    /* =========================
-       PRODUCT INFO
-    ========================== */
-
-    .product-info {
-      padding-top: 5px;
-    }
-
-    .product-badge {
-      display: inline-block;
-      background: #111;
-      color: #fff;
-      padding: 6px 13px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      margin-bottom: 18px;
-      text-transform: uppercase;
-    }
-
-    .product-title {
-      margin: 0 0 15px;
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.1;
-      letter-spacing: -.5px;
-      font-weight: 800;
-    }
-
-    .product-price {
-      margin: 0 0 22px;
-      font-size: 28px;
-      font-weight: 800;
-    }
-
-    .product-description {
-      margin: 0 0 30px;
-      color: #666;
-      font-size: 16px;
-      line-height: 1.8;
-    }
-
-    .label {
-      display: block;
-      margin-bottom: 10px;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: .8px;
-      text-transform: uppercase;
-    }
-
-    .size-options {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 25px;
-    }
-
-    .size-btn {
-      min-width: 58px;
-      padding: 12px 16px;
-      border: 1px solid #bbb;
-      background: #fff;
-      color: #222;
-      border-radius: 8px;
-      font-weight: 700;
-      transition: .2s;
-    }
-
-    .size-btn:hover {
-      border-color: #111;
-    }
-
-    .size-btn.active {
-      background: #111;
-      color: #fff;
-      border-color: #111;
-    }
-
-    .action-buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      border: 0;
-      border-radius: 9px;
-      padding: 15px 24px;
-      font-weight: 800;
-      transition: .2s;
-      min-height: 50px;
-    }
-
-    .btn-dark {
-      background: #111;
-      color: #fff;
-    }
-
-    .btn-dark:hover {
-      background: #2b2b2b;
-      transform: translateY(-1px);
-    }
-
-    .btn-light {
-      background: #fff;
-      color: #111;
-      border: 1px solid #bbb;
-    }
-
-    .btn-light:hover {
-      border-color: #111;
-    }
-
-    .benefits {
-      margin-top: 35px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-
-    .benefit {
-      background: #fff;
-      border: 1px solid #e5e1da;
-      border-radius: 12px;
-      padding: 17px 12px;
-      text-align: center;
-    }
-
-    .benefit-icon {
-      font-size: 24px;
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .benefit strong {
-      display: block;
-      font-size: 13px;
-    }
-
-    /* =========================
-       CONTENT CARDS
-    ========================== */
-
-    .info-section {
-      margin-top: 60px;
-      background: #fff;
-      border: 1px solid #e5e1da;
-      border-radius: 18px;
-      padding: 35px;
-      box-shadow: 0 8px 25px rgba(0,0,0,.04);
-    }
-
-    .info-section h2 {
-      margin: 0 0 15px;
-      font-size: 26px;
-    }
-
-    .info-section p {
-      color: #666;
-      margin: 0;
-    }
-
-    /* =========================
-       SIZE CHART
-    ========================== */
-
-    .size-chart-wrap {
-      overflow-x: auto;
-      margin-top: 22px;
-    }
-
-    .size-chart {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 420px;
-      overflow: hidden;
-      border-radius: 10px;
-    }
-
-    .size-chart th {
-      background: #111;
-      color: #fff;
-      padding: 15px;
-      text-align: left;
-      font-size: 14px;
-    }
-
-    .size-chart td {
-      padding: 14px 15px;
-      border-bottom: 1px solid #e5e5e5;
-      background: #fff;
-      font-size: 15px;
-    }
-
-    .size-chart tbody tr:last-child td {
-      border-bottom: 0;
-    }
-
-    .size-chart tbody tr:hover td {
-      background: #f8f8f8;
-    }
-
-    /* =========================
-       DELIVERY
-    ========================== */
-
-    .delivery-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .delivery-card {
-      background: #f7f5f1;
-      padding: 20px;
-      border-radius: 12px;
-    }
-
-    .delivery-card strong {
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    /* =========================
-       MODAL
-    ========================== */
-
-    .modal {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      background: rgba(0,0,0,.7);
-      overflow-y: auto;
-    }
-
-    .modal.show {
-      display: flex;
-    }
-
-    .modal-box {
-      width: 100%;
-      max-width: 720px;
-      max-height: 92vh;
-      overflow-y: auto;
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 25px 80px rgba(0,0,0,.3);
-    }
-
-    .modal-header {
-      position: sticky;
-      top: 0;
-      z-index: 2;
-      background: #fff;
-      padding: 20px 25px;
-      border-bottom: 1px solid #eee;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .modal-header h2 {
-      margin: 0;
-      font-size: 22px;
-    }
-
-    .close-btn {
-      width: 38px;
-      height: 38px;
-      border: 0;
-      border-radius: 50%;
-      background: #f1f1f1;
-      font-size: 22px;
-      cursor: pointer;
-    }
-
-    .modal-body {
-      padding: 25px;
-    }
-
-    /* =========================
-       FORM
-    ========================== */
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .form-group {
-      margin-bottom: 2px;
-    }
-
-    .form-group.full {
-      grid-column: 1 / -1;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 7px;
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 12px 13px;
-      background: #fff;
-      color: #111;
-      outline: none;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: #111;
-    }
-
-    .form-group textarea {
-      min-height: 90px;
-      resize: vertical;
-    }
-
-    /* =========================
-       PAYMENT
-    ========================== */
-
-    .payment-title {
-      margin: 28px 0 12px;
-      font-size: 18px;
-    }
-
-    .payment-options {
-      display: grid;
-      gap: 10px;
-    }
-
-    .payment-option {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      padding: 14px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-
-    .payment-option:hover {
-      border-color: #999;
-    }
-
-    .payment-option input {
-      margin-top: 4px;
-    }
-
-    .payment-option strong {
-      display: block;
-      margin-bottom: 3px;
-    }
-
-    .payment-option small {
-      color: #666;
-    }
-
-    .bank-details {
-      margin-top: 15px;
-      padding: 16px;
-      background: #f7f5f1;
-      border-radius: 10px;
-      display: none;
-    }
-
-    .bank-details.show {
-      display: block;
-    }
-
-    .bank-details p {
-      margin: 5px 0;
-    }
-
-    /* =========================
-       ORDER SUMMARY
-    ========================== */
-
-    .order-summary {
-      margin-top: 25px;
-      padding: 18px;
-      background: #f7f5f1;
-      border-radius: 12px;
-    }
-
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      padding: 6px 0;
-      font-size: 14px;
-    }
-
-    .summary-row.total {
-      margin-top: 8px;
-      padding-top: 14px;
-      border-top: 1px solid #ddd;
-      font-size: 18px;
-      font-weight: 800;
-    }
-
-    .summary-row.discount {
-      color: #16803c;
-    }
-
-    .summary-row.advance {
-      color: #333;
-      font-weight: 700;
-    }
-
-    .place-order-btn {
-      width: 100%;
-      margin-top: 20px;
-    }
-
-    /* =========================
-       SUCCESS MODAL
-    ========================== */
-
-    .success-box {
-      text-align: center;
-      padding: 40px 25px;
-    }
-
-    .success-icon {
-      width: 65px;
-      height: 65px;
-      margin: 0 auto 18px;
-      border-radius: 50%;
-      background: #111;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      font-weight: 800;
-    }
-
-    .success-box h2 {
-      margin: 0 0 10px;
-    }
-
-    .order-id {
-      display: inline-block;
-      margin: 12px 0 20px;
-      padding: 10px 16px;
-      background: #f1f1f1;
-      border-radius: 8px;
-      font-weight: 800;
-    }
-
-    /* =========================
-       LOADING / ERROR
-    ========================== */
-
-    .loading {
-      color: #777;
-    }
-
-    .error-message {
-      padding: 18px;
-      background: #fff1f1;
-      border: 1px solid #e5b5b5;
-      color: #a40000;
-      border-radius: 10px;
-      margin-top: 15px;
-    }
-
-    /* =========================
-       FOOTER
-    ========================== */
-
-    .site-footer {
-      background: #111;
-      color: #ddd;
-      padding: 35px 24px;
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    .site-footer strong {
-      color: #fff;
-      display: block;
-      margin-bottom: 7px;
-    }
-
-    .site-footer p {
-      margin: 4px 0;
-      font-size: 13px;
-    }
-
-    /* =========================
-       TABLET / MOBILE
-    ========================== */
-
-    @media (max-width: 850px) {
-
-      .product-section {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-
-      /*
-        Mobile:
-        one column = front first, back second
-      */
-
-      .product-image-box {
-        width: 100%;
-        height: auto;
-        min-height: 0;
-        overflow: hidden;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2px;
-      }
-
-      .product-image {
-        width: 100%;
-        height: 480px;
-        min-height: 480px;
-        display: none;
-        object-fit: cover;
-        object-position: center center;
-        margin: 0;
-      }
-
-      .product-back-image {
-        display: none;
-      }
-
-      .image-placeholder {
-        position: absolute;
-        inset: 0;
-        min-height: 480px;
-        height: 480px;
-      }
-
-      .benefits {
-        grid-template-columns: 1fr;
-      }
-
-      .delivery-list {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* =========================
-       PHONE
-    ========================== */
-
-    @media (max-width: 600px) {
-
-      .header-inner {
-        min-height: 62px;
-        padding: 0 15px;
-      }
-
-      .brand {
-        font-size: 17px;
-      }
-
-      .back-link {
-        font-size: 12px;
-      }
-
-      .page-wrap {
-        padding: 30px 15px 55px;
-      }
-
-      /*
-        IMPORTANT:
-        Auto height allows BOTH front and back
-        images to exist on mobile.
-      */
-
-      .product-image-box {
-        width: 100%;
-        height: auto;
-        min-height: 0;
-        overflow: hidden;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-auto-rows: auto;
-        gap: 2px;
-        border-radius: 18px;
-      }
-
-      .product-image {
-        width: 100%;
-        height: 390px;
-        min-height: 390px;
-        max-height: none;
-        display: none;
-        object-fit: cover;
-        object-position: center center;
-        margin: 0;
-        padding: 0;
-      }
-
-      .product-back-image {
-        display: none;
-      }
-
-      .image-placeholder {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 390px;
-        min-height: 390px;
-      }
-
-      .product-title {
-        font-size: 32px;
-      }
-
-      .product-price {
-        font-size: 24px;
-      }
-
-      .action-buttons {
-        flex-direction: column;
-      }
-
-      .action-buttons .btn {
-        width: 100%;
-      }
-
-      .info-section {
-        padding: 23px 18px;
-        border-radius: 14px;
-      }
-
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .form-group.full {
-        grid-column: auto;
-      }
-
-      .modal {
-        padding: 8px;
-      }
-
-      .modal-body {
-        padding: 18px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Leather House | Product</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f6eee4;
+    color:#20140e;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+.header{
+    width:100%;
+    background:#0b0806;
+    color:#f4eadb;
+    padding:18px 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.logo span{
+    display:block;
+    font-size:10px;
+    letter-spacing:3px;
+    color:#c9a15a;
+    margin-top:4px;
+}
+
+.back-btn{
+    border:1px solid #c9a15a;
+    color:#e2c17c;
+    padding:10px 18px;
+    border-radius:30px;
+    cursor:pointer;
+    background:transparent;
+    transition:.2s;
+}
+
+.back-btn:hover{
+    background:#c9a15a;
+    color:#0b0806;
+}
+
+.container{
+    width:92%;
+    max-width:1250px;
+    margin:40px auto;
+}
+
+.product-layout{
+    display:grid;
+    grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);
+    gap:45px;
+    align-items:start;
+}
+
+/* =========================================================
+   PRODUCT IMAGE AREA - FINAL FRONT/BACK FIX
+   ========================================================= */
+
+.product-image-box{
+    position:relative;
+    width:100%;
+    min-height:540px;
+    background:#e9e5de;
+    border-radius:18px;
+    overflow:hidden;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:2px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+}
+
+.product-image{
+    width:100%;
+    height:540px;
+    min-height:540px;
+
+    object-fit:cover;
+
+    display:none;
+
+    background:#e9e5de;
+    margin:0;
+    padding:0;
+    border:0;
+
+    align-self:stretch;
+}
+
+.product-back-image{
+    display:none;
+}
+
+.image-placeholder{
+    position:absolute;
+    inset:0;
+    z-index:10;
+
+    width:100%;
+    height:100%;
+    min-height:540px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#e9e5de;
+    color:#79685d;
+
+    font-size:16px;
+    text-align:center;
+    padding:20px;
+}
+
+/* =========================================================
+   PRODUCT INFORMATION
+   ========================================================= */
+
+.product-info{
+    background:#fffaf5;
+    border-radius:20px;
+    padding:32px;
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+}
+
+.product-category{
+    color:#9b542d;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    margin-bottom:12px;
+}
+
+.product-title{
+    font-size:38px;
+    line-height:1.15;
+    margin-bottom:16px;
+    color:#20140e;
+}
+
+.product-price{
+    font-size:27px;
+    font-weight:800;
+    color:#9b542d;
+    margin-bottom:22px;
+}
+
+.product-description{
+    color:#79685d;
+    line-height:1.7;
+    margin-bottom:25px;
+    white-space:pre-line;
+}
+
+.section-label{
+    font-weight:700;
+    margin-bottom:12px;
+    display:block;
+}
+
+.size-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-bottom:25px;
+}
+
+.size-btn{
+    border:1px solid #d8c5b4;
+    background:#fffaf5;
+    color:#20140e;
+    padding:10px 18px;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+.size-btn:hover,
+.size-btn.active{
+    background:#20140e;
+    color:#fff;
+    border-color:#20140e;
+}
+
+.order-btn{
+    width:100%;
+    border:0;
+    border-radius:30px;
+    background:#c9a15a;
+    color:#0b0806;
+    padding:16px 22px;
+    font-weight:800;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.order-btn:hover{
+    background:#e2c17c;
+    transform:translateY(-1px);
+}
+
+.whatsapp-btn{
+    width:100%;
+    margin-top:12px;
+    border:1px solid #20140e;
+    border-radius:30px;
+    background:transparent;
+    color:#20140e;
+    padding:14px 22px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.delivery-box{
+    margin-top:25px;
+    padding:18px;
+    border-radius:14px;
+    background:#f6eee4;
+    color:#79685d;
+    line-height:1.7;
+}
+
+.delivery-box strong{
+    color:#20140e;
+}
+
+/* =========================================================
+   CART
+   ========================================================= */
+
+.cart-box{
+    margin-top:30px;
+    background:#fffaf5;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:700;
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    border:1px solid #d8c5b4;
+    border-radius:10px;
+    padding:12px;
+    background:#fff;
+    outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:#9b542d;
+}
+
+.payment-options{
+    display:grid;
+    gap:10px;
+    margin:15px 0;
+}
+
+.payment-option{
+    border:1px solid #d8c5b4;
+    border-radius:12px;
+    padding:13px;
+    cursor:pointer;
+    background:#fff;
+}
+
+.payment-option input{
+    margin-right:8px;
+}
+
+.bank-box{
+    display:none;
+    background:#f6eee4;
+    border-radius:12px;
+    padding:15px;
+    margin-top:10px;
+    line-height:1.8;
+}
+
+.summary{
+    margin-top:20px;
+    border-top:1px solid #e2d3c5;
+    padding-top:18px;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    margin:8px 0;
+}
+
+.summary-total{
+    font-size:20px;
+    font-weight:800;
+    margin-top:12px;
+}
+
+/* =========================================================
+   LOADING / ERROR
+   ========================================================= */
+
+.loading-screen{
+    text-align:center;
+    padding:80px 20px;
+    color:#79685d;
+}
+
+.error-screen{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.error-screen h2{
+    margin-bottom:10px;
+}
+
+.error-screen p{
+    color:#79685d;
+    margin-bottom:20px;
+}
+
+.hidden{
+    display:none !important;
+}
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    background:rgba(0,0,0,.65);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-content{
+    width:100%;
+    max-width:480px;
+    background:#fffaf5;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+}
+
+.modal-content h2{
+    margin-bottom:12px;
+}
+
+.modal-content p{
+    color:#79685d;
+    line-height:1.6;
+    margin-bottom:20px;
+}
+
+.modal-btn{
+    border:0;
+    background:#c9a15a;
+    padding:12px 25px;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:850px){
+
+    .header{
+        padding:16px 4%;
+    }
+
+    .logo{
+        font-size:19px;
+    }
+
+    .product-layout{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .product-image-box{
+        width:100%;
+        min-height:0;
+        height:auto;
+
+        display:grid;
+        grid-template-columns:1fr;
+        gap:2px;
+
+        overflow:hidden;
+    }
+
+    .product-image{
+        width:100%;
+        height:480px;
+        min-height:480px;
+
+        object-fit:cover;
+        display:none;
+    }
+
+    .product-back-image{
+        display:none;
+    }
+
+    .image-placeholder{
+        position:absolute;
+        inset:0;
+
+        width:100%;
+        height:480px;
+        min-height:480px;
+    }
+
+    .product-info{
+        padding:25px;
+    }
+
+    .product-title{
+        font-size:31px;
+    }
+}
+
+@media(max-width:600px){
+
+    .container{
+        width:94%;
+        margin:20px auto 35px;
+    }
+
+    .header{
+        padding:14px 3%;
+    }
+
+    .logo{
+        font-size:16px;
+        letter-spacing:1.5px;
+    }
+
+    .logo span{
+        font-size:8px;
+        letter-spacing:2px;
+    }
+
+    .back-btn{
+        padding:8px 13px;
+        font-size:13px;
+    }
+
+    .product-image-box{
+        width:100%;
+        min-height:0;
+        height:auto;
+
+        display:grid;
+        grid-template-columns:1fr;
+        gap:2px;
+
+        border-radius:18px;
+        overflow:hidden;
+    }
+
+    .product-image{
+        width:100%;
+        height:390px;
+        min-height:390px;
+
+        object-fit:cover;
+        display:none;
+    }
+
+    .product-back-image{
+        display:none;
+    }
+
+    .image-placeholder{
+        position:absolute;
+        inset:0;
+
+        width:100%;
+        height:390px;
+        min-height:390px;
+    }
+
+    .product-info{
+        padding:20px;
+        border-radius:16px;
+    }
+
+    .product-title{
+        font-size:27px;
+    }
+
+    .product-price{
+        font-size:23px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
+<header class="header">
 
-  <header class="site-header">
-    <div class="header-inner">
-
-      <a href="index.html" class="brand">
+    <a href="index.html" class="logo">
         THE LEATHER HOUSE
-      </a>
+        <span>PREMIUM LEATHER JACKETS</span>
+    </a>
 
-      <a href="index.html" class="back-link">
-        ← Back to Jackets
-      </a>
+    <button class="back-btn" onclick="goBackHome()">
+        ← Back
+    </button>
 
+</header>
+
+
+<main class="container">
+
+    <div id="loadingScreen" class="loading-screen">
+        Loading product...
     </div>
-  </header>
 
 
-  <!-- MAIN -->
+    <div id="errorScreen" class="error-screen hidden">
 
-  <main class="page-wrap">
+        <h2>Product Load Error</h2>
 
-    <section class="product-section">
-
-      <!-- PRODUCT IMAGES -->
-
-      <div class="product-image-box">
-
-        <div id="imagePlaceholder" class="image-placeholder">
-          Loading product...
-        </div>
-
-        <img
-          id="productImage"
-          class="product-image"
-          alt="Leather Jacket Front View"
-          loading="eager"
-          decoding="async"
-          referrerpolicy="no-referrer"
-        >
-
-        <img
-          id="productBackImage"
-          class="product-image product-back-image"
-          alt="Leather Jacket Back View"
-          loading="eager"
-          decoding="async"
-          referrerpolicy="no-referrer"
-        >
-
-      </div>
-
-
-      <!-- PRODUCT INFORMATION -->
-
-      <div class="product-info">
-
-        <span class="product-badge">
-          New
-        </span>
-
-        <h1 id="productName" class="product-title">
-          Loading...
-        </h1>
-
-        <div id="productPrice" class="product-price">
-          Rs. 0
-        </div>
-
-        <p id="productDescription" class="product-description">
-          Premium leather jacket from The Leather House.
+        <p id="errorMessage">
+            Unable to load this product.
         </p>
 
-        <label class="label">
-          Select Size
-        </label>
-
-        <div id="sizeOptions" class="size-options"></div>
-
-        <div class="action-buttons">
-
-          <button
-            type="button"
-            class="btn btn-light"
-            onclick="addToCart()"
-          >
-            Add to Cart
-          </button>
-
-          <button
-            type="button"
-            class="btn btn-dark"
-            onclick="openCheckout()"
-          >
-            Order Now
-          </button>
-
-        </div>
-
-
-        <div class="benefits">
-
-          <div class="benefit">
-            <span class="benefit-icon">🚚</span>
-            <strong>Delivery Available</strong>
-          </div>
-
-          <div class="benefit">
-            <span class="benefit-icon">💳</span>
-            <strong>Multiple Payments</strong>
-          </div>
-
-          <div class="benefit">
-            <span class="benefit-icon">🛡️</span>
-            <strong>Quality Leather</strong>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section class="info-section">
-
-      <h2>
-        About This Jacket
-      </h2>
-
-      <p id="aboutText">
-        Premium leather craftsmanship with a clean,
-        timeless design. Each jacket is prepared with
-        attention to detail and quality.
-      </p>
-
-    </section>
-
-
-    <!-- SIZE CHART -->
-
-    <section class="info-section">
-
-      <h2>
-        Size Chart
-      </h2>
-
-      <div class="size-chart-wrap">
-
-        <table class="size-chart">
-
-          <thead>
-            <tr>
-              <th>Size</th>
-              <th>Chest</th>
-              <th>Length</th>
-            </tr>
-          </thead>
-
-          <tbody>
-
-            <tr>
-              <td>S</td>
-              <td>38"</td>
-              <td>25"</td>
-            </tr>
-
-            <tr>
-              <td>M</td>
-              <td>40"</td>
-              <td>26"</td>
-            </tr>
-
-            <tr>
-              <td>L</td>
-              <td>42"</td>
-              <td>27"</td>
-            </tr>
-
-            <tr>
-              <td>XL</td>
-              <td>44"</td>
-              <td>28"</td>
-            </tr>
-
-            <tr>
-              <td>XXL</td>
-              <td>46"</td>
-              <td>29"</td>
-            </tr>
-
-          </tbody>
-
-        </table>
-
-      </div>
-
-    </section>
-
-
-    <!-- DELIVERY -->
-
-    <section class="info-section">
-
-      <h2>
-        Delivery & Support
-      </h2>
-
-      <div class="delivery-list">
-
-        <div class="delivery-card">
-          <strong>Karachi</strong>
-          <span>Delivery: Rs. 300</span>
-        </div>
-
-        <div class="delivery-card">
-          <strong>Rest of Pakistan</strong>
-          <span>Delivery: Rs. 600</span>
-        </div>
-
-      </div>
-
-      <p style="margin-top:18px;">
-        For order support, our team will contact you
-        using the phone / WhatsApp number provided
-        during checkout.
-      </p>
-
-    </section>
-
-  </main>
-
-
-  <!-- CHECKOUT MODAL -->
-
-  <div id="checkoutModal" class="modal">
-
-    <div class="modal-box">
-
-      <div class="modal-header">
-
-        <h2>
-          Complete Your Order
-        </h2>
-
-        <button
-          type="button"
-          class="close-btn"
-          onclick="closeCheckout()"
-        >
-          ×
+        <button class="back-btn"
+                onclick="goBackHome()">
+            ← Back to Jackets
         </button>
 
-      </div>
+    </div>
 
-      <div class="modal-body">
 
-        <form id="orderForm">
+    <div id="productPage"
+         class="product-layout hidden">
 
-          <div class="form-grid">
 
-            <div class="form-group">
-              <label>Name *</label>
+        <!-- =================================================
+             IMAGES
+             ================================================= -->
 
-              <input
-                id="customerName"
-                type="text"
-                required
-              >
+        <div>
+
+            <div class="product-image-box">
+
+                <div id="imagePlaceholder"
+                     class="image-placeholder">
+                    Loading product images...
+                </div>
+
+                <img id="productImage"
+                     class="product-image"
+                     alt="Leather Jacket Front View"
+                     loading="eager"
+                     decoding="async">
+
+                <img id="productBackImage"
+                     class="product-image product-back-image"
+                     alt="Leather Jacket Back View"
+                     loading="eager"
+                     decoding="async">
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PRODUCT INFO
+             ================================================= -->
+
+        <div class="product-info">
+
+            <div class="product-category">
+                Leather Jacket
+            </div>
+
+            <h1 id="productName"
+                class="product-title">
+                Product
+            </h1>
+
+            <div id="productPrice"
+                 class="product-price">
+                Rs. 0
+            </div>
+
+            <div id="productDescription"
+                 class="product-description">
             </div>
 
 
-            <div class="form-group">
-              <label>Phone / WhatsApp *</label>
+            <span class="section-label">
+                Select Size
+            </span>
 
-              <input
-                id="customerPhone"
-                type="tel"
-                placeholder="03XXXXXXXXX"
-                required
-              >
+            <div id="sizeList"
+                 class="size-list">
             </div>
 
 
-            <div class="form-group">
-              <label>Country *</label>
+            <button class="order-btn"
+                    onclick="openOrderForm()">
+                ORDER NOW
+            </button>
 
-              <input
-                id="customerCountry"
-                type="text"
-                value="Pakistan"
-                required
-              >
+
+            <button class="whatsapp-btn"
+                    onclick="contactWhatsApp()">
+                WhatsApp Support
+            </button>
+
+
+            <div class="delivery-box">
+
+                <strong>Delivery Charges</strong><br>
+
+                Karachi: Rs. 300<br>
+
+                Rest of Pakistan: Rs. 600
+
             </div>
 
+        </div>
 
-            <div class="form-group">
-              <label>City *</label>
-
-              <input
-                id="customerCity"
-                type="text"
-                required
-              >
-            </div>
+    </div>
 
 
-            <div class="form-group full">
-              <label>Full Address *</label>
+    <!-- =====================================================
+         ORDER FORM
+         ===================================================== -->
 
-              <textarea
-                id="customerAddress"
-                required
-              ></textarea>
-            </div>
+    <div id="orderBox"
+         class="cart-box hidden">
+
+        <h2 style="margin-bottom:20px;">
+            Place Your Order
+        </h2>
 
 
-            <div class="form-group">
+        <div class="form-group">
 
-              <label>Delivery Area *</label>
+            <label for="customerName">
+                Name
+            </label>
 
-              <select
-                id="deliveryArea"
-                onchange="updateOrderSummary()"
-                required
-              >
+            <input id="customerName"
+                   type="text"
+                   placeholder="Enter your name">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="customerPhone">
+                Phone / WhatsApp
+            </label>
+
+            <input id="customerPhone"
+                   type="tel"
+                   placeholder="03XXXXXXXXX">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="customerAddress">
+                Address
+            </label>
+
+            <textarea id="customerAddress"
+                      rows="3"
+                      placeholder="Complete delivery address"></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="customerCity">
+                City
+            </label>
+
+            <select id="customerCity"
+                    onchange="updateDelivery()">
 
                 <option value="">
-                  Select Delivery Area
+                    Select City
                 </option>
 
                 <option value="Karachi">
-                  Karachi — Rs. 300
+                    Karachi
                 </option>
 
-                <option value="Rest of Pakistan">
-                  Rest of Pakistan — Rs. 600
+                <option value="Other">
+                    Other Pakistan
                 </option>
 
-              </select>
+            </select>
 
-            </div>
-
-
-            <div class="form-group">
-
-              <label>Size *</label>
-
-              <select
-                id="checkoutSize"
-                required
-              >
-
-                <option value="">
-                  Select Size
-                </option>
-
-              </select>
-
-            </div>
+        </div>
 
 
-            <div class="form-group full">
+        <div class="form-group">
 
-              <label>Notes</label>
-
-              <textarea
-                id="customerNotes"
-                placeholder="Optional"
-              ></textarea>
-
-            </div>
-
-          </div>
-
-
-          <!-- PAYMENT -->
-
-          <h3 class="payment-title">
-            Payment Method
-          </h3>
-
-          <div class="payment-options">
-
-            <label class="payment-option">
-
-              <input
-                type="radio"
-                name="paymentMethod"
-                value="100% COD"
-                checked
-                onchange="updateOrderSummary()"
-              >
-
-              <span>
-                <strong>100% COD</strong>
-
-                <small>
-                  Pay the full amount when the order is delivered.
-                </small>
-              </span>
-
+            <label>
+                Payment Method
             </label>
 
+            <div class="payment-options">
 
-            <label class="payment-option">
+                <label class="payment-option">
 
-              <input
-                type="radio"
-                name="paymentMethod"
-                value="50% Advance + 50% COD"
-                onchange="updateOrderSummary()"
-              >
+                    <input type="radio"
+                           name="paymentMethod"
+                           value="COD"
+                           checked
+                           onchange="updatePayment()">
 
-              <span>
-                <strong>50% Advance + 50% COD</strong>
+                    100% Cash on Delivery
 
-                <small>
-                  Pay 50% in advance and remaining 50% on delivery.
-                </small>
-              </span>
-
-            </label>
+                </label>
 
 
-            <label class="payment-option">
+                <label class="payment-option">
 
-              <input
-                type="radio"
-                name="paymentMethod"
-                value="100% Advance"
-                onchange="updateOrderSummary()"
-              >
+                    <input type="radio"
+                           name="paymentMethod"
+                           value="50ADVANCE"
+                           onchange="updatePayment()">
 
-              <span>
-                <strong>
-                  100% Advance — 2% Discount
-                </strong>
+                    50% Advance + 50% COD
 
-                <small>
-                  Full advance payment receives 2% discount.
-                </small>
-              </span>
-
-            </label>
-
-          </div>
+                </label>
 
 
-          <!-- BANK -->
+                <label class="payment-option">
 
-          <div id="bankDetails" class="bank-details">
+                    <input type="radio"
+                           name="paymentMethod"
+                           value="FULLADVANCE"
+                           onchange="updatePayment()">
 
-            <strong>
-              HBL Bank Details
-            </strong>
+                    100% Advance
 
-            <p>
-              Account Title: Sajid
-            </p>
+                </label>
 
-            <p>
-              Account Number: 00597901153803
-            </p>
+            </div>
 
-          </div>
+        </div>
 
 
-          <!-- SUMMARY -->
+        <div id="bankBox"
+             class="bank-box">
 
-          <div class="order-summary">
+            <strong>Bank Details</strong><br>
+
+            Bank: HBL<br>
+
+            Account Title: Sajid<br>
+
+            Account Number: 00597901153803
+
+        </div>
+
+
+        <div class="summary">
 
             <div class="summary-row">
-              <span>Product</span>
-              <strong id="summaryProduct">-</strong>
+
+                <span>
+                    Product
+                </span>
+
+                <span id="summaryProduct">
+                    Rs. 0
+                </span>
+
             </div>
+
 
             <div class="summary-row">
-              <span>Subtotal</span>
-              <strong id="summarySubtotal">Rs. 0</strong>
+
+                <span>
+                    Delivery
+                </span>
+
+                <span id="summaryDelivery">
+                    Rs. 0
+                </span>
+
             </div>
+
 
             <div class="summary-row">
-              <span>Delivery</span>
-              <strong id="summaryDelivery">Rs. 0</strong>
+
+                <span>
+                    Discount
+                </span>
+
+                <span id="summaryDiscount">
+                    Rs. 0
+                </span>
+
             </div>
 
-            <div class="summary-row discount">
-              <span>Discount</span>
-              <strong id="summaryDiscount">- Rs. 0</strong>
+
+            <div class="summary-row summary-total">
+
+                <span>
+                    Total
+                </span>
+
+                <span id="summaryTotal">
+                    Rs. 0
+                </span>
+
             </div>
 
-            <div class="summary-row total">
-              <span>Total</span>
-              <strong id="summaryTotal">Rs. 0</strong>
+
+            <div class="summary-row">
+
+                <span>
+                    Advance
+                </span>
+
+                <span id="summaryAdvance">
+                    Rs. 0
+                </span>
+
             </div>
 
-            <div class="summary-row advance">
-              <span>Advance</span>
-              <strong id="summaryAdvance">Rs. 0</strong>
+
+            <div class="summary-row">
+
+                <span>
+                    COD Amount
+                </span>
+
+                <span id="summaryCOD">
+                    Rs. 0
+                </span>
+
             </div>
 
-            <div class="summary-row advance">
-              <span>COD Amount</span>
-              <strong id="summaryCOD">Rs. 0</strong>
-            </div>
-
-          </div>
+        </div>
 
 
-          <button
-            type="submit"
-            class="btn btn-dark place-order-btn"
-          >
-            Place Order
-          </button>
+        <button id="submitOrderBtn"
+                class="order-btn"
+                style="margin-top:22px;"
+                onclick="submitOrder()">
 
-        </form>
+            PLACE ORDER
 
-      </div>
+        </button>
+
+
+        <button class="whatsapp-btn"
+                onclick="closeOrderForm()">
+
+            Cancel
+
+        </button>
 
     </div>
 
-  </div>
+</main>
 
 
-  <!-- SUCCESS MODAL -->
+<!-- =========================================================
+     SUCCESS MODAL
+     ========================================================= -->
 
-  <div id="successModal" class="modal">
+<div id="successModal"
+     class="modal">
 
-    <div class="modal-box">
-
-      <div class="success-box">
-
-        <div class="success-icon">
-          ✓
-        </div>
+    <div class="modal-content">
 
         <h2>
-          Order Received
+            Order Received
         </h2>
 
         <p>
-          Thank you for ordering from The Leather House.
+            Thank you! Your order has been received successfully.
+            We will contact you on WhatsApp/phone for confirmation.
         </p>
 
-        <div class="order-id">
-          Your Order ID:
-          <span id="successOrderId">-</span>
-        </div>
+        <button class="modal-btn"
+                onclick="goBackHome()">
 
-        <p>
-          Our team will contact you shortly.
-        </p>
+            Continue Shopping
 
-        <button
-          type="button"
-          class="btn btn-dark"
-          onclick="continueShopping()"
-        >
-          Continue Shopping
         </button>
-
-      </div>
 
     </div>
 
-  </div>
+</div>
 
 
-  <!-- FOOTER -->
+<script>
 
-  <footer class="site-footer">
+/* =========================================================
+   CONFIGURATION
+   ========================================================= */
 
-    <strong>
-      THE LEATHER HOUSE
-    </strong>
+const GOOGLE_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbwtsaYU_YJ9aB0leVLBBeP18zTO01pTjdprzPaat1Gd2eV0DJ0yNT6pBjEDZkKMIavINA/exec";
 
-    <p>
-      Premium Leather Jackets
-    </p>
+const ORDER_SECRET =
+"TLH_2026_Order_8472";
 
-    <p>
-      © The Leather House
-    </p>
-
-  </footer>
+const WHATSAPP_NUMBER =
+"923112674115";
 
 
-  <!-- JAVASCRIPT -->
+/* =========================================================
+   GLOBAL VARIABLES
+   ========================================================= */
 
-  <script>
+let allProducts = [];
+let currentProduct = null;
+let selectedSize = "";
 
-    /* =========================================
-       GOOGLE APPS SCRIPT
-    ========================================== */
-
-    const GOOGLE_SCRIPT_URL =
-      'https://script.google.com/macros/s/AKfycbwtsaYU_YJ9aB0leVLBBeP18zTO01pTjdprzPaat1Gd2eV0DJ0yNT6pBjEDZkKMIavINA/exec';
-
-    const ORDER_SECRET =
-      'TLH_2026_Order_8472';
+let deliveryCharge = 0;
 
 
-    /* =========================================
-       GLOBAL VARIABLES
-    ========================================== */
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
 
-    let allProducts = [];
-    let currentProduct = null;
-    let selectedSize = '';
-    let cartItem = null;
+function goBackHome(){
 
-    let frontImageLoaded = false;
-    let backImageLoaded = false;
+    window.location.href = "index.html";
+
+}
 
 
-    /* =========================================
-       HELPERS
-    ========================================== */
+/* =========================================================
+   GET PRODUCT ID
+   ========================================================= */
 
-    function getProductId() {
+function getProductId(){
 
-      const params =
-        new URLSearchParams(
-          window.location.search
-        );
+    const params =
+        new URLSearchParams(window.location.search);
 
-      return (
-        params.get('id') ||
-        params.get('productId') ||
-        ''
-      ).trim();
+    return (
+        params.get("id") ||
+        params.get("productId") ||
+        ""
+    ).trim();
 
-    }
+}
 
 
-    function money(value) {
+/* =========================================================
+   NORMALIZE IMAGE URL
+   ========================================================= */
 
-      const number =
-        Number(value) || 0;
+function normalizeImageUrl(value){
 
-      return (
-        'Rs. ' +
-        number.toLocaleString('en-PK')
-      );
+    if(!value) return "";
 
-    }
+    let url =
+        String(value).trim();
 
-
-    function escapeHtml(value) {
-
-      return String(value ?? '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-
-    }
+    if(!url) return "";
 
 
-    /* =========================================
-       IMAGE URL NORMALIZER
-    ========================================== */
-
-    function normalizeImageUrl(value) {
-
-      let url =
-        String(value || '').trim();
-
-      if (!url) {
-        return '';
-      }
-
-      /*
-        Already a Drive thumbnail.
-      */
-
-      if (
-        url.indexOf('drive.google.com/thumbnail') !== -1
-      ) {
+    /* Already thumbnail */
+    if(
+        url.includes("drive.google.com/thumbnail") ||
+        url.includes("drive.google.com/uc")
+    ){
         return url;
-      }
+    }
 
-      /*
-        Drive file URL.
-      */
 
-      let match =
+    /* Google Drive /file/d/FILE_ID */
+    let match =
         url.match(
-          /\/d\/([a-zA-Z0-9_-]+)/
+            /drive\.google\.com\/file\/d\/([^\/?#]+)/i
         );
 
-      /*
-        Drive URL with ?id=
-      */
-
-      if (!match) {
-
-        match =
-          url.match(
-            /[?&]id=([a-zA-Z0-9_-]+)/
-          );
-
-      }
-
-      if (match && match[1]) {
+    if(match){
 
         return (
-          'https://drive.google.com/thumbnail?id=' +
-          encodeURIComponent(match[1]) +
-          '&sz=w1600'
+            "https://drive.google.com/thumbnail?id=" +
+            encodeURIComponent(match[1]) +
+            "&sz=w1600"
         );
-
-      }
-
-      return url;
 
     }
 
 
-    /* =========================================
-       IMAGE CANDIDATES
-       Handles common Google Drive formats.
-    ========================================== */
-
-    function getImageCandidates(value) {
-
-      const original =
-        String(value || '').trim();
-
-      if (!original) {
-        return [];
-      }
-
-      const candidates = [];
-
-      function add(url) {
-
-        if (
-          url &&
-          !candidates.includes(url)
-        ) {
-
-          candidates.push(url);
-
-        }
-
-      }
-
-      add(original);
-
-
-      /*
-        If normalized thumbnail URL contains
-        a Drive ID, also try direct Drive view.
-      */
-
-      const idMatch =
-        original.match(
-          /[?&]id=([a-zA-Z0-9_-]+)/
+    /* Google Drive ?id=FILE_ID */
+    match =
+        url.match(
+            /[?&]id=([^&#]+)/i
         );
 
+    if(
+        match &&
+        url.includes("drive.google.com")
+    ){
 
-      if (
-        idMatch &&
-        idMatch[1]
-      ) {
-
-        const id =
-          idMatch[1];
-
-        add(
-          'https://drive.google.com/uc?export=view&id=' +
-          encodeURIComponent(id)
+        return (
+            "https://drive.google.com/thumbnail?id=" +
+            encodeURIComponent(
+                decodeURIComponent(match[1])
+            ) +
+            "&sz=w1600"
         );
-
-        add(
-          'https://drive.google.com/thumbnail?id=' +
-          encodeURIComponent(id) +
-          '&sz=w1600'
-        );
-
-      }
-
-
-      /*
-        If original is /file/d/ID/view
-      */
-
-      const fileMatch =
-        original.match(
-          /drive\.google\.com\/file\/d\/([^/]+)/
-        );
-
-
-      if (
-        fileMatch &&
-        fileMatch[1]
-      ) {
-
-        const id =
-          fileMatch[1];
-
-        add(
-          'https://drive.google.com/uc?export=view&id=' +
-          encodeURIComponent(id)
-        );
-
-        add(
-          'https://drive.google.com/thumbnail?id=' +
-          encodeURIComponent(id) +
-          '&sz=w1600'
-        );
-
-      }
-
-
-      return candidates;
 
     }
 
 
-    /* =========================================
-       LOAD IMAGE WITH FALLBACK
-    ========================================== */
+    return url;
 
-    function loadImageWithFallback(
-      img,
-      url,
-      successCallback,
-      failureCallback
-    ) {
-
-      const candidates =
-        getImageCandidates(url);
-
-      if (!candidates.length) {
-
-        failureCallback();
-
-        return;
-
-      }
+}
 
 
-      let index = 0;
+/* =========================================================
+   PRODUCT NORMALIZER
+   ========================================================= */
 
+function normalizeProduct(raw){
 
-      function tryNext() {
-
-        if (
-          index >=
-          candidates.length
-        ) {
-
-          console.error(
-            'ALL IMAGE URLS FAILED:',
-            url,
-            candidates
-          );
-
-          failureCallback();
-
-          return;
-
-        }
-
-
-        const currentUrl =
-          candidates[index];
-
-        index++;
-
-
-        console.log(
-          'Trying image:',
-          currentUrl
-        );
-
-
-        img.onload =
-          function() {
-
-            console.log(
-              'IMAGE LOADED:',
-              currentUrl
-            );
-
-            successCallback(
-              currentUrl
-            );
-
-          };
-
-
-        img.onerror =
-          function() {
-
-            console.warn(
-              'IMAGE FAILED:',
-              currentUrl
-            );
-
-            tryNext();
-
-          };
-
-
-        img.src =
-          currentUrl;
-
-      }
-
-
-      tryNext();
-
-    }
-
-
-    /* =========================================
-       NORMALIZE PRODUCT
-    ========================================== */
-
-    function normalizeProduct(raw) {
-
-      if (
-        !raw ||
-        typeof raw !== 'object'
-      ) {
-
+    if(!raw || typeof raw !== "object"){
         return null;
+    }
 
-      }
 
-
-      const id =
+    const id =
         raw.id ??
         raw.ID ??
         raw.productId ??
         raw.product_id ??
-        raw['Product ID'] ??
-        '';
+        raw["Product ID"] ??
+        "";
 
 
-      const name =
+    const name =
         raw.name ??
         raw.productName ??
         raw.title ??
         raw.Product ??
-        raw['Product Name'] ??
-        'Leather Jacket';
+        raw["Product Name"] ??
+        "";
 
 
-      const price =
-        Number(
-          raw.price ??
-          raw.Price ??
-          raw.salePrice ??
-          raw.amount ??
-          0
-        ) || 0;
+    const price =
+        raw.price ??
+        raw.Price ??
+        raw.salePrice ??
+        raw.amount ??
+        0;
 
 
-      const description =
+    const description =
         raw.description ??
         raw.Description ??
         raw.details ??
-        'Premium leather jacket from The Leather House.';
+        "";
 
 
-      const image =
+    /* =====================================================
+       FRONT IMAGE - MANY POSSIBLE COLUMN NAMES
+       ===================================================== */
+
+    const frontImage =
         raw.image ??
         raw.imageUrl ??
         raw.imageURL ??
         raw.photo ??
         raw.photoUrl ??
         raw.productImage ??
-        raw['Image URL'] ??
-        '';
+        raw["Image URL"] ??
+        raw["Image"] ??
+        raw["Photo"] ??
+        raw["Front Image URL"] ??
+        raw["Front Image"] ??
+        raw["Front"] ??
+        "";
 
 
-      /*
-        BACK IMAGE:
-        All common names are checked.
-      */
+    /* =====================================================
+       BACK IMAGE - MANY POSSIBLE COLUMN NAMES
+       ===================================================== */
 
-      const backImage =
+    const backImage =
         raw.backImage ??
         raw.backImageUrl ??
         raw.backImageURL ??
         raw.backPhoto ??
         raw.backPhotoUrl ??
         raw.backProductImage ??
-        raw['Back Image URL'] ??
-        raw['Back Image'] ??
-        raw['Back Image Url'] ??
+        raw["Back Image URL"] ??
+        raw["Back Image"] ??
+        raw["Back"] ??
+        raw["Back Photo"] ??
+        raw["Back URL"] ??
         raw.back_image ??
         raw.back_image_url ??
-        raw.backimage ??
-        raw.backimageurl ??
-        raw.BackImage ??
-        '';
+        "";
 
 
-      let sizes =
+    let sizes =
         raw.sizes ??
         raw.Sizes ??
         raw.availableSizes ??
         raw.available_sizes ??
-        'S,M,L,XL,XXL';
+        "";
 
 
-      if (Array.isArray(sizes)) {
+    if(Array.isArray(sizes)){
 
         sizes =
-          sizes
-            .map(
-              x =>
-                String(x).trim()
-            )
+            sizes
+            .map(x => String(x).trim())
             .filter(Boolean);
 
-      } else {
+    }
+    else if(typeof sizes === "string"){
 
         sizes =
-          String(sizes)
-            .split(',')
-            .map(
-              x =>
-                x.trim()
-            )
+            sizes
+            .split(/[,\s]+/)
+            .map(x => x.trim())
             .filter(Boolean);
 
-      }
-
-
-      if (!sizes.length) {
+    }
+    else{
 
         sizes =
-          [
-            'S',
-            'M',
-            'L',
-            'XL',
-            'XXL'
-          ];
+            ["S","M","L","XL","XXL"];
 
-      }
+    }
 
 
-      return {
+    if(!sizes.length){
 
-        id:
-          String(id).trim(),
+        sizes =
+            ["S","M","L","XL","XXL"];
 
-        name:
-          String(name),
+    }
 
-        price:
-          price,
 
-        description:
-          String(description),
+    return {
+
+        id:String(id).trim(),
+
+        name:String(name).trim(),
+
+        price:Number(
+            String(price)
+            .replace(/[^0-9.]/g,"")
+        ) || 0,
+
+        description:String(
+            description || ""
+        ).trim(),
 
         image:
-          normalizeImageUrl(image),
+            normalizeImageUrl(frontImage),
 
         backImage:
-          normalizeImageUrl(backImage),
+            normalizeImageUrl(backImage),
 
-        sizes:
-          sizes
+        sizes:sizes
 
-      };
+    };
 
-    }
+}
 
 
-    /* =========================================
-       EXTRACT PRODUCTS
-    ========================================== */
+/* =========================================================
+   EXTRACT PRODUCTS
+   ========================================================= */
 
-    function extractProducts(data) {
+function extractProducts(data){
 
-      if (
-        Array.isArray(data)
-      ) {
-
+    if(Array.isArray(data)){
         return data;
-
-      }
-
-
-      if (
-        data &&
-        Array.isArray(
-          data.products
-        )
-      ) {
-
-        return data.products;
-
-      }
-
-
-      if (
-        data &&
-        data.data &&
-        Array.isArray(
-          data.data
-        )
-      ) {
-
-        return data.data;
-
-      }
-
-
-      if (
-        data &&
-        data.result &&
-        Array.isArray(
-          data.result
-        )
-      ) {
-
-        return data.result;
-
-      }
-
-
-      return [];
-
     }
 
+    if(
+        data &&
+        Array.isArray(data.products)
+    ){
+        return data.products;
+    }
 
-    /* =========================================
-       LOAD PRODUCT
-    ========================================== */
+    if(
+        data &&
+        Array.isArray(data.data)
+    ){
+        return data.data;
+    }
 
-    async function loadProduct() {
+    if(
+        data &&
+        Array.isArray(data.result)
+    ){
+        return data.result;
+    }
 
-      const productId =
+    return [];
+
+}
+
+
+/* =========================================================
+   LOAD PRODUCTS
+   ========================================================= */
+
+async function loadProduct(){
+
+    const productId =
         getProductId();
 
 
-      if (!productId) {
+    if(!productId){
 
         showError(
-          'Product ID is missing from this page.'
+            "Product ID is missing from this page."
         );
 
         return;
 
-      }
+    }
 
 
-      try {
+    try{
 
         const url =
-          GOOGLE_SCRIPT_URL +
-          '?action=products' +
-          '&secret=' +
-          encodeURIComponent(
-            ORDER_SECRET
-          ) +
-          '&t=' +
-          Date.now();
+            GOOGLE_SCRIPT_URL +
+            "?action=products" +
+            "&secret=" +
+            encodeURIComponent(ORDER_SECRET) +
+            "&t=" +
+            Date.now();
 
 
         const response =
-          await fetch(
-            url,
-            {
-              method: 'GET',
-              cache: 'no-store'
-            }
-          );
+            await fetch(
+                url,
+                {
+                    method:"GET",
+                    cache:"no-store"
+                }
+            );
 
 
-        if (!response.ok) {
+        if(!response.ok){
 
-          throw new Error(
-            'Server returned HTTP ' +
-            response.status
-          );
+            throw new Error(
+                "Server returned HTTP " +
+                response.status
+            );
 
         }
 
 
         const data =
-          await response.json();
-
-
-        if (
-          data &&
-          data.ok === false
-        ) {
-
-          throw new Error(
-            data.error ||
-            'Unable to load products.'
-          );
-
-        }
+            await response.json();
 
 
         const rawProducts =
-          extractProducts(data);
+            extractProducts(data);
 
 
         allProducts =
-          rawProducts
-            .map(
-              normalizeProduct
-            )
+            rawProducts
+            .map(normalizeProduct)
             .filter(Boolean);
 
 
         currentProduct =
-          allProducts.find(
-            product =>
-              String(product.id) ===
-              String(productId)
-          );
+            allProducts.find(
+                product =>
+                    String(product.id) ===
+                    String(productId)
+            );
 
 
-        if (!currentProduct) {
+        if(!currentProduct){
 
-          showError(
-            'Product not found. Please return to the jackets page and open the product again.'
-          );
+            showError(
+                "Product not found. Product ID: " +
+                productId
+            );
 
-          return;
+            return;
 
         }
-
-
-        console.log(
-          'CURRENT PRODUCT:',
-          currentProduct
-        );
-
-        console.log(
-          'FRONT IMAGE:',
-          currentProduct.image
-        );
-
-        console.log(
-          'BACK IMAGE:',
-          currentProduct.backImage
-        );
 
 
         displayProduct();
 
-      } catch (error) {
+
+    }
+    catch(error){
 
         console.error(
-          'Product Load Error:',
-          error
+            "Product loading error:",
+            error
         );
 
 
         showError(
-          'Product Load Error: ' +
-          error.message
+            error.message ||
+            "Unable to load product."
         );
 
-      }
+    }
+
+}
+
+
+/* =========================================================
+   DISPLAY PRODUCT
+   ========================================================= */
+
+function displayProduct(){
+
+    if(!currentProduct){
+        return;
+    }
+
+
+    const loadingScreen =
+        document.getElementById(
+            "loadingScreen"
+        );
+
+    const productPage =
+        document.getElementById(
+            "productPage"
+        );
+
+    const frontImg =
+        document.getElementById(
+            "productImage"
+        );
+
+    const backImg =
+        document.getElementById(
+            "productBackImage"
+        );
+
+    const placeholder =
+        document.getElementById(
+            "imagePlaceholder"
+        );
+
+
+    loadingScreen.classList.add(
+        "hidden"
+    );
+
+    productPage.classList.remove(
+        "hidden"
+    );
+
+
+    /* Product information */
+
+    document.getElementById(
+        "productName"
+    ).textContent =
+        currentProduct.name ||
+        "Leather Jacket";
+
+
+    document.getElementById(
+        "productPrice"
+    ).textContent =
+        "Rs. " +
+        currentProduct.price
+        .toLocaleString();
+
+
+    document.getElementById(
+        "productDescription"
+    ).textContent =
+        currentProduct.description ||
+        "Premium quality leather jacket.";
+
+
+    /* Reset images */
+
+    frontImg.style.display =
+        "none";
+
+    backImg.style.display =
+        "none";
+
+    frontImg.removeAttribute(
+        "src"
+    );
+
+    backImg.removeAttribute(
+        "src"
+    );
+
+
+    placeholder.style.display =
+        "flex";
+
+    placeholder.textContent =
+        "Loading product images...";
+
+
+    let frontLoaded = false;
+    let backLoaded = false;
+
+
+    function updatePlaceholder(){
+
+        if(
+            frontLoaded ||
+            backLoaded
+        ){
+
+            placeholder.style.display =
+                "none";
+
+        }
 
     }
 
 
-    /* =========================================
-       DISPLAY PRODUCT
-    ========================================== */
+    /* =====================================================
+       IMAGE CANDIDATES
+       ===================================================== */
 
-    function displayProduct() {
+    function getImageCandidates(
+        originalUrl
+    ){
 
-      if (!currentProduct) {
-        return;
-      }
-
-
-      document.title =
-        currentProduct.name +
-        ' — The Leather House';
+        const url =
+            String(
+                originalUrl || ""
+            ).trim();
 
 
-      document.getElementById(
-        'productName'
-      ).textContent =
-        currentProduct.name;
+        if(!url){
+            return [];
+        }
 
 
-      document.getElementById(
-        'productPrice'
-      ).textContent =
-        money(
-          currentProduct.price
-        );
+        const candidates = [];
 
 
-      document.getElementById(
-        'productDescription'
-      ).textContent =
-        currentProduct.description;
+        /* Original */
+        candidates.push(url);
 
 
-      document.getElementById(
-        'aboutText'
-      ).textContent =
-        currentProduct.description ||
-        'Premium leather craftsmanship with a clean, timeless design. Each jacket is prepared with attention to detail and quality.';
+        /* /file/d/FILE_ID */
+        let match =
+            url.match(
+                /drive\.google\.com\/file\/d\/([^\/?#]+)/i
+            );
 
 
-      const image =
-        document.getElementById(
-          'productImage'
-        );
+        if(match){
+
+            const id =
+                match[1];
 
 
-      const backImage =
-        document.getElementById(
-          'productBackImage'
-        );
+            candidates.push(
+                "https://drive.google.com/thumbnail?id=" +
+                encodeURIComponent(id) +
+                "&sz=w1600"
+            );
 
 
-      const placeholder =
-        document.getElementById(
-          'imagePlaceholder'
-        );
+            candidates.push(
+                "https://drive.google.com/uc?export=view&id=" +
+                encodeURIComponent(id)
+            );
+
+        }
 
 
-      /*
-        RESET
-      */
-
-      frontImageLoaded = false;
-      backImageLoaded = false;
-
-
-      image.style.display =
-        'none';
-
-      backImage.style.display =
-        'none';
+        /* ?id=FILE_ID */
+        match =
+            url.match(
+                /[?&]id=([^&#]+)/i
+            );
 
 
-      image.removeAttribute(
-        'src'
-      );
+        if(
+            match &&
+            url.includes(
+                "drive.google.com"
+            )
+        ){
 
-      backImage.removeAttribute(
-        'src'
-      );
-
-
-      placeholder.textContent =
-        'Loading product images...';
-
-      placeholder.style.display =
-        'flex';
+            const id =
+                decodeURIComponent(
+                    match[1]
+                );
 
 
-      /* =====================================
-         FRONT IMAGE
-      ====================================== */
-
-      if (
-        currentProduct.image
-      ) {
-
-        loadImageWithFallback(
-          image,
-          currentProduct.image,
-
-          function() {
-
-            frontImageLoaded =
-              true;
-
-            image.style.display =
-              'block';
-
-            updateImagePlaceholder();
-
-          },
-
-          function() {
-
-            frontImageLoaded =
-              false;
-
-            image.style.display =
-              'none';
-
-            updateImagePlaceholder();
-
-          }
-        );
-
-      }
+            candidates.push(
+                "https://drive.google.com/thumbnail?id=" +
+                encodeURIComponent(id) +
+                "&sz=w1600"
+            );
 
 
-      /* =====================================
-         BACK IMAGE
-      ====================================== */
+            candidates.push(
+                "https://drive.google.com/uc?export=view&id=" +
+                encodeURIComponent(id)
+            );
 
-      if (
-        currentProduct.backImage
-      ) {
-
-        console.log(
-          'STARTING BACK IMAGE:',
-          currentProduct.backImage
-        );
+        }
 
 
-        loadImageWithFallback(
-          backImage,
-          currentProduct.backImage,
+        return [
+            ...new Set(candidates)
+        ];
 
-          function(
-            loadedUrl
-          ) {
+    }
+
+
+    /* =====================================================
+       LOAD IMAGE WITH FALLBACK
+       ===================================================== */
+
+    function loadImage(
+        img,
+        originalUrl,
+        success,
+        failed
+    ){
+
+        const candidates =
+            getImageCandidates(
+                originalUrl
+            );
+
+
+        if(!candidates.length){
+
+            failed();
+
+            return;
+
+        }
+
+
+        let index = 0;
+
+
+        function tryNext(){
+
+            if(
+                index >=
+                candidates.length
+            ){
+
+                failed();
+
+                return;
+
+            }
+
+
+            const url =
+                candidates[index++];
+
 
             console.log(
-              'BACK IMAGE SUCCESS:',
-              loadedUrl
+                "Trying image:",
+                url
             );
 
 
-            backImageLoaded =
-              true;
+            img.onload =
+                function(){
+
+                    console.log(
+                        "Image loaded:",
+                        url
+                    );
 
 
-            /*
-              FORCE SHOW.
-              This works on desktop,
-              tablet and mobile.
-            */
-
-            backImage.style.setProperty(
-              'display',
-              'block',
-              'important'
-            );
+                    img.style.display =
+                        "block";
 
 
-            updateImagePlaceholder();
+                    success(url);
 
-          },
-
-          function() {
-
-            console.error(
-              'BACK IMAGE COULD NOT LOAD:',
-              currentProduct.backImage
-            );
+                };
 
 
-            backImageLoaded =
-              false;
+            img.onerror =
+                function(){
+
+                    console.log(
+                        "Image failed:",
+                        url
+                    );
 
 
-            backImage.style.setProperty(
-              'display',
-              'none',
-              'important'
-            );
+                    img.style.display =
+                        "none";
 
 
-            updateImagePlaceholder();
+                    tryNext();
 
-          }
-        );
-
-      } else {
-
-        console.warn(
-          'NO BACK IMAGE VALUE FOUND FOR PRODUCT:',
-          currentProduct.id
-        );
-
-        backImageLoaded =
-          false;
-
-      }
+                };
 
 
-      renderSizes();
+            img.src =
+                url;
+
+        }
+
+
+        tryNext();
 
     }
 
 
-    /* =========================================
-       IMAGE PLACEHOLDER
-    ========================================== */
+    /* =====================================================
+       FRONT IMAGE
+       ===================================================== */
 
-    function updateImagePlaceholder() {
+    if(
+        currentProduct.image
+    ){
 
-      const placeholder =
-        document.getElementById(
-          'imagePlaceholder'
+        loadImage(
+
+            frontImg,
+
+            currentProduct.image,
+
+            function(){
+
+                frontLoaded =
+                    true;
+
+                updatePlaceholder();
+
+            },
+
+            function(){
+
+                frontLoaded =
+                    false;
+
+                updatePlaceholder();
+
+            }
+
         );
 
+    }
 
-      if (
-        frontImageLoaded ||
-        backImageLoaded
-      ) {
+
+    /* =====================================================
+       BACK IMAGE
+       ===================================================== */
+
+    if(
+        currentProduct.backImage
+    ){
+
+        loadImage(
+
+            backImg,
+
+            currentProduct.backImage,
+
+            function(){
+
+                backLoaded =
+                    true;
+
+                updatePlaceholder();
+
+            },
+
+            function(){
+
+                backLoaded =
+                    false;
+
+
+                if(!frontLoaded){
+
+                    placeholder.style.display =
+                        "flex";
+
+                    placeholder.textContent =
+                        "Product images could not be loaded.";
+
+                }
+
+            }
+
+        );
+
+    }
+
+
+    /* No images */
+
+    if(
+        !currentProduct.image &&
+        !currentProduct.backImage
+    ){
 
         placeholder.style.display =
-          'none';
-
-        return;
-
-      }
-
-
-      const frontExists =
-        Boolean(
-          currentProduct &&
-          currentProduct.image
-        );
-
-
-      const backExists =
-        Boolean(
-          currentProduct &&
-          currentProduct.backImage
-        );
-
-
-      if (
-        !frontExists &&
-        !backExists
-      ) {
+            "flex";
 
         placeholder.textContent =
-          'Product images not available.';
-
-      } else {
-
-        placeholder.textContent =
-          'Unable to load product images.';
-
-      }
-
-
-      placeholder.style.display =
-        'flex';
+            "Product image is not available.";
 
     }
+
+
+    /* Sizes */
+
+    renderSizes(
+        currentProduct.sizes
+    );
+
+
+    updateSummary();
+
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+function showError(message){
+
+    document.getElementById(
+        "loadingScreen"
+    ).classList.add(
+        "hidden"
+    );
+
+
+    document.getElementById(
+        "productPage"
+    ).classList.add(
+        "hidden"
+    );
+
+
+    document.getElementById(
+        "errorScreen"
+    ).classList.remove(
+        "hidden"
+    );
+
+
+    document.getElementById(
+        "errorMessage"
+    ).textContent =
+        message;
+
+}
+
+
+/* =========================================================
+   SIZES
+   ========================================================= */
+
+function renderSizes(sizes){
+
+    const box =
+        document.getElementById(
+            "sizeList"
+        );
+
+
+    box.innerHTML = "";
+
+
+    if(!sizes || !sizes.length){
+
+        sizes =
+            ["S","M","L","XL","XXL"];
+
+    }
+
+
+    sizes.forEach(
+        function(size,index){
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+
+            button.type =
+                "button";
+
+            button.className =
+                "size-btn";
+
+            button.textContent =
+                size;
+
+
+            button.onclick =
+                function(){
+
+                    document
+                    .querySelectorAll(
+                        ".size-btn"
+                    )
+                    .forEach(
+                        b =>
+                        b.classList.remove(
+                            "active"
+                        )
+                    );
+
+
+                    button.classList.add(
+                        "active"
+                    );
+
+
+                    selectedSize =
+                        size;
+
+                };
+
+
+            box.appendChild(
+                button
+            );
+
+
+            if(index === 0){
+
+                button.classList.add(
+                    "active"
+                );
+
+                selectedSize =
+                    size;
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   ORDER FORM
+   ========================================================= */
+
+function openOrderForm(){
+
+    if(!currentProduct){
+        return;
+    }
+
+
+    document.getElementById(
+        "orderBox"
+    ).classList.remove(
+        "hidden"
+    );
+
+
+    updateSummary();
+
+
+    document.getElementById(
+        "orderBox"
+    ).scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+}
+
+
+function closeOrderForm(){
+
+    document.getElementById(
+        "orderBox"
+    ).classList.add(
+        "hidden"
+    );
+
+}
+
+
+/* =========================================================
+   DELIVERY
+   ========================================================= */
+
+function updateDelivery(){
+
+    const city =
+        document.getElementById(
+            "customerCity"
+        ).value;
+
+
+    if(city === "Karachi"){
+
+        deliveryCharge =
+            300;
+
+    }
+    else if(city === "Other"){
+
+        deliveryCharge =
+            600;
+
+    }
+    else{
+
+        deliveryCharge =
+            0;
+
+    }
+
+
+    updateSummary();
+
+}
+
+
+/* =========================================================
+   PAYMENT
+   ========================================================= */
+
+function getPaymentMethod(){
+
+    const selected =
+        document.querySelector(
+            'input[name="paymentMethod"]:checked'
+        );
+
+
+    return selected ?
+        selected.value :
+        "COD";
+
+}
+
+
+function updatePayment(){
+
+    const method =
+        getPaymentMethod();
+
+
+    const bankBox =
+        document.getElementById(
+            "bankBox"
+        );
+
+
+    if(
+        method ===
+        "FULLADVANCE"
+    ){
+
+        bankBox.style.display =
+            "block";
+
+    }
+    else if(
+        method ===
+        "50ADVANCE"
+    ){
+
+        bankBox.style.display =
+            "block";
+
+    }
+    else{
+
+        bankBox.style.display =
+            "none";
+
+    }
+
+
+    updateSummary();
+
+}
+
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+function updateSummary(){
+
+    if(!currentProduct){
+        return;
+    }
+
+
+    const productPrice =
+        Number(
+            currentProduct.price ||
+            0
+        );
+
+
+    const delivery =
+        Number(
+            deliveryCharge ||
+            0
+        );
+
+
+    const payment =
+        getPaymentMethod();
+
+
+    let discount = 0;
 
 
     /*
-      Keep old function name too.
-      Other code can safely call it.
+      100% COD       = 0 discount
+      50% advance    = 0 discount
+      100% advance   = 2% discount
     */
 
-    function checkImagePlaceholder() {
-
-      updateImagePlaceholder();
-
-    }
-
-
-    /* =========================================
-       RENDER SIZES
-    ========================================== */
-
-    function renderSizes() {
-
-      const container =
-        document.getElementById(
-          'sizeOptions'
-        );
-
-
-      const checkout =
-        document.getElementById(
-          'checkoutSize'
-        );
-
-
-      container.innerHTML =
-        '';
-
-
-      checkout.innerHTML =
-        '<option value="">Select Size</option>';
-
-
-      const sizes =
-        currentProduct &&
-        Array.isArray(
-          currentProduct.sizes
-        )
-          ? currentProduct.sizes
-          : [
-              'S',
-              'M',
-              'L',
-              'XL',
-              'XXL'
-            ];
-
-
-      sizes.forEach(
-        size => {
-
-          const button =
-            document.createElement(
-              'button'
-            );
-
-
-          button.type =
-            'button';
-
-
-          button.className =
-            'size-btn';
-
-
-          button.textContent =
-            size;
-
-
-          button.onclick =
-            function() {
-
-              selectSize(
-                size
-              );
-
-            };
-
-
-          container.appendChild(
-            button
-          );
-
-
-          const option =
-            document.createElement(
-              'option'
-            );
-
-
-          option.value =
-            size;
-
-
-          option.textContent =
-            size;
-
-
-          checkout.appendChild(
-            option
-          );
-
-        }
-      );
-
-
-      if (
-        sizes.length
-      ) {
-
-        selectSize(
-          sizes[0]
-        );
-
-      }
-
-    }
-
-
-    /* =========================================
-       SELECT SIZE
-    ========================================== */
-
-    function selectSize(size) {
-
-      selectedSize =
-        String(size);
-
-
-      document.querySelectorAll(
-        '.size-btn'
-      ).forEach(
-        button => {
-
-          button.classList.toggle(
-            'active',
-            button.textContent ===
-            selectedSize
-          );
-
-        }
-      );
-
-
-      const checkout =
-        document.getElementById(
-          'checkoutSize'
-        );
-
-
-      checkout.value =
-        selectedSize;
-
-
-      updateOrderSummary();
-
-    }
-
-
-    /* =========================================
-       CART
-    ========================================== */
-
-    function addToCart() {
-
-      if (!currentProduct) {
-        return;
-      }
-
-
-      if (!selectedSize) {
-
-        alert(
-          'Please select a size first.'
-        );
-
-        return;
-
-      }
-
-
-      cartItem = {
-
-        id:
-          currentProduct.id,
-
-        name:
-          currentProduct.name,
-
-        price:
-          currentProduct.price,
-
-        size:
-          selectedSize,
-
-        image:
-          currentProduct.image
-
-      };
-
-
-      localStorage.setItem(
-        'TLH_CART',
-        JSON.stringify(
-          cartItem
-        )
-      );
-
-
-      alert(
-        currentProduct.name +
-        ' (' +
-        selectedSize +
-        ') added to cart.'
-      );
-
-    }
-
-
-    /* =========================================
-       CHECKOUT
-    ========================================== */
-
-    function openCheckout() {
-
-      if (!currentProduct) {
-        return;
-      }
-
-
-      if (!selectedSize) {
-
-        alert(
-          'Please select a size first.'
-        );
-
-        return;
-
-      }
-
-
-      const checkoutSize =
-        document.getElementById(
-          'checkoutSize'
-        );
-
-
-      checkoutSize.value =
-        selectedSize;
-
-
-      updateOrderSummary();
-
-
-      document.getElementById(
-        'checkoutModal'
-      ).classList.add(
-        'show'
-      );
-
-
-      document.body.style.overflow =
-        'hidden';
-
-    }
-
-
-    function closeCheckout() {
-
-      document.getElementById(
-        'checkoutModal'
-      ).classList.remove(
-        'show'
-      );
-
-
-      document.body.style.overflow =
-        '';
-
-    }
-
-
-    /* =========================================
-       PAYMENT METHOD
-    ========================================== */
-
-    function getPaymentMethod() {
-
-      const selected =
-        document.querySelector(
-          'input[name="paymentMethod"]:checked'
-        );
-
-
-      return selected
-        ? selected.value
-        : '100% COD';
-
-    }
-
-
-    /* =========================================
-       ORDER SUMMARY
-    ========================================== */
-
-    function updateOrderSummary() {
-
-      if (!currentProduct) {
-        return;
-      }
-
-
-      const deliveryArea =
-        document.getElementById(
-          'deliveryArea'
-        ).value;
-
-
-      let delivery =
-        0;
-
-
-      if (
-        deliveryArea ===
-        'Karachi'
-      ) {
-
-        delivery =
-          300;
-
-      } else if (
-        deliveryArea ===
-        'Rest of Pakistan'
-      ) {
-
-        delivery =
-          600;
-
-      }
-
-
-      const subtotal =
-        Number(
-          currentProduct.price
-        ) || 0;
-
-
-      const paymentMethod =
-        getPaymentMethod();
-
-
-      let discount =
-        0;
-
-
-      if (
-        paymentMethod ===
-        '100% Advance'
-      ) {
+    if(
+        payment ===
+        "FULLADVANCE"
+    ){
 
         discount =
-          Math.round(
-            subtotal * 0.02
-          );
-
-      }
-
-
-      const total =
-        Math.max(
-          0,
-          subtotal +
-          delivery -
-          discount
-        );
-
-
-      let advance =
-        0;
-
-      let cod =
-        0;
-
-
-      if (
-        paymentMethod ===
-        '50% Advance + 50% COD'
-      ) {
-
-        advance =
-          Math.round(
-            total / 2
-          );
-
-        cod =
-          total -
-          advance;
-
-      } else if (
-        paymentMethod ===
-        '100% Advance'
-      ) {
-
-        advance =
-          total;
-
-        cod =
-          0;
-
-      } else {
-
-        advance =
-          0;
-
-        cod =
-          total;
-
-      }
-
-
-      document.getElementById(
-        'summaryProduct'
-      ).textContent =
-        currentProduct.name;
-
-
-      document.getElementById(
-        'summarySubtotal'
-      ).textContent =
-        money(
-          subtotal
-        );
-
-
-      document.getElementById(
-        'summaryDelivery'
-      ).textContent =
-        money(
-          delivery
-        );
-
-
-      document.getElementById(
-        'summaryDiscount'
-      ).textContent =
-        '- ' +
-        money(
-          discount
-        );
-
-
-      document.getElementById(
-        'summaryTotal'
-      ).textContent =
-        money(
-          total
-        );
-
-
-      document.getElementById(
-        'summaryAdvance'
-      ).textContent =
-        money(
-          advance
-        );
-
-
-      document.getElementById(
-        'summaryCOD'
-      ).textContent =
-        money(
-          cod
-        );
-
-
-      const bankDetails =
-        document.getElementById(
-          'bankDetails'
-        );
-
-
-      if (
-        paymentMethod ===
-        '100% Advance' ||
-        paymentMethod ===
-        '50% Advance + 50% COD'
-      ) {
-
-        bankDetails.classList.add(
-          'show'
-        );
-
-      } else {
-
-        bankDetails.classList.remove(
-          'show'
-        );
-
-      }
+            Math.round(
+                productPrice * 0.02
+            );
 
     }
 
 
-    /* =========================================
-       SHOW ERROR
-    ========================================== */
-
-    function showError(message) {
-
-      const name =
-        document.getElementById(
-          'productName'
-        );
+    const total =
+        productPrice +
+        delivery -
+        discount;
 
 
-      const description =
-        document.getElementById(
-          'productDescription'
-        );
+    let advance = 0;
 
 
-      name.textContent =
-        'Product Load Error';
+    if(
+        payment ===
+        "FULLADVANCE"
+    ){
 
+        advance =
+            total;
 
-      description.innerHTML =
-        '<div class="error-message">' +
-        escapeHtml(
-          message
-        ) +
-        '</div>';
+    }
+    else if(
+        payment ===
+        "50ADVANCE"
+    ){
 
-
-      document.getElementById(
-        'productPrice'
-      ).textContent =
-        '';
-
-
-      document.getElementById(
-        'productImage'
-      ).style.display =
-        'none';
-
-
-      document.getElementById(
-        'productBackImage'
-      ).style.display =
-        'none';
-
-
-      document.getElementById(
-        'imagePlaceholder'
-      ).textContent =
-        'Unable to load product.';
-
-
-      document.getElementById(
-        'imagePlaceholder'
-      ).style.display =
-        'flex';
+        advance =
+            Math.round(
+                total / 2
+            );
 
     }
 
 
-    /* =========================================
-       SUBMIT ORDER
-    ========================================== */
+    const cod =
+        total -
+        advance;
+
 
     document.getElementById(
-      'orderForm'
-    ).addEventListener(
-      'submit',
-      submitOrder
+        "summaryProduct"
+    ).textContent =
+        "Rs. " +
+        productPrice.toLocaleString();
+
+
+    document.getElementById(
+        "summaryDelivery"
+    ).textContent =
+        "Rs. " +
+        delivery.toLocaleString();
+
+
+    document.getElementById(
+        "summaryDiscount"
+    ).textContent =
+        "Rs. " +
+        discount.toLocaleString();
+
+
+    document.getElementById(
+        "summaryTotal"
+    ).textContent =
+        "Rs. " +
+        total.toLocaleString();
+
+
+    document.getElementById(
+        "summaryAdvance"
+    ).textContent =
+        "Rs. " +
+        advance.toLocaleString();
+
+
+    document.getElementById(
+        "summaryCOD"
+    ).textContent =
+        "Rs. " +
+        cod.toLocaleString();
+
+}
+
+
+/* =========================================================
+   WHATSAPP
+   ========================================================= */
+
+function contactWhatsApp(){
+
+    if(!currentProduct){
+        return;
+    }
+
+
+    const message =
+        "Hello The Leather House,%0A%0A" +
+        "I am interested in:%20" +
+        encodeURIComponent(
+            currentProduct.name
+        ) +
+        "%0A" +
+        "Price:%20Rs.%20" +
+        currentProduct.price +
+        "%0A" +
+        "Size:%20" +
+        encodeURIComponent(
+            selectedSize || "Not selected"
+        );
+
+
+    window.open(
+        "https://wa.me/" +
+        WHATSAPP_NUMBER +
+        "?text=" +
+        message,
+        "_blank"
     );
 
-
-    async function submitOrder(event) {
-
-      event.preventDefault();
+}
 
 
-      if (!currentProduct) {
+/* =========================================================
+   SUBMIT ORDER
+   ========================================================= */
+
+async function submitOrder(){
+
+    if(!currentProduct){
 
         alert(
-          'Product is not loaded yet.'
+            "Product is not loaded."
         );
 
         return;
 
-      }
+    }
 
 
-      const name =
+    const name =
         document.getElementById(
-          'customerName'
+            "customerName"
         ).value.trim();
 
 
-      const phone =
+    const phone =
         document.getElementById(
-          'customerPhone'
+            "customerPhone"
         ).value.trim();
 
 
-      const country =
+    const address =
         document.getElementById(
-          'customerCountry'
+            "customerAddress"
         ).value.trim();
 
 
-      const city =
+    const city =
         document.getElementById(
-          'customerCity'
-        ).value.trim();
-
-
-      const address =
-        document.getElementById(
-          'customerAddress'
-        ).value.trim();
-
-
-      const deliveryArea =
-        document.getElementById(
-          'deliveryArea'
+            "customerCity"
         ).value;
 
 
-      const size =
-        document.getElementById(
-          'checkoutSize'
-        ).value;
-
-
-      const notes =
-        document.getElementById(
-          'customerNotes'
-        ).value.trim();
-
-
-      const paymentMethod =
+    const paymentMethod =
         getPaymentMethod();
 
 
-      if (
-        !name ||
-        !phone ||
-        !country ||
-        !city ||
-        !address ||
-        !deliveryArea ||
-        !size
-      ) {
+    if(!name){
 
         alert(
-          'Please complete all required fields.'
+            "Please enter your name."
         );
 
         return;
 
-      }
+    }
 
 
-      const subtotal =
+    if(!phone){
+
+        alert(
+            "Please enter your phone number."
+        );
+
+        return;
+
+    }
+
+
+    if(!address){
+
+        alert(
+            "Please enter your complete address."
+        );
+
+        return;
+
+    }
+
+
+    if(!city){
+
+        alert(
+            "Please select your city."
+        );
+
+        return;
+
+    }
+
+
+    if(!selectedSize){
+
+        alert(
+            "Please select a size."
+        );
+
+        return;
+
+    }
+
+
+    const productPrice =
         Number(
-          currentProduct.price
-        ) || 0;
-
-
-      const delivery =
-        deliveryArea ===
-        'Karachi'
-          ? 300
-          : 600;
-
-
-      const discount =
-        paymentMethod ===
-        '100% Advance'
-          ? Math.round(
-              subtotal * 0.02
-            )
-          : 0;
-
-
-      const total =
-        Math.max(
-          0,
-          subtotal +
-          delivery -
-          discount
+            currentProduct.price ||
+            0
         );
 
 
-      let advance =
+    const discount =
+        paymentMethod ===
+        "FULLADVANCE"
+        ?
+        Math.round(
+            productPrice * 0.02
+        )
+        :
         0;
 
-      let codAmount =
-        0;
+
+    const total =
+        productPrice +
+        deliveryCharge -
+        discount;
 
 
-      if (
+    let advance = 0;
+
+
+    if(
         paymentMethod ===
-        '100% Advance'
-      ) {
+        "FULLADVANCE"
+    ){
 
         advance =
-          total;
+            total;
 
-        codAmount =
-          0;
-
-      } else if (
+    }
+    else if(
         paymentMethod ===
-        '50% Advance + 50% COD'
-      ) {
+        "50ADVANCE"
+    ){
 
         advance =
-          Math.round(
-            total / 2
-          );
+            Math.round(
+                total / 2
+            );
 
-        codAmount =
-          total -
-          advance;
-
-      } else {
-
-        advance =
-          0;
-
-        codAmount =
-          total;
-
-      }
+    }
 
 
-      const orderData = {
-
-        action:
-          'submit_order',
-
-        secret:
-          ORDER_SECRET,
-
-        productId:
-          currentProduct.id,
-
-        productName:
-          currentProduct.name,
-
-        price:
-          subtotal,
-
-        size:
-          size,
-
-        customerName:
-          name,
-
-        name:
-          name,
-
-        phone:
-          phone,
-
-        whatsapp:
-          phone,
-
-        country:
-          country,
-
-        city:
-          city,
-
-        address:
-          address,
-
-        deliveryArea:
-          deliveryArea,
-
-        deliveryCharge:
-          delivery,
-
-        paymentMethod:
-          paymentMethod,
-
-        subtotal:
-          subtotal,
-
-        discount:
-          discount,
-
-        total:
-          total,
-
-        advance:
-          advance,
-
-        advanceAmount:
-          advance,
-
-        codAmount:
-          codAmount,
-
-        notes:
-          notes,
-
-        source:
-          'product.html',
-
-        timestamp:
-          new Date().toISOString()
-
-      };
+    const codAmount =
+        total -
+        advance;
 
 
-      const submitButton =
-        document.querySelector(
-          '.place-order-btn'
+    const submitButton =
+        document.getElementById(
+            "submitOrderBtn"
         );
 
 
-      const originalText =
-        submitButton.textContent;
-
-
-      submitButton.disabled =
+    submitButton.disabled =
         true;
 
+    submitButton.textContent =
+        "SUBMITTING...";
 
-      submitButton.textContent =
-        'Submitting Order...';
+
+    const orderData = {
+
+        action:
+            "submit_order",
+
+        secret:
+            ORDER_SECRET,
+
+        productId:
+            currentProduct.id,
+
+        productName:
+            currentProduct.name,
+
+        price:
+            productPrice,
+
+        size:
+            selectedSize,
+
+        customerName:
+            name,
+
+        customerPhone:
+            phone,
+
+        customerAddress:
+            address,
+
+        city:
+            city,
+
+        deliveryCharge:
+            deliveryCharge,
+
+        paymentMethod:
+            paymentMethod,
+
+        discount:
+            discount,
+
+        total:
+            total,
+
+        advance:
+            advance,
+
+        codAmount:
+            codAmount,
+
+        timestamp:
+            new Date().toISOString()
+
+    };
 
 
-      try {
+    try{
 
         const response =
-          await fetch(
-            GOOGLE_SCRIPT_URL,
-            {
-              method: 'POST',
+            await fetch(
+                GOOGLE_SCRIPT_URL,
+                {
+                    method:"POST",
 
-              headers: {
-                'Content-Type':
-                  'text/plain;charset=utf-8'
-              },
+                    headers:{
+                        "Content-Type":
+                            "text/plain;charset=utf-8"
+                    },
 
-              body:
-                JSON.stringify(
-                  orderData
-                )
-            }
-          );
+                    body:
+                        JSON.stringify(
+                            orderData
+                        )
+                }
+            );
 
 
         const text =
-          await response.text();
+            await response.text();
 
 
-        let result =
-          null;
-
-
-        try {
-
-          result =
-            JSON.parse(
-              text
-            );
-
-        } catch (e) {
-
-          result = {
-            ok:
-              response.ok
-          };
-
-        }
-
-
-        if (
-          !response.ok ||
-          (
-            result &&
-            result.ok === false
-          )
-        ) {
-
-          throw new Error(
-            result &&
-            result.error
-              ? result.error
-              : 'Order submission failed.'
-          );
-
-        }
-
-
-        let orderId =
-          'TLH-' +
-          Date.now();
-
-
-        if (
-          result &&
-          (
-            result.orderId ||
-            result.id ||
-            result.orderID
-          )
-        ) {
-
-          orderId =
-            result.orderId ||
-            result.id ||
-            result.orderID;
-
-        }
-
-
-        closeCheckout();
-
-
-        document.getElementById(
-          'successOrderId'
-        ).textContent =
-          orderId;
-
-
-        document.getElementById(
-          'successModal'
-        ).classList.add(
-          'show'
+        console.log(
+            "Order response:",
+            text
         );
 
 
-        document.body.style.overflow =
-          'hidden';
+        let result = null;
+
+
+        try{
+
+            result =
+                JSON.parse(text);
+
+        }
+        catch(e){
+
+            result = null;
+
+        }
+
+
+        if(
+            result &&
+            result.success === false
+        ){
+
+            throw new Error(
+                result.message ||
+                "Order could not be submitted."
+            );
+
+        }
 
 
         document.getElementById(
-          'orderForm'
-        ).reset();
+            "successModal"
+        ).classList.add(
+            "show"
+        );
 
 
-        document.querySelector(
-          'input[name="paymentMethod"][value="100% COD"]'
-        ).checked =
-          true;
-
-
-        selectedSize =
-          '';
-
-      } catch (error) {
+    }
+    catch(error){
 
         console.error(
-          'Order Submit Error:',
-          error
+            "Order error:",
+            error
         );
 
 
         alert(
-          'Order submit nahi ho saka.\n\n' +
-          error.message
+            "Order submit error: " +
+            (
+                error.message ||
+                "Please try again."
+            )
         );
 
-      } finally {
+    }
+    finally{
 
         submitButton.disabled =
-          false;
+            false;
 
         submitButton.textContent =
-          originalText;
-
-      }
+            "PLACE ORDER";
 
     }
 
+}
 
-    /* =========================================
-       CONTINUE SHOPPING
-    ========================================== */
 
-    function continueShopping() {
+/* =========================================================
+   PAGE START
+   ========================================================= */
 
-      window.location.href =
-        'index.html';
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        loadProduct();
 
     }
+);
 
-
-    /* =========================================
-       MODAL CLICK OUTSIDE
-    ========================================== */
-
-    document.getElementById(
-      'checkoutModal'
-    ).addEventListener(
-      'click',
-      function(event) {
-
-        if (
-          event.target ===
-          this
-        ) {
-
-          closeCheckout();
-
-        }
-
-      }
-    );
-
-
-    document.getElementById(
-      'successModal'
-    ).addEventListener(
-      'click',
-      function(event) {
-
-        if (
-          event.target ===
-          this
-        ) {
-
-          continueShopping();
-
-        }
-
-      }
-    );
-
-
-    /* =========================================
-       ESC KEY
-    ========================================== */
-
-    document.addEventListener(
-      'keydown',
-      function(event) {
-
-        if (
-          event.key ===
-          'Escape'
-        ) {
-
-          closeCheckout();
-
-        }
-
-      }
-    );
-
-
-    /* =========================================
-       START
-    ========================================== */
-
-    loadProduct();
-
-  </script>
+</script>
 
 </body>
 </html>
