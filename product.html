@@ -648,6 +648,18 @@
     ========================== */
 
     @media (max-width: 850px) {
+      .product-image-box {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .product-image-box .product-image {
+        display: block !important;
+        width: 100%;
+        object-fit: cover;
+      }
+
       .product-section {
         grid-template-columns: 1fr;
         gap: 35px;
@@ -745,11 +757,11 @@
   <header class="site-header">
     <div class="header-inner">
 
-      <a href="index.html" class="brand">
+      <a href="index.html?v=20261005" class="brand">
         THE LEATHER HOUSE
       </a>
 
-      <a href="index.html" class="back-link">
+      <a href="index.html?v=20261005" class="back-link">
         ← Back to Jackets
       </a>
 
@@ -1447,7 +1459,7 @@
     ========================================== */
 
     const GOOGLE_SCRIPT_URL =
-      'https://script.google.com/macros/s/AKfycbz7btondYoYTivxnti7VSjHaTqr9LISPg4dAteKFjiXQLFLYv-CcdW0jBovtocJx6vyqg/exec';
+      'https://script.google.com/macros/s/AKfycbwtsaYU_YJ9aB0leVLBBeP18zTO01pTjdprzPaat1Gd2eV0DJ0yNT6pBjEDZkKMIavINA/exec';
 
     const ORDER_SECRET =
       'TLH_2026_Order_8472';
@@ -1475,7 +1487,30 @@
       const params =
         new URLSearchParams(window.location.search);
 
-      return params.get('id') || '';
+      // Support all common parameter names.
+      const fromUrl =
+        params.get('id') ||
+        params.get('productId') ||
+        params.get('product_id') ||
+        params.get('pid') ||
+        '';
+
+      if (fromUrl) {
+        const id = String(fromUrl).trim();
+        try {
+          localStorage.setItem('tlh_last_product_id', id);
+        } catch (e) {}
+        return id;
+      }
+
+      // Fallback for an older/cached homepage link.
+      try {
+        const saved =
+          localStorage.getItem('tlh_last_product_id') || '';
+        if (saved.trim()) return saved.trim();
+      } catch (e) {}
+
+      return '';
 
     }
 
@@ -1818,6 +1853,11 @@
 
           backImage.style.display =
             'block';
+
+          backImage.onerror = function(){
+            console.warn('Back image could not be loaded:', currentProduct.backImage);
+            backImage.style.display = 'none';
+          };
 
         } else {
 
