@@ -2796,7 +2796,7 @@ SAVE NEW PASSWORD
 ========================================================= */
 
 const GOOGLE_SCRIPT_URL =
-'https://script.google.com/macros/s/AKfycbz7btondYoYTivxnti7VSjHaTqr9LISPg4dAteKFjiXQLFLYv-CcdW0jBovtocJx6vyqg/exec';
+'https://script.google.com/macros/s/AKfycbwtsaYU_YJ9aB0leVLBBeP18zTO01pTjdprzPaat1Gd2eV0DJ0yNT6pBjEDZkKMIavINA/exec';
 
 const GOOGLE_SECRET_KEY =
 'TLH_2026_Order_8472';
@@ -2920,7 +2920,7 @@ list.length
 <div class="card-media">
 
 <a
-href="product.html?id=${encodeURIComponent(p.id)}"
+href="product.html?v=20261005&id=${encodeURIComponent(p.id)}"
 class="product-image-link"
 aria-label="View ${escapeHtml(p.name)}">
 
@@ -3025,16 +3025,37 @@ function enableProductImageHover(){
 
       if(!back) return;
 
-      img.addEventListener('mouseenter', function(){
+      function showBack(e){
+        if(e) e.preventDefault();
         img.src = back;
-      });
+        img.dataset.showingBack = '1';
+      }
 
-      img.addEventListener('mouseleave', function(){
+      function showFront(){
         img.src = front;
+        img.dataset.showingBack = '0';
+      }
+
+      // Desktop: hover
+      img.addEventListener('mouseenter', showBack);
+      img.addEventListener('mouseleave', showFront);
+
+      // Mobile: first tap shows the back image; next tap follows the VIEW PRODUCT link.
+      img.addEventListener('touchstart', function(e){
+        if(!img.dataset.showingBack || img.dataset.showingBack !== '1'){
+          showBack(e);
+          e.stopPropagation();
+        }
+      }, {passive:false});
+
+      img.addEventListener('touchend', function(){
+        if(img.dataset.showingBack === '1'){
+          setTimeout(showFront, 1800);
+        }
       });
 
       img.addEventListener('error', function(){
-        img.src = front;
+        if(img.src !== front) showFront();
       });
 
     });
