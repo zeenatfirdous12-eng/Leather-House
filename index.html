@@ -2920,8 +2920,7 @@ list.length
 <div class="card-media">
 
 <a
-href="product.html?v=20261005&id=${encodeURIComponent(String(p.id || ''))}"
-onclick="return handleProductCardClick(event,this)"
+href="product.html?id=${encodeURIComponent(p.id)}"
 class="product-image-link"
 aria-label="View ${escapeHtml(p.name)}">
 
@@ -2929,7 +2928,7 @@ aria-label="View ${escapeHtml(p.name)}">
 class="product-main-image"
 src="${escapeHtml(p.image)}"
 data-front="${escapeHtml(p.image)}"
-data-back="${escapeHtml(p.backImage || p.backImageUrl || p.backImageURL || p.backPhoto || p.backPhotoUrl || p.backProductImage || p.back_image || '')}"
+data-back="${escapeHtml(p.backImage || '')}"
 alt="${escapeHtml(p.name)}">
 
 <span class="product-view-overlay">
@@ -3012,53 +3011,34 @@ enableProductImageHover();
    FRONT / BACK IMAGE HOVER
 ========================================================= */
 
-function handleProductCardClick(event, link){
-  const img = link ? link.querySelector('.product-main-image') : null;
-  if(!img) return true;
-
-  const back = img.dataset.back || '';
-  const isTouch = window.matchMedia && window.matchMedia('(hover: none)').matches;
-
-  try{
-    const url = new URL(link.href, window.location.href);
-    const id = url.searchParams.get('id') || '';
-    if(id) localStorage.setItem('tlh_last_product_id', id);
-  }catch(e){}
-
-  if(isTouch && back && img.dataset.showingBack !== '1'){
-    event.preventDefault();
-    event.stopPropagation();
-    img.src = back;
-    img.dataset.showingBack = '1';
-    return false;
-  }
-  return true;
-}
-
 function enableProductImageHover(){
-  document.querySelectorAll('.product-main-image').forEach(function(img){
-    if(img.dataset.hoverReady === '1') return;
-    img.dataset.hoverReady = '1';
 
-    const front = img.dataset.front || img.src;
-    const back = img.dataset.back || '';
-    if(!back) return;
+  document
+    .querySelectorAll('.product-main-image')
+    .forEach(function(img){
 
-    img.addEventListener('mouseenter', function(){
-      img.src = back;
-      img.dataset.showingBack = '1';
+      if(img.dataset.hoverReady === '1') return;
+      img.dataset.hoverReady = '1';
+
+      const front = img.dataset.front || img.src;
+      const back = img.dataset.back || '';
+
+      if(!back) return;
+
+      img.addEventListener('mouseenter', function(){
+        img.src = back;
+      });
+
+      img.addEventListener('mouseleave', function(){
+        img.src = front;
+      });
+
+      img.addEventListener('error', function(){
+        img.src = front;
+      });
+
     });
 
-    img.addEventListener('mouseleave', function(){
-      img.src = front;
-      img.dataset.showingBack = '0';
-    });
-
-    img.addEventListener('error', function(){
-      img.src = front;
-      img.dataset.showingBack = '0';
-    });
-  });
 }
 
 
