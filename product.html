@@ -101,18 +101,17 @@
     }
 
     /* =========================
-       PRODUCT IMAGE
+       PRODUCT IMAGE - FIXED
     ========================== */
 
     .product-image-box {
       position: relative;
       width: 100%;
-      min-height: 540px;
       background: #e9e5de;
       border-radius: 18px;
       overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      flex-direction: column;
       gap: 2px;
       box-shadow: 0 10px 35px rgba(0,0,0,.08);
     }
@@ -120,9 +119,11 @@
     .product-image {
       width: 100%;
       height: 540px;
+      min-height: 540px;
       object-fit: cover;
       display: none;
       background: #e9e5de;
+      flex: 0 0 auto;
     }
 
     .product-back-image {
@@ -130,6 +131,8 @@
     }
 
     .image-placeholder {
+      width: 100%;
+      min-height: 540px;
       color: #777;
       font-size: 16px;
       text-align: center;
@@ -137,7 +140,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100%;
+      background: #e9e5de;
     }
 
     /* =========================
@@ -609,7 +612,7 @@
     }
 
     /* =========================
-       LOADING
+       LOADING / ERROR
     ========================== */
 
     .loading {
@@ -659,27 +662,23 @@
         gap: 35px;
       }
 
-      /*
-        FIX:
-        Mobile/tablet par front aur back images
-        ek ke neeche ek properly show hongi.
-      */
-
       .product-image-box {
-        grid-template-columns: 1fr;
+        width: 100%;
         height: auto;
         min-height: 0;
-        overflow: visible;
-        background: #e9e5de;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
       }
 
       .product-image {
         width: 100%;
         height: 480px;
         min-height: 480px;
-        display: block;
+        display: none;
         object-fit: cover;
-        background: #e9e5de;
+        flex: 0 0 auto;
       }
 
       .product-back-image {
@@ -687,7 +686,9 @@
       }
 
       .image-placeholder {
+        width: 100%;
         min-height: 480px;
+        height: 480px;
       }
 
       .benefits {
@@ -718,18 +719,13 @@
         padding: 30px 15px 55px;
       }
 
-      /*
-        MOBILE IMAGE FIX
-        Parent ki fixed height remove ki gayi hai.
-        Is se Front + Back dono visible rahenge.
-      */
-
       .product-image-box {
+        width: 100%;
         height: auto;
         min-height: 0;
-        overflow: visible;
-        display: grid;
-        grid-template-columns: 1fr;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
         gap: 2px;
         border-radius: 18px;
       }
@@ -738,9 +734,9 @@
         width: 100%;
         height: 390px;
         min-height: 390px;
-        display: block;
+        display: none;
         object-fit: cover;
-        background: #e9e5de;
+        flex: 0 0 auto;
       }
 
       .product-back-image {
@@ -748,6 +744,8 @@
       }
 
       .image-placeholder {
+        width: 100%;
+        height: 390px;
         min-height: 390px;
       }
 
@@ -793,9 +791,7 @@
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
+  <!-- HEADER -->
 
   <header class="site-header">
     <div class="header-inner">
@@ -812,15 +808,13 @@
   </header>
 
 
-  <!-- =========================
-       MAIN
-  ========================== -->
+  <!-- MAIN -->
 
   <main class="page-wrap">
 
     <section class="product-section">
 
-      <!-- PRODUCT IMAGE -->
+      <!-- PRODUCT IMAGES -->
 
       <div class="product-image-box">
 
@@ -872,7 +866,6 @@
           Premium leather jacket from The Leather House.
         </p>
 
-
         <label class="label">
           Select Size
         </label>
@@ -880,9 +873,7 @@
         <div
           id="sizeOptions"
           class="size-options"
-        >
-        </div>
-
+        ></div>
 
         <div class="action-buttons">
 
@@ -904,8 +895,6 @@
 
         </div>
 
-
-        <!-- BENEFITS -->
 
         <div class="benefits">
 
@@ -931,9 +920,7 @@
     </section>
 
 
-    <!-- =========================
-         ABOUT
-    ========================== -->
+    <!-- ABOUT -->
 
     <section class="info-section">
 
@@ -950,9 +937,7 @@
     </section>
 
 
-    <!-- =========================
-         SIZE CHART
-    ========================== -->
+    <!-- SIZE CHART -->
 
     <section class="info-section">
 
@@ -973,7 +958,6 @@
           </thead>
 
           <tbody>
-
             <tr>
               <td>S</td>
               <td>38"</td>
@@ -1003,7 +987,6 @@
               <td>46"</td>
               <td>29"</td>
             </tr>
-
           </tbody>
 
         </table>
@@ -1013,9 +996,7 @@
     </section>
 
 
-    <!-- =========================
-         DELIVERY
-    ========================== -->
+    <!-- DELIVERY -->
 
     <section class="info-section">
 
@@ -1048,9 +1029,7 @@
   </main>
 
 
-  <!-- =========================
-       CHECKOUT MODAL
-  ========================== -->
+  <!-- CHECKOUT MODAL -->
 
   <div
     id="checkoutModal"
@@ -1075,7 +1054,6 @@
 
       </div>
 
-
       <div class="modal-body">
 
         <form id="orderForm">
@@ -1083,9 +1061,7 @@
           <div class="form-grid">
 
             <div class="form-group">
-              <label>
-                Name *
-              </label>
+              <label>Name *</label>
 
               <input
                 id="customerName"
@@ -1096,9 +1072,7 @@
 
 
             <div class="form-group">
-              <label>
-                Phone / WhatsApp *
-              </label>
+              <label>Phone / WhatsApp *</label>
 
               <input
                 id="customerPhone"
@@ -1110,9 +1084,7 @@
 
 
             <div class="form-group">
-              <label>
-                Country *
-              </label>
+              <label>Country *</label>
 
               <input
                 id="customerCountry"
@@ -1124,9 +1096,7 @@
 
 
             <div class="form-group">
-              <label>
-                City *
-              </label>
+              <label>City *</label>
 
               <input
                 id="customerCity"
@@ -1137,9 +1107,7 @@
 
 
             <div class="form-group full">
-              <label>
-                Full Address *
-              </label>
+              <label>Full Address *</label>
 
               <textarea
                 id="customerAddress"
@@ -1150,9 +1118,7 @@
 
             <div class="form-group">
 
-              <label>
-                Delivery Area *
-              </label>
+              <label>Delivery Area *</label>
 
               <select
                 id="deliveryArea"
@@ -1179,9 +1145,7 @@
 
             <div class="form-group">
 
-              <label>
-                Size *
-              </label>
+              <label>Size *</label>
 
               <select
                 id="checkoutSize"
@@ -1199,9 +1163,7 @@
 
             <div class="form-group full">
 
-              <label>
-                Notes
-              </label>
+              <label>Notes</label>
 
               <textarea
                 id="customerNotes"
@@ -1233,6 +1195,7 @@
 
               <span>
                 <strong>100% COD</strong>
+
                 <small>
                   Pay the full amount when the order is delivered.
                 </small>
@@ -1252,6 +1215,7 @@
 
               <span>
                 <strong>50% Advance + 50% COD</strong>
+
                 <small>
                   Pay 50% in advance and remaining 50% on delivery.
                 </small>
@@ -1277,7 +1241,6 @@
                 <small>
                   Full advance payment receives 2% discount.
                 </small>
-
               </span>
 
             </label>
@@ -1312,93 +1275,38 @@
           <div class="order-summary">
 
             <div class="summary-row">
-
-              <span>
-                Product
-              </span>
-
-              <strong id="summaryProduct">
-                -
-              </strong>
-
+              <span>Product</span>
+              <strong id="summaryProduct">-</strong>
             </div>
-
 
             <div class="summary-row">
-
-              <span>
-                Subtotal
-              </span>
-
-              <strong id="summarySubtotal">
-                Rs. 0
-              </strong>
-
+              <span>Subtotal</span>
+              <strong id="summarySubtotal">Rs. 0</strong>
             </div>
-
 
             <div class="summary-row">
-
-              <span>
-                Delivery
-              </span>
-
-              <strong id="summaryDelivery">
-                Rs. 0
-              </strong>
-
+              <span>Delivery</span>
+              <strong id="summaryDelivery">Rs. 0</strong>
             </div>
-
 
             <div class="summary-row discount">
-
-              <span>
-                Discount
-              </span>
-
-              <strong id="summaryDiscount">
-                - Rs. 0
-              </strong>
-
+              <span>Discount</span>
+              <strong id="summaryDiscount">- Rs. 0</strong>
             </div>
-
 
             <div class="summary-row total">
-
-              <span>
-                Total
-              </span>
-
-              <strong id="summaryTotal">
-                Rs. 0
-              </strong>
-
+              <span>Total</span>
+              <strong id="summaryTotal">Rs. 0</strong>
             </div>
 
-
             <div class="summary-row advance">
-
-              <span>
-                Advance
-              </span>
-
-              <strong id="summaryAdvance">
-                Rs. 0
-              </strong>
-
+              <span>Advance</span>
+              <strong id="summaryAdvance">Rs. 0</strong>
             </div>
 
-
             <div class="summary-row advance">
-
-              <span>
-                COD Amount
-              </span>
-
-              <strong id="summaryCOD">
-                Rs. 0
-              </strong>
-
+              <span>COD Amount</span>
+              <strong id="summaryCOD">Rs. 0</strong>
             </div>
 
           </div>
@@ -1420,9 +1328,7 @@
   </div>
 
 
-  <!-- =========================
-       SUCCESS MODAL
-  ========================== -->
+  <!-- SUCCESS MODAL -->
 
   <div
     id="successModal"
@@ -1469,9 +1375,7 @@
   </div>
 
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
+  <!-- FOOTER -->
 
   <footer class="site-footer">
 
@@ -1490,9 +1394,7 @@
   </footer>
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
+  <!-- JAVASCRIPT -->
 
   <script>
 
@@ -1512,11 +1414,8 @@
     ========================================== */
 
     let allProducts = [];
-
     let currentProduct = null;
-
     let selectedSize = '';
-
     let cartItem = null;
 
 
@@ -1527,9 +1426,15 @@
     function getProductId() {
 
       const params =
-        new URLSearchParams(window.location.search);
+        new URLSearchParams(
+          window.location.search
+        );
 
-      return params.get('id') || '';
+      return (
+        params.get('id') ||
+        params.get('productId') ||
+        ''
+      ).trim();
 
     }
 
@@ -1539,8 +1444,10 @@
       const number =
         Number(value) || 0;
 
-      return 'Rs. ' +
-        number.toLocaleString('en-PK');
+      return (
+        'Rs. ' +
+        number.toLocaleString('en-PK')
+      );
 
     }
 
@@ -1558,6 +1465,63 @@
 
 
     /* =========================================
+       IMAGE URL NORMALIZER
+    ========================================== */
+
+    function normalizeImageUrl(value) {
+
+      let url =
+        String(value || '').trim();
+
+      if (!url) {
+        return '';
+      }
+
+      /*
+        Google Drive thumbnail URLs already work.
+      */
+
+      if (
+        url.indexOf('drive.google.com/thumbnail') !== -1
+      ) {
+        return url;
+      }
+
+      /*
+        Convert common Drive file URLs
+        into thumbnail URLs.
+      */
+
+      let match =
+        url.match(
+          /\/d\/([a-zA-Z0-9_-]+)/
+        );
+
+      if (!match) {
+
+        match =
+          url.match(
+            /[?&]id=([a-zA-Z0-9_-]+)/
+          );
+
+      }
+
+      if (match && match[1]) {
+
+        return (
+          'https://drive.google.com/thumbnail?id=' +
+          encodeURIComponent(match[1]) +
+          '&sz=w1600'
+        );
+
+      }
+
+      return url;
+
+    }
+
+
+    /* =========================================
        NORMALIZE PRODUCT
     ========================================== */
 
@@ -1567,19 +1531,24 @@
         return null;
       }
 
+
       const id =
         raw.id ??
         raw.ID ??
         raw.productId ??
         raw.product_id ??
+        raw['Product ID'] ??
         '';
+
 
       const name =
         raw.name ??
         raw.productName ??
         raw.title ??
         raw.Product ??
+        raw['Product Name'] ??
         'Leather Jacket';
+
 
       const price =
         Number(
@@ -1590,11 +1559,13 @@
           0
         ) || 0;
 
+
       const description =
         raw.description ??
         raw.Description ??
         raw.details ??
         'Premium leather jacket from The Leather House.';
+
 
       const image =
         raw.image ??
@@ -1603,7 +1574,9 @@
         raw.photo ??
         raw.photoUrl ??
         raw.productImage ??
+        raw['Image URL'] ??
         '';
+
 
       const backImage =
         raw.backImage ??
@@ -1612,7 +1585,11 @@
         raw.backPhoto ??
         raw.backPhotoUrl ??
         raw.backProductImage ??
+        raw['Back Image URL'] ??
+        raw.back_image ??
+        raw.back_image_url ??
         '';
+
 
       let sizes =
         raw.sizes ??
@@ -1621,33 +1598,60 @@
         raw.available_sizes ??
         'S,M,L,XL,XXL';
 
+
       if (Array.isArray(sizes)) {
 
-        sizes = sizes
-          .map(x => String(x).trim())
-          .filter(Boolean);
+        sizes =
+          sizes
+            .map(
+              x => String(x).trim()
+            )
+            .filter(Boolean);
 
       } else {
 
-        sizes = String(sizes)
-          .split(',')
-          .map(x => x.trim())
-          .filter(Boolean);
+        sizes =
+          String(sizes)
+            .split(',')
+            .map(
+              x => x.trim()
+            )
+            .filter(Boolean);
 
       }
+
 
       if (!sizes.length) {
-        sizes = ['S', 'M', 'L', 'XL', 'XXL'];
+
+        sizes =
+          ['S', 'M', 'L', 'XL', 'XXL'];
+
       }
 
+
       return {
-        id: String(id),
-        name: String(name),
-        price,
-        description: String(description),
-        image: String(image),
-        backImage: String(backImage),
-        sizes
+
+        id:
+          String(id).trim(),
+
+        name:
+          String(name),
+
+        price:
+          price,
+
+        description:
+          String(description),
+
+        image:
+          normalizeImageUrl(image),
+
+        backImage:
+          normalizeImageUrl(backImage),
+
+        sizes:
+          sizes
+
       };
 
     }
@@ -1663,15 +1667,26 @@
         return data;
       }
 
-      if (data && Array.isArray(data.products)) {
+      if (
+        data &&
+        Array.isArray(data.products)
+      ) {
         return data.products;
       }
 
-      if (data && data.data && Array.isArray(data.data)) {
+      if (
+        data &&
+        data.data &&
+        Array.isArray(data.data)
+      ) {
         return data.data;
       }
 
-      if (data && data.result && Array.isArray(data.result)) {
+      if (
+        data &&
+        data.result &&
+        Array.isArray(data.result)
+      ) {
         return data.result;
       }
 
@@ -1688,6 +1703,7 @@
 
       const productId =
         getProductId();
+
 
       if (!productId) {
 
@@ -1706,7 +1722,9 @@
           GOOGLE_SCRIPT_URL +
           '?action=products' +
           '&secret=' +
-          encodeURIComponent(ORDER_SECRET) +
+          encodeURIComponent(
+            ORDER_SECRET
+          ) +
           '&t=' +
           Date.now();
 
@@ -1777,6 +1795,22 @@
         }
 
 
+        console.log(
+          'CURRENT PRODUCT:',
+          currentProduct
+        );
+
+        console.log(
+          'FRONT IMAGE:',
+          currentProduct.image
+        );
+
+        console.log(
+          'BACK IMAGE:',
+          currentProduct.backImage
+        );
+
+
         displayProduct();
 
       } catch (error) {
@@ -1785,6 +1819,7 @@
           'Product Load Error:',
           error
         );
+
 
         showError(
           'Product Load Error: ' +
@@ -1821,7 +1856,9 @@
       document.getElementById(
         'productPrice'
       ).textContent =
-        money(currentProduct.price);
+        money(
+          currentProduct.price
+        );
 
 
       document.getElementById(
@@ -1855,28 +1892,58 @@
         );
 
 
-      /* =========================
+      /*
+        Reset both images first.
+      */
+
+      image.style.display = 'none';
+      backImage.style.display = 'none';
+
+
+      image.removeAttribute('src');
+      backImage.removeAttribute('src');
+
+
+      placeholder.textContent =
+        'Loading product images...';
+
+      placeholder.style.display =
+        'flex';
+
+
+      /* =====================================
          FRONT IMAGE
-      ========================== */
+      ====================================== */
 
       if (currentProduct.image) {
 
-        image.src =
-          currentProduct.image;
+        const frontUrl =
+          currentProduct.image +
+          (
+            currentProduct.image.indexOf('?') >= 0
+              ? '&'
+              : '?'
+          ) +
+          'v=' +
+          Date.now();
 
-        image.alt =
-          currentProduct.name +
-          ' Front View';
 
-        image.style.display =
-          'block';
+        image.onload =
+          function() {
+
+            image.style.display =
+              'block';
+
+            checkImagePlaceholder();
+
+          };
 
 
         image.onerror =
           function() {
 
             console.error(
-              'Front image failed:',
+              'FRONT IMAGE FAILED:',
               currentProduct.image
             );
 
@@ -1887,61 +1954,67 @@
 
           };
 
-      } else {
 
-        image.style.display =
-          'none';
+        image.src =
+          frontUrl;
 
       }
 
 
-      /* =========================
+      /* =====================================
          BACK IMAGE
-      ========================== */
+      ====================================== */
 
       if (currentProduct.backImage) {
 
-        backImage.src =
-          currentProduct.backImage;
+        const backUrl =
+          currentProduct.backImage +
+          (
+            currentProduct.backImage.indexOf('?') >= 0
+              ? '&'
+              : '?'
+          ) +
+          'v=' +
+          Date.now();
 
-        backImage.alt =
-          currentProduct.name +
-          ' Back View';
 
-        /*
-          JS controls actual visibility.
-          CSS only controls mobile layout.
-        */
+        backImage.onload =
+          function() {
 
-        backImage.style.display =
-          'block';
+            /*
+              IMPORTANT:
+              Inline display:block forces the
+              back image to show on every device.
+            */
+
+            backImage.style.display =
+              'block';
+
+            checkImagePlaceholder();
+
+          };
 
 
         backImage.onerror =
           function() {
 
             console.error(
-              'Back image failed:',
+              'BACK IMAGE FAILED:',
               currentProduct.backImage
             );
 
             backImage.style.display =
               'none';
 
+            checkImagePlaceholder();
+
           };
 
-      } else {
 
-        backImage.removeAttribute('src');
-
-        backImage.style.display =
-          'none';
+        backImage.src =
+          backUrl;
 
       }
-
-
-      placeholder.style.display =
-        'none';
 
 
       renderSizes();
@@ -1960,10 +2033,12 @@
           'productImage'
         );
 
+
       const backImage =
         document.getElementById(
           'productBackImage'
         );
+
 
       const placeholder =
         document.getElementById(
@@ -1971,28 +2046,60 @@
         );
 
 
-      const frontVisible =
-        image.style.display !== 'none' &&
-        image.getAttribute('src');
+      const frontLoaded =
+        image.complete &&
+        image.naturalWidth > 0 &&
+        image.style.display !== 'none';
 
 
-      const backVisible =
-        backImage.style.display !== 'none' &&
-        backImage.getAttribute('src');
+      const backLoaded =
+        backImage.complete &&
+        backImage.naturalWidth > 0 &&
+        backImage.style.display !== 'none';
 
 
-      if (!frontVisible && !backVisible) {
-
-        placeholder.textContent =
-          'Product image not available.';
-
-        placeholder.style.display =
-          'flex';
-
-      } else {
+      if (
+        frontLoaded ||
+        backLoaded
+      ) {
 
         placeholder.style.display =
           'none';
+
+      } else {
+
+        const frontExists =
+          Boolean(
+            currentProduct &&
+            currentProduct.image
+          );
+
+
+        const backExists =
+          Boolean(
+            currentProduct &&
+            currentProduct.backImage
+          );
+
+
+        if (
+          !frontExists &&
+          !backExists
+        ) {
+
+          placeholder.textContent =
+            'Product images not available.';
+
+        } else {
+
+          placeholder.textContent =
+            'Loading product images...';
+
+        }
+
+
+        placeholder.style.display =
+          'flex';
 
       }
 
@@ -2017,7 +2124,9 @@
         );
 
 
-      container.innerHTML = '';
+      container.innerHTML =
+        '';
+
 
       checkout.innerHTML =
         '<option value="">Select Size</option>';
@@ -2025,7 +2134,9 @@
 
       const sizes =
         currentProduct &&
-        Array.isArray(currentProduct.sizes)
+        Array.isArray(
+          currentProduct.sizes
+        )
           ? currentProduct.sizes
           : ['S', 'M', 'L', 'XL', 'XXL'];
 
@@ -2038,14 +2149,18 @@
               'button'
             );
 
+
           button.type =
             'button';
+
 
           button.className =
             'size-btn';
 
+
           button.textContent =
             size;
+
 
           button.onclick =
             function() {
@@ -2065,11 +2180,14 @@
               'option'
             );
 
+
           option.value =
             size;
 
+
           option.textContent =
             size;
+
 
           checkout.appendChild(
             option
@@ -2324,12 +2442,6 @@
         0;
 
 
-      /*
-        100% COD = 0 discount
-        50% Advance + 50% COD = 0 discount
-        100% Advance = 2% discount
-      */
-
       if (
         paymentMethod ===
         '100% Advance'
@@ -2446,14 +2558,7 @@
 
       if (
         paymentMethod ===
-        '100% Advance'
-      ) {
-
-        bankDetails.classList.add(
-          'show'
-        );
-
-      } else if (
+        '100% Advance' ||
         paymentMethod ===
         '50% Advance + 50% COD'
       ) {
@@ -2505,6 +2610,18 @@
         'productPrice'
       ).textContent =
         '';
+
+
+      document.getElementById(
+        'productImage'
+      ).style.display =
+        'none';
+
+
+      document.getElementById(
+        'productBackImage'
+      ).style.display =
+        'none';
 
 
       document.getElementById(
@@ -2756,6 +2873,9 @@
         advance:
           advance,
 
+        advanceAmount:
+          advance,
+
         codAmount:
           codAmount,
 
@@ -2783,6 +2903,7 @@
 
       submitButton.disabled =
         true;
+
 
       submitButton.textContent =
         'Submitting Order...';
