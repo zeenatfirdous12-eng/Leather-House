@@ -1640,57 +1640,6 @@ section{
 
 }
 
-
-
-/* =========================================================
-   FINAL PRODUCT IMAGE FIX — DESKTOP + MOBILE
-========================================================= */
-
-.product-main-image{
-  display:block!important;
-  width:100%!important;
-  height:350px!important;
-  object-fit:cover!important;
-  background:#17100c!important;
-}
-
-.product-image-link{
-  min-height:350px;
-  background:#17100c;
-}
-
-@media(max-width:1000px){
-  .product-main-image{
-    height:330px!important;
-  }
-  .product-image-link{
-    min-height:330px;
-  }
-}
-
-@media(max-width:650px){
-  .product-main-image{
-    height:260px!important;
-    min-height:260px!important;
-    width:100%!important;
-    object-fit:cover!important;
-  }
-  .product-image-link{
-    min-height:260px;
-    display:block!important;
-    overflow:hidden;
-  }
-  .product-view-overlay{
-    opacity:1!important;
-    visibility:visible!important;
-    pointer-events:none!important;
-  }
-}
-
-/* Never let a broken image create a white/empty card area. */
-.product-main-image[src=""]{
-  display:none!important;
-}
 </style>
 </head>
 
@@ -2847,7 +2796,7 @@ SAVE NEW PASSWORD
 ========================================================= */
 
 const GOOGLE_SCRIPT_URL =
-'https://script.google.com/macros/s/AKfycbwtsaYU_YJ9aB0leVLBBeP18zTO01pTjdprzPaat1Gd2eV0DJ0yNT6pBjEDZkKMIavINA/exec';
+'https://script.google.com/macros/s/AKfycbz7btondYoYTivxnti7VSjHaTqr9LISPg4dAteKFjiXQLFLYv-CcdW0jBovtocJx6vyqg/exec';
 
 const GOOGLE_SECRET_KEY =
 'TLH_2026_Order_8472';
@@ -2948,83 +2897,36 @@ behavior:'smooth'
 
 
 /* =========================================================
-   PRODUCT IMAGE HELPERS — MOBILE SAFE
+   IMAGE URL NORMALIZATION
 ========================================================= */
 
-function cleanValue(value){
-  return String(value ?? '').trim();
-}
+function normalizeProductImageUrl(value){
+  const raw=String(value ?? '').trim();
+  if(!raw) return '';
 
-function getDriveFileId(value){
-  const s=cleanValue(value);
-  if(!s) return '';
-
-  let m=s.match(/\/d\/([a-zA-Z0-9_-]+)/);
-  if(m) return m[1];
-
-  m=s.match(/[?&]id=([a-zA-Z0-9_-]+)/);
-  if(m) return m[1];
-
-  return '';
-}
-
-function normalizeImageUrl(value){
-  const s=cleanValue(value);
-  if(!s) return '';
-
-  const id=getDriveFileId(s);
+  let id='';
+  let m=raw.match(/[?&]id=([A-Za-z0-9_-]+)/);
+  if(m) id=m[1];
+  if(!id){
+    m=raw.match(/\/d\/([A-Za-z0-9_-]+)/);
+    if(m) id=m[1];
+  }
 
   if(id){
     return 'https://drive.google.com/thumbnail?id='+encodeURIComponent(id)+'&sz=w1600';
   }
 
-  if(/^https?:\/\//i.test(s)) return s;
-
-  return '';
+  return /^https?:\/\//i.test(raw) ? raw : '';
 }
 
-function getFirstImage(obj, keys){
-  for(const key of keys){
-    const value=obj && obj[key];
-    if(cleanValue(value)) return value;
-  }
-  return '';
-}
-
-function normalizeProduct(raw){
-  if(!raw || typeof raw!=='object') return null;
-
-  const id=getFirstImage(raw,[
-    'id','ID','productId','product_id','Product ID'
-  ]);
-
-  const name=getFirstImage(raw,[
-    'name','productName','title','Product','Product Name'
-  ]);
-
-  const image=normalizeImageUrl(getFirstImage(raw,[
-    'image','imageUrl','imageURL','photo','photoUrl',
-    'productImage','Image URL','Image','Photo',
-    'Front Image URL','Front Image','Front','frontImage','frontImageUrl'
-  ]));
-
-  const backImage=normalizeImageUrl(getFirstImage(raw,[
-    'backImage','backImageUrl','backImageURL','backPhoto',
-    'backPhotoUrl','backProductImage','Back Image URL',
-    'back_image','back_image_url','Back Image','Back',
-    'Back Photo','Back URL','backUrl','backURL'
-  ]));
-
+function normalizeLoadedProduct(p){
+  if(!p || typeof p!=='object') return p;
+  const front=p.image || p.imageUrl || p.imageURL || '';
+  const back=p.backImage || p.backImageUrl || p.backImageURL || p.backPhoto || p.backPhotoUrl || p.backProductImage || p.back_image || p.back_image_url || '';
   return {
-    ...raw,
-    id:cleanValue(id),
-    name:cleanValue(name),
-    price:Number(raw.price ?? raw.Price ?? raw.salePrice ?? raw.amount ?? 0),
-    category:cleanValue(raw.category ?? raw.Category ?? 'men').toLowerCase(),
-    tag:cleanValue(raw.tag ?? raw.Tag ?? 'Leather Jacket'),
-    sizes:cleanValue(raw.sizes ?? raw.Sizes ?? raw.availableSizes ?? raw.available_sizes ?? 'S,M,L,XL,XXL'),
-    image,
-    backImage
+    ...p,
+    image:normalizeProductImageUrl(front),
+    backImage:normalizeProductImageUrl(back)
   };
 }
 
@@ -3052,7 +2954,8 @@ list.length
 <div class="card-media">
 
 <a
-href="product.html?id=${encodeURIComponent(p.id)}"
+href="product.html?v=20261006&id=${encodeURIComponent(String(p.id || ''))}"
+onclick="return handleProductCardClick(event,this)"
 class="product-image-link"
 aria-label="View ${escapeHtml(p.name)}">
 
@@ -3060,9 +2963,7 @@ aria-label="View ${escapeHtml(p.name)}">
 class="product-main-image"
 src="${escapeHtml(p.image)}"
 data-front="${escapeHtml(p.image)}"
-data-back="${escapeHtml(p.backImage || '')}"
-loading="eager"
-decoding="async"
+data-back="${escapeHtml(p.backImage || p.backImageUrl || p.backImageURL || p.backPhoto || p.backPhotoUrl || p.backProductImage || p.back_image || '')}"
 alt="${escapeHtml(p.name)}">
 
 <span class="product-view-overlay">
@@ -3145,47 +3046,55 @@ enableProductImageHover();
    FRONT / BACK IMAGE HOVER
 ========================================================= */
 
+function handleProductCardClick(event, link){
+  const img = link ? link.querySelector('.product-main-image') : null;
+  if(!img) return true;
+
+  const back = img.dataset.back || '';
+  const isTouch = window.matchMedia && window.matchMedia('(hover: none)').matches;
+
+  try{
+    const url = new URL(link.href, window.location.href);
+    const id = url.searchParams.get('id') || '';
+    if(id) localStorage.setItem('tlh_last_product_id', id);
+  }catch(e){}
+
+  if(isTouch && back && img.dataset.showingBack !== '1'){
+    event.preventDefault();
+    event.stopPropagation();
+    img.src = back;
+    img.dataset.showingBack = '1';
+    return false;
+  }
+  return true;
+}
+
 function enableProductImageHover(){
+  document.querySelectorAll('.product-main-image').forEach(function(img){
+    if(img.dataset.hoverReady === '1') return;
+    img.dataset.hoverReady = '1';
 
-  document
-    .querySelectorAll('.product-main-image')
-    .forEach(function(img){
+    const front = img.dataset.front || img.src;
+    const back = img.dataset.back || '';
+    if(!back) return;
 
-      if(img.dataset.hoverReady === '1') return;
-      img.dataset.hoverReady = '1';
-
-      const front = img.dataset.front || img.src || '';
-      const back = img.dataset.back || '';
-
-      if(!front) return;
-
-      img.addEventListener('error', function(){
-        if(img.dataset.failedFront !== '1'){
-          img.dataset.failedFront='1';
-          const id=getDriveFileId(front);
-          if(id){
-            img.src='https://drive.google.com/uc?export=view&id='+encodeURIComponent(id);
-            return;
-          }
-        }
-        img.src=front;
-      });
-
-      if(!back) return;
-
-      img.addEventListener('mouseenter', function(){
-        img.src = back;
-      });
-
-      img.addEventListener('mouseleave', function(){
-        img.src = front;
-      });
-
-      /* Touch devices cannot hover. Keep front image stable here;
-         the full product page contains the back image as well. */
+    img.addEventListener('mouseenter', function(){
+      img.src = back;
+      img.dataset.showingBack = '1';
     });
 
+    img.addEventListener('mouseleave', function(){
+      img.src = front;
+      img.dataset.showingBack = '0';
+    });
+
+    img.addEventListener('error', function(){
+      img.src = front;
+      img.dataset.showingBack = '0';
+    });
+  });
 }
+
 
 /* =========================================================
    GET PRODUCT
@@ -4631,7 +4540,7 @@ result.error ||
 
 products=
 Array.isArray(result.products)
-?result.products.map(normalizeProduct).filter(p=>p && p.id)
+?result.products.map(normalizeLoadedProduct)
 :[];
 
 
