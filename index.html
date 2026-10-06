@@ -1640,6 +1640,57 @@ section{
 
 }
 
+
+
+/* =========================================================
+   FINAL PRODUCT IMAGE FIX — DESKTOP + MOBILE
+========================================================= */
+
+.product-main-image{
+  display:block!important;
+  width:100%!important;
+  height:350px!important;
+  object-fit:cover!important;
+  background:#17100c!important;
+}
+
+.product-image-link{
+  min-height:350px;
+  background:#17100c;
+}
+
+@media(max-width:1000px){
+  .product-main-image{
+    height:330px!important;
+  }
+  .product-image-link{
+    min-height:330px;
+  }
+}
+
+@media(max-width:650px){
+  .product-main-image{
+    height:260px!important;
+    min-height:260px!important;
+    width:100%!important;
+    object-fit:cover!important;
+  }
+  .product-image-link{
+    min-height:260px;
+    display:block!important;
+    overflow:hidden;
+  }
+  .product-view-overlay{
+    opacity:1!important;
+    visibility:visible!important;
+    pointer-events:none!important;
+  }
+}
+
+/* Never let a broken image create a white/empty card area. */
+.product-main-image[src=""]{
+  display:none!important;
+}
 </style>
 </head>
 
@@ -2897,6 +2948,87 @@ behavior:'smooth'
 
 
 /* =========================================================
+   PRODUCT IMAGE HELPERS — MOBILE SAFE
+========================================================= */
+
+function cleanValue(value){
+  return String(value ?? '').trim();
+}
+
+function getDriveFileId(value){
+  const s=cleanValue(value);
+  if(!s) return '';
+
+  let m=s.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  if(m) return m[1];
+
+  m=s.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+  if(m) return m[1];
+
+  return '';
+}
+
+function normalizeImageUrl(value){
+  const s=cleanValue(value);
+  if(!s) return '';
+
+  const id=getDriveFileId(s);
+
+  if(id){
+    return 'https://drive.google.com/thumbnail?id='+encodeURIComponent(id)+'&sz=w1600';
+  }
+
+  if(/^https?:\/\//i.test(s)) return s;
+
+  return '';
+}
+
+function getFirstImage(obj, keys){
+  for(const key of keys){
+    const value=obj && obj[key];
+    if(cleanValue(value)) return value;
+  }
+  return '';
+}
+
+function normalizeProduct(raw){
+  if(!raw || typeof raw!=='object') return null;
+
+  const id=getFirstImage(raw,[
+    'id','ID','productId','product_id','Product ID'
+  ]);
+
+  const name=getFirstImage(raw,[
+    'name','productName','title','Product','Product Name'
+  ]);
+
+  const image=normalizeImageUrl(getFirstImage(raw,[
+    'image','imageUrl','imageURL','photo','photoUrl',
+    'productImage','Image URL','Image','Photo',
+    'Front Image URL','Front Image','Front','frontImage','frontImageUrl'
+  ]));
+
+  const backImage=normalizeImageUrl(getFirstImage(raw,[
+    'backImage','backImageUrl','backImageURL','backPhoto',
+    'backPhotoUrl','backProductImage','Back Image URL',
+    'back_image','back_image_url','Back Image','Back',
+    'Back Photo','Back URL','backUrl','backURL'
+  ]));
+
+  return {
+    ...raw,
+    id:cleanValue(id),
+    name:cleanValue(name),
+    price:Number(raw.price ?? raw.Price ?? raw.salePrice ?? raw.amount ?? 0),
+    category:cleanValue(raw.category ?? raw.Category ?? 'men').toLowerCase(),
+    tag:cleanValue(raw.tag ?? raw.Tag ?? 'Leather Jacket'),
+    sizes:cleanValue(raw.sizes ?? raw.Sizes ?? raw.availableSizes ?? raw.available_sizes ?? 'S,M,L,XL,XXL'),
+    image,
+    backImage
+  };
+}
+
+/* =========================================================
    PRODUCTS
 ========================================================= */
 
@@ -2929,6 +3061,8 @@ class="product-main-image"
 src="${escapeHtml(p.image)}"
 data-front="${escapeHtml(p.image)}"
 data-back="${escapeHtml(p.backImage || '')}"
+loading="eager"
+decoding="async"
 alt="${escapeHtml(p.name)}">
 
 <span class="product-view-overlay">
@@ -3020,8 +3154,22 @@ function enableProductImageHover(){
       if(img.dataset.hoverReady === '1') return;
       img.dataset.hoverReady = '1';
 
-      const front = img.dataset.front || img.src;
+      const front = img.dataset.front || img.src || '';
       const back = img.dataset.back || '';
+
+      if(!front) return;
+
+      img.addEventListener('error', function(){
+        if(img.dataset.failedFront !== '1'){
+          img.dataset.failedFront='1';
+          const id=getDriveFileId(front);
+          if(id){
+            img.src='https://drive.google.com/uc?export=view&id='+encodeURIComponent(id);
+            return;
+          }
+        }
+        img.src=front;
+      });
 
       if(!back) return;
 
@@ -3033,14 +3181,11 @@ function enableProductImageHover(){
         img.src = front;
       });
 
-      img.addEventListener('error', function(){
-        img.src = front;
-      });
-
+      /* Touch devices cannot hover. Keep front image stable here;
+         the full product page contains the back image as well. */
     });
 
 }
-
 
 /* =========================================================
    GET PRODUCT
@@ -4486,7 +4631,7 @@ result.error ||
 
 products=
 Array.isArray(result.products)
-?result.products
+?result.products.map(normalizeProduct).filter(p=>p && p.id)
 :[];
 
 
