@@ -551,6 +551,78 @@ textarea{
         font-size:23px;
     }
 }
+
+/* =========================================================
+   FINAL PRODUCT IMAGE FIX
+   ========================================================= */
+
+.product-image-box{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    align-items:stretch !important;
+    position:relative !important;
+    min-height:540px !important;
+}
+
+.product-image{
+    width:100% !important;
+    height:540px !important;
+    min-height:540px !important;
+    object-fit:cover !important;
+    background:#e9e5de !important;
+    margin:0 !important;
+}
+
+.product-image[src]{
+    max-width:100%;
+}
+
+.product-back-image{
+    display:none;
+}
+
+@media(max-width:850px){
+    .product-image-box{
+        display:grid !important;
+        grid-template-columns:1fr !important;
+        min-height:0 !important;
+        height:auto !important;
+    }
+
+    .product-image{
+        width:100% !important;
+        height:auto !important;
+        min-height:0 !important;
+        max-height:none !important;
+        aspect-ratio:4/5;
+        object-fit:cover !important;
+    }
+
+    .image-placeholder{
+        min-height:390px !important;
+    }
+}
+
+@media(max-width:600px){
+    .product-image-box{
+        display:grid !important;
+        grid-template-columns:1fr !important;
+        gap:2px !important;
+    }
+
+    .product-image{
+        width:100% !important;
+        height:auto !important;
+        min-height:0 !important;
+        aspect-ratio:4/5;
+        object-fit:cover !important;
+    }
+
+    .image-placeholder{
+        min-height:390px !important;
+    }
+}
+
 </style>
 </head>
 
@@ -1022,63 +1094,68 @@ function getProductId(){
    NORMALIZE IMAGE URL
    ========================================================= */
 
-function normalizeImageUrl(value){
+function getDriveFileId(value){
 
     if(!value) return "";
 
-    let url =
-        String(value).trim();
+    const url = String(value).trim();
 
     if(!url) return "";
 
-
-    /* Already thumbnail */
+    /* Raw Google Drive file ID */
     if(
-        url.includes("drive.google.com/thumbnail") ||
-        url.includes("drive.google.com/uc")
+        !url.includes("/") &&
+        !url.includes(":") &&
+        !url.includes("?") &&
+        !url.includes("=") &&
+        url.length >= 10
     ){
         return url;
     }
 
-
-    /* Google Drive /file/d/FILE_ID */
-    let match =
-        url.match(
-            /drive\.google\.com\/file\/d\/([^\/?#]+)/i
-        );
+    let match = url.match(
+        /drive\.google\.com\/file\/d\/([^\/?#]+)/i
+    );
 
     if(match){
+        return match[1];
+    }
+
+    match = url.match(
+        /[?&]id=([^&#]+)/i
+    );
+
+    if(match && url.includes("drive.google.com")){
+        try{
+            return decodeURIComponent(match[1]);
+        }catch(e){
+            return match[1];
+        }
+    }
+
+    return "";
+}
+
+
+function normalizeImageUrl(value){
+
+    if(!value) return "";
+
+    const url = String(value).trim();
+
+    if(!url) return "";
+
+    const driveId = getDriveFileId(url);
+
+    if(driveId){
 
         return (
             "https://drive.google.com/thumbnail?id=" +
-            encodeURIComponent(match[1]) +
+            encodeURIComponent(driveId) +
             "&sz=w1600"
         );
 
     }
-
-
-    /* Google Drive ?id=FILE_ID */
-    match =
-        url.match(
-            /[?&]id=([^&#]+)/i
-        );
-
-    if(
-        match &&
-        url.includes("drive.google.com")
-    ){
-
-        return (
-            "https://drive.google.com/thumbnail?id=" +
-            encodeURIComponent(
-                decodeURIComponent(match[1])
-            ) +
-            "&sz=w1600"
-        );
-
-    }
-
 
     return url;
 
@@ -1140,12 +1217,22 @@ function normalizeProduct(raw){
         raw.photo ??
         raw.photoUrl ??
         raw.productImage ??
+        raw.product_image ??
+        raw.frontImage ??
+        raw.frontImageUrl ??
+        raw.frontImageURL ??
+        raw.frontPhoto ??
+        raw.frontPhotoUrl ??
         raw["Image URL"] ??
         raw["Image"] ??
         raw["Photo"] ??
         raw["Front Image URL"] ??
         raw["Front Image"] ??
         raw["Front"] ??
+        raw["Front Photo"] ??
+        raw["Front URL"] ??
+        raw["Image 1"] ??
+        raw["Photo 1"] ??
         "";
 
 
@@ -1160,13 +1247,21 @@ function normalizeProduct(raw){
         raw.backPhoto ??
         raw.backPhotoUrl ??
         raw.backProductImage ??
+        raw.back_image ??
+        raw.back_image_url ??
+        raw.imageBack ??
+        raw.imageBackUrl ??
+        raw.image2 ??
+        raw.imageUrl2 ??
+        raw.photoBack ??
+        raw.photo2 ??
         raw["Back Image URL"] ??
         raw["Back Image"] ??
         raw["Back"] ??
         raw["Back Photo"] ??
         raw["Back URL"] ??
-        raw.back_image ??
-        raw.back_image_url ??
+        raw["Image 2"] ??
+        raw["Photo 2"] ??
         "";
 
 
@@ -1500,94 +1595,55 @@ function displayProduct(){
        IMAGE CANDIDATES
        ===================================================== */
 
-    function getImageCandidates(
-        originalUrl
-    ){
+    function getImageCandidates(originalUrl){
 
         const url =
-            String(
-                originalUrl || ""
-            ).trim();
-
+            String(originalUrl || "").trim();
 
         if(!url){
             return [];
         }
 
-
         const candidates = [];
 
+        function add(value){
+            if(value && !candidates.includes(value)){
+                candidates.push(value);
+            }
+        }
 
-        /* Original */
-        candidates.push(url);
+        add(url);
 
+        const driveId = getDriveFileId(url);
 
-        /* /file/d/FILE_ID */
-        let match =
-            url.match(
-                /drive\.google\.com\/file\/d\/([^\/?#]+)/i
+        if(driveId){
+
+            add(
+                "https://drive.google.com/thumbnail?id=" +
+                encodeURIComponent(driveId) +
+                "&sz=w2000"
             );
 
-
-        if(match){
-
-            const id =
-                match[1];
-
-
-            candidates.push(
+            add(
                 "https://drive.google.com/thumbnail?id=" +
-                encodeURIComponent(id) +
+                encodeURIComponent(driveId) +
                 "&sz=w1600"
             );
 
-
-            candidates.push(
+            add(
                 "https://drive.google.com/uc?export=view&id=" +
-                encodeURIComponent(id)
+                encodeURIComponent(driveId)
+            );
+
+            add(
+                "https://lh3.googleusercontent.com/d/" +
+                encodeURIComponent(driveId) +
+                "=w1600"
             );
 
         }
 
-
-        /* ?id=FILE_ID */
-        match =
-            url.match(
-                /[?&]id=([^&#]+)/i
-            );
-
-
-        if(
-            match &&
-            url.includes(
-                "drive.google.com"
-            )
-        ){
-
-            const id =
-                decodeURIComponent(
-                    match[1]
-                );
-
-
-            candidates.push(
-                "https://drive.google.com/thumbnail?id=" +
-                encodeURIComponent(id) +
-                "&sz=w1600"
-            );
-
-
-            candidates.push(
-                "https://drive.google.com/uc?export=view&id=" +
-                encodeURIComponent(id)
-            );
-
-        }
-
-
-        return [
-            ...new Set(candidates)
-        ];
+        return candidates;
 
     }
 
@@ -1696,34 +1752,21 @@ function displayProduct(){
        FRONT IMAGE
        ===================================================== */
 
-    if(
-        currentProduct.image
-    ){
+    if(currentProduct.image){
 
         loadImage(
-
             frontImg,
-
             currentProduct.image,
 
             function(){
-
-                frontLoaded =
-                    true;
-
+                frontLoaded = true;
                 updatePlaceholder();
-
             },
 
             function(){
-
-                frontLoaded =
-                    false;
-
+                frontLoaded = false;
                 updatePlaceholder();
-
             }
-
         );
 
     }
@@ -1733,47 +1776,29 @@ function displayProduct(){
        BACK IMAGE
        ===================================================== */
 
-    if(
-        currentProduct.backImage
-    ){
+    if(currentProduct.backImage){
 
         loadImage(
-
             backImg,
-
             currentProduct.backImage,
 
             function(){
-
-                backLoaded =
-                    true;
-
+                backLoaded = true;
                 updatePlaceholder();
-
             },
 
             function(){
+                backLoaded = false;
 
-                backLoaded =
-                    false;
-
-
-                if(!frontLoaded){
-
-                    placeholder.style.display =
-                        "flex";
-
-                    placeholder.textContent =
-                        "Product images could not be loaded.";
-
+                /* Back image failure must never hide the front image. */
+                if(frontLoaded){
+                    placeholder.style.display = "none";
                 }
 
             }
-
         );
 
     }
-
 
     /* No images */
 
