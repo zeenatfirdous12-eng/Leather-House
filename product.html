@@ -1607,6 +1607,12 @@
         ''
       );
 
+      const rawBackFileId =
+        raw.backImageFileId ??
+        raw.backFileId ??
+        raw.back_image_file_id ??
+        '';
+
       const backImage = normalizeProductImageUrl(
         raw.backImage ??
         raw.backImageUrl ??
@@ -1618,7 +1624,7 @@
         raw.back_image_url ??
         raw.BackImage ??
         raw.BackImageUrl ??
-        ''
+        (rawBackFileId ? 'https://drive.google.com/thumbnail?id=' + encodeURIComponent(rawBackFileId) + '&sz=w1600' : '')
       );
 
       let sizes =
@@ -1880,9 +1886,13 @@
           backImage.style.display =
             'block';
 
+          backImage.onload = function(){
+            backImage.style.display = 'block';
+          };
+
           backImage.onerror = function(){
             console.warn('Back image could not be loaded:', currentProduct.backImage);
-            backImage.alt = currentProduct.name + ' Back View';
+            backImage.style.display = 'none';
           };
 
         } else {
