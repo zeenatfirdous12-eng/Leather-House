@@ -3048,37 +3048,15 @@ enableProductImageHover();
 ========================================================= */
 
 function handleProductCardClick(event, link){
-  const img = link ? link.querySelector('.product-main-image') : null;
-  if(!img) return true;
 
-  const isTouch = window.matchMedia && window.matchMedia('(hover: none)').matches;
-
-  /* On mobile, tapping the PHOTO toggles Front <-> Back.
-     The separate VIEW PRODUCT overlay still opens product.html. */
-  if(isTouch && !event.target.closest('.product-view-overlay')){
-    const front = img.dataset.front || '';
-    const back = img.dataset.back || '';
-
-    if(back){
-      event.preventDefault();
-      event.stopPropagation();
-
-      if(img.dataset.showingBack === '1'){
-        img.src = front;
-        img.dataset.showingBack = '0';
-      }else{
-        img.src = back;
-        img.dataset.showingBack = '1';
-      }
-
-      return false;
-    }
-  }
-
+  /* VIEW PRODUCT always opens the product detail page.
+     No mobile image swapping is performed here. */
   try{
     const url = new URL(link.href, window.location.href);
     const id = url.searchParams.get('id') || '';
-    if(id) localStorage.setItem('tlh_last_product_id', id);
+    if(id){
+      localStorage.setItem('tlh_last_product_id', id);
+    }
   }catch(e){}
 
   return true;
@@ -3089,26 +3067,28 @@ function enableProductImageHover(){
     if(img.dataset.hoverReady === '1') return;
     img.dataset.hoverReady = '1';
 
-    const link = img.closest('.product-image-link');
     const front = img.dataset.front || img.src;
     const back = img.dataset.back || '';
+
+    /* MOBILE: FRONT IMAGE ONLY */
+    if(window.matchMedia && window.matchMedia('(hover: none)').matches){
+      img.src = front;
+      img.dataset.showingBack = '0';
+      return;
+    }
+
+    /* DESKTOP: hover shows BACK, mouse leave shows FRONT */
     if(!back) return;
 
     img.addEventListener('mouseenter', function(){
-      if(window.matchMedia && window.matchMedia('(hover: none)').matches) return;
       img.src = back;
       img.dataset.showingBack = '1';
     });
 
     img.addEventListener('mouseleave', function(){
-      if(window.matchMedia && window.matchMedia('(hover: none)').matches) return;
       img.src = front;
       img.dataset.showingBack = '0';
     });
-
-    /* Mobile photo taps are handled by handleProductCardClick().
-       Do not add a second touch handler here, otherwise one tap can
-       swap twice and leave the image stuck on the back. */
 
     img.addEventListener('error', function(){
       if(img.dataset.showingBack === '1'){
