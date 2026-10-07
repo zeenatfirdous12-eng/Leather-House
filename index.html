@@ -2922,7 +2922,8 @@ function normalizeProductImageUrl(value){
 function normalizeLoadedProduct(p){
   if(!p || typeof p!=='object') return p;
   const front=p.image || p.imageUrl || p.imageURL || '';
-  const back=p.backImage || p.backImageUrl || p.backImageURL || p.backPhoto || p.backPhotoUrl || p.backProductImage || p.back_image || p.back_image_url || '';
+  const backFileId=p.backImageFileId || p.backFileId || p.back_image_file_id || '';
+  const back=p.backImage || p.backImageUrl || p.backImageURL || p.backPhoto || p.backPhotoUrl || p.backProductImage || p.back_image || p.back_image_url || (backFileId ? 'https://drive.google.com/thumbnail?id='+encodeURIComponent(backFileId)+'&sz=w1600' : '');
   return {
     ...p,
     image:normalizeProductImageUrl(front),
@@ -3052,12 +3053,26 @@ function handleProductCardClick(event, link){
 
   const isTouch = window.matchMedia && window.matchMedia('(hover: none)').matches;
 
-  /* On mobile: first tap shows BACK, second tap opens product page. */
-  if(isTouch && img.dataset.blockNextClick === '1'){
-    img.dataset.blockNextClick = '0';
-    event.preventDefault();
-    event.stopPropagation();
-    return false;
+  /* On mobile, tapping the PHOTO toggles Front <-> Back.
+     The separate VIEW PRODUCT overlay still opens product.html. */
+  if(isTouch && !event.target.closest('.product-view-overlay')){
+    const front = img.dataset.front || '';
+    const back = img.dataset.back || '';
+
+    if(back){
+      event.preventDefault();
+      event.stopPropagation();
+
+      if(img.dataset.showingBack === '1'){
+        img.src = front;
+        img.dataset.showingBack = '0';
+      }else{
+        img.src = back;
+        img.dataset.showingBack = '1';
+      }
+
+      return false;
+    }
   }
 
   try{
@@ -3091,29 +3106,14 @@ function enableProductImageHover(){
       img.dataset.showingBack = '0';
     });
 
-    /* Mobile: first tap swaps FRONT -> BACK and blocks only that tap's click.
-       Second tap is then allowed to open the product detail page. */
-    if(link){
-      link.addEventListener('touchend', function(event){
-        const isTouch = window.matchMedia && window.matchMedia('(hover: none)').matches;
-        if(!isTouch) return;
-
-        if(img.dataset.showingBack !== '1'){
-          event.preventDefault();
-          event.stopPropagation();
-          img.src = back;
-          img.dataset.showingBack = '1';
-          img.dataset.blockNextClick = '1';
-        }
-      }, {passive:false});
-    }
+    /* Mobile photo taps are handled by handleProductCardClick().
+       Do not add a second touch handler here, otherwise one tap can
+       swap twice and leave the image stuck on the back. */
 
     img.addEventListener('error', function(){
       if(img.dataset.showingBack === '1'){
-        /* Do not silently leave a broken back image on mobile. */
         img.src = front;
         img.dataset.showingBack = '0';
-        img.dataset.tlhTouchSwap = '0';
       }
     });
   });
