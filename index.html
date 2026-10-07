@@ -3050,17 +3050,15 @@ function handleProductCardClick(event, link){
   const img = link ? link.querySelector('.product-main-image') : null;
   if(!img) return true;
 
-  /* On touch devices the first tap is ONLY for showing the back image.
-     The second tap is allowed to open the product page. */
-  if(img.dataset.tlhTouchSwap === '1'){
-    img.dataset.tlhTouchSwap = '0';
+  const isTouch = window.matchMedia && window.matchMedia('(hover: none)').matches;
+
+  /* On mobile: first tap shows BACK, second tap opens product page. */
+  if(isTouch && img.dataset.blockNextClick === '1'){
+    img.dataset.blockNextClick = '0';
     event.preventDefault();
     event.stopPropagation();
     return false;
   }
-
-  const back = img.dataset.back || '';
-  const isTouch = window.matchMedia && window.matchMedia('(hover: none)').matches;
 
   try{
     const url = new URL(link.href, window.location.href);
@@ -3068,14 +3066,6 @@ function handleProductCardClick(event, link){
     if(id) localStorage.setItem('tlh_last_product_id', id);
   }catch(e){}
 
-  if(isTouch && back && img.dataset.showingBack !== '1'){
-    event.preventDefault();
-    event.stopPropagation();
-    img.src = back;
-    img.dataset.showingBack = '1';
-    img.dataset.tlhTouchSwap = '1';
-    return false;
-  }
   return true;
 }
 
@@ -3089,13 +3079,6 @@ function enableProductImageHover(){
     const back = img.dataset.back || '';
     if(!back) return;
 
-    /* On touch/mobile devices there is no reliable hover event.
-       Show the back photo immediately so it is always visible on mobile. */
-    if(window.matchMedia && window.matchMedia('(hover: none)').matches){
-      img.src = back;
-      img.dataset.showingBack = '1';
-    }
-
     img.addEventListener('mouseenter', function(){
       if(window.matchMedia && window.matchMedia('(hover: none)').matches) return;
       img.src = back;
@@ -3108,8 +3091,8 @@ function enableProductImageHover(){
       img.dataset.showingBack = '0';
     });
 
-    /* IMPORTANT: mobile browsers can fire touchend before click.
-       Swap on touchend and suppress the generated click. */
+    /* Mobile: first tap swaps FRONT -> BACK and blocks only that tap's click.
+       Second tap is then allowed to open the product detail page. */
     if(link){
       link.addEventListener('touchend', function(event){
         const isTouch = window.matchMedia && window.matchMedia('(hover: none)').matches;
@@ -3120,7 +3103,7 @@ function enableProductImageHover(){
           event.stopPropagation();
           img.src = back;
           img.dataset.showingBack = '1';
-          img.dataset.tlhTouchSwap = '1';
+          img.dataset.blockNextClick = '1';
         }
       }, {passive:false});
     }
