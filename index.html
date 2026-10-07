@@ -3089,6 +3089,13 @@ function enableProductImageHover(){
     const back = img.dataset.back || '';
     if(!back) return;
 
+    /* On touch/mobile devices there is no reliable hover event.
+       Show the back photo immediately so it is always visible on mobile. */
+    if(window.matchMedia && window.matchMedia('(hover: none)').matches){
+      img.src = back;
+      img.dataset.showingBack = '1';
+    }
+
     img.addEventListener('mouseenter', function(){
       if(window.matchMedia && window.matchMedia('(hover: none)').matches) return;
       img.src = back;
