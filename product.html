@@ -1683,7 +1683,6 @@
         description: String(description),
         image: String(image),
         backImage: String(backImage),
-        backImageFileId: String(rawBackFileId || ''),
         sizes
       };
 
@@ -1915,14 +1914,6 @@
           };
 
           backImage.onerror = function(){
-            // Try a direct Drive view URL once before hiding the image.
-            const fileId = String(currentProduct.backImageFileId || '').trim();
-            if(fileId && backImage.dataset.directTried !== '1'){
-              backImage.dataset.directTried = '1';
-              backImage.src =
-                'https://drive.google.com/uc?export=view&id=' + encodeURIComponent(fileId);
-              return;
-            }
             console.warn('Back image could not be loaded:', currentProduct.backImage);
             backImage.style.display = 'none';
           };
