@@ -1683,6 +1683,7 @@
         description: String(description),
         image: String(image),
         backImage: String(backImage),
+        backImageFileId: String(rawBackFileId || ''),
         sizes
       };
 
@@ -1898,30 +1899,59 @@
         const backImage =
           document.getElementById('productBackImage');
 
-        if(currentProduct.backImage){
+        // Always reserve/show the back-image slot when a back image exists.
+        // Try thumbnail first, then Drive view URL, then the original URL.
+        if (currentProduct.backImage || currentProduct.backImageFileId) {
 
-          backImage.src =
-            currentProduct.backImage;
+          const backId = String(currentProduct.backImageFileId || '').trim();
+          const candidates = [];
 
-          backImage.alt =
-            currentProduct.name + ' Back View';
+          if (backId) {
+            candidates.push(
+              'https://drive.google.com/thumbnail?id=' + encodeURIComponent(backId) + '&sz=w1600'
+            );
+            candidates.push(
+              'https://drive.google.com/uc?export=view&id=' + encodeURIComponent(backId)
+            );
+          }
 
-          backImage.style.display =
-            'block';
+          if (currentProduct.backImage) {
+            candidates.push(currentProduct.backImage);
+          }
 
-          backImage.onload = function(){
+          let backAttempt = 0;
+          backImage.dataset.backCandidates = JSON.stringify(candidates);
+          backImage.dataset.backAttempt = '0';
+          backImage.style.display = 'block';
+          backImage.alt = currentProduct.name + ' Back View';
+
+          backImage.onerror = function() {
+            const list = JSON.parse(backImage.dataset.backCandidates || '[]');
+            backAttempt = Number(backImage.dataset.backAttempt || '0') + 1;
+            backImage.dataset.backAttempt = String(backAttempt);
+
+            if (backAttempt < list.length) {
+              backImage.src = list[backAttempt];
+              return;
+            }
+
+            console.warn('Back image could not be loaded from Drive.', list);
+            // Keep the back slot visible instead of making it silently disappear.
+            backImage.style.display = 'block';
+            backImage.removeAttribute('src');
+            backImage.alt = currentProduct.name + ' Back View';
+          };
+
+          backImage.onload = function() {
             backImage.style.display = 'block';
           };
 
-          backImage.onerror = function(){
-            console.warn('Back image could not be loaded:', currentProduct.backImage);
-            backImage.style.display = 'none';
-          };
+          backImage.src = candidates[0];
 
         } else {
 
-          backImage.style.display =
-            'none';
+          backImage.removeAttribute('src');
+          backImage.style.display = 'none';
 
         }
 
