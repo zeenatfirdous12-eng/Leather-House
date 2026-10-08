@@ -1533,6 +1533,18 @@
     }
 
 
+    function getBackImageFromUrl() {
+
+      try {
+        const params = new URLSearchParams(window.location.search);
+        return String(params.get('back') || '').trim();
+      } catch (e) {
+        return '';
+      }
+
+    }
+
+
     function money(value) {
 
       const number =
@@ -1793,6 +1805,20 @@
           rawProducts
             .map(normalizeProduct)
             .filter(Boolean);
+
+        /* The homepage already has the working Back-image URL.
+           Carry it into the detail page as a fallback so the detail
+           page does not depend on a second API field name/version. */
+        const urlBackImage = getBackImageFromUrl();
+        if (urlBackImage) {
+          const urlProductId = getProductId();
+          const urlProduct = allProducts.find(function(product) {
+            return String(product.id) === String(urlProductId);
+          });
+          if (urlProduct && !urlProduct.backImage) {
+            urlProduct.backImage = normalizeProductImageUrl(urlBackImage);
+          }
+        }
 
 
         currentProduct =
